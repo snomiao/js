@@ -1,0 +1,40 @@
+{
+  "name": "@snomiao/say",
+  "version": "0.1.24",
+  "description": "A cli wrapper for say",
+  "keywords": [
+    "cli",
+    "say"
+  ],
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
+  "main": "./lib/say.js",
+  "types": "./lib/say.d.ts",
+  "bin": {
+    "@snomiao/say": "bin/say.cjs",
+    "say": "bin/say.cjs"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "lib/**",
+    "bin/**"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "arg": "^5.0.1",
+    "esm": "^3.2.25",
+    "say": "^0.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "typescript": "^4.6.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "daab9679b14cfc3113c4b632f9ae9ca404362e79"
+}
