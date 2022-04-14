@@ -37,10 +37,7 @@
     "build:babel": "babel src -d lib --extensions .ts",
     "build:rollup": "rollup -c",
     "build:tsc": "tsc",
-    "mocha": "mocha",
-    "prepublishOnly": "npm run build",
-    "release": "standard-version",
-    "postrelease": "git push --follow-tag --all && npm publish",
+    "prepack": "npm run build",
     "test": "tsc"
   },
   "dependencies": {
