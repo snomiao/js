@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedModules": true,
+    "module": "esnext",
+    "outDir": "lib/",
+    "removeComments": true,
+    "rootDir": "src/",
+    "sourceMap": true,
+    "target": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declarationDir": "dist/",
+    "emitDeclarationOnly": true
+  }
+}
