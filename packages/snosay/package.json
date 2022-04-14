@@ -6,7 +6,7 @@
     "cli",
     "say",
     "nodejs",
-    "tts",
+    "tts"
   ],
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
