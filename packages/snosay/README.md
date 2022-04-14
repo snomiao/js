@@ -1,27 +1,27 @@
-# @snomiao/say
+# snosay
 
 A cli wrapper for say
 
 ## Usage Examples
 
 ```shell
-npx -y -- @snomiao/say --list
+npx -y -- snosay --list
 # Microsoft David Desktop
 # Microsoft Zira Desktop
 
-npx -y -- @snomiao/say hello, world
-npx -y -- @snomiao/say --voice "Microsoft David Desktop" --speed 0.5 hello, world
-npx -y -- @snomiao/say --voice "Microsoft Zira Desktop" --speed 1.5 hello, world
-npx -y -- @snomiao/say --voice "Microsoft Zira Desktop" --speed 1.5 --output ./hello-world.mp3 hello, world
+npx -y -- snosay hello, world
+npx -y -- snosay --voice "Microsoft David Desktop" --speed 0.5 hello, world
+npx -y -- snosay --voice "Microsoft Zira Desktop" --speed 1.5 hello, world
+npx -y -- snosay --voice "Microsoft Zira Desktop" --speed 1.5 --output ./hello-world.mp3 hello, world
 
 # or
 
-npm i -g @snomiao/say
+npm i -g snosay
 
-say --list
-say --voice "Microsoft David Desktop" --speed 0.5 hello, world
-say --voice "Microsoft Zira Desktop" --speed 1.5 hello, world
-say --voice "Microsoft Zira Desktop" --speed 1.5 --output ./hello-world.mp3 hello, world
+snosay --list
+snosay --voice "Microsoft David Desktop" --speed 0.5 hello, world
+snosay --voice "Microsoft Zira Desktop" --speed 1.5 hello, world
+snosay --voice "Microsoft Zira Desktop" --speed 1.5 --output ./hello-world.mp3 hello, world
 
 # you can kill the process if you need to stop saying
 ```
@@ -29,7 +29,7 @@ say --voice "Microsoft Zira Desktop" --speed 1.5 --output ./hello-world.mp3 hell
 ## Import as Library
 
 ```js
-import { speak } from "@snomiao/say";
+import { speak } from "snosay";
 await speak("test passed", undefined, 2);
 ```
 
