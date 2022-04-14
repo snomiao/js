@@ -66,7 +66,7 @@ declare const 合集增强虚拟返回值: mongodb.Collection<mongodb.Document> 
     多查: {
         (): mongodb.FindCursor<mongodb.WithId<mongodb.Document>>;
         (filter: mongodb.Filter<mongodb.Document>, options?: mongodb.FindOptions<mongodb.Document>): mongodb.FindCursor<mongodb.WithId<mongodb.Document>>;
-        <T>(filter: mongodb.Filter<mongodb.Document>, options?: mongodb.FindOptions<mongodb.Document>): mongodb.FindCursor<T>;
+        <T extends mongodb.Document>(filter: mongodb.Filter<mongodb.Document>, options?: mongodb.FindOptions<mongodb.Document>): mongodb.FindCursor<T>;
     };
     多查数: (查询表?: mongodb.FilterOperations<any>, 选项?: mongodb.FindOptions<any>) => Promise<number>;
     多查列: (查询表?: mongodb.FilterOperations<any>, 选项?: mongodb.FindOptions<any>) => Promise<mongodb.WithId<mongodb.Document>[]>;
@@ -83,7 +83,7 @@ declare const 合集增强虚拟返回值: mongodb.Collection<mongodb.Document> 
         (filter: mongodb.Filter<mongodb.Document>, update: mongodb.UpdateFilter<mongodb.Document>, options: mongodb.UpdateOptions): Promise<mongodb.Document | mongodb.UpdateResult>;
         (filter: mongodb.Filter<mongodb.Document>, update: mongodb.UpdateFilter<mongodb.Document>, options: mongodb.UpdateOptions, callback: mongodb.Callback<mongodb.Document | mongodb.UpdateResult>): void;
     };
-    聚合: <T_1 = mongodb.Document>(pipeline?: mongodb.Document[], options?: mongodb.AggregateOptions) => mongodb.AggregationCursor<T_1>;
+    聚合: <T_1 extends mongodb.Document = mongodb.Document>(pipeline?: mongodb.Document[], options?: mongodb.AggregateOptions) => mongodb.AggregationCursor<T_1>;
     索引: {
         (indexSpec: mongodb.IndexSpecification): Promise<string>;
         (indexSpec: mongodb.IndexSpecification, callback: mongodb.Callback<string>): void;
@@ -120,7 +120,7 @@ declare const 合集增强虚拟返回值: mongodb.Collection<mongodb.Document> 
         (options: mongodb.EstimatedDocumentCountOptions): Promise<number>;
         (options: mongodb.EstimatedDocumentCountOptions, callback: mongodb.Callback<number>): void;
     };
-    监视: <TLocal = mongodb.Document>(pipeline?: mongodb.Document[], options?: mongodb.ChangeStreamOptions) => mongodb.ChangeStream<TLocal>;
+    监视: <TLocal extends mongodb.Document = mongodb.Document>(pipeline?: mongodb.Document[], options?: mongodb.ChangeStreamOptions) => mongodb.ChangeStream<TLocal>;
     改名: {
         (newName: string): Promise<mongodb.Collection<mongodb.Document>>;
         (newName: string, callback: mongodb.Callback<mongodb.Collection<mongodb.Document>>): void;

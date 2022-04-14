@@ -1,0 +1,73 @@
+{
+  "name": "sno-mongo-ku",
+  "version": "2.7.2",
+  "description": "MongoDB simple wrapper, Provide simple method in chinese to handle the mongodb.",
+  "keywords": [
+    "mongodb",
+    "wrapper"
+  ],
+  "homepage": "https://github.com/snomiao/sno-mongo-ku#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/sno-mongo-ku/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snomiao/sno-mongo-ku.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": "snomiao@gmail.com",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/snoMongoKu.cjs",
+      "default": "./dist/snoMongoKu.mjs"
+    }
+  },
+  "main": "./dist/snoMongoKu.js",
+  "module": "./dist/snoMongoKu.mjs",
+  "types": "./dist/snoMongoKu.d.ts",
+  "directories": {
+    "doc": "docs"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "npm run build:tsc && npm run build:babel && npm run build:rollup",
+    "build:babel": "babel src -d lib --extensions .ts",
+    "build:rollup": "rollup -c",
+    "build:tsc": "tsc",
+    "mocha": "mocha",
+    "prepublishOnly": "npm run build",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tag --all && npm publish",
+    "test": "tsc"
+  },
+  "dependencies": {
+    "mongodb": "^4.3.1",
+    "p-queue": "^7.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "@babel/preset-typescript": "^7.16.7",
+    "@commitlint/cli": "^16.0.3",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/node": "^17.0.10",
+    "conventional-changelog-cli": "^2.2.2",
+    "dotenv": "^14.2.0",
+    "mocha": "^9.1.4",
+    "nodemon": "^2.0.15",
+    "rollup": "^2.64.0",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "standard-version": "^9.3.2",
+    "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4"
+  },
+  "cjs": "./dist/snoMongoKu.cjs",
+  "lib": "./lib/snoMongoKu.js"
+}
