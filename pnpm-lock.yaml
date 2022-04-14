@@ -16,6 +16,7 @@ importers:
       prettier: ^2.6.2
       prettier-plugin-organize-imports: ^2.3.4
       prettier-plugin-packagejson: ^2.2.17
+      prettier-plugin-tsconfig: ^0.0.1
       typescript: ^4.6.3
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.19.0_5d38871a01f07e1f2effec4d6f2f91ba
@@ -30,6 +31,7 @@ importers:
       prettier: 2.6.2
       prettier-plugin-organize-imports: 2.3.4_prettier@2.6.2+typescript@4.6.3
       prettier-plugin-packagejson: 2.2.17_prettier@2.6.2
+      prettier-plugin-tsconfig: 0.0.1_prettier@2.6.2
       typescript: 4.6.3
 
   packages/@snomiao/say:
@@ -6625,6 +6627,16 @@ packages:
     dependencies:
       prettier: 2.6.2
       sort-package-json: 1.55.0
+    dev: true
+
+  /prettier-plugin-tsconfig/0.0.1_prettier@2.6.2:
+    resolution: {integrity: sha512-4oHLy/Vv1qxNyU1wpC4/nurqibYXol8JR08mUKSwi007iMHRvWxA5zCQwOLHrU5y5PSB8UWZLA+xey1T44Kfxg==}
+    engines: {node: '>= 12.0.0', yarn: '>= 1.0.0'}
+    peerDependencies:
+      prettier: ^2.0.0
+    dependencies:
+      '@babel/types': 7.17.0
+      prettier: 2.6.2
     dev: true
 
   /prettier/2.6.2:

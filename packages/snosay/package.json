@@ -23,7 +23,8 @@
     "bin/**"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "arg": "^5.0.1",
