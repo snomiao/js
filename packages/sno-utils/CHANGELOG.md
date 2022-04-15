@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.10](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.9...sno-utils@0.3.10) (2022-04-15)
+
+
+### Bug Fixes
+
+* **sno-utils:** import type only ([f2f7cbc](https://github.com/snomiao/sno-utils/commit/f2f7cbc4891ba7c5328c3e76a032826a33c51784))
+
+
+
+
+
 ## [0.3.9](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.8...sno-utils@0.3.9) (2022-04-15)
 
 

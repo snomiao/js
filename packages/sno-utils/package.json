@@ -1,6 +1,6 @@
 {
   "name": "sno-utils",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "snoutils - 雪星实用组件库……TS中文函数式编程范式尝试，大部分功能尚在内测中",
   "homepage": "https://github.com/snomiao/sno-utils#readme",
   "bugs": {
