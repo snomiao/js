@@ -49,5 +49,6 @@
   "cjs": "dist/index.js",
   "iife": "dist/index.iife.js",
   "umd": "dist/umd.js",
-  "_type": "module // type cannot be module as it will turn main.js into an esm but it should be an commonjs"
+  "_type": "module // type cannot be module as it will turn main.js into an esm but it should be an commonjs",
+  "gitHead": "c93e4bd8b39c13c78ca8f511923f0ad33deaf17d"
 }

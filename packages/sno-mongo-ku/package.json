@@ -66,5 +66,6 @@
     "typescript": "^4.5.4"
   },
   "cjs": "./dist/snoMongoKu.cjs",
-  "lib": "./lib/snoMongoKu.js"
+  "lib": "./lib/snoMongoKu.js",
+  "gitHead": "c93e4bd8b39c13c78ca8f511923f0ad33deaf17d"
 }

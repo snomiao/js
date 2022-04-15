@@ -5,6 +5,8 @@
 //     // === `{"结构.782":",,,","结构.asdf.zxcv":"123","x.0":1,"x.1":2,"x.2":3}`
 //     // , '结构压平出错')
 
+// import { 表压平 } from "./表列";
+
 //     // console.log(
 //     //     结构数组向CSV转换([
 //     //         { asdf: 'zx"cv', 123: 456 },
@@ -13,6 +15,7 @@
 //     //     ]), '结构数组CSV')
 // })().then(console.log).catch(console.error)
 
+/** @deprecated use lodash-es */
 // export function 结构数组向CSV转换(结构数组: object[], 分割符 = ',') {
 //     const 平展结构数组 = 结构数组.map(结构 => 表压平(结构))
 //     const 字段数组 = Object.keys(Object.fromEntries(平展结构数组
@@ -36,3 +39,4 @@
 //     }).join(分割符)).join('\n');
 //     return CSV;
 // }
+export default null;
