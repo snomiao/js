@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/snomiao/js/compare/snogwt@0.3.0...snogwt@0.3.1) (2022-04-15)
+
+
+### Bug Fixes
+
+* create new branch from current branch ([82c8481](https://github.com/snomiao/js/commit/82c8481ed06fe6dad1b19321ba7d4462796fd4eb))
+* error handle ([a22c029](https://github.com/snomiao/js/commit/a22c02937c924e6b1fae5cc8ea1eb39817d4cdaf))
+
+
+
+
+
 # [0.3.0](https://github.com/snomiao/js/compare/snogwt@0.2.0...snogwt@0.3.0) (2022-04-15)
 
 
