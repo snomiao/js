@@ -6,7 +6,7 @@
  * 雪星异步组件
  * Copyright 2019.11 snomiao(snomiao@gmail.com)
  */
-import { 值, 列 } from './类型';
+import type { 值, 列 } from './类型';
 
 export const 睡 = (毫秒: number) => new Promise((resolve) => setTimeout(resolve, 毫秒));
 export const 序列映 = (函: (值: 值) => Promise<any>) => async (列: 列) => {

@@ -4,7 +4,7 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["plugin:react/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -15,7 +15,7 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "import/extensions": ["warn", "never"],
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "max-len": ["warn", 100]
   }
 }
