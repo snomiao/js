@@ -21,19 +21,24 @@ export const cli = async (rawArgv) => {
   const { remove = args["--remove"], list = args["--list"], version = args["--version"] } = {};
   const [branch, more] = args._;
 
+  // check version
   if (version) {
     const pkg = await readFile(resolve(parse(js).dir, "package.json"), "utf8").then(JSON.parse);
     console.log(`v${pkg.version}`);
     return;
   }
 
+  // check branch params
   if (more) throw new Error("no more params");
   if (!branch) return await execSh.promise("git worktree list");
+
   // try cd to the top working dir without "worktrees" nested
+  const cwd = process.cwd();
+  // cd to top
   process.chdir(process.cwd().replace(/[\\/]worktrees[\\/].*/, ""));
 
   // list worktrees
-  if (list) return await execSh.promise("git worktree list ");
+  if (list) return await execSh.promise("git worktree list");
 
   // find repo dir and repo name
   const top = await execSh
@@ -51,17 +56,30 @@ export const cli = async (rawArgv) => {
   // // generate worktree
   const worktree = resolve(`${top}/worktrees/${branch}@${repodirname}`);
 
+  // create new branch from current branch
+  process.chdir(cwd);
+
   // try checkout branch and get the path
   const checkoutPath = await execSh
     .promise(`git worktree add -B ${branch} ${worktree}`, true)
     .then(() => worktree)
     .catch((e) => {
       // handle checked out
-      const m = e?.stderr?.match?.(/fatal: '(.*?)' is already checked out at '(.*?)'/);
-      if (m) {
-        const [, branch, worktree] = m;
-        console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
-        return resolve(worktree);
+      {
+        const m = e?.stderr?.match?.(/fatal: '(.*?)' is already checked out at '(.*?)'/);
+        if (m) {
+          const [, branch, worktree] = m;
+          console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
+          return resolve(worktree);
+        }
+      }
+      {
+        const m = e?.stderr?.match?.(/fatal: '(.*?)' already exists/);
+        if (m) {
+          const [, worktree] = m;
+          console.warn(`fatal: '${worktree}' is already exists`);
+          return resolve(worktree);
+        }
       }
       console.error("Error: ", e);
       throw new Error("Fail to checkout");
