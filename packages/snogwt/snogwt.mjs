@@ -20,6 +20,9 @@ export const cli = async (argv) => {
   if (more) throw new Error("no more params");
   if (!branch) return await execSh.promise("git worktree list");
 
+  // try cd to the top working dir without "worktrees" nested
+  process.chdir(process.cwd().replace(/[\\/]worktrees[\\/].*/, ""));
+
   // list worktrees
   if (list) return await execSh.promise("git worktree list ");
 
