@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/snomiao/js/compare/snosay@0.2.6...snosay@0.2.7) (2022-04-15)
+
+
+### Bug Fixes
+
+* terminal type ([b4938bb](https://github.com/snomiao/js/commit/b4938bb8ea223ca1ea62f9d034b14f16cf589889))
+
+
+
+
+
 ## [0.2.6](https://github.com/snomiao/js/compare/snosay@0.2.5...snosay@0.2.6) (2022-04-15)
 
 **Note:** Version bump only for package snosay
