@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/snomiao/js/compare/snosay@0.2.0...snosay@0.2.1) (2022-04-15)
+
+
+### Bug Fixes
+
+* speedup say ([a06f9ce](https://github.com/snomiao/js/commit/a06f9ced11885890bf768b548eb53753822adb7a))
+
+
+
+
+
 # [0.2.0](https://github.com/snomiao/js/compare/snosay@0.1.29...snosay@0.2.0) (2022-04-15)
 
 
