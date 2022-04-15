@@ -1,29 +1,29 @@
-import { defineConfig } from 'rollup';
-import pkg from './package.json';
+import { defineConfig } from "rollup";
+import pkg from "./package.json";
 
 export default defineConfig({
   input: pkg.main,
   output: [
     {
       file: pkg.module,
-      format: 'esm',
+      format: "esm",
       sourcemap: true,
     },
     {
       file: pkg.cjs,
-      format: 'cjs',
+      format: "cjs",
       sourcemap: true,
     },
     {
       file: pkg.umd,
-      name: 'snoUtils',
-      format: 'umd',
+      name: "snoUtils",
+      format: "umd",
       sourcemap: true,
     },
     {
       file: pkg.iife,
-      name: 'snoUtils',
-      format: 'iife',
+      name: "snoUtils",
+      format: "iife",
       sourcemap: true,
     },
   ],

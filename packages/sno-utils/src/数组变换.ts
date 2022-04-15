@@ -1,5 +1,3 @@
-import { 表压平 } from "./表列";
-
 // if (module === require.main) (async () => {
 //     console.log(
 //         Object.entries(表压平({ 结构: { asdf: { zxcv: '123' }, 782: ',,,' }, x: [1, 2, 3] })))

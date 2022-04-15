@@ -1,24 +1,21 @@
-import pkg from './package.json';
+import pkg from "./package.json";
 
 export default {
   input: pkg.lib,
   output: [
     {
       file: pkg.cjs,
-      format: 'cjs',
+      format: "cjs",
     },
     {
       file: pkg.main,
-      format: 'es',
+      format: "es",
     },
     {
       file: pkg.module,
-      format: 'es',
+      format: "es",
     },
   ],
-  external: [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.peerDependencies || {}),
-  ],
+  external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
   plugins: [],
 };

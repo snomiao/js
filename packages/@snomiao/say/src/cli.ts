@@ -2,7 +2,6 @@ import arg from "arg";
 import { resolve } from "path";
 import { exportFile, getInstalledVoices, speak } from "./say";
 
-
 function parseArgumentsIntoOptions(rawArgs: string[]) {
   const opts = {
     "--voice": String,
@@ -18,7 +17,7 @@ function parseArgumentsIntoOptions(rawArgs: string[]) {
     argv: rawArgs.slice(2),
   });
   return {
-    text: args._.join(' '),
+    text: args._.join(" "),
     speed: args["--speed"] || undefined,
     voice: args["--voice"] || undefined,
     list: args["--list"] || undefined,
@@ -26,19 +25,17 @@ function parseArgumentsIntoOptions(rawArgs: string[]) {
   };
 }
 
-
 export default cli;
 export async function cli(args: string[]) {
-  const { text, voice, speed, output, list } =
-    parseArgumentsIntoOptions(args);
+  const { text, voice, speed, output, list } = parseArgumentsIntoOptions(args);
   if (list) {
     const voicelist = await getInstalledVoices();
     console.log(voicelist.join("\n"));
     return;
   }
   if (!text) {
-    console.error('ERROR: text is required')
-    return
+    console.error("ERROR: text is required");
+    return;
   }
   if (output) {
     const path = resolve(output);

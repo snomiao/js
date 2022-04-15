@@ -7,64 +7,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @snomiao/say
 
-
-
-
-
 ## 0.1.25 (2022-04-14)
 
 **Note:** Version bump only for package @snomiao/say
-
-
-
-
 
 ## [0.1.24](https://github.com/snomiao/say/compare/@snomiao/say@0.1.23...@snomiao/say@0.1.24) (2022-04-13)
 
 **Note:** Version bump only for package @snomiao/say
 
-
-
-
-
 ## [0.1.23](https://github.com/snomiao/say/compare/@snomiao/say@0.1.22...@snomiao/say@0.1.23) (2022-04-13)
-
 
 ### Bug Fixes
 
-* multi words text ([6e39a4e](https://github.com/snomiao/say/commit/6e39a4e60573b8af45a2ce862e393a3e91ad3514))
-
-
-
-
+- multi words text ([6e39a4e](https://github.com/snomiao/say/commit/6e39a4e60573b8af45a2ce862e393a3e91ad3514))
 
 ## [0.1.22](https://github.com/snomiao/say/compare/@snomiao/say@0.1.20...@snomiao/say@0.1.22) (2022-04-13)
 
 **Note:** Version bump only for package @snomiao/say
 
-
-
-
-
 ## [0.1.21](https://github.com/snomiao/say/compare/@snomiao/say@0.1.20...@snomiao/say@0.1.21) (2022-04-13)
 
 **Note:** Version bump only for package @snomiao/say
 
-
-
-
-
 ## [0.1.20](https://github.com/snomiao/say/compare/@snomiao/say@0.1.12...@snomiao/say@0.1.20) (2022-04-13)
-
 
 ### Bug Fixes
 
-* bin ([9959015](https://github.com/snomiao/say/commit/99590157ff3a7a287f275a48cf932fa0710d28a2))
-* text is ([77825ab](https://github.com/snomiao/say/commit/77825abacc13271b72629d8319bca13f1f2ce474))
-
-
-
-
+- bin ([9959015](https://github.com/snomiao/say/commit/99590157ff3a7a287f275a48cf932fa0710d28a2))
+- text is ([77825ab](https://github.com/snomiao/say/commit/77825abacc13271b72629d8319bca13f1f2ce474))
 
 ## [0.1.12](https://github.com/snomiao/say/compare/@snomiao/say@0.1.11...@snomiao/say@0.1.12) (2022-04-13)
 
