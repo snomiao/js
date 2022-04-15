@@ -1,6 +1,6 @@
 # snosay
 
-A cli wrapper for say, crossplatform TTS (Text To Speech) Module for Node.js
+A cli wrapper for [say - npm](https://www.npmjs.com/package/say), crossplatform TTS (Text To Speech) Module for Node.js
 
 ## Usage Examples
 
@@ -81,3 +81,4 @@ LICENSE: GPLv3
 ## ref
 
 - [How to build a CLI with Node.js](https://www.twilio.com/blog/how-to-build-a-cli-with-node-js)
+- [say - npm](https://www.npmjs.com/package/say)
