@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/snomiao/js/compare/snosay@0.1.29...snosay@0.2.0) (2022-04-15)
+
+
+### Features
+
+* repl mode ([b74d503](https://github.com/snomiao/js/commit/b74d503dc821a6453ff286c479e6d3468c0831b4))
+
+
+
+
+
 ## [0.1.29](https://github.com/snomiao/js/compare/snosay@0.1.28...snosay@0.1.29) (2022-04-15)
 
 
