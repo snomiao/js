@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/snomiao/js/compare/snogwt@0.1.2...snogwt@0.2.0) (2022-04-15)
+
+
+### Features
+
+* try cd to the top working dir without "worktrees" nested ([9dd1006](https://github.com/snomiao/js/commit/9dd100634ec4b7193fd7fda4c8ee1fffe2682598))
+
+
+
+
+
 ## [0.1.2](https://github.com/snomiao/js/compare/snogwt@0.1.1...snogwt@0.1.2) (2022-04-15)
 
 **Note:** Version bump only for package snogwt
