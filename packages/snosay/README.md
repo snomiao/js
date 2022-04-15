@@ -34,8 +34,11 @@ snosay
 # try type anything and press enter
 snosay -v "Microsoft Zira Desktop"
 
-# speak texts from your clipboard
+# speak texts from your clipboard, (Note: paste is a windows command)
 paste | snosay
+
+# congratulate when build done, and oops when the build fail
+npm run build && snosay congratulate your built is success!! || snosay oh no the build fails
 
 # you can kill the process if you need to stop saying
 ```
@@ -64,6 +67,11 @@ export declare const exportFile: (
   filePath?: string | undefined,
 ) => Promise<void>;
 ```
+
+## Roadmap
+
+- [x] cli
+- [ ] set default voice
 
 ## Author & License
 
