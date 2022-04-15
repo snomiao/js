@@ -1,5 +1,7 @@
 import arg from "arg";
 import { resolve } from "path";
+import { stdin, stdout } from "process";
+import * as readline from "readline";
 import { exportFile, getInstalledVoices, speak } from "./say";
 
 function parseArgumentsIntoOptions(rawArgs: string[]) {
@@ -33,14 +35,47 @@ export async function cli(args: string[]) {
     console.log(voicelist.join("\n"));
     return;
   }
-  if (!text) {
-    console.error("ERROR: text is required");
-    return;
-  }
   if (output) {
     const path = resolve(output);
-    await exportFile(text, voice, speed, path);
+    if (text) {
+      await exportFile(text, voice, speed, path);
+      console.log(path);
+      return;
+    }
+    const input: string = await new Promise((resolve, reject) => {
+      const lines = [] as string[];
+      const rl = readline.createInterface({ input: stdin, output: stdout });
+      rl.on("line", (line) => lines.push(line));
+      rl.on("close", () => resolve(lines.join("\n")));
+    });
+    await exportFile(input, voice, speed, path);
     console.log(path);
+    return;
+  }
+
+  if (!text) {
+    console.log("snosay - REPL Mode: speak the lines you just type. ");
+    const Locker = ({ locked = 0, pending = [] as any } = {}) => ({
+      lock: () =>
+        new Promise((resolve) =>
+          !locked ? resolve((locked = 1)) : (locked = pending.push(resolve)),
+        ),
+      unlock: () => {
+        pending.length && pending.shift()?.();
+        locked = pending.length;
+      },
+    });
+    const { lock, unlock } = Locker();
+
+    const push = async (line: string) =>
+      await lock()
+        .then(async () => line && (await speak(line, voice, speed)))
+        .finally(unlock);
+
+    const rl = readline.createInterface({ input: stdin, output: stdout });
+    rl.on("line", async (line) => await push(line));
+    rl.on("close", async () => await lock() /* done */);
+
     return;
   }
   console.log(text);

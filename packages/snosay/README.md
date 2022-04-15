@@ -14,14 +14,25 @@ npx -y -- snosay --voice "Microsoft David Desktop" --speed 0.5 hello, world
 npx -y -- snosay --voice "Microsoft Zira Desktop" --speed 1.5 hello, world
 npx -y -- snosay --voice "Microsoft Zira Desktop" --speed 1.5 --output ./hello-world.mp3 hello, world
 
-# or
-
+# or install as global package
 npm i -g snosay
 
 snosay --list
 snosay --voice "Microsoft David Desktop" --speed 0.5 hello, world
 snosay --voice "Microsoft Zira Desktop" --speed 1.5 hello, world
 snosay --voice "Microsoft Zira Desktop" --speed 1.5 --output ./hello-world.mp3 hello, world
+
+# or use stdin
+echo hello, world | snosay
+
+# or use REPL mode
+
+# snosay - REPL Mode: speak the lines you just type.
+# try type anything and press enter
+snosay
+
+# try type anything and press enter
+snosay -v "Microsoft Zira Desktop"
 
 # you can kill the process if you need to stop saying
 ```
