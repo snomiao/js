@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/snomiao/js/compare/snosay@0.2.1...snosay@0.2.2) (2022-04-15)
+
+
+### Bug Fixes
+
+* terminal echo ([26da80d](https://github.com/snomiao/js/commit/26da80d4e6fc2fdca92eb1b6bfe9f80acbf2336d))
+
+
+
+
+
 ## [0.2.1](https://github.com/snomiao/js/compare/snosay@0.2.0...snosay@0.2.1) (2022-04-15)
 
 
