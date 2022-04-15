@@ -5,21 +5,30 @@ import execSh from "exec-sh";
 import { readFile, writeFile } from "fs/promises";
 import { parse, resolve } from "path";
 
-export const cli = async (argv) => {
+export const cli = async (rawArgv) => {
+  const [node, js, ...argv] = rawArgv;
   // parse args
   const opts = {
     "--remove": Boolean,
     "--list": Boolean,
     "--no-vscode": Boolean,
+    "--version": Boolean,
     "-n": "--no-vscode",
     "-l": "--list",
+    "-v": "--version",
   };
   const args = arg(opts, { argv });
-  const { remove = args["--remove"], list = args["--list"] } = {};
+  const { remove = args["--remove"], list = args["--list"], version = args["--version"] } = {};
   const [branch, more] = args._;
+
+  if (version) {
+    const pkg = await readFile(resolve(parse(js).dir, "package.json"), "utf8").then(JSON.parse);
+    console.log(`v${pkg.version}`);
+    return;
+  }
+
   if (more) throw new Error("no more params");
   if (!branch) return await execSh.promise("git worktree list");
-
   // try cd to the top working dir without "worktrees" nested
   process.chdir(process.cwd().replace(/[\\/]worktrees[\\/].*/, ""));
 
@@ -45,17 +54,20 @@ export const cli = async (argv) => {
   // try checkout branch and get the path
   const checkoutPath = await execSh
     .promise(`git worktree add -B ${branch} ${worktree}`, true)
-    .then((e) => worktree)
+    .then(() => worktree)
     .catch((e) => {
-      // handle checked out
-      const [m, branch, worktree] = e.stderr?.match?.(
-        /fatal: '(.*?)' is already checked out at '(.*?)'/,
-      );
-      if (m) {
-        console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
-        return resolve(worktree);
+      if (e) {
+        // handle checked out
+        const [m, branch, worktree] = e.stderr?.match?.(
+          /fatal: '(.*?)' is already checked out at '(.*?)'/,
+        );
+        if (m) {
+          console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
+          return resolve(worktree);
+        }
       }
-      throw new Error("fail to checkout");
+      console.error("Error: ", e);
+      throw new Error("Fail to checkout");
     });
 
   // remove if needed
@@ -69,4 +81,4 @@ export const cli = async (argv) => {
   await execSh.promise(`cd ${checkoutPath} && code .`).catch(() => null);
 };
 
-await cli(process.argv.slice(2));
+await cli(process.argv);
