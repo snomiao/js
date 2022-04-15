@@ -8,7 +8,7 @@
  */
 import { 求于 } from "./函式";
 import { 续函 } from "./函续";
-import { 值, 列, 列列, 对列, 归函, 数列, 映函, 筛函, 表, 表列, 键 } from "./类型";
+import type { 值, 列, 列列, 对列, 归函, 数列, 映函, 筛函, 表, 表列, 键 } from "./类型";
 
 // if (require.main === module) (async () => {
 //     深等断言('列交')(
