@@ -54,7 +54,7 @@ export async function cli(args: string[]) {
   }
 
   if (!text) {
-    console.log("snosay - REPL Mode: speak the lines you just type. ");
+    console.warn("snosay - REPL Mode: speak the lines you just type.");
     const Locker = ({ locked = 0, pending = [] as any } = {}) => ({
       lock: () =>
         new Promise((resolve) =>
@@ -66,13 +66,21 @@ export async function cli(args: string[]) {
       },
     });
     const { lock, unlock } = Locker();
-
-    const push = async (line: string) =>
-      await lock()
-        .then(async () => line && (await speak(line, voice, speed)))
-        .finally(unlock);
-
     const rl = readline.createInterface({ input: stdin, output: stdout });
+    const lines = [] as string[];
+    const push = async (line: string) => {
+      lines.push(line);
+      // speakers
+      await lock()
+        .then(async () => {
+          const text = lines.splice(0).join("\n");
+          if (text) {
+            // console.debug("speak: ", text);
+            await speak(text, voice, speed);
+          }
+        })
+        .finally(unlock);
+    };
     rl.on("line", async (line) => await push(line));
     rl.on("close", async () => await lock() /* done */);
 
