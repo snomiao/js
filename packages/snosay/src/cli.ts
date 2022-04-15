@@ -74,8 +74,8 @@ export async function cli(args: string[]) {
       await lock()
         .then(async () => {
           const text = lines.splice(0).join("\n");
+          !rl.terminal && console.log(text);
           if (text) {
-            !rl.terminal && console.log(text);
             await speak(text, voice, speed);
           }
         })
