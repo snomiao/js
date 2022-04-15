@@ -66,7 +66,7 @@ export async function cli(args: string[]) {
       },
     });
     const { lock, unlock } = Locker();
-    const rl = readline.createInterface({ input: stdin, output: stdout });
+    const rl = readline.createInterface({ input: stdin, output: stdout, terminal: false });
     const lines = [] as string[];
     const push = async (line: string) => {
       lines.push(line);
@@ -75,7 +75,7 @@ export async function cli(args: string[]) {
         .then(async () => {
           const text = lines.splice(0).join("\n");
           if (text) {
-            // console.debug("speak: ", text);
+            !rl.terminal && console.log(text);
             await speak(text, voice, speed);
           }
         })
