@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.8](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.7...sno-utils@0.3.8) (2022-04-15)
+
+**Note:** Version bump only for package sno-utils
+
+
+
+
+
 ## 0.3.7 (2022-04-14)
 
 **Note:** Version bump only for package sno-utils
