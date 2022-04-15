@@ -16,6 +16,8 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "no-shadow": "off",
-    "max-len": ["warn", 100]
+    "max-len": ["warn", 100],
+    "prefer-template": "warn"
+    // "arrow-parens": ["warn", "never"]
   }
 }

@@ -4,3 +4,5 @@ dist
 *.log
 *.tgz
 worktree*
+
+/worktrees
