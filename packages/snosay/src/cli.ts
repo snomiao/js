@@ -10,6 +10,7 @@ function parseArgumentsIntoOptions(rawArgs: string[]) {
     "--speed": Number,
     "--list": Boolean,
     "--output": String,
+    "--domain": String,
     "-l": "--list",
     "-v": "--voice",
     "-s": "--speed",
@@ -66,7 +67,7 @@ export async function cli(args: string[]) {
       },
     });
     const { lock, unlock } = Locker();
-    const rl = readline.createInterface({ input: stdin, output: stdout, terminal: false });
+    const rl = readline.createInterface({ input: stdin, output: stdout });
     const lines = [] as string[];
     const push = async (line: string) => {
       lines.push(line);
