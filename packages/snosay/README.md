@@ -34,6 +34,9 @@ snosay
 # try type anything and press enter
 snosay -v "Microsoft Zira Desktop"
 
+# speak texts from your clipboard
+paste | snosay
+
 # you can kill the process if you need to stop saying
 ```
 
