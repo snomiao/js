@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.6](https://github.com/snomiao/sno-mongo-ku/compare/sno-mongo-ku@2.7.5...sno-mongo-ku@2.7.6) (2022-04-15)
+
+
+### Bug Fixes
+
+* [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/sno-mongo-ku/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
+
+
+
+
+
 ## [2.7.5](https://github.com/snomiao/sno-mongo-ku/compare/sno-mongo-ku@2.7.4...sno-mongo-ku@2.7.5) (2022-04-15)
 
 **Note:** Version bump only for package sno-mongo-ku

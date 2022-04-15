@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.29](https://github.com/snomiao/js/compare/snosay@0.1.28...snosay@0.1.29) (2022-04-15)
+
+
+### Bug Fixes
+
+* [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/js/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
+
+
+
+
+
 ## [0.1.28](https://github.com/snomiao/js/compare/snosay@0.1.27...snosay@0.1.28) (2022-04-15)
 
 
