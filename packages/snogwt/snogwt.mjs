@@ -5,7 +5,7 @@ import execSh from "exec-sh";
 import { readFile, writeFile } from "fs/promises";
 import { parse, resolve } from "path";
 
-const main = async () => {
+export const cli = async (argv) => {
   // parse args
   const opts = {
     "--remove": Boolean,
@@ -14,7 +14,7 @@ const main = async () => {
     "-n": "--no-vscode",
     "-l": "--list",
   };
-  const args = arg(opts, { argv: process.argv.slice(2) });
+  const args = arg(opts, { argv });
   const { remove = args["--remove"], list = args["--list"] } = {};
   const [branch, more] = args._;
   if (more) throw new Error("no more params");
@@ -66,4 +66,4 @@ const main = async () => {
   await execSh.promise(`cd ${checkoutPath} && code .`).catch(() => null);
 };
 
-await main();
+await cli(process.argv.slice(2));
