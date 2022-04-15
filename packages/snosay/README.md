@@ -1,6 +1,6 @@
 # snosay
 
-A cli wrapper for say
+A cli wrapper for say, crossplatform TTS (Text To Speech) Module for Node.js
 
 ## Usage Examples
 
