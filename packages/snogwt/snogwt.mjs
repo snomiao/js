@@ -56,15 +56,12 @@ export const cli = async (rawArgv) => {
     .promise(`git worktree add -B ${branch} ${worktree}`, true)
     .then(() => worktree)
     .catch((e) => {
-      if (e) {
-        // handle checked out
-        const [m, branch, worktree] = e.stderr?.match?.(
-          /fatal: '(.*?)' is already checked out at '(.*?)'/,
-        );
-        if (m) {
-          console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
-          return resolve(worktree);
-        }
+      // handle checked out
+      const m = e?.stderr?.match?.(/fatal: '(.*?)' is already checked out at '(.*?)'/);
+      if (m) {
+        const [, branch, worktree] = m;
+        console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
+        return resolve(worktree);
       }
       console.error("Error: ", e);
       throw new Error("Fail to checkout");
