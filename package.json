@@ -10,6 +10,11 @@
     "replace",
     "import"
   ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/md-aggregate#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+md-aggregate"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/md-aggregate",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "bin": "cli.mjs",
@@ -23,10 +28,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "f261a265844bf30e7094e09c4718c03e62f219d0",
-  "repository": "https://github.com/snomiao/js/tree/master/packages/md-aggregate",
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/md-aggregate#readme",
-  "bugs": {
-    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+md-aggregate"
-  }
+  "gitHead": "f261a265844bf30e7094e09c4718c03e62f219d0"
 }

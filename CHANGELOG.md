@@ -5,22 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.1.2](https://github.com/snomiao/js/compare/md-aggregate@0.1.1...md-aggregate@0.1.2) (2022-04-20)
 
-
 ### Bug Fixes
 
-* writeFile in monopkgs ([d18e90a](https://github.com/snomiao/js/commit/d18e90a90dc8fc053092938148247dd3717d51c9))
-
-
-
-
+- writeFile in monopkgs ([d18e90a](https://github.com/snomiao/js/commit/d18e90a90dc8fc053092938148247dd3717d51c9))
 
 ## [0.1.1](https://github.com/snomiao/js/compare/md-aggregate@0.1.0...md-aggregate@0.1.1) (2022-04-20)
 
 **Note:** Version bump only for package md-aggregate
-
-
-
-
 
 # [0.1.0](https://github.com/snomiao/js/compare/md-aggregate@0.0.8...md-aggregate@0.1.0) (2022-04-20)
 
