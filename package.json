@@ -1,6 +1,6 @@
 {
   "name": "md-aggregate",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
