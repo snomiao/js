@@ -6,16 +6,13 @@
     "mongodb",
     "wrapper"
   ],
-  "homepage": "https://github.com/snomiao/sno-mongo-ku#readme",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/sno-mongo-ku#readme",
   "bugs": {
-    "url": "https://github.com/snomiao/sno-mongo-ku/issues"
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+sno-mongo-ku"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/sno-mongo-ku.git"
-  },
-  "license": "GPL-3.0-or-later",
-  "author": "snomiao@gmail.com",
+  "repository": "https://github.com/snomiao/js/tree/master/packages/sno-mongo-ku",
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     ".": {

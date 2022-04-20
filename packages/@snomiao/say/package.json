@@ -38,5 +38,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "c93e4bd8b39c13c78ca8f511923f0ad33deaf17d"
+  "gitHead": "c93e4bd8b39c13c78ca8f511923f0ad33deaf17d",
+  "repository": "https://github.com/snomiao/js/tree/master/packages/@snomiao/say",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/@snomiao/say#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+@snomiao/say"
+  }
 }

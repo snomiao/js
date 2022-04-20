@@ -20,5 +20,10 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/monopkgs",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/monopkgs#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+monopkgs"
   }
 }
