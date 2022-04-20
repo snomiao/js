@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.0.8](https://github.com/snomiao/js/compare/md-aggregate@0.0.7...md-aggregate@0.0.8) (2022-04-20)
 
-
 ### Bug Fixes
 
-* add prettier and selflink to CHANGELOG.md ([df03f61](https://github.com/snomiao/js/commit/df03f61e2d3a5b46e87cecec592b67ceaad1381d))
-
-
-
-
+- add prettier and selflink to CHANGELOG.md ([df03f61](https://github.com/snomiao/js/commit/df03f61e2d3a5b46e87cecec592b67ceaad1381d))
 
 ## [0.0.7](https://github.com/snomiao/js/compare/md-aggregate@0.0.6...md-aggregate@0.0.7) (2022-04-20)
 
