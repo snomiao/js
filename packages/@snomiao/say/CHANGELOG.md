@@ -5,22 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.1.28](https://github.com/snomiao/js/compare/@snomiao/say@0.1.27...@snomiao/say@0.1.28) (2022-04-15)
 
-
 ### Bug Fixes
 
-* [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/js/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
-
-
-
-
+- [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/js/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
 
 ## [0.1.27](https://github.com/snomiao/js/compare/@snomiao/say@0.1.26...@snomiao/say@0.1.27) (2022-04-15)
 
 **Note:** Version bump only for package @snomiao/say
-
-
-
-
 
 ## [0.1.26](https://github.com/snomiao/js/compare/@snomiao/say@0.1.25...@snomiao/say@0.1.26) (2022-04-14)
 

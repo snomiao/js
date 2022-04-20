@@ -5,33 +5,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.3.10](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.9...sno-utils@0.3.10) (2022-04-15)
 
-
 ### Bug Fixes
 
-* **sno-utils:** import type only ([f2f7cbc](https://github.com/snomiao/sno-utils/commit/f2f7cbc4891ba7c5328c3e76a032826a33c51784))
-
-
-
-
+- **sno-utils:** import type only ([f2f7cbc](https://github.com/snomiao/sno-utils/commit/f2f7cbc4891ba7c5328c3e76a032826a33c51784))
 
 ## [0.3.9](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.8...sno-utils@0.3.9) (2022-04-15)
 
-
 ### Bug Fixes
 
-* [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/sno-utils/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
-
-
-
-
+- [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/sno-utils/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
 
 ## [0.3.8](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.7...sno-utils@0.3.8) (2022-04-15)
 
 **Note:** Version bump only for package sno-utils
-
-
-
-
 
 ## 0.3.7 (2022-04-14)
 

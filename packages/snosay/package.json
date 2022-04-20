@@ -8,6 +8,11 @@
     "nodejs",
     "tts"
   ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/snosay#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snosay"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snosay",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "main": "./lib/say.js",
@@ -38,10 +43,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "f261a265844bf30e7094e09c4718c03e62f219d0",
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snosay",
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snosay#readme",
-  "bugs": {
-    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snosay"
-  }
+  "gitHead": "f261a265844bf30e7094e09c4718c03e62f219d0"
 }

@@ -5,123 +5,67 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.2.9](https://github.com/snomiao/js/compare/snosay@0.2.8...snosay@0.2.9) (2022-04-20)
 
-
 ### Bug Fixes
 
-* writeFile in monopkgs ([d18e90a](https://github.com/snomiao/js/commit/d18e90a90dc8fc053092938148247dd3717d51c9))
-
-
-
-
+- writeFile in monopkgs ([d18e90a](https://github.com/snomiao/js/commit/d18e90a90dc8fc053092938148247dd3717d51c9))
 
 ## [0.2.8](https://github.com/snomiao/js/compare/snosay@0.2.7...snosay@0.2.8) (2022-04-20)
 
 **Note:** Version bump only for package snosay
 
-
-
-
-
 ## [0.2.7](https://github.com/snomiao/js/compare/snosay@0.2.6...snosay@0.2.7) (2022-04-15)
-
 
 ### Bug Fixes
 
-* terminal type ([b4938bb](https://github.com/snomiao/js/commit/b4938bb8ea223ca1ea62f9d034b14f16cf589889))
-
-
-
-
+- terminal type ([b4938bb](https://github.com/snomiao/js/commit/b4938bb8ea223ca1ea62f9d034b14f16cf589889))
 
 ## [0.2.6](https://github.com/snomiao/js/compare/snosay@0.2.5...snosay@0.2.6) (2022-04-15)
 
 **Note:** Version bump only for package snosay
 
-
-
-
-
 ## [0.2.5](https://github.com/snomiao/js/compare/snosay@0.2.4...snosay@0.2.5) (2022-04-15)
 
 **Note:** Version bump only for package snosay
-
-
-
-
 
 ## [0.2.4](https://github.com/snomiao/js/compare/snosay@0.2.3...snosay@0.2.4) (2022-04-15)
 
 **Note:** Version bump only for package snosay
 
-
-
-
-
 ## [0.2.3](https://github.com/snomiao/js/compare/snosay@0.2.2...snosay@0.2.3) (2022-04-15)
-
 
 ### Bug Fixes
 
-* output space ([9174fee](https://github.com/snomiao/js/commit/9174fee9782ec7580b65e65a3f765bce29bd226e))
-
-
-
-
+- output space ([9174fee](https://github.com/snomiao/js/commit/9174fee9782ec7580b65e65a3f765bce29bd226e))
 
 ## [0.2.2](https://github.com/snomiao/js/compare/snosay@0.2.1...snosay@0.2.2) (2022-04-15)
 
-
 ### Bug Fixes
 
-* terminal echo ([26da80d](https://github.com/snomiao/js/commit/26da80d4e6fc2fdca92eb1b6bfe9f80acbf2336d))
-
-
-
-
+- terminal echo ([26da80d](https://github.com/snomiao/js/commit/26da80d4e6fc2fdca92eb1b6bfe9f80acbf2336d))
 
 ## [0.2.1](https://github.com/snomiao/js/compare/snosay@0.2.0...snosay@0.2.1) (2022-04-15)
 
-
 ### Bug Fixes
 
-* speedup say ([a06f9ce](https://github.com/snomiao/js/commit/a06f9ced11885890bf768b548eb53753822adb7a))
-
-
-
-
+- speedup say ([a06f9ce](https://github.com/snomiao/js/commit/a06f9ced11885890bf768b548eb53753822adb7a))
 
 # [0.2.0](https://github.com/snomiao/js/compare/snosay@0.1.29...snosay@0.2.0) (2022-04-15)
 
-
 ### Features
 
-* repl mode ([b74d503](https://github.com/snomiao/js/commit/b74d503dc821a6453ff286c479e6d3468c0831b4))
-
-
-
-
+- repl mode ([b74d503](https://github.com/snomiao/js/commit/b74d503dc821a6453ff286c479e6d3468c0831b4))
 
 ## [0.1.29](https://github.com/snomiao/js/compare/snosay@0.1.28...snosay@0.1.29) (2022-04-15)
 
-
 ### Bug Fixes
 
-* [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/js/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
-
-
-
-
+- [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/js/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
 
 ## [0.1.28](https://github.com/snomiao/js/compare/snosay@0.1.27...snosay@0.1.28) (2022-04-15)
 
-
 ### Bug Fixes
 
-* console.log(text); ([b77342e](https://github.com/snomiao/js/commit/b77342e40c1891e43e91c78358ed8da3eec23fa6))
-
-
-
-
+- console.log(text); ([b77342e](https://github.com/snomiao/js/commit/b77342e40c1891e43e91c78358ed8da3eec23fa6))
 
 ## [0.1.27](https://github.com/snomiao/js/compare/snosay@0.1.26...snosay@0.1.27) (2022-04-14)
 

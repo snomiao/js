@@ -26,6 +26,6 @@ export function joa2aoj(joa: Record<PropertyKey, any[]>) {
       aoj[i] = Object.assign(aoj[i] || {}, {});
     });
   });
-  return aoj
+  return aoj;
 }
-joa2aoj(joa).map(e=>e)
+joa2aoj(joa).map((e) => e);
