@@ -1,8 +1,7 @@
 {
   "name": "monopkgs",
   "version": "0.2.1",
-  "private": true,
-  "description": "Aggregate README.md with CHANGELOG.md or whatever",
+  "description": "mono-pkgs",
   "keywords": [
     "markdown",
     "cli",
