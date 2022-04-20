@@ -4,13 +4,13 @@
   "private": true,
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/snomiao/say#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
-    "url": "https://github.com/snomiao/say/issues"
+    "url": "https://github.com/snomiao/js/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snomiao/say.git"
+    "url": "git+https://github.com/snomiao/js.git"
   },
   "license": "GPLv3",
   "author": "",
