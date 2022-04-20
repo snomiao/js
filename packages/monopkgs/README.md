@@ -1,6 +1,12 @@
-# mono-pkgs (WIP)
+# monopkgs (WIP)
 
-Update monorepo packages.json repos
+Update monorepo `packages/**/package.json`, and LICENSES
+
+## Usage
+
+```shell
+cd $monorepo && npx monopkgs
+```
 
 ## Feat & Roadmap
 
