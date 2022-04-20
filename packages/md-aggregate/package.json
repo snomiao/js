@@ -1,0 +1,11 @@
+{
+  "name": "md-aggregate",
+  "version": "0.0.1",
+  "description": "Aggregate README.md with CHANGELOG.md or whatever",
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
+  "bin": "cli.mjs",
+  "dependencies": {
+    "arg": "^5.0.1"
+  }
+}

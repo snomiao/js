@@ -49,6 +49,12 @@ importers:
       '@types/node': 17.0.23
       typescript: 4.6.3
 
+  packages/md-aggregate:
+    specifiers:
+      arg: ^5.0.1
+    dependencies:
+      arg: 5.0.1
+
   packages/sno-mongo-ku:
     specifiers:
       '@babel/cli': ^7.16.8
