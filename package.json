@@ -21,7 +21,7 @@
     "build": "lerna run build",
     "format": "prettier -w . && eslint --fix .",
     "lerna-publish": "lerna publish",
-    "mono-pkgs": "monopkgs .",
+    "prepack": "monopkgs .",
     "test": "lerna run test"
   },
   "devDependencies": {
