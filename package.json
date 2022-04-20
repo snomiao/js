@@ -13,11 +13,7 @@
     "url": "git+https://github.com/snomiao/js.git"
   },
   "license": "GPLv3",
-  "author": "",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "author": "snomiao <snomiao@gmail.com>",
   "workspaces": [
     "packages/**"
   ],
@@ -25,6 +21,7 @@
     "build": "lerna run build",
     "format": "prettier -w . && eslint --fix .",
     "lerna-publish": "lerna publish",
+    "mono-pkgs": "monopkgs .",
     "test": "lerna run test"
   },
   "devDependencies": {
@@ -36,6 +33,7 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
+    "files": "^2.1.1",
     "lerna": "^4.0.0",
     "prettier": "^2.6.2",
     "prettier-plugin-organize-imports": "^2.3.4",
