@@ -1,19 +1,29 @@
 #!/usr/bin/env node
 import arg from "arg";
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { parse, resolve } from "path";
 
+const opts = {
+  "--version": Boolean,
+  "-v": "--version",
+  "--help": Boolean,
+  "-h": "--help",
+  "--write": Boolean,
+  "-w": "--write",
+};
+const help = `
+md-aggregate [...src] dst [options]
+
+Example: md-aggregate CHANGELOG.md README.md -w
+
+Options:
+  -v, --version : show version
+  -h, --help    : show help
+  -w, --write   : write mode
+`;
 export const cli = async (rawArgv) => {
   const [node, js, ...argv] = rawArgv;
   // parse args
-  const opts = {
-    "--version": Boolean,
-    "-v": "--version",
-    "--help": Boolean,
-    "-h": "--help",
-    "--write": Boolean,
-    "-w": "--write",
-  };
   const args = arg(opts, { argv });
   const [dst, ...srcs] = args._.reverse();
   // check version
@@ -24,7 +34,7 @@ export const cli = async (rawArgv) => {
   }
   // help
   if (args["--version"] || !dst) {
-    console.log("TODO: help");
+    console.log(help);
     return;
   }
 
@@ -38,24 +48,27 @@ export const cli = async (rawArgv) => {
       .map((e) => e.replace(/^#/g, "##"));
 
     // TODO: escape regexp startPattern
-    // TODO: handle \n
-    const matchStartPattern = `\n${lines[0]}`;
+    // TODO: handle \r\n
+    const matchStartPattern = `\n${lines[0]}$`;
     const eofPattern = "$(?![\\r\\n])";
 
-    const sectionStartPattern = `^## `;
+    const sectionStartPattern = `\n##? `;
 
     const startPattern = `${matchStartPattern}|${eofPattern}`;
     const anyPattern = `[\\s\\S]*?`;
     const endPattern = `${eofPattern}|${sectionStartPattern}`;
     dstContent = dstContent.replace(
-      RegExp(`(${startPattern})${anyPattern}(?=${endPattern})`),
-      `\n${lines.join("\n")}`,
+      RegExp(`(${startPattern})${anyPattern}(?=${endPattern})`, "m"),
+      `\n${lines.join("\n")}\n`,
     );
   };
   await Promise.all(srcs.map(srcProcess));
-  console.log(dstContent);
-  console.log(args["--write"]);
-  console.log("done");
+
+  if (!args["--write"]) return console.log(dstContent);
+
+  await writeFile(resolve(dst), dstContent);
+  
+  console.log(resolve(dst));
 };
 
 await cli(process.argv);
