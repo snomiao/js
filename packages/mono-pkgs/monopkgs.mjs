@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { globby } from "globby";
 import path, { relative, resolve } from "path";
 async function cli(rawArgv) {
@@ -40,8 +40,8 @@ async function cli(rawArgv) {
     };
     Object.assign(pkg, info);
     const out = JSON.stringify(pkg, null, 2);
-    console.log(out);
-    // console.log(pkgPath);
+    // console.log(out);
+    console.log(pkgPath);
     await writeFile(pkgPath, out);
   };
   await Promise.all(pkgs.map(pkgParse));
