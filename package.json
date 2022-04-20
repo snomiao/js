@@ -2,6 +2,14 @@
   "name": "md-aggregate",
   "version": "0.0.8",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
+  "keywords": [
+    "markdown",
+    "cli",
+    "aggregate",
+    "merge",
+    "replace",
+    "import"
+  ],
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "bin": "cli.mjs",

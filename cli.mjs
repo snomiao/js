@@ -20,7 +20,7 @@ Example: md-aggregate CHANGELOG.md README.md -w
 Options:
   -v, --version : show version
   -h, --help    : show help
-  -w, --write   : write mode
+  -w, --write   : write mode (when missing you will get preview in console)
 `;
 export const cli = async (rawArgv) => {
   const [node, js, ...argv] = rawArgv;
