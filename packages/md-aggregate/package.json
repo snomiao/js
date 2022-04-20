@@ -1,6 +1,6 @@
 {
   "name": "md-aggregate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
   "keywords": [
     "markdown",
