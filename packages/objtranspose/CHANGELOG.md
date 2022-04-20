@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package objtranspose
 
-
-
-
-
 ## 0.0.1 (2022-04-20)
 
 **Note:** Version bump only for package objtranspose

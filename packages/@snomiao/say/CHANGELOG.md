@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @snomiao/say
 
-
-
-
-
 ## [0.1.28](https://github.com/snomiao/js/compare/@snomiao/say@0.1.27...@snomiao/say@0.1.28) (2022-04-15)
 
 ### Bug Fixes
