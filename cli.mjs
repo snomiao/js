@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import arg from "arg";
+import escapeStringRegexp from "escape-string-regexp";
 import { readFile, writeFile } from "fs/promises";
 import { parse, resolve } from "path";
 
@@ -47,9 +48,8 @@ export const cli = async (rawArgv) => {
       .split("\n")
       .map((e) => e.replace(/^#/g, "##"));
 
-    // TODO: escape regexp startPattern
     // TODO: handle \r\n
-    const matchStartPattern = `\n${lines[0]}$`;
+    const matchStartPattern = `\n${escapeStringRegexp(lines[0])}$`;
     const eofPattern = "$(?![\\r\\n])";
 
     const sectionStartPattern = `\n##? `;
@@ -67,7 +67,7 @@ export const cli = async (rawArgv) => {
   if (!args["--write"]) return console.log(dstContent);
 
   await writeFile(resolve(dst), dstContent);
-  
+
   console.log(resolve(dst));
 };
 

@@ -9,7 +9,8 @@
     "prepack": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w"
   },
   "dependencies": {
-    "arg": "^5.0.1"
+    "arg": "^5.0.1",
+    "escape-string-regexp": "^5.0.0"
   },
   "publishConfig": {
     "access": "public"
