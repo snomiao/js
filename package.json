@@ -19,7 +19,7 @@
   "author": "snomiao <snomiao@gmail.com>",
   "bin": "cli.mjs",
   "scripts": {
-    "prepack": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w"
+    "postversion": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w"
   },
   "dependencies": {
     "arg": "^5.0.1",
