@@ -1,30 +1,28 @@
 #!/usr/bin/env node
 import { readFile } from "fs/promises";
+import { globby } from "globby";
 import path, { relative, resolve } from "path";
-import { promisify } from "util";
-const glob = promisify(await import("glob").then((e) => e.default));
-
 async function cli(rawArgv) {
-  // github
   const rootPkg = resolve("./package.json");
   const root = JSON.parse(await readFile(rootPkg, "utf8"));
   const rootDir = path.parse(rootPkg).dir;
 
   if (root.repository) {
-    const [, ghUrl] = root.repository?.url?.(/(https\:\/\/github\.com\/.*?\/.*?)\.git/) || [];
+    const [, ghUrl] =
+      root.repository?.url?.match?.(/(https\:\/\/github\.com\/.*?\/.*?)\.git/) || [];
     root.repository = ghUrl || root.repository;
     if (typeof root.repository !== "string") throw new Error("root.repository need to be string");
     if (root.repository.endsWith("/")) throw new Error("root.repository need to be without /");
   }
 
   const root_repository = root.repository?.replace(/\.git$/, "");
-  const pkgs = await glob("packages/**/package.json");
+  const pkgs = await globby("packages/**/package.json", { gitignore: true });
 
   // master will redirect to main rather than 404 if main is not existed in github.
   const mainBranchName = "master";
 
   const pkgParse = async (pkgPath) => {
-    const pkgRelDir = relative(rootDir, path.parse(pkgPath).dir);
+    const pkgRelDir = relative(rootDir, path.parse(pkgPath).dir).replace(/\\/g, "/");
     const pkg = JSON.parse(await readFile(pkgPath, "utf8"));
     const pkgName = pkg.name;
     const repository = root_repository && `${root_repository}/tree/${mainBranchName}/${pkgRelDir}`;
@@ -43,9 +41,9 @@ async function cli(rawArgv) {
     Object.assign(pkg, info);
     const out = JSON.stringify(pkg, null, 2);
     console.log(out);
-    // await writeFile(pkgPath, JSON.stringify(pkg, null, 2));
+    // console.log(pkgPath);
+    await writeFile(pkgPath, out);
   };
-
   await Promise.all(pkgs.map(pkgParse));
 }
 

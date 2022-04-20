@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "arg": "^5.0.1",
-    "glob": "^8.0.1"
+    "glob": "^8.0.1",
+    "globby": "^13.1.1"
   },
   "publishConfig": {
     "access": "public"
