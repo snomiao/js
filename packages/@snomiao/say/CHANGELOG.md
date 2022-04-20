@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.30](https://github.com/snomiao/js/compare/@snomiao/say@0.1.29...@snomiao/say@0.1.30) (2022-04-20)
+
+**Note:** Version bump only for package @snomiao/say
+
+
+
+
+
 ## [0.1.29](https://github.com/snomiao/js/compare/@snomiao/say@0.1.28...@snomiao/say@0.1.29) (2022-04-20)
 
 **Note:** Version bump only for package @snomiao/say
