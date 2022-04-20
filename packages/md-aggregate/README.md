@@ -1,5 +1,7 @@
 # MD-Aggregate
 
+Aggregate README.md with CHANGELOG.md or whatever.
+
 ## Usage
 
 ```shell
