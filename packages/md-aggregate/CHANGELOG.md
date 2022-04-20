@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/snomiao/js/compare/md-aggregate@0.0.8...md-aggregate@0.1.0) (2022-04-20)
+
+
+### Features
+
+* escapeStringRegexp ([a1263b3](https://github.com/snomiao/js/commit/a1263b33a1d15502bcb4b0b26f804cd1fa0a17c3))
+
+
+
+
+
 ## [0.0.8](https://github.com/snomiao/js/compare/md-aggregate@0.0.7...md-aggregate@0.0.8) (2022-04-20)
 
 ### Bug Fixes
