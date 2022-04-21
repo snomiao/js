@@ -8,14 +8,19 @@ Examples:
 
 cd your_repo
 
-# try create develop branch and checkout into ./worktrees/develop@your_repo, and open vscode to edit it
 snogwt develop
+# try create develop branch
+# and checkout into repo/worktrees/develop@your_repo,
+# add /worktrees to .gitignore if not existed
+# and try open vscode to edit it
 
-# try create develop branch and checkout into ./worktrees/develop@your_repo
 snogwt develop --no-vscode
+snogwt develop -n
+# same as above but don't open vscode
 
-# try remove develop branch's worktree if it's checked out somewhere.
 snogwt --remove develop
+# try remove develop branch's worktree if it's checked out somewhere.
+# then you can remove the branch by 'git branch remove ... 
 
 # list all worktrees, same as "git worktree list"
 snogwt --list
