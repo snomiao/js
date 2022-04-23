@@ -57,10 +57,14 @@ export const cli = async (rawArgv) => {
     const startPattern = `${matchStartPattern}|${eofPattern}`;
     const anyPattern = `[\\s\\S]*?`;
     const endPattern = `${eofPattern}|${sectionStartPattern}`;
-    const replacedContent = lines.join("\n");
+
+    const srcContentWithoutSectionStart = lines
+      .join("\n")
+      .replace(new RegExp(sectionStartPattern, "img"), "\n## ");
+
     dstContent = dstContent.replace(
-      RegExp(`(${startPattern})${anyPattern}(?=${endPattern})`, "m"),
-      `\n${replacedContent}\n`,
+      new RegExp(`(${startPattern})${anyPattern}(?=${endPattern})`, "m"),
+      `\n${srcContentWithoutSectionStart}\n`,
     );
   };
   await Promise.all(srcs.map(srcProcess));
