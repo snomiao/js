@@ -20,7 +20,7 @@ snogwt develop -n
 
 snogwt --remove develop
 # try remove develop branch's worktree if it's checked out somewhere.
-# then you can remove the branch by 'git branch remove ... 
+# then you can remove the branch by 'git branch remove ...
 
 # list all worktrees, same as "git worktree list"
 snogwt --list
