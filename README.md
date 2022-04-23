@@ -78,6 +78,10 @@ Author: snomiao <snomiao@gmail.com>
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.9](https://github.com/snomiao/js/compare/md-aggregate@0.1.8...md-aggregate@0.1.9) (2022-04-23)
+
+**Note:** Version bump only for package md-aggregate
+
 ### [0.1.8](https://github.com/snomiao/js/compare/md-aggregate@0.1.7...md-aggregate@0.1.8) (2022-04-23)
 
 #### Bug Fixes
