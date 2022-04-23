@@ -1,0 +1,10 @@
+{
+  "name": "my-version",
+  "version": "1.0.0",
+  "description": "show current package version",
+  "main": "my-version.mjs",
+  "bin": "cli.mjs",
+  "dependencies": {
+    "read-pkg-up": "^9.1.0"
+  }
+}
