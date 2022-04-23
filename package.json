@@ -22,7 +22,7 @@
     "format": "prettier -w . && eslint --fix .",
     "lerna-publish": "lerna publish",
     "test": "lerna run test",
-    "preversion": "monopkgs . && npm run format"
+    "postversion": "monopkgs . && npm run format && git commit -a -m \"chore: bump version and format\""
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.19.0",
