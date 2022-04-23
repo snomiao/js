@@ -1,6 +1,6 @@
 {
   "name": "my-version",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "show current package version",
   "homepage": "https://github.com/snomiao/js/tree/master/packages/my-version#readme",
   "bugs": {
