@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.1.8](https://github.com/snomiao/js/compare/md-aggregate@0.1.7...md-aggregate@0.1.8) (2022-04-23)
 
-
 ### Bug Fixes
 
-* srcContentWithoutSectionStart ([ec8f862](https://github.com/snomiao/js/commit/ec8f862a50da91470bb670789849d58fef069ae3))
-
-
-
-
+- srcContentWithoutSectionStart ([ec8f862](https://github.com/snomiao/js/commit/ec8f862a50da91470bb670789849d58fef069ae3))
 
 ## [0.1.7](https://github.com/snomiao/js/compare/md-aggregate@0.1.6...md-aggregate@0.1.7) (2022-04-23)
 

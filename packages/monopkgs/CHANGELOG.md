@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package monopkgs
 
-
-
-
-
 ## [0.2.5](https://github.com/snomiao/js/compare/monopkgs@0.2.4...monopkgs@0.2.5) (2022-04-21)
 
 **Note:** Version bump only for package monopkgs
