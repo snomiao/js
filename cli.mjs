@@ -60,7 +60,7 @@ export const cli = async (rawArgv) => {
 
     const srcContentWithoutSectionStart = lines
       .join("\n")
-      .replace(new RegExp(sectionStartPattern, "img"), "\n## ");
+      .replace(new RegExp(sectionStartPattern, "img"), "\n### ");
 
     dstContent = dstContent.replace(
       new RegExp(`(${startPattern})${anyPattern}(?=${endPattern})`, "m"),
