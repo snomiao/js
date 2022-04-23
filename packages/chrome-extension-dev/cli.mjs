@@ -16,7 +16,6 @@ import puppeteer from "puppeteer";
   if (args["--version"]) return console.log(`v${await myVersion()}`);
 
   const extensionPath = resolve(process.cwd(), args["--extension"] || "./");
-  console.log(process.cwd(), args["--extension"], extensionPath);
 
   const browser = await puppeteer.launch({
     headless: false,
