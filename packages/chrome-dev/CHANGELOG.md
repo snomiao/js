@@ -5,7 +5,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 1.1.0 (2022-04-23)
 
-
 ### Features
 
-* chrome-dev ([01fa754](https://github.com/snomiao/js/commit/01fa754dbeb350057c66962a1b92972187b6ac76))
+- chrome-dev ([01fa754](https://github.com/snomiao/js/commit/01fa754dbeb350057c66962a1b92972187b6ac76))

@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.1.2](https://github.com/snomiao/js/compare/chrome-extension-dev@0.1.1...chrome-extension-dev@0.1.2) (2022-04-23)
 
-
 ### Bug Fixes
 
-* remove console.log ([df8535b](https://github.com/snomiao/js/commit/df8535b7da5d61de610cbb44106c961396bab7b8))
-
-
-
-
+- remove console.log ([df8535b](https://github.com/snomiao/js/commit/df8535b7da5d61de610cbb44106c961396bab7b8))
 
 ## [0.1.1](https://github.com/snomiao/js/compare/chrome-extension-dev@0.1.0...chrome-extension-dev@0.1.1) (2022-04-23)
 
