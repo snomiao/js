@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/snomiao/js/compare/md-aggregate@0.1.6...md-aggregate@0.1.7) (2022-04-23)
+
+
+### Bug Fixes
+
+* replace # => ## ([bfc6e79](https://github.com/snomiao/js/commit/bfc6e798e455714dea2caf181614003ba243e3f2))
+* srcContentWithoutSectionStart ([3837654](https://github.com/snomiao/js/commit/383765497b9964381eaf5f65483e94a043f4bdf0))
+
+
+
+
+
 ## [0.1.6](https://github.com/snomiao/js/compare/md-aggregate@0.1.5...md-aggregate@0.1.6) (2022-04-21)
 
 **Note:** Version bump only for package md-aggregate
