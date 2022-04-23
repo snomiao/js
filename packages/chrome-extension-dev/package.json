@@ -1,0 +1,30 @@
+{
+  "name": "chrome-extension-dev",
+  "version": "0.0.1",
+  "description": "Launch puppeteer with extension loaded: npx chrome-extension-dev ./extension",
+  "keywords": [
+    "cli",
+    "chrome",
+    "puppeteer"
+  ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/chrome-extension-dev#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+chrome-extension-dev"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/chrome-extension-dev",
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
+  "bin": {
+    "chrome-extension-dev": "cli.mjs",
+    "extdev": "cli.mjs"
+  },
+  "scripts": {},
+  "dependencies": {
+    "arg": "^5.0.1",
+    "my-version": "^1.0.0",
+    "puppeteer": "^13.5.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
