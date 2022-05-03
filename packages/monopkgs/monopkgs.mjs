@@ -39,7 +39,8 @@ async function cli(rawArgv) {
       ...(author && { author }),
     };
     Object.assign(pkg, info);
-    const out = JSON.stringify(pkg, null, 2);
+    const outJson = JSON.stringify(pkg, null, 2);
+    const out = `${outJson}\n`;
     // console.log(out);
     console.log(pkgPath);
     await writeFile(pkgPath, out);
