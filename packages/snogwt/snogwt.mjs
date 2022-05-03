@@ -101,7 +101,7 @@ async function updateIgnoreFile(repodir, ignoreFileName, { create }) {
   const ignore = await readFile(ignoreFile, "utf-8").catch(() => null);
   if (ignore === null && !create);
   else if (!ignore?.match(/^\/worktrees$/im))
-    await writeFile(ignoreFile, `${ignore}\n` + `/worktrees`);
+    await writeFile(ignoreFile, `${(ignore||'').trim()}\n/worktrees\n`);
 }
 
 async function repoFind() {
