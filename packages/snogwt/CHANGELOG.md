@@ -5,20 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.4.0](https://github.com/snomiao/js/compare/snogwt@0.3.7...snogwt@1.4.0) (2022-05-03)
 
-
 ### Bug Fixes
 
-* **snogwt:** ignorefile \n ([ebc65f9](https://github.com/snomiao/js/commit/ebc65f91e2cf666912fa5c455606878cad32ce24))
-* typo ([c77caf5](https://github.com/snomiao/js/commit/c77caf578280d7f815d624425826bd3ed889c5f6))
-
+- **snogwt:** ignorefile \n ([ebc65f9](https://github.com/snomiao/js/commit/ebc65f91e2cf666912fa5c455606878cad32ce24))
+- typo ([c77caf5](https://github.com/snomiao/js/commit/c77caf578280d7f815d624425826bd3ed889c5f6))
 
 ### Features
 
-* **snogwt:** try install packages and update ignores ([0162cc1](https://github.com/snomiao/js/commit/0162cc1aa6d15b35e936260c8d51be447cfb8fd9))
-
-
-
-
+- **snogwt:** try install packages and update ignores ([0162cc1](https://github.com/snomiao/js/commit/0162cc1aa6d15b35e936260c8d51be447cfb8fd9))
 
 ## [0.3.7](https://github.com/snomiao/js/compare/snogwt@0.3.6...snogwt@0.3.7) (2022-04-23)
 

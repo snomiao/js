@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package snosay
 
-
-
-
-
 ## [0.2.15](https://github.com/snomiao/js/compare/snosay@0.2.14...snosay@0.2.15) (2022-04-23)
 
 **Note:** Version bump only for package snosay

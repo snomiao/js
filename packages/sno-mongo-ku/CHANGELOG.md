@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package sno-mongo-ku
 
-
-
-
-
 ## [2.7.14](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.13...sno-mongo-ku@2.7.14) (2022-04-23)
 
 **Note:** Version bump only for package sno-mongo-ku

@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package chrome-dev
 
-
-
-
-
 # 1.1.0 (2022-04-23)
 
 ### Features
