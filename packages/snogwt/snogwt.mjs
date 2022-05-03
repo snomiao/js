@@ -5,7 +5,9 @@ import execSh from "exec-sh";
 import { readFile, writeFile } from "fs/promises";
 import { parse, resolve } from "path";
 
-export const cli = async (rawArgv) => {
+await cli(process.argv);
+
+export async function cli(rawArgv) {
   const [node, js, ...argv] = rawArgv;
   // parse args
   const opts = {
@@ -21,12 +23,7 @@ export const cli = async (rawArgv) => {
   const { remove = args["--remove"], list = args["--list"], version = args["--version"] } = {};
   const [branch, more] = args._;
 
-  // check version
-  if (version) {
-    const pkg = await readFile(resolve(parse(js).dir, "package.json"), "utf8").then(JSON.parse);
-    console.log(`v${pkg.version}`);
-    return;
-  }
+  if (version) return await versionShow(js);
 
   // check branch params
   if (more) throw new Error("no more params");
@@ -41,19 +38,12 @@ export const cli = async (rawArgv) => {
   if (list) return await execSh.promise("git worktree list");
 
   // find repo dir and repo name
-  const top = await execSh
-    .promise("git rev-parse --show-toplevel", true)
-    .then((e) => e.stdout.trim());
-  if (!top) throw new Error("fail to get git rev-parse --show-toplevel");
-  const repodir = resolve(top); /* process.cwd() */
-  const repodirname = parse(repodir).name;
+  const { repodir, top, repodirname } = await repoFind();
 
   // ensure root ignore /worktrees
-  const ignoreFile = resolve(`${repodir}/.gitignore`);
-  const ignore = await readFile(ignoreFile, "utf-8");
-  if (!ignore.match(/^\/worktrees$/im)) await writeFile(ignoreFile, `${ignore}\n` + `/worktrees`);
+  await ignoresUpdate(repodir);
 
-  // // generate worktree
+  // generate worktree path
   const worktree = resolve(`${top}/worktrees/${branch}@${repodirname}`);
 
   // create new branch from current branch
@@ -85,7 +75,7 @@ export const cli = async (rawArgv) => {
       throw new Error("Fail to checkout");
     });
 
-  // remove if needed
+  // remove branch if requested
   if (remove) {
     console.log(`removeing ${checkoutPath}`);
     return await execSh.promise(`git worktree remove ${checkoutPath}`);
@@ -94,6 +84,48 @@ export const cli = async (rawArgv) => {
   if (args["--no-vscode"]) return;
 
   await execSh.promise(`cd ${checkoutPath} && code .`).catch(() => null);
-};
 
-await cli(process.argv);
+  // install packages
+  await tryInstallPackages(checkoutPath);
+}
+
+async function ignoresUpdate(repodir) {
+  // gitignore
+  await updateIgnoreFile(repodir, ".gitignore", { create: true });
+  await updateIgnoreFile(repodir, ".eslintignore", { create: false });
+  await updateIgnoreFile(repodir, ".prettierignore", { create: false });
+}
+
+async function updateIgnoreFile(repodir, ignoreFileName, { create }) {
+  const ignoreFile = resolve(`${repodir}/${ignoreFileName}`);
+  const ignore = await readFile(ignoreFile, "utf-8").catch(() => null);
+  if (ignore === null && !create);
+  else if (!ignore?.match(/^\/worktrees$/im))
+    await writeFile(ignoreFile, `${ignore}\n` + `/worktrees`);
+}
+
+async function repoFind() {
+  const top = await execSh
+    .promise("git rev-parse --show-toplevel", true)
+    .then((e) => e.stdout.trim());
+  if (!top) throw new Error("fail to get git rev-parse --show-toplevel");
+  const repodir = resolve(top); /* process.cwd() */
+  const repodirname = parse(repodir).name;
+  return { repodir, top, repodirname };
+}
+
+async function versionShow(js) {
+  const pkg = await readFile(resolve(parse(js).dir, "package.json"), "utf8").then(JSON.parse);
+  console.log(`v${pkg.version}`);
+  return;
+}
+
+async function tryInstallPackages(checkoutPath) {
+  if (0) {
+  } else if (`${checkoutPath}/pnpm-lock.yaml`)
+    await execSh.promise(`cd ${checkoutPath} && pnpm i)`).catch(() => null);
+  else if (`${checkoutPath}/yarn.lock`)
+    await execSh.promise(`cd ${checkoutPath} && yarn`).catch(() => null);
+  else if (`${checkoutPath}/package-lock.json`)
+    await execSh.promise(`cd ${checkoutPath} && npm instasll`).catch(() => null);
+}
