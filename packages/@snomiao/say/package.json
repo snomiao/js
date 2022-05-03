@@ -1,6 +1,6 @@
 {
   "name": "@snomiao/say",
-  "version": "0.1.34",
+  "version": "0.1.35",
   "description": "A cli wrapper for say, crossplatform TTS (Text To Speech) Module for Node.js",
   "keywords": [
     "cli",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.9](https://github.com/snomiao/js/compare/monopkgs@0.2.8...monopkgs@1.2.9) (2022-05-03)
+
+
+### Bug Fixes
+
+* monopkgs output style ([e6c5538](https://github.com/snomiao/js/commit/e6c5538b9c162c4e55e68b922e17ff2e0d3534ec))
+
+
+
+
+
 ## [0.2.8](https://github.com/snomiao/js/compare/monopkgs@0.2.7...monopkgs@0.2.8) (2022-04-23)
 
 **Note:** Version bump only for package monopkgs

@@ -1,6 +1,6 @@
 {
   "name": "chrome-dev",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Launch puppeteer and open your page. npx chrome-dev http://localhost:3000",
   "keywords": [
     "cli",
@@ -20,7 +20,7 @@
   "scripts": {},
   "dependencies": {
     "arg": "^5.0.1",
-    "my-version": "^1.1.2",
+    "my-version": "^1.1.3",
     "puppeteer": "^13.5.2"
   },
   "publishConfig": {

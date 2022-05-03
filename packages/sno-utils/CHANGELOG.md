@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.17](https://github.com/snomiao/js/compare/sno-utils@0.3.16...sno-utils@1.3.17) (2022-05-03)
+
+**Note:** Version bump only for package sno-utils
+
+
+
+
+
 ## [0.3.16](https://github.com/snomiao/js/compare/sno-utils@0.3.15...sno-utils@0.3.16) (2022-04-23)
 
 **Note:** Version bump only for package sno-utils
