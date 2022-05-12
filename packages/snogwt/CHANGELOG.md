@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/snomiao/js/compare/snogwt@1.4.0...snogwt@1.4.1) (2022-05-12)
+
+**Note:** Version bump only for package snogwt
+
+
+
+
+
 # [1.4.0](https://github.com/snomiao/js/compare/snogwt@0.3.7...snogwt@1.4.0) (2022-05-03)
 
 ### Bug Fixes

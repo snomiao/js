@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.16](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.15...sno-mongo-ku@2.7.16) (2022-05-12)
+
+
+### Bug Fixes
+
+* update mongodb ([27c4d34](https://github.com/snomiao/js/commit/27c4d34049f05669ad1feac27f1dc57867274f16))
+
+
+
+
+
 ## [2.7.15](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.14...sno-mongo-ku@2.7.15) (2022-05-03)
 
 **Note:** Version bump only for package sno-mongo-ku
