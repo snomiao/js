@@ -1,0 +1,34 @@
+{
+  "name": "jsx-rename",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A git worktree helper",
+  "keywords": [
+    "cli",
+    "jsx",
+    "rename",
+    "vite"
+  ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/jsx-rename#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+jsx-rename"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/jsx-rename",
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
+  "main": "jsx-rename.mjs",
+  "bin": {
+    "jsx-rename": "jsx-rename.mjs"
+  },
+  "scripts": {
+    "eslint": "eslint"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "arg": "^5.0.1",
+    "eslint": "8.2.0",
+    "eslint-plugin-react": "7.28.0",
+    "exec-sh": "^0.4.0"
+  }
+}
