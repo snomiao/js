@@ -8,11 +8,11 @@
     "package",
     "monorepo"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/monopkgs#readme",
+  "homepage": "https://github.com/snomiao/js/tree/main/packages/monopkgs#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+monopkgs"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/monopkgs",
+  "repository": "https://github.com/snomiao/js/tree/main/packages/monopkgs",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "bin": {

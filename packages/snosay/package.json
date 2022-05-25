@@ -8,11 +8,11 @@
     "nodejs",
     "tts"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snosay#readme",
+  "homepage": "https://github.com/snomiao/js/tree/main/packages/snosay#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snosay"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snosay",
+  "repository": "https://github.com/snomiao/js/tree/main/packages/snosay",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "main": "./lib/say.js",

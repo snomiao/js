@@ -1,11 +1,11 @@
 {
   "name": "objtranspose",
   "version": "0.0.9",
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/objtranspose#readme",
+  "homepage": "https://github.com/snomiao/js/tree/main/packages/objtranspose#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+objtranspose"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/objtranspose",
+  "repository": "https://github.com/snomiao/js/tree/main/packages/objtranspose",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>"
 }

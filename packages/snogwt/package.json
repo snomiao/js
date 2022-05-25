@@ -8,11 +8,11 @@
     "nodejs",
     "worktree"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snogwt#readme",
+  "homepage": "https://github.com/snomiao/js/tree/main/packages/snogwt#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snogwt"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snogwt",
+  "repository": "https://github.com/snomiao/js/tree/main/packages/snogwt",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "main": "snogtree.mjs",

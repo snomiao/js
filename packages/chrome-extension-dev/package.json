@@ -7,11 +7,11 @@
     "chrome",
     "puppeteer"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/chrome-extension-dev#readme",
+  "homepage": "https://github.com/snomiao/js/tree/main/packages/chrome-extension-dev#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+chrome-extension-dev"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/chrome-extension-dev",
+  "repository": "https://github.com/snomiao/js/tree/main/packages/chrome-extension-dev",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "bin": {
