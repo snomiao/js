@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+import { exec } from "child_process";
 import { readFile, writeFile } from "fs/promises";
 import { globby } from "globby";
 import path, { relative, resolve } from "path";
+import { promisify } from "util";
 async function cli(rawArgv) {
   const rootPkg = resolve("./package.json");
   const root = JSON.parse(await readFile(rootPkg, "utf8"));
@@ -19,7 +21,8 @@ async function cli(rawArgv) {
   const pkgs = await globby("packages/**/package.json", { gitignore: true });
 
   // master will redirect to main rather than 404 if main is not existed in github.
-  const mainBranchName = "master";
+  const currentBranch = await (await promisify(exec)("git branch --show-current"))?.stdout.trim();
+  const mainBranchName = currentBranch || "master";
 
   const pkgParse = async (pkgPath) => {
     const pkgRelDir = relative(rootDir, path.parse(pkgPath).dir).replace(/\\/g, "/");
