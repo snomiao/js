@@ -1,0 +1,24 @@
+{
+  "name": "bothforage",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/bothforage#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+undefined"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/bothforage",
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
+  "exports": {
+    "require": "./lib/cjs/index.js",
+    "import": "./lib/esm/index.js"
+  },
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "scripts": {
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --extensions '.ts' --out-dir 'lib/cjs' --source-maps",
+    "build:esm": "cross-env BABEL_ENV=esmUnbundled babel src --extensions '.ts' --out-dir 'lib/esm' --source-maps"
+  },
+  "dependencies": {
+    "localforage": "^1.10.0",
+    "nodeforage": "^1.1.1"
+  }
+}
