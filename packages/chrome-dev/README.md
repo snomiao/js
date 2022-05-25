@@ -5,23 +5,30 @@ Launch puppeteer and open your pages with devtools.
 ## Usage
 
 ```shell
+
+# install
 npm i -g chrome-dev
 
-chrome-dev
+# or without install
+npx chrome-dev
+
 # launch chrome with empty page
+chrome-dev
 
-chrome-dev -e ./extension
 # laucnh chrome with ./extension loaded as extension
+chrome-dev -e ./extension
 
-chrome-dev -e ./extension https://example.com
 # same as above and open example.com in the first page
+chrome-dev -e ./extension https://example.com
 
-chrome-dev -p 3000
 # launch chrome and open http://localhost:3000
+chrome-dev -p 3000
 
-chrome-dev -v
 # show version
+chrome-dev -v
 
+# show help
+chrome-dev -h
 ```
 
 ## Author & License

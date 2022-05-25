@@ -15,7 +15,7 @@
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "bin": {
-    "chrome-dev": "cli.mjs"
+    "chrome-dev": "chrome-dev.mjs"
   },
   "scripts": {},
   "dependencies": {
