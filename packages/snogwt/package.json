@@ -15,9 +15,11 @@
   "repository": "https://github.com/snomiao/js/tree/master/packages/snogwt",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
-  "main": "snogwt.mjs",
+  "main": "snogtree.mjs",
   "bin": {
-    "snogwt": "snogwt.mjs"
+    "snogmerge": "snogmerge.mjs",
+    "snogtree": "snogtree.mjs",
+    "snogwt": "snogtree.mjs"
   },
   "dependencies": {
     "arg": "^5.0.1",

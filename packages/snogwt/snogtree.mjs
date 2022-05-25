@@ -3,7 +3,11 @@
 import arg from "arg";
 import execSh from "exec-sh";
 import { readFile, writeFile } from "fs/promises";
-import { parse, resolve } from "path";
+import { resolve } from "path";
+import { cwdRepoFind } from "./cwdRepoFind.mjs";
+import { tryCommands } from "./tryCommands.mjs";
+import { tryInstallPackages } from "./tryInstallPackages.mjs";
+import { versionShow } from "./versionShow.mjs";
 
 await cli(process.argv);
 
@@ -12,6 +16,7 @@ export async function cli(rawArgv) {
   // parse args
   const opts = {
     "--remove": Boolean,
+    "--force-remove": Boolean,
     "--list": Boolean,
     "--no-vscode": Boolean,
     "--version": Boolean,
@@ -38,7 +43,7 @@ export async function cli(rawArgv) {
   if (list) return await execSh.promise("git worktree list");
 
   // find repo dir and repo name
-  const { repodir, top, repodirname } = await repoFind();
+  const { repodir, top, repodirname } = await cwdRepoFind();
 
   // ensure root ignore /worktrees
   await ignoresUpdate(repodir);
@@ -60,7 +65,7 @@ export async function cli(rawArgv) {
         if (m) {
           const [, branch, worktree] = m;
           console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
-          return resolve(worktree);
+          return worktree; // resolve(worktree); dont' resolve it as it replaced / into \
         }
       }
       {
@@ -78,7 +83,21 @@ export async function cli(rawArgv) {
   // remove branch if requested
   if (remove) {
     console.log(`removeing ${checkoutPath}`);
-    return await execSh.promise(`git worktree remove ${checkoutPath}`);
+    await execSh.promise(`git worktree remove ${checkoutPath}`);
+    await execSh.promise(`git branch -d ${branch}`); // delete if fully merged
+    return;
+  }
+
+  // remove branch if requested
+  if (args["--force-remove"]) {
+    console.log(`removeing ${checkoutPath}`);
+    await tryCommands(
+      `git worktree remove ${checkoutPath} --force`,
+      `git branch -D ${branch}`,
+      `rm -rf ${checkoutPath}`,
+    );
+
+    return;
   }
 
   if (args["--no-vscode"]) return;
@@ -88,44 +107,16 @@ export async function cli(rawArgv) {
   // install packages
   await tryInstallPackages(checkoutPath);
 }
-
 async function ignoresUpdate(repodir) {
   // gitignore
   await updateIgnoreFile(repodir, ".gitignore", { create: true });
   await updateIgnoreFile(repodir, ".eslintignore", { create: false });
   await updateIgnoreFile(repodir, ".prettierignore", { create: false });
 }
-
 async function updateIgnoreFile(repodir, ignoreFileName, { create }) {
   const ignoreFile = resolve(`${repodir}/${ignoreFileName}`);
   const ignore = await readFile(ignoreFile, "utf-8").catch(() => null);
   if (ignore === null && !create);
   else if (!ignore?.match(/^\/worktrees$/im))
     await writeFile(ignoreFile, `${(ignore || "").trim()}\n/worktrees\n`);
-}
-
-async function repoFind() {
-  const top = await execSh
-    .promise("git rev-parse --show-toplevel", true)
-    .then((e) => e.stdout.trim());
-  if (!top) throw new Error("fail to get git rev-parse --show-toplevel");
-  const repodir = resolve(top); /* process.cwd() */
-  const repodirname = parse(repodir).name;
-  return { repodir, top, repodirname };
-}
-
-async function versionShow(js) {
-  const pkg = await readFile(resolve(parse(js).dir, "package.json"), "utf8").then(JSON.parse);
-  console.log(`v${pkg.version}`);
-  return;
-}
-
-async function tryInstallPackages(checkoutPath) {
-  if (0) {
-  } else if (`${checkoutPath}/pnpm-lock.yaml`)
-    await execSh.promise(`cd ${checkoutPath} && pnpm i`).catch(() => null);
-  else if (`${checkoutPath}/yarn.lock`)
-    await execSh.promise(`cd ${checkoutPath} && yarn`).catch(() => null);
-  else if (`${checkoutPath}/package-lock.json`)
-    await execSh.promise(`cd ${checkoutPath} && npm instasll`).catch(() => null);
 }
