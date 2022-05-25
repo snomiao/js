@@ -13,7 +13,7 @@
   "repository": "https://github.com/snomiao/js/tree/main/packages/junction-move",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
-  "main": "cli.js",
+  "main": "index.mjs",
   "bin": "cli.js",
   "dependencies": {
     "yargs": "^16.0.3"
