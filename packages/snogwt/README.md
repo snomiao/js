@@ -2,7 +2,7 @@
 
 a simple git worktree helper that checkout your branch into repo/worktrees/branch@repo/
 
-Examples:
+## Examples:
 
 ```shell
 
