@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "module": "commonjs",
+    "outDir": "lib",
+    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src"]
+}

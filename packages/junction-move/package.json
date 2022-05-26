@@ -13,10 +13,21 @@
   "repository": "https://github.com/snomiao/js/tree/main/packages/junction-move",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
-  "main": "index.mjs",
-  "bin": "cli.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "bin": {
+    "junction-move": "./cli.mjs"
+  },
+  "scripts": {
+    "build": "tsc && node esbuild.mjs"
+  },
   "dependencies": {
-    "yargs": "^16.0.3"
+    "execa": "^6.1.0",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.10",
+    "esbuild": "^0.14.39"
   },
   "publishConfig": {
     "access": "public"
