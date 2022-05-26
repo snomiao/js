@@ -19,11 +19,13 @@
   "author": "snomiao <snomiao@gmail.com>",
   "bin": "cli.mjs",
   "scripts": {
-    "postversion": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w"
+    "postversion": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w",
+    "build": "tsc && node esbuild.mjs"
   },
   "dependencies": {
     "arg": "^5.0.1",
-    "escape-string-regexp": "^5.0.0"
+    "escape-string-regexp": "^5.0.0",
+    "yargs": "^17.5.1"
   },
   "publishConfig": {
     "access": "public"
