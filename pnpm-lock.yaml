@@ -112,9 +112,11 @@ importers:
     specifiers:
       arg: ^5.0.1
       escape-string-regexp: ^5.0.0
+      yargs: ^17.5.1
     dependencies:
       arg: 5.0.1
       escape-string-regexp: 5.0.0
+      yargs: 17.5.1
 
   packages/monopkgs:
     specifiers:
