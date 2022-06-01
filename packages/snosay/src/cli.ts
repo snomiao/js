@@ -2,7 +2,7 @@ import arg from "arg";
 import { resolve } from "path";
 import { stdin, stdout } from "process";
 import * as readline from "readline";
-import { exportFile, getInstalledVoices, speak } from "./say";
+import { exportFile, getInstalledVoices, speak } from ".";
 
 function parseArgumentsIntoOptions(rawArgs: string[]) {
   const opts = {

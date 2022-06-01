@@ -50,7 +50,7 @@ import { speak } from "snosay";
 await speak("test passed", undefined, 2);
 ```
 
-## Declares
+## API
 
 ```ts
 export declare const speak: (

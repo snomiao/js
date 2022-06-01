@@ -15,10 +15,18 @@
   "repository": "https://github.com/snomiao/js/tree/main/packages/snosay",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
-  "main": "./lib/say.js",
-  "types": "./lib/say.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js"
+    }
+  },
+  "main": "./lib/index.cjs",
+  "module": "lib/index.js",
+  "types": "./lib/index.d.ts",
   "bin": {
-    "snosay": "bin/say.cjs"
+    "snosay": "lib/cli.js"
   },
   "directories": {
     "lib": "./lib"
@@ -28,7 +36,7 @@
     "bin/**"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "snobuild",
     "prepack": "npm run build"
   },
   "dependencies": {
@@ -38,6 +46,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.23",
+    "snobuild": "^1.0.0",
     "typescript": "^4.6.3"
   },
   "publishConfig": {
