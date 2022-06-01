@@ -1,0 +1,43 @@
+{
+  "name": "snorun",
+  "version": "1.0.1",
+  "description": "Run & interact with shell command like in node without pain.",
+  "keywords": [
+    "async",
+    "exec",
+    "child_process",
+    "shell",
+    "cmd",
+    "spawn"
+  ],
+  "homepage": "https://github.com/snomiao/js/tree/main/packages/snorun#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snorun"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snomiao/js.git#main"
+  },
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js"
+    }
+  },
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "snobuild",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
