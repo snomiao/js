@@ -17,7 +17,7 @@ export function 表压平(结构: object): object {
       表对列,
       列映(([键, 值]) => {
         if (typeof 值 === "object" && 值.toString() === "[object Object]") {
-          return Object.entries(表压平(值)).map(([子键, 值]) => [键 + "." + 子键, 值]);
+          return Object.entries(表压平(值)).map(([子键, 值]) => [`${键}.${子键}`, 值]);
         }
         return [[键, 值]];
       }),
