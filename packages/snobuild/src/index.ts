@@ -83,33 +83,34 @@ export default async function snobuild({
   const esmEntrypoints = { ...baseOptions.entryPoints, ...(cliExisted && { cli: "src/cli.ts" }) };
   const tscWatchFlag = watch ? " --watch" : "";
   const results = await Promise.all([
-    tsconfigExisted
-      ? snorun(["tsc", tscWatchFlag].join(" "), { echo: true })
-      : snorun(
-          [
-            "tsc",
-            "--allowSyntheticDefaultImports --downlevelIteration",
-            "--resolveJsonModule",
-            "--skipLibCheck",
-            "--emitDeclarationOnly -d",
-            "--outDir lib",
-            tscWatchFlag,
-            "src/index.ts",
-          ].join(" "),
-          { echo: true },
-        ),
+    snorun(
+      [
+        "tsc",
+        "--allowSyntheticDefaultImports --downlevelIteration",
+        "--resolveJsonModule",
+        "--skipLibCheck",
+        "--emitDeclarationOnly -d",
+        "--outDir lib",
+        tscWatchFlag,
+        "src/index.ts",
+      ].join(" "),
+      { echo: true },
+    ),
     await esbuild.build({
       ...baseOptions,
       entryPoints: esmEntrypoints,
       format: "esm",
     }),
-    pkg.main &&
+    (pkg.main &&
       (await esbuild.build({
         ...baseOptions,
         format: "cjs",
         outExtension: { ".js": ".cjs" },
-      })),
+      }))) ||
+      true,
   ]);
+
   console.log(results);
-  console.log("build done");
+  if (!results.every((e) => e)) process.exit(1);
+  console.log("build ok");
 }
