@@ -14,8 +14,9 @@ import { exec, execSync } from "child_process";
  * @returns true if cmd's exit code=0, otherwise return false
  * @author: snomiao <snomiao@gmail.com>
  */
-export default function snorun(cmd: string, {} = {}) {
+export default function snorun(cmd: string, { echo = false } = {}) {
   const { promise, resolve } = usePromise();
+  if (echo) console.log(cmd);
   const p = exec(cmd, (error, stdout, stderr) => (error ? resolve(false) : resolve(true)));
   p.stdout.pipe(process.stdout);
   p.stderr.pipe(process.stderr);
