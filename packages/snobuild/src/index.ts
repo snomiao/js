@@ -84,23 +84,41 @@ export default async function snobuild({
   const tscWatchFlag = watch ? " --watch" : "";
   const results = await Promise.all([
     tsconfigExisted
-      ? snorun(["tsc", tscWatchFlag].join(" "), { echo: true })
-      : snorun(
-          [
-            "tsc",
-            "--allowSyntheticDefaultImports --downlevelIteration",
-            "--resolveJsonModule",
-            "-m esnext",
-            "-t esnext",
-            "--moduleResolution node",
-            "--skipLibCheck",
-            "--emitDeclarationOnly -d",
-            "--outDir lib",
-            tscWatchFlag,
-            "src/index.ts",
-          ].join(" "),
-          { echo: true },
-        ),
+      ? snorun(["tsc", tscWatchFlag].join(" "))
+      : [
+          indexExisted &&
+            snorun(
+              [
+                "tsc",
+                "--allowSyntheticDefaultImports --downlevelIteration",
+                "--resolveJsonModule",
+                "-m ESNext",
+                "-t ESNext",
+                "--moduleResolution node",
+                "--skipLibCheck",
+                "--emitDeclarationOnly -d",
+                "--outDir lib",
+                tscWatchFlag,
+                "src/index.ts",
+              ].join(" "),
+            ),
+          cliExisted &&
+            snorun(
+              [
+                "tsc",
+                "--allowSyntheticDefaultImports --downlevelIteration",
+                "--resolveJsonModule",
+                "-m ESNext",
+                "-t ESNext",
+                "--moduleResolution node",
+                "--skipLibCheck",
+                "--emitDeclarationOnly -d",
+                "--outDir lib",
+                tscWatchFlag,
+                "src/cil.ts",
+              ].join(" "),
+            ),
+        ],
     await esbuild.build({
       ...baseOptions,
       entryPoints: esmEntrypoints,

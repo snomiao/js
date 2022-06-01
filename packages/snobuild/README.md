@@ -18,7 +18,7 @@ npx snobuild -h
   - [x] fill entry points into `package.json` use `--init` option
 - [x] watch mode
 - [x] minify & sourcemaps control
-- [x] you don't even need an `tsconfig.json`, we configured everything into `ESNext`, and compile everything from `src` into `lib`.
+- [x] you don't even need an `tsconfig.json` if your project is simple enough, we configured everything into `ESNext`, and compile everything from `src` into `lib`.
 
 ## input & output
 
