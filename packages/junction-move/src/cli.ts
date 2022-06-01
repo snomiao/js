@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import yargs from "ýargs";
 import { hideBin } from "ýargs/helper";
 import main from "./index.js";
