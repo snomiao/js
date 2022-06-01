@@ -1,6 +1,6 @@
 {
   "name": "snorun",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Run & interact with shell command like in node without pain.",
   "keywords": [
     "async",
@@ -35,6 +35,10 @@
   ],
   "scripts": {
     "build": "snobuild",
+    "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "snobuild": "^1.0.0"
   }
 }

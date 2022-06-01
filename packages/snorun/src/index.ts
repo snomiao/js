@@ -14,8 +14,8 @@ import { exec } from "child_process";
  * @returns true if cmd's exit code=0, otherwise return false
  * @author: snomiao <snomiao@gmail.com>
  */
-export default function snorun(cmd: string, { echo = false, echoPrefix = "> " } = {}) {
-  const { promise, resolve } = usePromise();
+export default function snorun(cmd: string, { echo = true, echoPrefix = "> " } = {}) {
+  const { promise, resolve } = usePromise<boolean>();
   if (echo) console.log((echoPrefix || "") + cmd);
   const p = exec(cmd, (error, stdout, stderr) => (error ? resolve(false) : resolve(true)));
   process.stdin.pipe(p.stdin);
@@ -23,7 +23,6 @@ export default function snorun(cmd: string, { echo = false, echoPrefix = "> " } 
   p.stderr.pipe(process.stderr);
   return promise;
 }
-
 function usePromise<T>() {
   const s: any = {};
   s.promise = new Promise((resolve, reject) => Object.assign(s, { resolve, reject }));
