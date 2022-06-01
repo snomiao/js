@@ -10,8 +10,8 @@
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "exports": {
-    "require": "lib/index.cjs",
-    "import": "lib/index.js"
+    "require": "./lib/index.cjs",
+    "import": "./lib/index.js"
   },
   "main": "lib/index.cjs",
   "module": "lib/index.js",
