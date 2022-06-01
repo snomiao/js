@@ -154,7 +154,7 @@ const _合集增强表 = (合集: mongodb.Collection) => ({
     ) => Promise<UpdateFilter<any> | void> | UpdateFilter<any> | void,
     { 并行数 = 1, 止于错 = true, 错误输出 = true } = {},
   ) => {
-    let index = 0;
+    let i = 0;
     const q = new PQueue({ concurrency: 并行数 });
     const 错误列 = [];
     for await (const doc of 合集.aggregate(pipeline)) {
@@ -162,7 +162,7 @@ const _合集增强表 = (合集: mongodb.Collection) => ({
       await q.onEmpty();
       q.add(async () => {
         try {
-          const UpdateFilter = await 更新函数(doc, index);
+          const UpdateFilter = await 更新函数(doc, i);
           UpdateFilter &&
             (await 合集.updateOne({ _id: doc._id }, UpdateFilter).catch((e) => {
               throw new Error(
@@ -177,14 +177,14 @@ const _合集增强表 = (合集: mongodb.Collection) => ({
           else 错误列.push(err);
         }
       });
-      index++;
+      i++;
     }
     await q.onIdle();
     if (错误列.length) {
       错误输出 && console.error(错误列);
-      throw AggregateError(错误列);
+      throw Error(错误列.join("\n"));
     }
-    return index;
+    return i;
   },
   /**
    * 英文写法的并行聚合更新，常用于合集扫描操作，
@@ -228,12 +228,12 @@ const _合集增强表 = (合集: mongodb.Collection) => ({
     await q.onIdle();
     if (错误列.length) {
       showErrors && console.error(错误列);
-      throw AggregateError(错误列);
+      throw Error(错误列.join("\n"));
     }
     return index;
   },
   /**
-   * @deprecated
+   * @deprecated use 并行聚合更新
    */
   并行各改: async (
     func: (
@@ -285,7 +285,7 @@ const _合集增强表 = (合集: mongodb.Collection) => ({
     await q.onIdle();
     if (错误列.length) {
       错误输出 && console.error(错误列);
-      throw AggregateError(错误列);
+      throw Error(错误列.join("\n"));
     }
     return index;
   },
