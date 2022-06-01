@@ -1,10 +1,10 @@
 {
   "name": "snobuild",
   "version": "1.0.0",
-  "private": true,
-  "description": "esbuild output cjs and esm",
+  "description": "Easy way to use esbuild.",
   "keywords": [
-    "cli"
+    "cli",
+    "esbuild"
   ],
   "homepage": "https://github.com/snomiao/js/tree/main/packages/snobuild#readme",
   "bugs": {
@@ -20,6 +20,7 @@
   },
   "main": "lib/index.cjs",
   "module": "lib/index.js",
+  "types": "./lib/index.d.ts",
   "bin": {
     "snobuild": "lib/cli.js"
   },
@@ -30,13 +31,14 @@
     "lib"
   ],
   "scripts": {
-    "boot": "esbuild src/cli.ts --platform=node --outdir=lib --bundle --format=esm --external:esbuild --external:yargs --external:sort-package-json",
+    "boot": "esbuild src/cli.ts --platform=node --outdir=lib --bundle --format=esm --external:esbuild --external:yargs --external:sort-package-json --external:snorun",
     "build": "snobuild"
   },
   "dependencies": {
-    "snorun": "^1.0.0",
     "esbuild": "^0.14.39",
+    "snorun": "^1.0.0",
     "sort-package-json": "^1.57.0",
     "yargs": "^17.5.1"
-  }
+  },
+  "devDependencies": {}
 }

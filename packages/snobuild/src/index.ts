@@ -84,18 +84,19 @@ export default async function snobuild({
   const tscWatchFlag = watch ? " --watch" : "";
   const results = await Promise.all([
     tsconfigExisted
-      ? snorun(["tsc", tscWatchFlag].join(" "))
+      ? snorun(["tsc", tscWatchFlag].join(" "), { echo: true })
       : snorun(
           [
             "tsc",
             "--allowSyntheticDefaultImports --downlevelIteration",
             "--resolveJsonModule",
             "--skipLibCheck",
-            "--emitDeclarationOnly -d --outDir lib",
-
+            "--emitDeclarationOnly -d",
+            "--outDir lib",
             tscWatchFlag,
             "src/index.ts",
           ].join(" "),
+          { echo: true },
         ),
     await esbuild.build({
       ...baseOptions,
