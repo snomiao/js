@@ -55,19 +55,26 @@ importers:
     specifiers:
       localforage: ^1.10.0
       nodeforage: ^1.1.1
+      snobuild: ^1.0.0
     dependencies:
       localforage: 1.10.0
       nodeforage: 1.1.1
+    devDependencies:
+      snobuild: link:../snobuild
 
   packages/chrome-dev:
     specifiers:
       arg: ^5.0.1
+      dotenv: ^14.2.0
       my-version: ^1.1.4
       puppeteer: ^13.5.2
+      yargs: ^17.5.1
     dependencies:
       arg: 5.0.1
+      dotenv: 14.3.2
       my-version: link:../my-version
       puppeteer: 13.6.0
+      yargs: 17.5.1
 
   packages/chrome-extension-dev:
     specifiers:
@@ -97,26 +104,27 @@ importers:
 
   packages/junction-move:
     specifiers:
-      '@types/yargs': ^17.0.10
-      esbuild: ^0.14.39
       execa: ^6.1.0
+      snobuild: ^1.0.0
+      snorun: ^1.0.0
       yargs: ^17.5.1
     dependencies:
       execa: 6.1.0
+      snorun: link:../snorun
       yargs: 17.5.1
     devDependencies:
-      '@types/yargs': 17.0.10
-      esbuild: 0.14.39
+      snobuild: link:../snobuild
 
   packages/md-aggregate:
     specifiers:
-      arg: ^5.0.1
       escape-string-regexp: ^5.0.0
+      snobuild: workspace:^1.0.0
       yargs: ^17.5.1
     dependencies:
-      arg: 5.0.1
       escape-string-regexp: 5.0.0
       yargs: 17.5.1
+    devDependencies:
+      snobuild: link:../snobuild
 
   packages/monopkgs:
     specifiers:
@@ -218,6 +226,18 @@ importers:
       tslib: 2.3.1
       typescript: 4.6.3
 
+  packages/snobuild:
+    specifiers:
+      esbuild: ^0.14.39
+      snorun: ^1.0.0
+      sort-package-json: ^1.57.0
+      yargs: ^17.5.1
+    dependencies:
+      esbuild: 0.14.39
+      snorun: link:../snorun
+      sort-package-json: 1.57.0
+      yargs: 17.5.1
+
   packages/snogwt:
     specifiers:
       arg: ^5.0.1
@@ -226,19 +246,26 @@ importers:
       arg: 5.0.1
       exec-sh: 0.4.0
 
+  packages/snorun:
+    specifiers: {}
+
   packages/snosay:
     specifiers:
       '@types/node': ^17.0.23
       arg: ^5.0.1
       esm: ^3.2.25
       say: ^0.16.0
+      snobuild: ^1.0.0
       typescript: ^4.6.3
+      yargs: ^17.5.1
     dependencies:
       arg: 5.0.1
       esm: 3.2.25
       say: 0.16.0
+      yargs: 17.5.1
     devDependencies:
       '@types/node': 17.0.23
+      snobuild: link:../snobuild
       typescript: 4.6.3
 
 packages:
@@ -2646,7 +2673,6 @@ packages:
     dependencies:
       '@types/minimatch': 3.0.5
       '@types/node': 17.0.23
-    dev: true
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
@@ -2657,7 +2683,6 @@ packages:
 
   /@types/minimatch/3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
-    dev: true
 
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
@@ -2687,16 +2712,6 @@ packages:
       '@types/node': 17.0.23
       '@types/webidl-conversions': 6.1.1
     dev: false
-
-  /@types/yargs-parser/21.0.0:
-    resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
-    dev: true
-
-  /@types/yargs/17.0.10:
-    resolution: {integrity: sha512-gmEaFwpj/7f/ROdtIlci1R1VYU1J4j95m8T+Tj3iBgiBFKg1foE/PSl93bBd5T9LDXNPo8UlNN6W0qwD8O5OaA==}
-    dependencies:
-      '@types/yargs-parser': 21.0.0
-    dev: true
 
   /@types/yauzl/2.10.0:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
@@ -3953,12 +3968,10 @@ packages:
   /detect-indent/6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
     engines: {node: '>=8'}
-    dev: true
 
   /detect-newline/3.1.0:
     resolution: {integrity: sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==}
     engines: {node: '>=8'}
-    dev: true
 
   /devtools-protocol/0.0.981744:
     resolution: {integrity: sha512-0cuGS8+jhR67Fy7qG3i3Pc7Aw494sb9yG9QgpG97SFVWwolgYjlhJg7n+UaHxOQT30d1TYu/EYe9k01ivLErIg==}
@@ -4016,7 +4029,6 @@ packages:
   /dotenv/14.3.2:
     resolution: {integrity: sha512-vwEppIphpFdvaMCaHfCEv9IgwcxMljMw2TnAQBB4VWPvzXQLTb82jwmdOKzlEVUL3gNFT4l4TPKO+Bn+sqcrVQ==}
     engines: {node: '>=12'}
-    dev: true
 
   /dotgitignore/2.1.0:
     resolution: {integrity: sha512-sCm11ak2oY6DglEPpCB8TixLjWAxd3kJTs6UIcSasNYxXdFPV+YKlye92c8H4kKFqV5qYMIh7d+cYecEg0dIkA==}
@@ -4135,7 +4147,7 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-android-arm64/0.14.39:
@@ -4144,7 +4156,7 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-darwin-64/0.14.39:
@@ -4153,7 +4165,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-darwin-arm64/0.14.39:
@@ -4162,7 +4174,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-freebsd-64/0.14.39:
@@ -4171,7 +4183,7 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-freebsd-arm64/0.14.39:
@@ -4180,7 +4192,7 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-32/0.14.39:
@@ -4189,7 +4201,7 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-64/0.14.39:
@@ -4198,7 +4210,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-arm/0.14.39:
@@ -4207,7 +4219,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-arm64/0.14.39:
@@ -4216,7 +4228,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-mips64le/0.14.39:
@@ -4225,7 +4237,7 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-ppc64le/0.14.39:
@@ -4234,7 +4246,7 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-riscv64/0.14.39:
@@ -4243,7 +4255,7 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-linux-s390x/0.14.39:
@@ -4252,7 +4264,7 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-netbsd-64/0.14.39:
@@ -4261,7 +4273,7 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-openbsd-64/0.14.39:
@@ -4270,7 +4282,7 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-sunos-64/0.14.39:
@@ -4279,7 +4291,7 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-windows-32/0.14.39:
@@ -4288,7 +4300,7 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-windows-64/0.14.39:
@@ -4297,7 +4309,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild-windows-arm64/0.14.39:
@@ -4306,7 +4318,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: true
+    dev: false
     optional: true
 
   /esbuild/0.14.39:
@@ -4335,7 +4347,7 @@ packages:
       esbuild-windows-32: 0.14.39
       esbuild-windows-64: 0.14.39
       esbuild-windows-arm64: 0.14.39
-    dev: true
+    dev: false
 
   /escalade/3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
@@ -4968,7 +4980,6 @@ packages:
 
   /git-hooks-list/1.0.3:
     resolution: {integrity: sha512-Y7wLWcrLUXwk2noSka166byGCvhMtDRpgHdzCno1UQv/n/Hegp++a2xBWJL1lJarnKD3SWaljD+0z1ztqxuKyQ==}
-    dev: true
 
   /git-raw-commits/2.0.11:
     resolution: {integrity: sha512-VnctFhw+xfj8Va1xtfEqCUD2XDrbAPSJx+hSrE5K7fGdjZruW7XV+QOrN7LF/RJyvspRiD2I0asWsxFp0ya26A==}
@@ -5089,7 +5100,6 @@ packages:
       ignore: 5.2.0
       merge2: 1.4.1
       slash: 3.0.0
-    dev: true
 
   /globby/11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
@@ -5527,7 +5537,6 @@ packages:
   /is-plain-obj/2.1.0:
     resolution: {integrity: sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==}
     engines: {node: '>=8'}
-    dev: true
 
   /is-plain-object/2.0.4:
     resolution: {integrity: sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==}
@@ -7798,7 +7807,6 @@ packages:
 
   /sort-object-keys/1.1.3:
     resolution: {integrity: sha512-855pvK+VkU7PaKYPc+Jjnmt4EzejQHyhhF33q31qG8x7maDzkeFhAAThdCYay11CISO+qAMwjOBP+fPZe0IPyg==}
-    dev: true
 
   /sort-package-json/1.55.0:
     resolution: {integrity: sha512-xhKvRD8WGbALjXQkVuk4/93Z/2NIO+5IzKamdMjN5kn3L+N+M9YWQssmM6GXlQr9v1F7PGWsOJEo1gvXOhM7Mg==}
@@ -7811,6 +7819,18 @@ packages:
       is-plain-obj: 2.1.0
       sort-object-keys: 1.1.3
     dev: true
+
+  /sort-package-json/1.57.0:
+    resolution: {integrity: sha512-FYsjYn2dHTRb41wqnv+uEqCUvBpK3jZcTp9rbz2qDTmel7Pmdtf+i2rLaaPMRZeSVM60V3Se31GyWFpmKs4Q5Q==}
+    hasBin: true
+    dependencies:
+      detect-indent: 6.1.0
+      detect-newline: 3.1.0
+      git-hooks-list: 1.0.3
+      globby: 10.0.0
+      is-plain-obj: 2.1.0
+      sort-object-keys: 1.1.3
+    dev: false
 
   /source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
