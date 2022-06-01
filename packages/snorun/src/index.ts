@@ -1,4 +1,4 @@
-import { exec, execSync } from "child_process";
+import { exec } from "child_process";
 /**
  * @description Exec condition chain like in shell.
  *  Run command as child process and adapt stdio into main process, snorun('echo hello')
@@ -14,18 +14,16 @@ import { exec, execSync } from "child_process";
  * @returns true if cmd's exit code=0, otherwise return false
  * @author: snomiao <snomiao@gmail.com>
  */
-export default function snorun(cmd: string, { echo = false } = {}) {
+export default function snorun(cmd: string, { echo = false, echoPrefix = "> " } = {}) {
   const { promise, resolve } = usePromise();
-  if (echo) console.log(cmd);
+  if (echo) console.log((echoPrefix || "") + cmd);
   const p = exec(cmd, (error, stdout, stderr) => (error ? resolve(false) : resolve(true)));
+  process.stdin.pipe(p.stdin);
   p.stdout.pipe(process.stdout);
   p.stderr.pipe(process.stderr);
-  process.stdin.pipe(p.stdin);
   return promise;
 }
-export function snorunSync(cmd: string) {
-  execSync(cmd);
-}
+
 function usePromise<T>() {
   const s: any = {};
   s.promise = new Promise((resolve, reject) => Object.assign(s, { resolve, reject }));
