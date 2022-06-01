@@ -1,18 +1,13 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationMap": true,
-    "isolatedModules": true,
-    "module": "esnext",
+    "lib": ["ESNext", "ES2019", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "outDir": "lib/",
-    "removeComments": true,
     "rootDir": "src/",
-    "sourceMap": true,
-    "target": "esnext",
-    "strict": true,
-    "esModuleInterop": true,
+    "target": "ESNext",
     "moduleResolution": "node",
-    "declarationDir": "dist/",
+    "declarationDir": "lib/",
     "emitDeclarationOnly": true
   }
 }
