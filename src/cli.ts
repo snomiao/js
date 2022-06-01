@@ -11,10 +11,8 @@ const argv = await yargs(hideBin(process.argv))
   .boolean("write")
   .alias("w", "write")
   .describe("w", "write mode (when missing you will get preview in console)")
-  .demand(2)
-  .help()
+  .demandCommand(2)
   .alias("h", "help")
-  .version()
   .alias("v", "version").argv;
 
 const [dstPath, ...srcs] = argv._.reverse();
