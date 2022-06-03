@@ -4,7 +4,16 @@ import { readFile, writeFile } from "fs/promises";
 import { globby } from "globby";
 import path, { relative, resolve } from "path";
 import { promisify } from "util";
-async function cli(rawArgv) {
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+
+const argv = await yargs(hideBin(process.argv))
+  .scriptName("monopkgs")
+  .alias("h", "help")
+  .alias("v", "version").argv;
+
+await cli(argv);
+async function cli({} = {}) {
   const rootPkg = resolve("./package.json");
   const root = JSON.parse(await readFile(rootPkg, "utf8"));
   const rootDir = path.parse(rootPkg).dir;
@@ -50,5 +59,3 @@ async function cli(rawArgv) {
   };
   await Promise.all(pkgs.map(pkgParse));
 }
-
-await cli(process.argv);

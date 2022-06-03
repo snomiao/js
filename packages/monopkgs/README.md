@@ -27,7 +27,7 @@ cd $monorepo && npx monopkgs
   - [ ] overwrite or keep existed files
 - [x] respect .gitignores
 
-PR's welcome.
+## PR's welcome.
 
 ## Author
 

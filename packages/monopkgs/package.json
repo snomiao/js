@@ -15,15 +15,17 @@
   "repository": "https://github.com/snomiao/js/tree/main/packages/monopkgs",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
+  "type": "module",
   "bin": {
-    "monopkgs": "monopkgs.mjs"
+    "monopkgs": "lib/cli.js"
   },
   "dependencies": {
     "arg": "^5.0.1",
     "glob": "^8.0.1",
-    "globby": "^13.1.1"
+    "globby": "^13.1.1",
+    "yargs": "^17.5.1"
   },
-  "publishConfig": {
-    "access": "public"
+  "devDependencies": {
+    "@types/yargs": "^17.0.10"
   }
 }
