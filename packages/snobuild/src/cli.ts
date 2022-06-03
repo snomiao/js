@@ -11,7 +11,7 @@ const argv = await yargs(hideBin(process.argv))
   .alias("v", "version")
   .alias("p", "prod")
   .scriptName("snobuild")
-  .usage("snobuild")
+  .usage("$0 [OPTION]... [INPUT]... ")
   .help()
   .version()
   //
@@ -32,4 +32,4 @@ const argv = await yargs(hideBin(process.argv))
   .describe("watch", "watch mode")
   //
   .strict().argv;
-await snobuild(argv);
+await snobuild({ ...argv, inputs: argv._.map(String) });

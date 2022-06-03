@@ -10,54 +10,18 @@ import { promisify } from "util";
  */
 export default async function snobuild({
   outdir = "lib",
+  inputs = [] as string[],
   init = false,
   prod = false,
   watch = false,
+  esbuildOptions = null as esbuild.BuildOptions,
 } = {}) {
   const indexExisted = Boolean(await stat("src/index.ts").catch(() => null));
   const cliExisted = Boolean(await stat("src/cli.ts").catch(() => null));
   const tsconfigExisted = Boolean(await stat("tsconfig.json").catch(() => null));
   const pkgPath = "./package.json";
-  if (init) {
-    const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
-    const pkgConfed = {
-      ...(indexExisted && {
-        type: "module",
-        types: "./lib/index.d.ts",
-        main: "lib/index.cjs",
-        module: "lib/index.js",
-      }),
-      ...(cliExisted && {
-        bin: "lib/cli.js",
-        keywords: ["cli"],
-      }),
-      files: ["lib"],
-      ...pkg,
-      scripts: {
-        build: "snobuild",
-        ...pkg.scripts,
-      },
-      exports: {
-        ...(indexExisted && {
-          ".": {
-            require: "./lib/index.cjs",
-            import: "./lib/index.js",
-          },
-        }),
-        ...pkg.exports,
-      },
-    };
-    await writeFile(pkgPath, JSON.stringify(sortPackageJson(pkgConfed), null, 2));
-    await promisify(exec)("npm init -y");
-    // await promisify(exec)("pnpx -y -- sort-package-json");
-    console.log("init done");
-  }
-
+  if (init) await packageInit(pkgPath, indexExisted, cliExisted);
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
-
-  // const esmEntry = pkg.exports.module?.replace(outdir, 'src');
-  // const cjsEntry = pkg.exports.main?.replace(outdir, 'src');
-
   const baseOptions: esbuild.BuildOptions = {
     entryPoints: {
       ...(indexExisted && { index: "src/index.ts" }),
@@ -79,46 +43,25 @@ export default async function snobuild({
     logLevel: "info",
     watch,
     incremental: watch,
+    ...esbuildOptions,
   };
-  const esmEntrypoints = { ...baseOptions.entryPoints, ...(cliExisted && { cli: "src/cli.ts" }) };
+  const esmEntrypoints = {
+    ...baseOptions.entryPoints,
+    ...(cliExisted && { cli: "src/cli.ts" }),
+  };
   const tscWatchFlag = watch ? " --watch" : "";
+  const tscBuildOptions = [
+    "--allowSyntheticDefaultImports --downlevelIteration",
+    "--resolveJsonModule",
+    "-m ESNext",
+    "-t ESNext",
+    "--moduleResolution node",
+    "--skipLibCheck",
+    "--emitDeclarationOnly -d",
+    "--outDir lib",
+    tscWatchFlag,
+  ].filter((e) => e);
   const results = await Promise.all([
-    tsconfigExisted
-      ? snorun(["tsc", tscWatchFlag].join(" "))
-      : [
-          indexExisted &&
-            snorun(
-              [
-                "tsc",
-                "--allowSyntheticDefaultImports --downlevelIteration",
-                "--resolveJsonModule",
-                "-m ESNext",
-                "-t ESNext",
-                "--moduleResolution node",
-                "--skipLibCheck",
-                "--emitDeclarationOnly -d",
-                "--outDir lib",
-                tscWatchFlag,
-                "src/index.ts",
-              ].join(" "),
-            ),
-          cliExisted &&
-            snorun(
-              [
-                "tsc",
-                "--allowSyntheticDefaultImports --downlevelIteration",
-                "--resolveJsonModule",
-                "-m ESNext",
-                "-t ESNext",
-                "--moduleResolution node",
-                "--skipLibCheck",
-                "--emitDeclarationOnly -d",
-                "--outDir lib",
-                tscWatchFlag,
-                "src/cil.ts",
-              ].join(" "),
-            ),
-        ],
     await esbuild.build({
       ...baseOptions,
       entryPoints: esmEntrypoints,
@@ -131,9 +74,55 @@ export default async function snobuild({
         outExtension: { ".js": ".cjs" },
       }))) ||
       true,
+    ...(tsconfigExisted
+      ? [snorun(["tsc", tscWatchFlag].join(" "))]
+      : [
+          indexExisted && snorun(["tsc", ...tscBuildOptions, "src/index.ts"].join(" ")),
+          // cliExisted && snorun(["tsc", ...tscBuildOptions, "src/cil.ts"].join(" ")),
+        ]),
   ]);
 
   console.log(results);
   if (!results.every((e) => e)) process.exit(1);
   console.log("build ok");
+}
+async function packageInit(pkgPath: string, indexExisted: boolean, cliExisted: boolean) {
+  const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
+  const pkgConfed = {
+    ...(indexExisted && {
+      type: "module",
+      types: "./lib/index.d.ts",
+      ...(!pkg.exports && { main: "lib/index.cjs" }),
+      module: "lib/index.js",
+    }),
+    ...(cliExisted && {
+      bin: "lib/cli.js",
+      keywords: ["cli"],
+    }),
+    files: ["lib"],
+    ...pkg,
+    scripts: {
+      build: "snobuild",
+      ...pkg.scripts,
+    },
+    exports: {
+      ...(indexExisted &&
+        !pkg.exports && {
+          ".": {
+            require: "./lib/index.cjs",
+            import: "./lib/index.js",
+          },
+        }),
+      ...pkg.exports,
+    },
+  };
+  const outPkg = sortPackageJson(pkgConfed);
+  const outPkgJSONString = JSON.stringify(outPkg, null, 2);
+  await writeFile(pkgPath, outPkgJSONString);
+  await promisify(exec)("npm init -y");
+
+  console.log("init done");
+}
+export function snobuildConfig(...args: Parameters<typeof snobuild>) {
+  return args;
 }
