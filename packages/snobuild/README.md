@@ -4,11 +4,13 @@ zero-configured esbuilder
 
 ## Usage
 
+```shell
 npx snobuild -h
+```
 
 ## Feat
 
-- [x] zero-configured node-platform module build
+- [x] Zero-configured node-platform module build
 - [x] Automatically build you project into multiple modules
   - [x] cli (`lib/cli.js`)
   - [x] CommonJS module (`lib/index.mjs`)
@@ -19,6 +21,7 @@ npx snobuild -h
 - [x] watch mode
 - [x] minify & sourcemaps control
 - [x] you don't even need an `tsconfig.json` if your project is simple enough, we configured everything into `ESNext`, and compile everything from `src` into `lib`.
+- [ ] TODO: support React projects
 
 ## input & output
 
