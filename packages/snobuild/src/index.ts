@@ -32,13 +32,16 @@ export default async function snobuild({
     outdir,
     bundle: true,
     external: [
-      "./node_modules/*", // pkg it self
-      "../node_modules/*",
-      "../../node_modules/*", // monorepo pkg
-      "../../../node_modules/*", // scoped monorepo pkg
-      "../../../../node_modules/*",
-      "../../../../../node_modules/*",
-      "../../../../../../node_modules/*",
+      ...Object.keys(pkg.dependencies)
+      // await globby("node_modules")
+      // "node_modules", // pkg it self
+      // "./node_modules/*", // pkg it self
+      // "../node_modules/*",
+      // "../../node_modules/*", // monorepo pkg
+      // "../../../node_modules/*", // scoped monorepo pkg
+      // "../../../../node_modules/*",
+      // "../../../../../node_modules/*",
+      // "../../../../../../node_modules/*",
     ],
     logLevel: "info",
     watch,
