@@ -16,10 +16,8 @@
   "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
-    ".": {
-      "require": "./lib/index.cjs",
-      "import": "./lib/index.js"
-    }
+    "require": "./lib/index.cjs",
+    "import": "./lib/index.js"
   },
   "main": "lib/index.cjs",
   "module": "lib/index.js",
@@ -40,10 +38,9 @@
     "arg": "^5.0.1",
     "dotenv": "^14.2.0",
     "my-version": "^1.1.4",
-    "puppeteer": "^13.5.2",
+    "puppeteer": "^14.2.1",
     "yargs": "^17.5.1"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
