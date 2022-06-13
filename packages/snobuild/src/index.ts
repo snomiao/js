@@ -21,8 +21,8 @@ export default async function snobuild({
   prod = false, // -sourcemap +minify
   lib = false, // +bundle +external +sourcemap +minify +tsc
   deploy = false, // +bundle -external -sourcemap +minify
-  sourcemap = undefined as boolean,
-  minify = undefined as boolean,
+  sourcemap = false,
+  minify = false,
   // outputs
   tsc = false, // declares (defaults to true)
   esm = false, // esm (defaults to true)
@@ -42,12 +42,15 @@ export default async function snobuild({
   const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
   const deps = Object.keys(pkg.dependencies);
   // calc build mode
-  if (dev) (sourcemap ||= true), (minify &&= false);
-  if (prod) (sourcemap &&= false), (minify ||= true);
-  if (lib)
-    (bundle ||= true), (external ||= true), (sourcemap ||= true), (minify ||= true), (tsc ||= true);
-  if (deploy) (bundle ||= true), (external &&= false), (sourcemap &&= false), (minify ||= true);
-  if (!bundle) external &&= false;
+  if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
+    return await snorun("snobuild --lib");
+  }
+  //
+  if (dev) (sourcemap = true), (minify = false);
+  if (prod) (sourcemap = false), (minify = true);
+  if (lib) (bundle = true), (external = true), (sourcemap = true), (minify = true), (tsc = true);
+  if (deploy) (bundle = true), (external = false), (sourcemap = false), (minify = true);
+  if (!bundle) external = false;
   // module detect
   tsc = tsc || Boolean(pkg.types);
   cjs = cjs || (Boolean(pkg.main) && indexExisted);
