@@ -46,7 +46,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "snobuild": "workspace:^1.0.0"
+    "snobuild": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"
