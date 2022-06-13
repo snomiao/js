@@ -11,14 +11,17 @@ import { exec } from "child_process";
  * // as same as run in shell like this:
  * //    command && echo succ || echo 'fail'
  *
+ * @param cmd if cmd is an array, it will be joined by spaces
  * @returns true if cmd's exit code=0, otherwise return false
  * @author: snomiao <snomiao@gmail.com>
  */
-export default function snorun(cmd: string, { echo = true, echoPrefix = "> " } = {}) {
+export default function snorun(cmd: string| string[], { echo = true, echoPrefix = "> " } = {}) {
+  const execCommand = [cmd].flat().join(' ');
+  if (echo) console.log((echoPrefix || "") + execCommand);
   const { promise, resolve } = usePromise<boolean>();
-  if (echo) console.log((echoPrefix || "") + cmd);
-  const p = exec(cmd, (error, stdout, stderr) => (error ? resolve(false) : resolve(true)));
+  const p = exec(execCommand, (error, stdout, stderr) => (error ? resolve(false) : resolve(true)));
   process.stdin.pipe(p.stdin);
+  // todo: keep colors
   p.stdout.pipe(process.stdout);
   p.stderr.pipe(process.stderr);
   return promise;
