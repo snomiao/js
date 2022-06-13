@@ -2,34 +2,54 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import snobuild from "./index";
-
 const argv = await yargs(hideBin(process.argv))
-  .alias("i", "init")
+  .scriptName("snobuild")
+  // init
+  .boolean("init")
+  .describe("init", "initialize package.json")
+  // build options
+  .boolean("dev")
+  .describe("dev", "+sourcemap -minify +tsc")
+  .boolean("prod")
+  .describe("prod", "-sourcemap +minify")
+  .conflicts('dev', 'prod')
+  .boolean("lib")
+  .describe("lib", "+bundle +external +sourcemap +minify +tsc")
+  .boolean("deploy")
+  .describe("deploy", "+bundle -external -sourcemap +minify")
+  .conflicts('lib', 'deploy')
+  // bundle options
+  .boolean("bundle")
+  .describe("bundle", "bundle deps")
+  .boolean("external")
+  .describe("external", "bundle as deps as external")
+  .boolean("sourcemap")
+  .describe("sourcemap", "output sourcemaps")
+  .boolean("minify")
+  .describe("minify", "minify outputs")
+  // input output
+  .string("input")
+  .describe("input", "input dir")
+  .string("outdir")
+  .describe("outdir", "output dir")
+  // output formats
+  .boolean("tsc")
+  .describe("tsc", "run tsc")
+  .boolean("esm")
+  .boolean("cjs")
+  .boolean("iife") // not supported
+  .boolean("umd") // not supported
+  .boolean("browser") // not supported
+  // watch
+  .boolean("watch")
+  .describe("watch", "watch mode")
+  .boolean("serve")
+  .describe("serve", "serve mode (wip)")
+  //
+  .alias("i", "input")
   .alias("o", "outdir")
   .alias("w", "watch")
+  .alias("s", "serve")
   .alias("h", "help")
-  .alias("v", "version")
-  .alias("p", "prod")
-  .scriptName("snobuild")
-  .usage("$0 [OPTION]... [INPUT]... ")
-  .help()
-  .version()
-  //
-  .boolean("init")
-  .default("init", false)
-  .describe("init", "initialize package.json")
-  //
-  .boolean("prod")
-  .default("prod", false)
-  .describe("prod", "build in production mode, use minify and no sourcemap")
-  //
-  .string("outdir")
-  .default("outdir", "lib")
-  .describe("outdir", "output dir")
-  //
-  .boolean("watch")
-  .default("watch", false)
-  .describe("watch", "watch mode")
-  //
-  .strict().argv;
-await snobuild({ ...argv, inputs: argv._.map(String) });
+  .alias("v", "version").argv;
+await snobuild(argv);
