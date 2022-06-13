@@ -10,42 +10,66 @@ import { promisify } from "util";
  */
 export default async function snobuild({
   outdir = "lib",
-  inputs = [] as string[],
+  input = [] as string | string[],
   init = false,
-  prod = false,
+  bundle = false, // false will disable external
+  external = false, //
+  externals = "", //
   watch = false,
+  // output setting
+  dev = false, // +sourcemap -minify
+  prod = false, // -sourcemap +minify
+  lib = false, // +bundle +external +sourcemap +minify +tsc
+  deploy = false, // +bundle -external -sourcemap +minify
+  sourcemap = undefined as boolean,
+  minify = undefined as boolean,
+  // outputs
+  tsc = false, // declares (defaults to true)
+  esm = false, // esm (defaults to true)
+  cjs = false, // cjs
+  script = false, // show script to esbuild
+  //
+  legalComments = "eof" as esbuild.BuildOptions["legalComments"],
   esbuildOptions = null as esbuild.BuildOptions,
 } = {}) {
+  // load pkg infos
+  const pkgPath = "./package.json";
   const indexExisted = Boolean(await stat("src/index.ts").catch(() => null));
   const cliExisted = Boolean(await stat("src/cli.ts").catch(() => null));
   const tsconfigExisted = Boolean(await stat("tsconfig.json").catch(() => null));
-  const pkgPath = "./package.json";
   if (init) await packageInit(pkgPath, indexExisted, cliExisted);
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
+  const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
+  const deps = Object.keys(pkg.dependencies);
+  // calc build mode
+  if (dev) (sourcemap ||= true), (minify &&= false);
+  if (prod) (sourcemap &&= false), (minify ||= true);
+  if (lib)
+    (bundle ||= true), (external ||= true), (sourcemap ||= true), (minify ||= true), (tsc ||= true);
+  if (deploy) (bundle ||= true), (external &&= false), (sourcemap &&= false), (minify ||= true);
+  if (!bundle) external &&= false;
+  // module detect
+  tsc = tsc || Boolean(pkg.types);
+  cjs = cjs || (Boolean(pkg.main) && indexExisted);
+  esm = esm || (Boolean(pkg.module) && indexExisted);
+  esm = esm || (Boolean(pkg.bin) && cliExisted);
+  if (!(tsc || cjs || esm)) throw new Error("no output");
+  // base options
   const baseOptions: esbuild.BuildOptions = {
     entryPoints: {
       ...(indexExisted && { index: "src/index.ts" }),
     },
-    platform: "node",
-    minify: prod,
-    sourcemap: !prod,
+    ...{ minify, sourcemap },
+    bundle,
+    external: !external ? [] : [...(externals?.split(",") ?? []), ...deps],
     outdir,
-    bundle: true,
-    external: [
-      ...Object.keys(pkg.dependencies)
-      // await globby("node_modules")
-      // "node_modules", // pkg it self
-      // "./node_modules/*", // pkg it self
-      // "../node_modules/*",
-      // "../../node_modules/*", // monorepo pkg
-      // "../../../node_modules/*", // scoped monorepo pkg
-      // "../../../../node_modules/*",
-      // "../../../../../node_modules/*",
-      // "../../../../../../node_modules/*",
-    ],
+    platform: "node",
+    format: "esm",
+    target: ["esnext"],
     logLevel: "info",
     watch,
     incremental: watch,
+    legalComments,
     ...esbuildOptions,
   };
   const esmEntrypoints = {
@@ -65,24 +89,27 @@ export default async function snobuild({
     tscWatchFlag,
   ].filter((e) => e);
   const results = await Promise.all([
-    await esbuild.build({
-      ...baseOptions,
-      entryPoints: esmEntrypoints,
-      format: "esm",
-    }),
-    (pkg.main &&
-      (await esbuild.build({
-        ...baseOptions,
-        format: "cjs",
-        outExtension: { ".js": ".cjs" },
-      }))) ||
-      true,
-    ...(tsconfigExisted
-      ? [snorun(["tsc", tscWatchFlag].join(" "))]
-      : [
-          indexExisted && snorun(["tsc", ...tscBuildOptions, "src/index.ts"].join(" ")),
-          // cliExisted && snorun(["tsc", ...tscBuildOptions, "src/cil.ts"].join(" ")),
-        ]),
+    !esm
+      ? true
+      : await esbuild.build({
+          ...baseOptions,
+          entryPoints: esmEntrypoints,
+          format: "esm",
+          // splitting: true,
+        }),
+    !cjs
+      ? true
+      : await esbuild.build({
+          ...baseOptions,
+          format: "cjs",
+          outExtension: { ".js": ".cjs" },
+        }),
+    !tsc
+      ? true
+      : tsconfigExisted
+      ? snorun(["tsc", tscWatchFlag].join(" "))
+      : indexExisted && snorun(["tsc", ...tscBuildOptions, "src/index.ts"].join(" ")),
+    ,
   ]);
 
   console.log(results);
