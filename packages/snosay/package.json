@@ -28,26 +28,16 @@
   "bin": {
     "snosay": "lib/cli.js"
   },
-  "directories": {
-    "lib": "./lib"
-  },
-  "files": [
-    "lib/**",
-    "bin/**"
-  ],
   "scripts": {
-    "build": "snobuild",
-    "prepack": "npm run build"
+    "build": "snobuild"
   },
   "dependencies": {
-    "arg": "^5.0.1",
-    "esm": "^3.2.25",
-    "say": "^0.16.0"
+    "say": "^0.16.0",
+    "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "@types/node": "^17.0.23",
-    "snobuild": "^1.0.0",
-    "typescript": "^4.6.3"
+    "@types/yargs": "^17.0.10",
+    "snobuild": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"

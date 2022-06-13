@@ -1,36 +1,38 @@
-import arg from "arg";
+#!/usr/bin/env node
 import { resolve } from "path";
 import { stdin, stdout } from "process";
 import * as readline from "readline";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 import { exportFile, getInstalledVoices, speak } from ".";
 
-function parseArgumentsIntoOptions(rawArgs: string[]) {
-  const opts = {
-    "--voice": String,
-    "--speed": Number,
-    "--list": Boolean,
-    "--output": String,
-    "--domain": String,
-    "-l": "--list",
-    "-v": "--voice",
-    "-s": "--speed",
-    "-o": "--output",
-  };
-  const args = arg(opts, {
-    argv: rawArgs.slice(2),
-  });
-  return {
-    text: args._.join(" "),
-    speed: args["--speed"] || undefined,
-    voice: args["--voice"] || undefined,
-    list: args["--list"] || undefined,
-    output: args["--output"] || undefined,
-  };
-}
+const argv = await yargs(hideBin(process.argv))
+  .scriptName("snosay")
+  .string("voice")
+  .describe("voice", "voice engine, such as: Microsoft David Desktop")
+  .number("speed")
+  .describe("speed", "voice speed, base is 1, higher faster")
+  .boolean("list")
+  .describe("list", "get voice engine list")
+  .string("output")
+  .describe("output", "output file ")
+  // examples
+  .example("$0", "hello, world")
+  .example("$0", "--list")
+  .example("$0", '--voice "Microsoft David Desktop" --speed 0.5 hello, world')
+  .example("$0", '--voice "Microsoft Zira Desktop" --speed 1.5 hello, world')
+  .example("$0", '--voice "Microsoft Zira Desktop" --speed 1.5 --output ./')
+  // .string("domain")
+  .alias("h", "help")
+  .alias("l", "list")
+  .alias("v", "voice")
+  .alias("s", "speed")
+  .alias("o", "output").argv;
 
-export default cli;
-export async function cli(args: string[]) {
-  const { text, voice, speed, output, list } = parseArgumentsIntoOptions(args);
+const params = { text: argv._.join(" "), ...argv };
+await cli(params);
+
+async function cli({ text = "", voice = "", speed = 1, output = "", list = false }) {
   if (list) {
     const voicelist = await getInstalledVoices();
     console.log(voicelist.join("\n"));
