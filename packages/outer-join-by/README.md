@@ -24,6 +24,4 @@ it("join by name", () => {
   const result = outerJoinBy("name", subscribers, likes);
   deepStrictEqual(result, expected);
 });
-
 ```
-
