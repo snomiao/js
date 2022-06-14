@@ -6,7 +6,7 @@ import puppeteer from "puppeteer";
  * Author: snomiao <snomiao@gmail.com>
  */
 export default async function chromeDev({
-  _ = [] as (string | number)[],
+  inputs = [] as string[],
   extension = "",
   devtools = false,
   ignoreHTTPSErrors = true,
@@ -16,10 +16,10 @@ export default async function chromeDev({
   $0 = "chrome-dev",
   ...otherArgs
 } = {}) {
-  console.log("otherArgs=", otherArgs);
+  // console.log("otherArgs=", otherArgs);
 
   // open urls
-  const urls = new Set(_.map(String));
+  const urls = new Set(inputs);
 
   // TODO: match PORT=80, HOST=localhost, URL=localhost:80 and parse into URL
   if (port) urls.add(`https://localhost:${port}/`);

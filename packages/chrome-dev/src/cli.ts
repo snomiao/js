@@ -22,4 +22,4 @@ const argv = await yargs(hideBin(process.argv))
   .help()
   .version()
   .epilog("(C) snomiao.com 2022").argv;
-await chromeDev(  argv);
+await chromeDev({ ...argv, inputs: argv._.map(String) });

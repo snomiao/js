@@ -43,10 +43,8 @@ export default async function snobuild({
   const deps = Object.keys(pkg.dependencies);
   // calc build mode
   if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
-    const msg =
-      'no build mode specified, please run "snobuild --lib" if you are building a library';
-    console.error(msg);
-    return;
+    console.error('no build mode specified');
+    return await snorun('snobuild -h');
   }
   // calc build mode
   if (dev) (sourcemap = true), (tsc = true);
@@ -96,7 +94,7 @@ export default async function snobuild({
   ].filter((e) => e);
   const results = await Promise.all([
     !esm
-      ? true
+      ? 'skip esm output'
       : await esbuild.build({
           ...baseOptions,
           entryPoints: esmEntrypoints,
@@ -104,18 +102,17 @@ export default async function snobuild({
           // splitting: true,
         }),
     !cjs
-      ? true
+      ? 'skip cjs output'
       : await esbuild.build({
           ...baseOptions,
           format: "cjs",
           outExtension: { ".js": ".cjs" },
         }),
     !tsc
-      ? true
+      ? 'skip tsc output'
       : tsconfigExisted
       ? snorun(["tsc", tscWatchFlag].join(" "))
       : indexExisted && snorun(["tsc", ...tscBuildOptions, "src/index.ts"].join(" ")),
-    ,
   ]);
 
   console.log(results);

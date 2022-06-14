@@ -1,5 +1,8 @@
 {
-  "name": "bothforage",
+  "name": "@snomiao/bothforage",
+  "version": "1.0.0",
+  "description": "(WIP) a dead simple module trying to use localforage or nodeforage. - localforage in browser - nodeforage in Node.js",
+  "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/main/packages/bothforage#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+bothforage"
@@ -7,18 +10,28 @@
   "repository": "https://github.com/snomiao/js/tree/main/packages/bothforage",
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
+  "type": "module",
   "exports": {
-    "require": "./lib/cjs/index.js",
-    "import": "./lib/esm/index.js"
+    ".": {
+      "import": "./lib/index.js"
+    }
   },
-  "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --extensions '.ts' --out-dir 'lib/cjs' --source-maps",
-    "build:esm": "cross-env BABEL_ENV=esmUnbundled babel src --extensions '.ts' --out-dir 'lib/esm' --source-maps"
+    "build": "snobuild"
   },
   "dependencies": {
     "localforage": "^1.10.0",
     "nodeforage": "^1.1.1"
+  },
+  "devDependencies": {
+    "snobuild": "^1.0.0"
   }
 }

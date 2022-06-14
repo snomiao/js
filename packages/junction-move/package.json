@@ -4,32 +4,48 @@
   "description": "Move a folder to new location and make a Juction link to new location. Only works with windows yet. ",
   "keywords": [
     "junction",
-    "windows"
+    "windows",
+    "robocopy",
+    "mklink",
+    "cli"
   ],
   "homepage": "https://github.com/snomiao/js/tree/main/packages/junction-move#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+junction-move"
   },
-  "repository": "https://github.com/snomiao/js/tree/main/packages/junction-move",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snomiao/js.git#main"
+  },
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
-  "bin": {
-    "junction-move": "./cli.mjs"
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js"
+    }
   },
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
+  "types": "./lib/index.d.ts",
+  "bin": {
+    "junction-move": "lib/cli.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "build": "tsc && node esbuild.mjs"
+    "build": "snobuild"
   },
   "dependencies": {
-    "execa": "^6.1.0",
+    "snorun": "^1.0.0",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "@types/yargs": "^17.0.10",
-    "esbuild": "^0.14.39"
-  },
-  "publishConfig": {
-    "access": "public"
+    "snobuild": "^1.0.0"
   }
 }
