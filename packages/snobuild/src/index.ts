@@ -9,7 +9,7 @@ import { promisify } from "util";
  * Author: snomiao <snomiao@gmail.com>
  */
 export default async function snobuild({
-  outdir = "lib",
+  outdir = "",
   input = [] as string | string[],
   init = false,
   bundle = false, // false will disable external
@@ -49,8 +49,14 @@ export default async function snobuild({
   // calc build mode
   if (dev) (sourcemap = true), (tsc = true);
   if (prod) minify = true;
-  if (lib) (bundle = true), (external = true), (sourcemap = true), (minify = true), (tsc = true);
-  if (deploy) (bundle = true), (external = false), (minify = true);
+  if (lib)
+    (bundle = true),
+      (external = true),
+      (sourcemap = true),
+      (minify = true),
+      (tsc = true),
+      (outdir ||= "./lib");
+  if (deploy) (bundle = true), (external = false), (minify = true), (outdir ||= "./deploy");
   if (!bundle) external = false;
   // module detect
   tsc = tsc || Boolean(pkg.types);

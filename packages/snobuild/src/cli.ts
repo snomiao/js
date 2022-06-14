@@ -4,6 +4,9 @@ import { hideBin } from "yargs/helpers";
 import snobuild from "./index";
 const argv = await yargs(hideBin(process.argv))
   .scriptName("snobuild")
+  .recommendCommands()
+  .example("$0 --lib", "build for lib, output to ./lib by default")
+  .example("$0 --deploy", "build for deploy, output to ./deploy by default")
   // init
   .boolean("init")
   .describe("init", "initialize package.json")
