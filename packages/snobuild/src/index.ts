@@ -43,13 +43,16 @@ export default async function snobuild({
   const deps = Object.keys(pkg.dependencies);
   // calc build mode
   if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
-    return await snorun("snobuild --lib");
+    const msg =
+      'no build mode specified, please run "snobuild --lib" if you are building a library';
+    console.error(msg);
+    return;
   }
-  //
-  if (dev) (sourcemap = true), (minify = false);
-  if (prod) (sourcemap = false), (minify = true);
+  // calc build mode
+  if (dev) (sourcemap = true), (tsc = true);
+  if (prod) minify = true;
   if (lib) (bundle = true), (external = true), (sourcemap = true), (minify = true), (tsc = true);
-  if (deploy) (bundle = true), (external = false), (sourcemap = false), (minify = true);
+  if (deploy) (bundle = true), (external = false), (minify = true);
   if (!bundle) external = false;
   // module detect
   tsc = tsc || Boolean(pkg.types);
