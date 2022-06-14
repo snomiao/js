@@ -43,8 +43,8 @@ export default async function snobuild({
   const deps = Object.keys(pkg.dependencies);
   // calc build mode
   if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
-    console.error('no build mode specified');
-    return await snorun('snobuild -h');
+    console.error("no build mode specified");
+    return await snorun("snobuild -h");
   }
   // calc build mode
   if (dev) (sourcemap = true), (tsc = true);
@@ -94,7 +94,7 @@ export default async function snobuild({
   ].filter((e) => e);
   const results = await Promise.all([
     !esm
-      ? 'skip esm output'
+      ? true // "skip esm output"
       : await esbuild.build({
           ...baseOptions,
           entryPoints: esmEntrypoints,
@@ -102,21 +102,21 @@ export default async function snobuild({
           // splitting: true,
         }),
     !cjs
-      ? 'skip cjs output'
+      ? true // "skip cjs output"
       : await esbuild.build({
           ...baseOptions,
           format: "cjs",
           outExtension: { ".js": ".cjs" },
         }),
     !tsc
-      ? 'skip tsc output'
+      ? true // "skip tsc output"
       : tsconfigExisted
       ? snorun(["tsc", tscWatchFlag].join(" "))
       : indexExisted && snorun(["tsc", ...tscBuildOptions, "src/index.ts"].join(" ")),
   ]);
 
   console.log(results);
-  if (!results.every((e) => e)) process.exit(1);
+  if (!results.every((e) => Boolean(e))) process.exit(1);
   console.log("build ok");
 }
 async function packageInit(pkgPath: string, indexExisted: boolean, cliExisted: boolean) {
