@@ -40,7 +40,7 @@ export default async function snobuild({
   if (init) await packageInit(pkgPath, indexExisted, cliExisted);
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
   // const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
-  const deps = Object.keys(pkg.dependencies);
+  const deps = Object.keys(pkg?.dependencies || {});
   // calc build mode
   if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
     console.error("no build mode specified");
@@ -59,10 +59,10 @@ export default async function snobuild({
   if (deploy) (bundle = true), (external = false), (minify = true), (outdir ||= "./deploy");
   if (!bundle) external = false;
   // module detect
-  tsc = tsc || Boolean(pkg.types);
-  cjs = cjs || (Boolean(pkg.main) && indexExisted);
-  esm = esm || (Boolean(pkg.module) && indexExisted);
-  esm = esm || (Boolean(pkg.bin) && cliExisted);
+  tsc = tsc || Boolean(pkg?.types);
+  cjs = cjs || (Boolean(pkg?.main) && indexExisted);
+  esm = esm || (Boolean(pkg?.module) && indexExisted);
+  esm = esm || (Boolean(pkg?.bin) && cliExisted);
   if (!(tsc || cjs || esm)) throw new Error("no output");
   // base options
   const baseOptions: esbuild.BuildOptions = {
