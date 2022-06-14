@@ -38,8 +38,8 @@ export default async function snobuild({
   const cliExisted = Boolean(await stat("src/cli.ts").catch(() => null));
   const tsconfigExisted = Boolean(await stat("tsconfig.json").catch(() => null));
   if (init) await packageInit(pkgPath, indexExisted, cliExisted);
-  const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
-  const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
+  const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
+  // const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
   const deps = Object.keys(pkg.dependencies);
   // calc build mode
   if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
@@ -126,7 +126,7 @@ export default async function snobuild({
   console.log("build ok");
 }
 async function packageInit(pkgPath: string, indexExisted: boolean, cliExisted: boolean) {
-  const pkg = JSON.parse(await readFile(pkgPath, "utf-8"));
+  const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
   const pkgConfed = {
     ...(indexExisted && {
       type: "module",
@@ -141,7 +141,8 @@ async function packageInit(pkgPath: string, indexExisted: boolean, cliExisted: b
     files: ["lib"],
     ...pkg,
     scripts: {
-      build: "snobuild",
+      build: "snobuild --lib",
+      prepack: "npm run build",
       ...pkg.scripts,
     },
     exports: {
