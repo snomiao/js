@@ -15,7 +15,7 @@
       "import": "./lib/index.js"
     }
   },
-  "main": "index.js",
+  "main": "lib/index.cjs",
   "module": "lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
