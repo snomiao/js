@@ -6,8 +6,8 @@
     "aoj",
     "join"
   ],
-  "license": "ISC",
-  "author": "",
+  "license": "GPLv3",
+  "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     ".": {
@@ -34,5 +34,10 @@
     "mocha": "^10.0.0",
     "snobuild": "^2.0.0",
     "tsx": "^3.4.2"
+  },
+  "repository": "https://github.com/snomiao/js/tree/main/packages/outer-join-by",
+  "homepage": "https://github.com/snomiao/js/tree/main/packages/outer-join-by#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+outer-join-by"
   }
 }
