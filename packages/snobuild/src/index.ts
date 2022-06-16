@@ -9,28 +9,28 @@ import { promisify } from "util";
  * Author: snomiao <snomiao@gmail.com>
  */
 export default async function snobuild({
-  outdir = "",
-  input = [] as string | string[],
-  init = false,
-  bundle = false, // false will disable external
-  external = false, //
-  externals = "", //
-  watch = false,
+  outdir = undefined as string,
+  input = undefined as string,
+  init = undefined as boolean,
+  bundle = undefined as boolean,
+  external = undefined as boolean,
+  externals = undefined as string,
+  watch = undefined as boolean,
   // output setting
-  dev = false, // +sourcemap -minify
-  prod = false, // -sourcemap +minify
-  lib = false, // +bundle +external +sourcemap +minify +tsc
-  deploy = false, // +bundle -external -sourcemap +minify
-  sourcemap = false,
-  minify = false,
+  dev = undefined as boolean, // +sourcemap -minify
+  prod = undefined as boolean, // -sourcemap +minify
+  lib = undefined as boolean, // +bundle +external +sourcemap +minify +tsc
+  deploy = undefined as boolean, // +bundle -external -sourcemap +minify
+  sourcemap = undefined as boolean,
+  minify = undefined as boolean,
   // outputs
-  tsc = false, // declares (defaults to true)
-  esm = false, // esm (defaults to true)
-  cjs = false, // cjs
-  script = false, // show script to esbuild
+  tsc = undefined as boolean, // declares (defaults to true)
+  esm = undefined as boolean, // esm (defaults to true)
+  cjs = undefined as boolean, // cjs
+  script = undefined as boolean, // show script to esbuild
   //
-  legalComments = "eof" as esbuild.BuildOptions["legalComments"],
-  esbuildOptions = null as esbuild.BuildOptions,
+  legalComments = undefined as esbuild.BuildOptions["legalComments"],
+  esbuildOptions = undefined as esbuild.BuildOptions,
 } = {}) {
   // load pkg infos
   const pkgPath = "./package.json";
@@ -47,17 +47,17 @@ export default async function snobuild({
     return await snorun("snobuild -h");
   }
   // calc build mode
-  if (dev) (sourcemap = true), (tsc = true);
-  if (prod) minify = true;
+  if (dev) (sourcemap ??= true), (tsc ??= true);
+  if (prod) minify ??= true;
   if (lib)
-    (bundle = true),
-      (external = true),
-      (sourcemap = true),
-      (minify = true),
-      (tsc = true),
+    (bundle ??= true),
+      (external ??= true),
+      (sourcemap ??= true),
+      (minify ??= true),
+      (tsc ??= true),
       (outdir ||= "./lib");
-  if (deploy) (bundle = true), (external = false), (minify = true), (outdir ||= "./deploy");
-  if (!bundle) external = false;
+  if (deploy) (bundle ??= true), (external ??= false), (minify ??= true), (outdir ||= "./deploy");
+  if (!bundle) external ??= false;
   // module detect
   tsc = tsc || Boolean(pkg?.types);
   cjs = cjs || (Boolean(pkg?.main) && indexExisted);
