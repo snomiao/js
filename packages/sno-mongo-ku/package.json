@@ -28,7 +28,7 @@
     "lib/*"
   ],
   "scripts": {
-    "build": "snobuild",
+    "build": "snobuild --lib",
     "prepack": "npm run build",
     "test": "tsc"
   },
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.10",
-    "snobuild": "^1.0.0"
+    "snobuild": "^2.1.2"
   },
   "gitHead": "c93e4bd8b39c13c78ca8f511923f0ad33deaf17d"
 }
