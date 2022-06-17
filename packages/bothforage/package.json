@@ -1,5 +1,5 @@
 {
-  "name": "@snomiao/bothforage",
+  "name": "bothforage",
   "version": "1.0.0",
   "description": "(WIP) a dead simple module trying to use localforage or nodeforage. - localforage in browser - nodeforage in Node.js",
   "keywords": [],
