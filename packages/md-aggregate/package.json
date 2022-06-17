@@ -1,6 +1,6 @@
 {
   "name": "md-aggregate",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
   "keywords": [
     "markdown",
@@ -36,6 +36,7 @@
   ],
   "scripts": {
     "build": "tsc && node esbuild-with-cli.mjs",
+    "prepack": "snobuild --lib",
     "postversion": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w"
   },
   "dependencies": {
