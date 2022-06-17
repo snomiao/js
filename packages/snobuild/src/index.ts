@@ -5,7 +5,16 @@ import { globby } from "globby";
 import snorun from "snorun";
 import sortPackageJson from "sort-package-json";
 import { promisify } from "util";
-
+const tscDefaults = [
+  "--esModuleInterop --allowSyntheticDefaultImports --downlevelIteration",
+  "--resolveJsonModule",
+  "-m ESNext",
+  "-t ESNext",
+  "--moduleResolution node",
+  "--skipLibCheck",
+  "--emitDeclarationOnly -d",
+  "--outDir lib",
+];
 /**
  * Author: snomiao <snomiao@gmail.com>
  */
@@ -39,7 +48,7 @@ export default async function snobuild({
   const indexExisted = Boolean(await stat("src/index.ts").catch(() => null));
   const cliExisted = Boolean(await stat("src/cli.ts").catch(() => null));
   const tsconfigExisted = Boolean(await stat("tsconfig.json").catch(() => null));
-  if (init) await packageInit(pkgPath, indexExisted, cliExisted);
+  if (init) await packageInit({ pkgPath, indexExisted, cliExisted, tsconfigExisted });
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
   // const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
   const deps = Object.keys(pkg?.dependencies || {});
@@ -88,19 +97,7 @@ export default async function snobuild({
     ...esbuildOptions,
   };
   const tscWatchFlag = watch ? " --watch" : "";
-  const tscBuildOptions = [
-    "--allowSyntheticDefaultImports --downlevelIteration",
-    "--resolveJsonModule",
-    "-m ESNext",
-    "-t ESNext",
-    "--moduleResolution node",
-    "--skipLibCheck",
-    "--emitDeclarationOnly -d",
-    "--outDir lib",
-    tscWatchFlag,
-  ].filter((e) => e);
-
-  console.log(input);
+  const tscBuildOptions = [...tscDefaults, tscWatchFlag].filter((e) => e);
   const results = await Promise.all([
     !esm
       ? true // "skip esm output"
@@ -129,7 +126,17 @@ export default async function snobuild({
   if (!results.every((e) => Boolean(e))) process.exit(1);
   console.log("build ok");
 }
-async function packageInit(pkgPath: string, indexExisted: boolean, cliExisted: boolean) {
+async function packageInit({
+  pkgPath,
+  indexExisted,
+  cliExisted,
+  tsconfigExisted,
+}: {
+  pkgPath: string;
+  indexExisted: boolean;
+  cliExisted: boolean;
+  tsconfigExisted: boolean;
+}) {
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
   const pkgConfed = {
     ...(indexExisted && {
@@ -164,7 +171,7 @@ async function packageInit(pkgPath: string, indexExisted: boolean, cliExisted: b
   const outPkgJSONString = JSON.stringify(outPkg, null, 2);
   await writeFile(pkgPath, outPkgJSONString);
   await promisify(exec)("npm init -y");
-
+  if (!tsconfigExisted) await snorun(["tsc", ...tscDefaults].join(" "));
   console.log("init done");
 }
 export function snobuildConfig(...args: Parameters<typeof snobuild>) {
