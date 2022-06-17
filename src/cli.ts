@@ -22,4 +22,4 @@ const argv = await yargs(hideBin(process.argv))
   .alias("v", "version")
   .demandCommand(2).argv;
 
-await mdAggregate( argv);
+await mdAggregate(argv);

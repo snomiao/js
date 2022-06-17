@@ -5,22 +5,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.1.0](https://github.com/snomiao/js/compare/md-aggregate@1.1.12...md-aggregate@2.1.0) (2022-06-17)
 
-
 ### Bug Fixes
 
-* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
-* **md-aggregate:** use esbuild ([92b8891](https://github.com/snomiao/js/commit/92b88918b39ed2d1050fa5bc7397f260eaf6af53))
-* **md-aggregate:** use snobuild and update docs ([7acf192](https://github.com/snomiao/js/commit/7acf19281bbf444c2bb6aad1f02423f603f6fb2b))
-* **snoval:** rename pkg ([3b86bf7](https://github.com/snomiao/js/commit/3b86bf7dfba2c0630eabe6a7fc1edce9de03066b))
-
+- **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
+- **md-aggregate:** use esbuild ([92b8891](https://github.com/snomiao/js/commit/92b88918b39ed2d1050fa5bc7397f260eaf6af53))
+- **md-aggregate:** use snobuild and update docs ([7acf192](https://github.com/snomiao/js/commit/7acf19281bbf444c2bb6aad1f02423f603f6fb2b))
+- **snoval:** rename pkg ([3b86bf7](https://github.com/snomiao/js/commit/3b86bf7dfba2c0630eabe6a7fc1edce9de03066b))
 
 ### Features
 
-* **md-aggregate:** multi input ([fcf0b6e](https://github.com/snomiao/js/commit/fcf0b6ed6e799ef1288aeb324ea66b7ab36701d2))
-
-
-
-
+- **md-aggregate:** multi input ([fcf0b6e](https://github.com/snomiao/js/commit/fcf0b6ed6e799ef1288aeb324ea66b7ab36701d2))
 
 Note: This section is orginally written in CHANGELOG.md file and is merged into README.md to show how this project works.
 
@@ -189,3 +183,24 @@ It will be append or replaced into README.md like this:
 
 ...
 ```
+
+### About
+
+#### License
+
+GPLv3 - [The GNU General Public License v3.0 - GNU Project - Free Software Foundation](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+#### Author
+
+Author: snomiao <snomiao@gmail.com>
+Website: [snomiao.com](https://snomiao.com)
+
+#### Sponsors
+
+- None yet.
+
+Claim your sponsorship by donating snomiao <[Email: snomiao@gmail.com](mailto:snomiao@gmail.com)>
+
+#### Contribute
+
+The main repo is in [here](https://github.com/snomiao/js#readme), any issue and PR's welcome.
