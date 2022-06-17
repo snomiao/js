@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package snobuild
 
-
-
-
-
 # 2.3.0 (2022-06-17)
 
 ### Bug Fixes

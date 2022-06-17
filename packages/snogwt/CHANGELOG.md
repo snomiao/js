@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package snogwt
 
-
-
-
-
 # [1.5.0](https://github.com/snomiao/js/compare/snogwt@1.4.1...snogwt@1.5.0) (2022-06-17)
 
 ### Bug Fixes

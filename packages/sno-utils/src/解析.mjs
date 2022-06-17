@@ -12,7 +12,7 @@ const 分词 = (串, 符器表) => {
   while (串) {
     let 长 = 0;
     const [符] = 符试列?.find(([_, 试]) => (长 = 试(串))) || [];
-    if (!长) throw new Error(`分词错：${  JSON.stringify(串)}`);
+    if (!长) throw new Error(`分词错：${JSON.stringify(串)}`);
     增词(符, 长);
   }
   return 词列;
@@ -49,7 +49,7 @@ const 合词 = (词列, 合词规则表列) => {
 const 合词规则表列 = [
   // 元素合并
   {
-    字串字串: (a, b) => ["字串", `${a.slice(0, -1)  }""${  b.slice(1)}`],
+    字串字串: (a, b) => ["字串", `${a.slice(0, -1)}""${b.slice(1)}`],
     _换行: (...x) => ["列", x.slice("")],
     _结束: (...x) => ["行", x.slice("")],
   },

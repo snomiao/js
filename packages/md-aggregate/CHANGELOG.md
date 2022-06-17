@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package md-aggregate
 
-
-
-
-
 # [2.1.0](https://github.com/snomiao/js/compare/md-aggregate@1.1.12...md-aggregate@2.1.0) (2022-06-17)
 
 ### Bug Fixes
