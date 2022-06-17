@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "mocha": "^10.0.0",
-    "snobuild": "workspace:^2.2.1",
+    "snobuild": "^2.2.1",
     "tsx": "^3.4.2"
   },
   "repository": "https://github.com/snomiao/js/tree/main/packages/outer-join-by",
