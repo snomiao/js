@@ -1,12 +1,15 @@
 {
   "name": "snofa",
-  "version": "0.0.3",
-  "description": "Snomiao Functional Async pipelines (WIP)",
+  "version": "0.0.4",
+  "description": "Snomiao's Functional Async pipelines with typescript support.",
   "keywords": [
     "async",
     "value",
     "functional",
-    "pipeline"
+    "pipeline",
+    "map",
+    "reduce",
+    "filter"
   ],
   "homepage": "https://github.com/snomiao/js/tree/main/packages/async-value#readme",
   "bugs": {

@@ -1,10 +1,37 @@
-# snof (WIP)
+# snofa
 
-Snomiao Functional Async pipelines (WIP)
+Snomiao's Functional Async pipelines with typescript support.
 
 ## Usage
 
-WIP
+```typescript
+// sync functional pipeline
+// apply functions from left to right
+snof(12, (v) => v * 12); // === 144
+snof((v: number) => v * 12)(12); // === 144
+snof(
+  () => 12,
+  (v) => v * 12,
+)(); // === 144
+snof(
+  () => 12,
+  snof((v) => v * 12),
+)(); // === 144
+
+// async functional pipeline
+// apply functions from left to right
+// it's not nessary to use await in nested snofa
+await snofa(12, (v) => v * 12); // === 144
+await snofa((v: number) => v * 12)(12); // === 144
+await snofa(
+  () => 12,
+  (v) => v * 12,
+); // === 144
+await snofa(
+  () => 12,
+  snofa((v) => v * 12),
+)(); // === 144
+```
 
 ## Reference
 
