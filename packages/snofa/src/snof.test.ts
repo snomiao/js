@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { strictEqual } from "assert";
 import { snof } from "./snof";
 import { snofa } from "./snofa";

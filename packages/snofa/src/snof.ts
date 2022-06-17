@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 type f<i, o> = (i?: i, ...args: any[]) => o;
 
 export function snof<i, o>(): void;

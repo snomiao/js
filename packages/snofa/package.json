@@ -1,6 +1,6 @@
 {
   "name": "snofa",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Snomiao Functional Async pipelines (WIP)",
   "keywords": [
     "async",

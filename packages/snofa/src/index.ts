@@ -3,7 +3,6 @@ import { Promi } from "./types";
 import { snofa } from "./snofa";
 import { snof } from "./snof";
 export { snofa, snof };
-
 export default null;
 export function mkLockers(n = 1) {
   const resolves = [];
@@ -56,7 +55,6 @@ export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Promi<V[]>): an
     return state;
   })();
 }
-
 /**
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
  */
