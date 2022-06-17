@@ -5,6 +5,8 @@ import snobuild from "./index";
 const argv = await yargs(hideBin(process.argv))
   .scriptName("snobuild")
   .recommendCommands()
+  .completion()
+  .command("$0 [input..]", false)
   .example("$0 --lib", "build for lib, output to ./lib by default")
   .example("$0 --lib --external=false", "build for lib but bundle all dependencies")
   .example("$0 --deploy", "build for deploy, output to ./deploy by default")

@@ -1,6 +1,6 @@
 {
   "name": "snobuild",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Easy way to use esbuild.",
   "keywords": [
     "cli",
@@ -31,12 +31,13 @@
     "lib"
   ],
   "scripts": {
-    "boot": "esbuild src/cli.ts --platform=node --outdir=lib --bundle --format=esm --external:esbuild --external:yargs --external:sort-package-json --external:snorun",
+    "boot": "pnpx -y -- snobuild@2.2.1",
     "build": "snobuild --lib",
     "prepack": "npm run build"
   },
   "dependencies": {
     "esbuild": "^0.14.39",
+    "globby": "^13.1.1",
     "snorun": "^1.0.0",
     "sort-package-json": "^1.57.0",
     "yargs": "^17.5.1"

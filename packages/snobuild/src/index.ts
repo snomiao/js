@@ -1,6 +1,7 @@
 import { exec } from "child_process";
 import esbuild from "esbuild";
 import { readFile, stat, writeFile } from "fs/promises";
+import { globby } from "globby";
 import snorun from "snorun";
 import sortPackageJson from "sort-package-json";
 import { promisify } from "util";
@@ -20,17 +21,18 @@ export default async function snobuild({
   dev = undefined as boolean, // +sourcemap -minify
   prod = undefined as boolean, // -sourcemap +minify
   lib = undefined as boolean, // +bundle +external +sourcemap +minify +tsc
+  cli = undefined as boolean, // +input:src/cli.ts (only esm)
   deploy = undefined as boolean, // +bundle -external -sourcemap +minify
   sourcemap = undefined as boolean,
   minify = undefined as boolean,
   // outputs
-  tsc = undefined as boolean, // declares (defaults to true)
-  esm = undefined as boolean, // esm (defaults to true)
+  tsc = undefined as boolean, // declares
+  esm = undefined as boolean, // esm
   cjs = undefined as boolean, // cjs
   script = undefined as boolean, // show script to esbuild
   //
   legalComments = undefined as esbuild.BuildOptions["legalComments"],
-  esbuildOptions = undefined as esbuild.BuildOptions,
+  esbuildOptions = {} as esbuild.BuildOptions,
 } = {}) {
   // load pkg infos
   const pkgPath = "./package.json";
@@ -64,11 +66,14 @@ export default async function snobuild({
   esm = esm || (Boolean(pkg?.module) && indexExisted);
   esm = esm || (Boolean(pkg?.bin) && cliExisted);
   if (!(tsc || cjs || esm)) throw new Error("no output");
+  const esmEntryPoints = input ? await globby(input) : await globby(["src/index.ts", "src/cli.ts"]);
+  const cjsEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
+  const tscEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
   // base options
   const baseOptions: esbuild.BuildOptions = {
-    entryPoints: {
-      ...(indexExisted && { index: "src/index.ts" }),
-    },
+    // entryPoints: {
+    //   ...(indexExisted && { index: "src/index.ts" }),
+    // },
     ...{ minify, sourcemap },
     bundle,
     external: !external ? [] : [...(externals?.split(",") ?? []), ...deps],
@@ -82,10 +87,6 @@ export default async function snobuild({
     legalComments,
     ...esbuildOptions,
   };
-  const esmEntrypoints = {
-    ...baseOptions.entryPoints,
-    ...(cliExisted && { cli: "src/cli.ts" }),
-  };
   const tscWatchFlag = watch ? " --watch" : "";
   const tscBuildOptions = [
     "--allowSyntheticDefaultImports --downlevelIteration",
@@ -98,12 +99,14 @@ export default async function snobuild({
     "--outDir lib",
     tscWatchFlag,
   ].filter((e) => e);
+
+  console.log(input);
   const results = await Promise.all([
     !esm
       ? true // "skip esm output"
       : await esbuild.build({
           ...baseOptions,
-          entryPoints: esmEntrypoints,
+          entryPoints: esmEntryPoints,
           format: "esm",
           // splitting: true,
         }),
@@ -111,6 +114,7 @@ export default async function snobuild({
       ? true // "skip cjs output"
       : await esbuild.build({
           ...baseOptions,
+          entryPoints: cjsEntryPoints,
           format: "cjs",
           outExtension: { ".js": ".cjs" },
         }),
@@ -118,7 +122,7 @@ export default async function snobuild({
       ? true // "skip tsc output"
       : tsconfigExisted
       ? snorun(["tsc", tscWatchFlag].join(" "))
-      : indexExisted && snorun(["tsc", ...tscBuildOptions, "src/index.ts"].join(" ")),
+      : indexExisted && snorun(["tsc", ...tscBuildOptions, ...tscEntryPoints].join(" ")),
   ]);
 
   console.log(results);
