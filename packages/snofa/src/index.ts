@@ -17,6 +17,7 @@ type WhilaWhen<T> = (state?: T) => Promi<T | void>;
 type WhilaBody<V, R> = (v: V) => Promi<R>;
 
 // TODO: iter objects
+// TODO: test
 export function mapa<V, R>(fn: MapaIter<V, R>, a: Promi<V[]>): Promise<R[]>;
 export function mapa<V, R>(fn: MapaIter<V, R>): (a: Promi<V[]>) => Promise<R[]>;
 export function mapa<V, R>(fn: MapaIter<V, R>, a?: Promi<V[]>) {
@@ -30,6 +31,7 @@ export function mapa<V, R>(fn: MapaIter<V, R>, a?: Promi<V[]>) {
   })();
 }
 // TODO: iter objects
+// TODO: test
 export function fora<V>(fn: ForaIter<V>, a: Promi<V[]>): Promise<void>;
 export function fora<V>(fn: ForaIter<V>): (a: Promi<V[]>) => Promise<void>;
 export function fora<V>(fn: ForaIter<V>, a?: Promi<V[]>) {
@@ -41,6 +43,7 @@ export function fora<V>(fn: ForaIter<V>, a?: Promi<V[]>) {
   })();
 }
 // TODO: iter objects
+// TODO: test
 export function reduca<S, V>(f: ReducaIter<S, V>, state: S, a: Promi<V[]>): Promise<S>;
 export function reduca<S, V>(f: ReducaIter<S, V>, state: S): (a: Promi<V[]>) => Promise<S>;
 export function reduca<S, V>(f: ReducaIter<S, V>): (state: S, a: Promi<V[]>) => Promise<S>;
