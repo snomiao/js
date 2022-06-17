@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package snofa
 
-
-
-
-
 ## [0.0.6](https://github.com/snomiao/js/compare/snofa@0.0.5...snofa@0.0.6) (2022-06-17)
 
 **Note:** Version bump only for package snofa

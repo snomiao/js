@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package outer-join-by
 
-
-
-
-
 ## [1.1.1](https://github.com/snomiao/js/compare/outer-join-by@1.1.0...outer-join-by@1.1.1) (2022-06-17)
 
 **Note:** Version bump only for package outer-join-by

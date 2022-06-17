@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package objtranspose
 
-
-
-
-
 ## [0.1.1](https://github.com/snomiao/js/compare/objtranspose@0.1.0...objtranspose@0.1.1) (2022-06-17)
 
 **Note:** Version bump only for package objtranspose
