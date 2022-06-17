@@ -1,6 +1,6 @@
 {
   "name": "outer-join-by",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Outer join two arrays of object by a key, and return a correct typed array of objects",
   "keywords": [
     "aoj",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "mocha": "^10.0.0",
-    "snobuild": "^2.3.1",
+    "snobuild": "^2.3.2",
     "tsx": "^3.4.2"
   }
 }

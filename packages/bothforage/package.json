@@ -1,6 +1,6 @@
 {
   "name": "bothforage",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "(WIP) a dead simple module trying to use localforage or nodeforage. - localforage in browser - nodeforage in Node.js",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/main/packages/bothforage#readme",
@@ -32,6 +32,6 @@
     "nodeforage": "^1.1.1"
   },
   "devDependencies": {
-    "snobuild": "^2.3.1"
+    "snobuild": "^2.3.2"
   }
 }
