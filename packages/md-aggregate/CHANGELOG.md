@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/snomiao/js/compare/md-aggregate@1.1.12...md-aggregate@2.1.0) (2022-06-17)
+
+
+### Bug Fixes
+
+* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
+* **md-aggregate:** use esbuild ([92b8891](https://github.com/snomiao/js/commit/92b88918b39ed2d1050fa5bc7397f260eaf6af53))
+* **md-aggregate:** use snobuild and update docs ([7acf192](https://github.com/snomiao/js/commit/7acf19281bbf444c2bb6aad1f02423f603f6fb2b))
+* **snoval:** rename pkg ([3b86bf7](https://github.com/snomiao/js/commit/3b86bf7dfba2c0630eabe6a7fc1edce9de03066b))
+
+
+### Features
+
+* **md-aggregate:** multi input ([fcf0b6e](https://github.com/snomiao/js/commit/fcf0b6ed6e799ef1288aeb324ea66b7ab36701d2))
+
+
+
+
+
 Note: This section is orginally written in CHANGELOG.md file and is merged into README.md to show how this project works.
 
 ## [1.1.12](https://github.com/snomiao/js/compare/md-aggregate@1.1.11...md-aggregate@1.1.12) (2022-05-12)

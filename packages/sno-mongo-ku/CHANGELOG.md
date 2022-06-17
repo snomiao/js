@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.21](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.16...sno-mongo-ku@2.7.21) (2022-06-17)
+
+
+### Bug Fixes
+
+* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
+* **mongoku:** module ([da85c1a](https://github.com/snomiao/js/commit/da85c1af98057f8d8eb27d1dbc5d3b3b95c7f68e))
+
+
+
+
+
 ## [2.7.16](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.15...sno-mongo-ku@2.7.16) (2022-05-12)
 
 

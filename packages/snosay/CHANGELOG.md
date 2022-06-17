@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.18](https://github.com/snomiao/js/compare/snosay@1.2.17...snosay@1.2.18) (2022-06-17)
+
+
+### Bug Fixes
+
+* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
+* **snosay:** tidy yargs ([d7e50ed](https://github.com/snomiao/js/commit/d7e50ed00600f6d8a45d9645f6004e71429ea270))
+
+
+
+
+
 ## [1.2.17](https://github.com/snomiao/js/compare/snosay@1.2.16...snosay@1.2.17) (2022-05-12)
 
 **Note:** Version bump only for package snosay

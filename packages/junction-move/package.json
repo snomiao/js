@@ -1,6 +1,6 @@
 {
   "name": "junction-move",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Move a folder to new location and make a Juction link to new location. Only works with windows yet. ",
   "keywords": [
     "junction",
@@ -39,7 +39,7 @@
     "build": "snobuild"
   },
   "dependencies": {
-    "snorun": "^1.0.0",
+    "snorun": "^1.1.0",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
