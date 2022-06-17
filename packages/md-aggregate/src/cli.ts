@@ -5,15 +5,22 @@ import { hideBin } from "yargs/helpers";
 import mdAggregate from ".";
 
 const argv = await yargs(hideBin(process.argv))
-  .usage("md-aggregate [...src.md] dst.md [-w]")
-  .example("one", "md-aggregate CHANGELOG.md README.md -w")
-  .example("multi", "md-aggregate LICENSE.md CHANGELOG.md README.md -w")
+  .scriptName("md-aggregate")
+  .command("$0 <target> [input..]", "aggregate markdown files")
+  .example("preview: ", "md-aggregate README.md CHANGELOG.md ")
+  .example("one: ", "md-aggregate README.md CHANGELOG.md -w")
+  .example("multi: ", "md-aggregate README.md ABOUT.md LICENSE.md CHANGELOG.md -w")
+  .example("multi: ", "md-aggregate README.md -i ABOUT.md -i LICENSE.md -i CHANGELOG.md -w")
+  .option("target", { describe: "destination markdown file", type: "string" })
+  .option("input", { describe: "source markdown files", array: true, type: "string" })
   .boolean("write")
-  .alias("w", "write")
   .describe("w", "write mode (when missing you will get preview in console)")
-  .demandCommand(2)
+  .alias("i", "input")
+  .alias("t", "target")
+  .alias("w", "write")
   .alias("h", "help")
-  .alias("v", "version").argv;
+  .alias("v", "version")
+  .demandCommand(2).argv;
+console.log(argv);
 
-const [dstPath, ...srcs] = argv._.reverse();
-await mdAggregate(String(dstPath), srcs.map(String), argv);
+await mdAggregate( argv);
