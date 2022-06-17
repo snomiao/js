@@ -73,10 +73,38 @@ License: GPLv3
 Author: snomiao <snomiao@gmail.com>
 ```
 
+## About
+
+### License
+
+GPLv3 - [The GNU General Public License v3.0 - GNU Project - Free Software Foundation](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+
+### Author
+
+Author: snomiao <snomiao@gmail.com>
+Website: [snomiao.com](https://snomiao.com)
+
+### Sponsors
+
+- None yet.
+
+Claim your sponsorship by donating snomiao <[Email: snomiao@gmail.com](mailto:snomiao@gmail.com)>
+
+### Contribute
+
+The main repo is in [here](https://github.com/snomiao/js#readme), any issue and PR's welcome.
+
 ## Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+Note: This section is orginally written in CHANGELOG.md file and is merged into README.md to show how this project works.
+
+### [1.1.12](https://github.com/snomiao/js/compare/md-aggregate@1.1.11...md-aggregate@1.1.12) (2022-05-12)
+
+**Note:** Version bump only for package md-aggregate
 
 ### [1.1.11](https://github.com/snomiao/js/compare/md-aggregate@0.1.10...md-aggregate@1.1.11) (2022-05-03)
 
