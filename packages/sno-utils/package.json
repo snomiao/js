@@ -20,13 +20,13 @@
     "lib"
   ],
   "scripts": {
-    "build": "snobuild",
-    "check": "npm run prettier && git add . && git commit -a -m format && tsc",
+    "build": "snobuild --lib",
     "prepack": "npm run build"
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^14.14.22",
-    "snobuild": "^1.0.0"
+    "snobuild": "^2.0.0"
   },
-  "gitHead": "c93e4bd8b39c13c78ca8f511923f0ad33deaf17d"
+  "gitHead": "649bc1f57daa07473cf57860c3b9b3c29cd271c7"
 }
