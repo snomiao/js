@@ -1,6 +1,6 @@
 {
   "name": "chrome-dev",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Launch puppeteer and open your page. npx chrome-dev http://localhost:3000",
   "keywords": [
     "cli",
@@ -38,7 +38,7 @@
   "dependencies": {
     "arg": "^5.0.1",
     "dotenv": "^14.2.0",
-    "my-version": "^1.1.5",
+    "my-version": "^1.1.6",
     "puppeteer": "^14.2.1",
     "yargs": "^17.5.1"
   },

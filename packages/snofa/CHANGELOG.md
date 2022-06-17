@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](https://github.com/snomiao/js/compare/snofa@0.0.5...snofa@0.0.6) (2022-06-17)
+
+**Note:** Version bump only for package snofa
+
+
+
+
+
 ## 0.0.5 (2022-06-17)
 
 ### Bug Fixes

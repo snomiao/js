@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/snomiao/js/compare/chrome-extension-dev@1.1.5...chrome-extension-dev@1.1.6) (2022-06-17)
+
+**Note:** Version bump only for package chrome-extension-dev
+
+
+
+
+
 ## [1.1.5](https://github.com/snomiao/js/compare/chrome-extension-dev@1.1.4...chrome-extension-dev@1.1.5) (2022-06-17)
 
 ### Bug Fixes
