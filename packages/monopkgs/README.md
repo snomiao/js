@@ -27,13 +27,28 @@ cd $monorepo && npx monopkgs
   - [ ] overwrite or keep existed files
 - [x] respect .gitignores
 
-## PR's welcome.
-
-## Author
-
-Author: snomiao@gmail.com
-LICENSE: GPLv3
-
 ## Reference
 
 - [node.js - Configure repository field on package.json on monorepo - Stack Overflow](https://stackoverflow.com/questions/52922529/configure-repository-field-on-package-json-on-monorepo)
+
+## About
+
+### License
+
+GPLv3 - [The GNU General Public License v3.0 - GNU Project - Free Software Foundation](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+
+### Author
+
+Author: snomiao <snomiao@gmail.com>
+Website: [snomiao.com](https://snomiao.com)
+
+### Sponsors
+
+- None yet.
+
+Claim your sponsorship by donating snomiao <[Email: snomiao@gmail.com](mailto:snomiao@gmail.com)>
+
+### Contribute
+
+The main repo is in [here](https://github.com/snomiao/js#readme), any issue and PR's welcome.

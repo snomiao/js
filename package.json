@@ -19,11 +19,14 @@
   ],
   "scripts": {
     "build": "lerna run build",
+    "docs": "npm run docs:root && npm run docs:about",
+    "docs:about": "lerna exec -- md-aggregate ./README.md -i ../../ABOUT.md -w",
+    "docs:root": "md-aggregate ./README.md -i ABOUT.md -w",
     "format": "prettier -w . && eslint --fix .",
     "lerna-publish": "lerna publish",
     "monopkgs": "monopkgs",
     "test": "lerna run test",
-    "postversion": "monopkgs && npm run format && git commit -a -m \"chore: bump version and format\""
+    "postversion": "npm run docs:root && monopkgs && npm run format && git commit -a -m \"chore: bump version and format\""
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.19.0",

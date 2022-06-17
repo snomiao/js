@@ -103,13 +103,13 @@ importers:
   packages/md-aggregate:
     specifiers:
       escape-string-regexp: ^5.0.0
-      snobuild: ^1.0.0
+      snobuild: ^2.0.0
       yargs: ^17.5.1
     dependencies:
       escape-string-regexp: 5.0.0
       yargs: 17.5.1
     devDependencies:
-      snobuild: 1.0.2
+      snobuild: link:../snobuild
 
   packages/monopkgs:
     specifiers:
@@ -140,7 +140,7 @@ importers:
       '@types/mocha': ^9.1.1
       data-forge: ^1.9.5
       mocha: ^10.0.0
-      snobuild: workspace:^2.2.1
+      snobuild: ^2.2.1
       tsx: ^3.4.2
     dependencies:
       data-forge: 1.9.5

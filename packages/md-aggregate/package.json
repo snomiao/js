@@ -1,6 +1,6 @@
 {
   "name": "md-aggregate",
-  "version": "1.1.13",
+  "version": "2.0.1",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
   "keywords": [
     "markdown",
@@ -35,8 +35,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc && node esbuild-with-cli.mjs",
-    "prepack": "snobuild --lib",
+    "build": "snobuild --lib",
+    "prepack": "npm run build",
     "postversion": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w"
   },
   "dependencies": {
@@ -44,7 +44,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "snobuild": "^1.0.0"
+    "snobuild": "^2.0.0"
   },
   "publishConfig": {
     "access": "public"
