@@ -32,6 +32,6 @@
     "nodeforage": "^1.1.1"
   },
   "devDependencies": {
-    "snobuild": "^1.0.0"
+    "snobuild": "^2.2.1"
   }
 }
