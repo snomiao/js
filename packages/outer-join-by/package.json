@@ -4,7 +4,8 @@
   "description": "Outer join two arrays of object by a key, and return a correct typed array of objects",
   "keywords": [
     "aoj",
-    "join"
+    "join",
+    "typescript"
   ],
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
@@ -32,7 +33,7 @@
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "mocha": "^10.0.0",
-    "snobuild": "^2.0.0",
+    "snobuild": "workspace:^2.2.1",
     "tsx": "^3.4.2"
   },
   "repository": "https://github.com/snomiao/js/tree/main/packages/outer-join-by",
