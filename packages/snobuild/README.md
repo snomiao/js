@@ -10,22 +10,22 @@ npm i -D snobuild
 > snobuild -h
 
 Options:
-      --init       initialize package.json                             [boolean]      
-      --dev        +sourcemap -minify +tsc                             [boolean]      
-      --prod       -sourcemap +minify                                  [boolean]      
-      --lib        +bundle +external +sourcemap +minify +tsc           [boolean]      
-      --deploy     +bundle -external -sourcemap +minify                [boolean]      
-      --bundle     bundle deps                                         [boolean]      
-      --external   bundle ignore package.json dependencies             [boolean]      
-      --sourcemap  output sourcemaps                                   [boolean]      
-      --minify     minify outputs                                      [boolean]      
-      --tsc        run tsc                                             [boolean]      
-  -i, --input      input dir                                            [string]      
-  -o, --outdir     output dir                                           [string]      
-  -w, --watch      watch mode                                          [boolean]      
-  -s, --serve      serve mode (wip)                                    [boolean]      
-  -h, --help       Show help                                           [boolean]      
-  -v, --version    Show version number                                 [boolean] 
+      --init       initialize package.json                             [boolean]
+      --dev        +sourcemap -minify +tsc                             [boolean]
+      --prod       -sourcemap +minify                                  [boolean]
+      --lib        +bundle +external +sourcemap +minify +tsc           [boolean]
+      --deploy     +bundle -external -sourcemap +minify                [boolean]
+      --bundle     bundle deps                                         [boolean]
+      --external   bundle ignore package.json dependencies             [boolean]
+      --sourcemap  output sourcemaps                                   [boolean]
+      --minify     minify outputs                                      [boolean]
+      --tsc        run tsc                                             [boolean]
+  -i, --input      input dir                                            [string]
+  -o, --outdir     output dir                                           [string]
+  -w, --watch      watch mode                                          [boolean]
+  -s, --serve      serve mode (wip)                                    [boolean]
+  -h, --help       Show help                                           [boolean]
+  -v, --version    Show version number                                 [boolean]
 ```
 
 ## Feat

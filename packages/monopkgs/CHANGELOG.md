@@ -5,27 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.3.0](https://github.com/snomiao/js/compare/monopkgs@1.2.10...monopkgs@1.3.0) (2022-06-17)
 
-
 ### Bug Fixes
 
-* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
-
+- **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
 
 ### Features
 
-* **monopkgs:** get current branch ([1dc89a8](https://github.com/snomiao/js/commit/1dc89a8895d7a6d445c9b40580c8f66afc0a0283))
-
-
-
-
+- **monopkgs:** get current branch ([1dc89a8](https://github.com/snomiao/js/commit/1dc89a8895d7a6d445c9b40580c8f66afc0a0283))
 
 ## [1.2.10](https://github.com/snomiao/js/compare/monopkgs@1.2.9...monopkgs@1.2.10) (2022-05-12)
 
 **Note:** Version bump only for package monopkgs
-
-
-
-
 
 ## [1.2.9](https://github.com/snomiao/js/compare/monopkgs@0.2.8...monopkgs@1.2.9) (2022-05-03)
 

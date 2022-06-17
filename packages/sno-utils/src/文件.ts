@@ -1,5 +1,5 @@
 export const UTF8_BOM头删除 = (e: string) => e.replace(/^\ufeff/, "");
-export const UTF8_BOM头追加 = (e: string) => "\ufeff" + e;
+export const UTF8_BOM头追加 = (e: string) => `\ufeff${  e}`;
 export const 换行CR于CRLF删除 = (e: string) => e.replace(/\r\n/g, "\n");
 
 const fsp = async () => (await import("fs")).promises;

@@ -1,1 +1,1 @@
-export * from './objTrans'
+export * from "./objTrans";

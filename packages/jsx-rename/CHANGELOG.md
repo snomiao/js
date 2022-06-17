@@ -5,18 +5,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.0.2](https://github.com/snomiao/js/compare/jsx-rename@1.0.1...jsx-rename@1.0.2) (2022-06-17)
 
-
 ### Bug Fixes
 
-* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
-
-
-
-
+- **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
 
 ## 1.0.1 (2022-05-12)
 
-
 ### Bug Fixes
 
-* prepare jsx-renmae ([ceccefa](https://github.com/snomiao/js/commit/ceccefa368776dbdf6888fc801039f1e2fcc7ed8))
+- prepare jsx-renmae ([ceccefa](https://github.com/snomiao/js/commit/ceccefa368776dbdf6888fc801039f1e2fcc7ed8))

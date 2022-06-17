@@ -5,22 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.3.19](https://github.com/snomiao/js/compare/sno-utils@1.3.18...sno-utils@1.3.19) (2022-06-17)
 
-
 ### Bug Fixes
 
-* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
-
-
-
-
+- **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
 
 ## [1.3.18](https://github.com/snomiao/js/compare/sno-utils@1.3.17...sno-utils@1.3.18) (2022-05-12)
 
 **Note:** Version bump only for package sno-utils
-
-
-
-
 
 ## [1.3.17](https://github.com/snomiao/js/compare/sno-utils@0.3.16...sno-utils@1.3.17) (2022-05-03)
 

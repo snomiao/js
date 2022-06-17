@@ -24,7 +24,6 @@ extdev -v
 
 ```
 
-
 ## About
 
 ### License

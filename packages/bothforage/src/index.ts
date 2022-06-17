@@ -1,1 +1,1 @@
-export * from './bothforage';
+export * from "./bothforage";

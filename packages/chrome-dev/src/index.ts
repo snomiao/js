@@ -34,7 +34,7 @@ export default async function chromeDev({
   if (dotenv) {
     await import("dotenv/config");
   }
-  // launch browser  
+  // launch browser
   const browser = await puppeteer.launch({
     headless: false,
     devtools,

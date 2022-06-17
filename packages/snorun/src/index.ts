@@ -15,8 +15,8 @@ import { exec } from "child_process";
  * @returns true if cmd's exit code=0, otherwise return false
  * @author: snomiao <snomiao@gmail.com>
  */
-export default function snorun(cmd: string| string[], { echo = true, echoPrefix = "> " } = {}) {
-  const execCommand = [cmd].flat().join(' ');
+export default function snorun(cmd: string | string[], { echo = true, echoPrefix = "> " } = {}) {
+  const execCommand = [cmd].flat().join(" ");
   if (echo) console.log((echoPrefix || "") + execCommand);
   const { promise, resolve } = usePromise<boolean>();
   const p = exec(execCommand, (error, stdout, stderr) => (error ? resolve(false) : resolve(true)));

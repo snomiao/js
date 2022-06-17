@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 type 函<入, 出> = (入: 入) => 出;
 type 函续列 = 函<any, any>[];
 type 可异步函<入, 出> = (入: 入) => Promise<出> | 出;
