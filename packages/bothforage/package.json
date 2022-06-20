@@ -33,5 +33,6 @@
   },
   "devDependencies": {
     "snobuild": "^2.3.2"
-  }
+  },
+  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

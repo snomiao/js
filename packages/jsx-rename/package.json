@@ -13,20 +13,36 @@
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+jsx-rename"
   },
-  "repository": "https://github.com/snomiao/js/tree/main/packages/jsx-rename",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snomiao/js.git#main"
+  },
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
-  "main": "jsx-rename.mjs",
-  "bin": {
-    "jsx-rename": "jsx-rename.mjs"
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js"
+    }
   },
+  "main": "lib/index.js",
+  "bin": {
+    "jsx-rename": "lib/cli.js"
+  },
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "eslint": "eslint"
+    "build": "snobuild --lib",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "arg": "^5.0.1",
     "eslint": "8.2.0",
     "eslint-plugin-react": "7.28.0",
     "exec-sh": "^0.4.0"
+  },
+  "devDependencies": {
+    "snobuild": "^2.3.2"
   }
 }

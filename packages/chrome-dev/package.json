@@ -42,11 +42,11 @@
     "puppeteer": "^14.2.1",
     "yargs": "^17.5.1"
   },
+  "devDependencies": {
+    "snobuild": "^2.3.2"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c",
-  "devDependencies": {
-    "snobuild": "^2.3.2"
-  }
+  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

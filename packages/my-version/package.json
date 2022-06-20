@@ -13,5 +13,6 @@
   "bin": "cli.mjs",
   "dependencies": {
     "read-pkg-up": "^9.1.0"
-  }
+  },
+  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

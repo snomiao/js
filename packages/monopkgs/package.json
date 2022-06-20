@@ -1,5 +1,5 @@
 {
-  "name": "monopkgs",
+  "name": "monogpkgs",
   "version": "1.3.2",
   "description": "mono-pkgs",
   "keywords": [
@@ -27,5 +27,6 @@
   },
   "devDependencies": {
     "@types/yargs": "^17.0.10"
-  }
+  },
+  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }
