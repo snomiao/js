@@ -1,6 +1,6 @@
 {
   "name": "snobuild",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Easy way to use esbuild.",
   "keywords": [
     "cli",
@@ -31,7 +31,7 @@
     "lib"
   ],
   "scripts": {
-    "boot": "pnpx -y -- snobuild@2.2.1",
+    "boot": "pnpx -y -- snobuild@2.2.1 --lib",
     "build": "snobuild --lib",
     "prepack": "npm run build"
   },

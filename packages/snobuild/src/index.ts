@@ -89,7 +89,7 @@ export default async function snobuild({
     outdir,
     platform: "node",
     format: "esm",
-    target: ["esnext"],
+    target: ["es2020"], //es2020 for node 14
     logLevel: "info",
     watch,
     incremental: watch,
