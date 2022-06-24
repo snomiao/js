@@ -132,8 +132,8 @@ export default async function snobuild({
     !tsc
       ? true // "skip tsc output"
       : tsconfigExisted
-      ? snorun(["tsc", tscWatchFlag].join(" "))
-      : indexExisted && snorun(["tsc", ...tscBuildOptions, ...tscEntryPoints].join(" ")),
+      ? await snorun(["tsc", tscWatchFlag].join(" "))
+      : indexExisted && await snorun(["tsc", ...tscBuildOptions, ...tscEntryPoints].join(" ")),
   ]);
 
   console.log(results);
