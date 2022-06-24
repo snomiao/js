@@ -1,6 +1,6 @@
 {
   "name": "sno-mongo-ku",
-  "version": "2.7.23",
+  "version": "2.7.24",
   "description": "MongoDB simple wrapper, Provide simple method in chinese to handle the mongodb.",
   "keywords": [
     "mongodb",
@@ -16,7 +16,7 @@
   "type": "module",
   "exports": {
     "require": "./lib/index.cjs",
-    "default": "./lib/index.js"
+    "import": "./lib/index.js"
   },
   "main": "lib/index.cjs",
   "module": "lib/index.js",
