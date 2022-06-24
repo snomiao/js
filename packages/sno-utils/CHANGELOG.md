@@ -9,47 +9,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **sno-utils:** update snobuild ([74f0be9](https://github.com/snomiao/js/commit/74f0be93266e6726a9de430256c0715bd6711c8d))
 
-## [1.3.20](https://github.com/snomiao/js/compare/sno-utils@1.3.19...sno-utils@1.3.20) (2022-06-17)
-
-**Note:** Version bump only for package sno-utils
-
 ## [1.3.19](https://github.com/snomiao/js/compare/sno-utils@1.3.18...sno-utils@1.3.19) (2022-06-17)
 
 ### Bug Fixes
 
 - **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
-
-## [1.3.18](https://github.com/snomiao/js/compare/sno-utils@1.3.17...sno-utils@1.3.18) (2022-05-12)
-
-**Note:** Version bump only for package sno-utils
-
-## [1.3.17](https://github.com/snomiao/js/compare/sno-utils@0.3.16...sno-utils@1.3.17) (2022-05-03)
-
-**Note:** Version bump only for package sno-utils
-
-## [0.3.16](https://github.com/snomiao/js/compare/sno-utils@0.3.15...sno-utils@0.3.16) (2022-04-23)
-
-**Note:** Version bump only for package sno-utils
-
-## [0.3.15](https://github.com/snomiao/js/compare/sno-utils@0.3.14...sno-utils@0.3.15) (2022-04-23)
-
-**Note:** Version bump only for package sno-utils
-
-## [0.3.14](https://github.com/snomiao/js/compare/sno-utils@0.3.13...sno-utils@0.3.14) (2022-04-23)
-
-**Note:** Version bump only for package sno-utils
-
-## [0.3.13](https://github.com/snomiao/js/compare/sno-utils@0.3.12...sno-utils@0.3.13) (2022-04-21)
-
-**Note:** Version bump only for package sno-utils
-
-## [0.3.12](https://github.com/snomiao/js/compare/sno-utils@0.3.11...sno-utils@0.3.12) (2022-04-20)
-
-**Note:** Version bump only for package sno-utils
-
-## [0.3.11](https://github.com/snomiao/js/compare/sno-utils@0.3.10...sno-utils@0.3.11) (2022-04-20)
-
-**Note:** Version bump only for package sno-utils
 
 ## [0.3.10](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.9...sno-utils@0.3.10) (2022-04-15)
 
@@ -62,14 +26,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - [@deprecated](https://github.com/deprecated) use lodash-es ([bf94993](https://github.com/snomiao/sno-utils/commit/bf949933c5373640dfed6b9d6a9c0c2979bd06b5))
-
-## [0.3.8](https://github.com/snomiao/sno-utils/compare/sno-utils@0.3.7...sno-utils@0.3.8) (2022-04-15)
-
-**Note:** Version bump only for package sno-utils
-
-## 0.3.7 (2022-04-14)
-
-**Note:** Version bump only for package sno-utils
 
 ## [0.3.6](https://github.com/snomiao/sno-utils/compare/v0.3.5...v0.3.6) (2021-12-28)
 
