@@ -23,11 +23,11 @@ export default async function snobuild({
   input = undefined as string,
   init = undefined as boolean,
   bundle = undefined as boolean,
-  skipDep = undefined as boolean,
-  skipDevDep = undefined as boolean,
-  skipOptionalDep = undefined as boolean,
-  skipPeerDep = undefined as boolean,
-  skipBundleDep = undefined as boolean,
+  bundleDep = undefined as boolean,
+  bundleDevDep = undefined as boolean,
+  bundleOptionalDep = undefined as boolean,
+  bundlePeerDep = undefined as boolean,
+  bundleBundleDep = undefined as boolean,
   external = undefined as boolean,
   externals = undefined as string,
   watch = undefined as boolean,
@@ -56,13 +56,13 @@ export default async function snobuild({
   if (init) await packageInit({ pkgPath, indexExisted, cliExisted, tsconfigExisted });
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
   // const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
-  const deps = !skipDep ? [] : Object.keys(pkg?.dependencies || {});
-  const devDeps = !skipDevDep ? [] : Object.keys(pkg?.devDependencies || {});
-  const optionalDeps = !skipOptionalDep ? [] : Object.keys(pkg?.optionalDependencies || {});
-  const peerDeps = !skipPeerDep ? [] : Object.keys(pkg?.peerDependencies || {});
-  const skipDeps = !skipBundleDep ? [] : Object.keys(pkg?.bundleDependencies || {});
+  const deps = bundleDep ? [] : Object.keys(pkg?.dependencies || {});
+  const devDeps = bundleDevDep ? [] : Object.keys(pkg?.devDependencies || {});
+  const optionalDeps = bundleOptionalDep ? [] : Object.keys(pkg?.optionalDependencies || {});
+  const peerDeps = bundlePeerDep ? [] : Object.keys(pkg?.peerDependencies || {});
+  const bundleDeps = bundleBundleDep ? [] : Object.keys(pkg?.bundleDependencies || {});
   const _externals = [
-    ...[...deps, ...devDeps, ...optionalDeps, ...peerDeps, ...skipDeps],
+    ...[...deps, ...devDeps, ...optionalDeps, ...peerDeps, ...bundleDeps],
     ...(externals?.split(",") ?? []),
   ];
 
@@ -133,7 +133,7 @@ export default async function snobuild({
       ? true // "skip tsc output"
       : tsconfigExisted
       ? await snorun(["tsc", tscWatchFlag].join(" "))
-      : indexExisted && await snorun(["tsc", ...tscBuildOptions, ...tscEntryPoints].join(" ")),
+      : indexExisted && (await snorun(["tsc", ...tscBuildOptions, ...tscEntryPoints].join(" "))),
   ]);
 
   console.log(results);
