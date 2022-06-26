@@ -72,3 +72,7 @@ export function whila<V, R>(update: WhilaWhen<V>, body?: WhilaBody<V, R>): any {
     return last;
   })();
 }
+
+export function threw(message?: string) {
+  throw new Error(message);
+}
