@@ -42,7 +42,7 @@ importers:
     specifiers:
       localforage: ^1.10.0
       nodeforage: ^1.1.1
-      snobuild: ^2.2.1
+      snobuild: ^2.3.2
     dependencies:
       localforage: 1.10.0
       nodeforage: 1.1.1
@@ -55,7 +55,7 @@ importers:
       dotenv: ^14.2.0
       my-version: ^1.1.7
       puppeteer: ^14.2.1
-      snobuild: workspace:^2.3.2
+      snobuild: ^2.3.2
       yargs: ^17.5.1
     dependencies:
       arg: 5.0.1
@@ -71,7 +71,7 @@ importers:
       arg: ^5.0.1
       my-version: ^1.1.7
       puppeteer: ^13.5.2
-      snobuild: workspace:^2.3.2
+      snobuild: ^2.3.2
     dependencies:
       arg: 5.0.1
       my-version: link:../my-version
@@ -85,7 +85,7 @@ importers:
       eslint: 8.2.0
       eslint-plugin-react: 7.28.0
       exec-sh: ^0.4.0
-      snobuild: workspace:^2.3.2
+      snobuild: ^2.3.2
     dependencies:
       arg: 5.0.1
       eslint: 8.2.0
@@ -97,7 +97,7 @@ importers:
   packages/junction-move:
     specifiers:
       snobuild: ^1.0.0
-      snorun: ^1.0.0
+      snorun: ^1.1.2
       yargs: ^17.5.1
     dependencies:
       snorun: link:../snorun
@@ -108,7 +108,7 @@ importers:
   packages/md-aggregate:
     specifiers:
       escape-string-regexp: ^5.0.0
-      snobuild: ^2.0.0
+      snobuild: ^2.3.2
       yargs: ^17.5.1
     dependencies:
       escape-string-regexp: 5.0.0
@@ -141,7 +141,7 @@ importers:
     specifiers:
       '@types/mocha': ^9.1.1
       mocha: ^10.0.0
-      snobuild: ^2.2.1
+      snobuild: ^2.3.2
       tsx: ^3.4.2
     devDependencies:
       '@types/mocha': 9.1.1
@@ -154,7 +154,7 @@ importers:
       '@types/mocha': ^9.1.1
       data-forge: ^1.9.5
       mocha: ^10.0.0
-      snobuild: ^2.2.1
+      snobuild: ^2.3.2
       tsx: ^3.4.2
     dependencies:
       data-forge: 1.9.5
@@ -169,7 +169,7 @@ importers:
       '@types/node': ^17.0.10
       mongodb: ^4.6.0
       p-queue: ^7.1.0
-      snobuild: ^2.1.2
+      snobuild: ^2.3.2
     dependencies:
       mongodb: 4.6.0
       p-queue: 7.2.0
@@ -180,17 +180,17 @@ importers:
   packages/sno-utils:
     specifiers:
       '@types/node': ^14.14.22
-      snobuild: ^1.0.0
+      snobuild: ^2.3.2
     devDependencies:
       '@types/node': 14.18.13
-      snobuild: 1.0.2
+      snobuild: link:../snobuild
 
   packages/snobuild:
     specifiers:
       '@types/yargs': ^17.0.10
       esbuild: ^0.14.39
       globby: ^13.1.1
-      snorun: ^1.0.0
+      snorun: ^1.1.2
       sort-package-json: ^1.57.0
       yargs: ^17.5.1
     dependencies:
@@ -206,7 +206,7 @@ importers:
     specifiers:
       '@types/mocha': ^9.1.1
       mocha: ^10.0.0
-      snobuild: ^2.1.1
+      snobuild: ^2.3.2
     devDependencies:
       '@types/mocha': 9.1.1
       mocha: 10.0.0
@@ -222,9 +222,9 @@ importers:
 
   packages/snorun:
     specifiers:
-      snobuild: ^1.0.0
+      snobuild: ^2.4.2
     devDependencies:
-      snobuild: 1.0.2
+      snobuild: link:../snobuild
 
   packages/snosay:
     specifiers:
