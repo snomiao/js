@@ -1,6 +1,6 @@
 {
   "name": "monogpkgs",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "mono-pkgs",
   "keywords": [
     "markdown",
@@ -18,6 +18,13 @@
   "type": "module",
   "bin": {
     "monopkgs": "lib/cli.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "snobuild --lib",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "arg": "^5.0.1",
