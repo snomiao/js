@@ -18,13 +18,22 @@ import { exec } from "child_process";
 export default function snorun(cmd: string | string[], { echo = true, echoPrefix = "> " } = {}) {
   const execCommand = [cmd].flat().join(" ");
   if (echo) console.log((echoPrefix || "") + execCommand);
-  const { promise, resolve } = usePromise<boolean>();
-  const p = exec(execCommand, (error, stdout, stderr) => (error ? resolve(false) : resolve(true)));
-  process.stdin.pipe(p.stdin);
+  const { promise: succPromise, resolve: succ } = usePromise<boolean>();
+  const { promise: stdout, resolve: out } = usePromise<string>();
+  const { promise: stderr, resolve: err } = usePromise<string>();
   // todo: keep colors
-  p.stdout.pipe(process.stdout);
+  const p = exec(execCommand, (error, stdout, stderr) => {
+    error ? succ(false) : succ(true);
+    err(stderr.trimEnd());
+    out(stdout.trimEnd());
+  });
   p.stderr.pipe(process.stderr);
-  return promise;
+  p.stdout.pipe(process.stdout);
+  // fix env without stdin
+  // process.stdin.read && process.stdin.pipe(p.stdin);
+  process.stdin;
+  console.log("done");
+  return { ...succPromise, stdout, stderr };
 }
 function usePromise<T>() {
   const s: any = {};
