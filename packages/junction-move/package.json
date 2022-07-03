@@ -1,6 +1,6 @@
 {
   "name": "junction-move",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Move a folder to new location and make a Juction link to new location. Only works with windows yet. ",
   "keywords": [
     "junction",
@@ -13,7 +13,10 @@
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+junction-move"
   },
-  "repository": "https://github.com/snomiao/js/tree/main/packages/junction-move",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snomiao/js.git#main"
+  },
   "license": "GPLv3",
   "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
@@ -36,14 +39,14 @@
     "lib"
   ],
   "scripts": {
-    "build": "snobuild"
+    "build": "snobuild --lib",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "snorun": "^1.1.2",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "snobuild": "^1.0.0"
-  },
-  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
+    "snobuild": "^2.4.2"
+  }
 }
