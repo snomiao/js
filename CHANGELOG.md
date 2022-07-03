@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/snomiao/js/compare/md-aggregate@2.1.6...md-aggregate@2.1.7) (2022-07-03)
+
+
+### Bug Fixes
+
+* **md-aggregate:** prettier deps ([a7cdff8](https://github.com/snomiao/js/commit/a7cdff81a38d6a3b09eda84479f57305d3c68d25))
+
+
+
+
+
 ## [2.1.6](https://github.com/snomiao/js/compare/md-aggregate@2.1.2...md-aggregate@2.1.6) (2022-07-03)
 
 
