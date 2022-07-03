@@ -5,28 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.1.7](https://github.com/snomiao/js/compare/md-aggregate@2.1.6...md-aggregate@2.1.7) (2022-07-03)
 
-
 ### Bug Fixes
 
-* **md-aggregate:** prettier deps ([a7cdff8](https://github.com/snomiao/js/commit/a7cdff81a38d6a3b09eda84479f57305d3c68d25))
-
-
-
-
+- **md-aggregate:** prettier deps ([a7cdff8](https://github.com/snomiao/js/commit/a7cdff81a38d6a3b09eda84479f57305d3c68d25))
 
 ## [2.1.6](https://github.com/snomiao/js/compare/md-aggregate@2.1.2...md-aggregate@2.1.6) (2022-07-03)
 
-
 ### Bug Fixes
 
-* bump versions ([5919ed1](https://github.com/snomiao/js/commit/5919ed121623654879820b063cc4d4252dee47d6))
-* **md-aggregate:** imports ([a80e012](https://github.com/snomiao/js/commit/a80e0125a6d1476f73cfa83a93b72e4a9bc3c605))
-* **md-aggregate:** postversion ([7b9cdf7](https://github.com/snomiao/js/commit/7b9cdf70c5a8258e1fd26956b0f38a55e309b4c6))
-* **md-aggregate:** wrap with aiife ([155b9d1](https://github.com/snomiao/js/commit/155b9d1004a2abd3c1503db587be8352cb4e4e55))
-
-
-
-
+- bump versions ([5919ed1](https://github.com/snomiao/js/commit/5919ed121623654879820b063cc4d4252dee47d6))
+- **md-aggregate:** imports ([a80e012](https://github.com/snomiao/js/commit/a80e0125a6d1476f73cfa83a93b72e4a9bc3c605))
+- **md-aggregate:** postversion ([7b9cdf7](https://github.com/snomiao/js/commit/7b9cdf70c5a8258e1fd26956b0f38a55e309b4c6))
+- **md-aggregate:** wrap with aiife ([155b9d1](https://github.com/snomiao/js/commit/155b9d1004a2abd3c1503db587be8352cb4e4e55))
 
 ## [2.1.2](https://github.com/snomiao/js/compare/md-aggregate@2.1.1...md-aggregate@2.1.2) (2022-06-17)
 
