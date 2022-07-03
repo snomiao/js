@@ -1,6 +1,6 @@
 {
   "name": "snosay",
-  "version": "1.2.20",
+  "version": "1.2.21",
   "description": "A cli wrapper for say, crossplatform TTS (Text To Speech) Module for Node.js, try me with > npx snosay hello, world",
   "keywords": [
     "cli",
