@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package sno-utils
 
-
-
-
-
 ## [1.3.28](https://github.com/snomiao/js/compare/sno-utils@1.3.21...sno-utils@1.3.28) (2022-07-03)
 
 ### Bug Fixes

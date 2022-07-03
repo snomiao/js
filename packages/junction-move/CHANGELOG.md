@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package junction-move
 
-
-
-
-
 ## [1.2.7](https://github.com/snomiao/js/compare/junction-move@1.2.2...junction-move@1.2.7) (2022-07-03)
 
 ### Bug Fixes

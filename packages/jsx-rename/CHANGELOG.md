@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jsx-rename
 
-
-
-
-
 ## [1.0.6](https://github.com/snomiao/js/compare/jsx-rename@1.0.4...jsx-rename@1.0.6) (2022-07-03)
 
 ### Bug Fixes

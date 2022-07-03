@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package chrome-dev
 
-
-
-
-
 ## [1.1.9](https://github.com/snomiao/js/compare/chrome-dev@1.1.7...chrome-dev@1.1.9) (2022-07-03)
 
 ### Bug Fixes

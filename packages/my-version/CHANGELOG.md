@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package my-version
 
-
-
-
-
 # [1.3.0](https://github.com/snomiao/js/compare/my-version@1.1.7...my-version@1.3.0) (2022-07-03)
 
 ### Features

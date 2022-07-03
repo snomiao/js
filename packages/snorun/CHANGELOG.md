@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package snorun
 
-
-
-
-
 ## [1.1.5](https://github.com/snomiao/js/compare/snorun@1.1.2...snorun@1.1.5) (2022-07-03)
 
 ### Bug Fixes

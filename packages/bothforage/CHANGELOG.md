@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package bothforage
 
-
-
-
-
 ## [1.1.3](https://github.com/snomiao/js/compare/bothforage@1.1.2...bothforage@1.1.3) (2022-07-03)
 
 **Note:** Version bump only for package bothforage

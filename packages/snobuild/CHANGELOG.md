@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package snobuild
 
-
-
-
-
 # [2.5.0](https://github.com/snomiao/js/compare/snobuild@2.3.2...snobuild@2.5.0) (2022-07-03)
 
 ### Bug Fixes

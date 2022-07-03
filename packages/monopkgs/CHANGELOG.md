@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package monogpkgs
 
-
-
-
-
 # 1.4.0 (2022-07-03)
 
 ### Bug Fixes
