@@ -4,18 +4,17 @@ import { globby } from "globby";
 import path, { relative, resolve } from "path";
 import { promisify } from "util";
 
-export default async function monopkgs({ } = {}) {
+export default async function monopkgs({} = {}) {
   const rootPkg = resolve("./package.json");
   const root = JSON.parse(await readFile(rootPkg, "utf8"));
   const rootDir = path.parse(rootPkg).dir;
 
   if (root.repository) {
-    const [, ghUrl] = root.repository?.url?.match?.(/(https\:\/\/github\.com\/.*?\/.*?)\.git/) || [];
+    const [, ghUrl] =
+      root.repository?.url?.match?.(/(https\:\/\/github\.com\/.*?\/.*?)\.git/) || [];
     root.repository = ghUrl || root.repository;
-    if (typeof root.repository !== "string")
-      throw new Error("root.repository need to be string");
-    if (root.repository.endsWith("/"))
-      throw new Error("root.repository need to be without /");
+    if (typeof root.repository !== "string") throw new Error("root.repository need to be string");
+    if (root.repository.endsWith("/")) throw new Error("root.repository need to be without /");
   }
 
   const root_repository = root.repository?.replace(/\.git$/, "");
