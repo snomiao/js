@@ -3,18 +3,20 @@ import { Promi } from "./types";
 import { snofa } from "./snofa";
 import { snof } from "./snof";
 export { snofa, snof };
-export default null;
-export function mkLockers(n = 1) {
+export default snofa;
+export function useLockers(n = 1) {
   const resolves = [];
   const lock = () => new Promise<void>((resolve) => (n-- ? resolve() : resolves.push(resolve)));
   const unlock = () => (n++, resolves.shift()?.());
   return { lock, unlock };
 }
-type MapaIter<V, R> = (v: V, i: number, a: V[]) => Promi<R>;
-type ForaIter<V> = (v: V, i: number, a: V[]) => Promi<void>;
-type ReducaIter<S, V> = (state: S, v: V, i: number, a: V[]) => Promi<S>;
+
+type Conda<Arg, R> = [(v?: Arg) => Promi<boolean> | boolean, (() => Promi<R>) | R];
+type MapaIter<V, R> = (v?: V, i?: number, a?: V[]) => Promi<R>;
+type ForaIter<V> = (v?: V, i?: number, a?: V[]) => Promi<void>;
+type ReducaIter<S, V> = (state?: S, v?: V, i?: number, a?: V[]) => Promi<S>;
 type WhilaWhen<T> = (state?: T) => Promi<T | void>;
-type WhilaBody<V, R> = (v: V) => Promi<R>;
+type WhilaBody<V, R> = (v?: V) => Promi<R>;
 
 // TODO: iter objects
 // TODO: test
@@ -62,9 +64,12 @@ export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Promi<V[]>): an
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
  */
 export function whila<V, R>(update: WhilaWhen<V>, body: WhilaBody<V, R>): Promise<R>;
+/**
+ * Loop while updated truthy state and pipe into the looper, then return the last looper state.
+ */
 export function whila<V, R>(update: WhilaWhen<V>): (body: WhilaBody<V, R>) => Promise<R>;
 export function whila<V, R>(update: WhilaWhen<V>, body?: WhilaBody<V, R>): any {
-  if (undefined === body) return (body: any) => whila(update, body);
+  if (undefined === body) return (body: WhilaBody<V, R>) => whila(update, body);
   return (async function () {
     let state = null;
     let last = null;
@@ -73,6 +78,24 @@ export function whila<V, R>(update: WhilaWhen<V>, body?: WhilaBody<V, R>): any {
   })();
 }
 
+/**
+ * async cond
+ */
+export function conda<R>(conds: Conda<void, R>[]): () => Promise<R>;
+/**
+ * async cond
+ */
+export function conda<V, R>(conds: Conda<V, R>[]): (v: V) => Promise<R>;
+export function conda<V, R>(conds: Conda<V, R>[]) {
+  return async (v?: V) => {
+    let cond: typeof conds[number];
+    while ((cond = conds.shift())) {
+      const test = typeof cond[0] === "function" ? await cond[0](v) : cond[0];
+      if (test) return typeof cond[1] === "function" ? await (cond[1] as () => R)() : cond[1];
+    }
+    return undefined;
+  };
+}
 export function threw(message?: string) {
   throw new Error(message);
 }
