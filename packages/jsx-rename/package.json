@@ -1,6 +1,6 @@
 {
   "name": "jsx-rename",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "description": "A git worktree helper",
   "keywords": [
@@ -33,16 +33,17 @@
     "lib"
   ],
   "scripts": {
-    "build": "snobuild --lib",
-    "prepack": "npm run build"
+    "_build": "snobuild --lib",
+    "_prepack": "npm run build"
   },
   "dependencies": {
-    "arg": "^5.0.1",
     "eslint": "8.2.0",
     "eslint-plugin-react": "7.28.0",
-    "exec-sh": "^0.4.0"
+    "snorun": "^1.1.4",
+    "yargs": "^17.5.1"
   },
   "devDependencies": {
+    "@types/yargs": "^17.0.10",
     "snobuild": "^2.3.2"
   }
 }
