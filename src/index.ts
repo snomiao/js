@@ -1,7 +1,7 @@
 import escapeStringRegexp from "escape-string-regexp";
-import { readFile, writeFile } from "fs/promises";
+import fs from "fs";
 import { resolve } from "path";
-
+const { readFile, writeFile } = fs.promises;
 export default async function mdAggregate({
   input = [] as string[],
   target = "",
