@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.1.8](https://github.com/snomiao/js/compare/md-aggregate@2.1.7...md-aggregate@2.1.8) (2022-07-03)
 
-
 ### Bug Fixes
 
-* **md-aggregate:** remove symlink due to permission issue ([46e7fd6](https://github.com/snomiao/js/commit/46e7fd68b98e5bfcdea945d69588cc73604e1a66))
-
-
-
-
+- **md-aggregate:** remove symlink due to permission issue ([46e7fd6](https://github.com/snomiao/js/commit/46e7fd68b98e5bfcdea945d69588cc73604e1a66))
 
 ## [2.1.7](https://github.com/snomiao/js/compare/md-aggregate@2.1.6...md-aggregate@2.1.7) (2022-07-03)
 
