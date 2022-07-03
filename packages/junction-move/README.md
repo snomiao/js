@@ -6,7 +6,26 @@ Move a folder to new location and make a Juction link to new location. Only work
 
 ```batch
 Usage: npx junction-move from_folder to_folder
-Example: npx junction-move C:\Go D:\Go
+```
+
+help
+
+```batch
+junction-move <source> <target>
+
+move source folder to target folder and create an junction link from source to t
+arget
+
+Options:
+  -h, --help     Show help                                             [boolean]
+  -v, --version  Show version number                                   [boolean]
+
+Examples:
+  junction-move C:\Go D:\Go                 Move Golang files from C: to D:
+  junction-move %userprofile%/Desktop D:\M  Move Your Desktop from C:/ to D:/
+  yDesktop
+
+Copyright (c) 2020-2022 snomiao@gmail.com
 ```
 
 ## Implementation
