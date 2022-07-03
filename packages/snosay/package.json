@@ -1,6 +1,6 @@
 {
   "name": "snosay",
-  "version": "1.2.22",
+  "version": "1.2.23",
   "description": "A cli wrapper for say, crossplatform TTS (Text To Speech) Module for Node.js, try me with > npx snosay hello, world",
   "keywords": [
     "cli",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/yargs": "^17.0.10",
-    "snobuild": "^2.4.2"
+    "snobuild": "^2.5.0"
   },
   "publishConfig": {
     "access": "public"

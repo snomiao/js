@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/snomiao/js/compare/chrome-dev@1.1.7...chrome-dev@1.1.9) (2022-07-03)
+
+
+### Bug Fixes
+
+* **chrome-dev:** no-top-level-await ([a88d1c6](https://github.com/snomiao/js/commit/a88d1c6dcb67d26d6098713c7b7c9731a0256d97))
+* **chrome-dev:** remove my-version ([2fe0861](https://github.com/snomiao/js/commit/2fe0861aca7c450a7cfd06717ff3e4b1bc12adc3))
+* **chrome-dev:** snobuild ([49fc08c](https://github.com/snomiao/js/commit/49fc08cdafb6978194714ed83f2adc4269202480))
+
+
+
+
+
 ## [1.1.7](https://github.com/snomiao/js/compare/chrome-dev@1.1.6...chrome-dev@1.1.7) (2022-06-17)
 
 **Note:** Version bump only for package chrome-dev

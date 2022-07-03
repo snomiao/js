@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/snomiao/js/compare/jsx-rename@1.0.4...jsx-rename@1.0.6) (2022-07-03)
+
+
+### Bug Fixes
+
+* **jsx-rename:** use edaf ([9e3f3a0](https://github.com/snomiao/js/commit/9e3f3a00f50160b1904965ab7c4c84afbe413647))
+
+
+
+
+
 ## [1.0.4](https://github.com/snomiao/js/compare/jsx-rename@1.0.3...jsx-rename@1.0.4) (2022-06-17)
 
 **Note:** Version bump only for package jsx-rename

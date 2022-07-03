@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.28](https://github.com/snomiao/js/compare/sno-utils@1.3.21...sno-utils@1.3.28) (2022-07-03)
+
+
+### Bug Fixes
+
+* **sno-utils:** type=module ([95a6688](https://github.com/snomiao/js/commit/95a66887fa9860683e90b46b2e6960772eff0542))
+* **utils:** bump version ([a359ebb](https://github.com/snomiao/js/commit/a359ebbba454d7881d95f07b048969375b9e7d46))
+* **utils:** simplify docs ([c08a907](https://github.com/snomiao/js/commit/c08a907ca9589021c457bd71c84dee4eeb95ee86))
+
+
+
+
+
 ## [1.3.21](https://github.com/snomiao/js/compare/sno-utils@1.3.20...sno-utils@1.3.21) (2022-06-17)
 
 ### Bug Fixes

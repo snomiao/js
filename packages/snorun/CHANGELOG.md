@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/snomiao/js/compare/snorun@1.1.2...snorun@1.1.5) (2022-07-03)
+
+
+### Bug Fixes
+
+* **snorun:** chorder of promise ([55c4cfa](https://github.com/snomiao/js/commit/55c4cfac3b291659477768d1c8eb079fdd25c8e7))
+* **snorun:** upgrade snobuild ([53982b2](https://github.com/snomiao/js/commit/53982b2a98c997bbab298b599f48163b734fa6d7))
+
+
+
+
+
 ## [1.1.2](https://github.com/snomiao/js/compare/snorun@1.1.1...snorun@1.1.2) (2022-06-17)
 
 **Note:** Version bump only for package snorun

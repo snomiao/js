@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2022-07-03)
+
+
+### Bug Fixes
+
+* **all:** update docs ([0c84651](https://github.com/snomiao/js/commit/0c84651ebba4a14fcb105611ddeb7a51ff887a36))
+* bump versions ([5919ed1](https://github.com/snomiao/js/commit/5919ed121623654879820b063cc4d4252dee47d6))
+* monopkgs output style ([e6c5538](https://github.com/snomiao/js/commit/e6c5538b9c162c4e55e68b922e17ff2e0d3534ec))
+* **monopkgs:** format ([10962ca](https://github.com/snomiao/js/commit/10962ca642034e48d5cab71e2b4fd957e7dbd699))
+* **monopkgs:** use snobuild ([34c6e08](https://github.com/snomiao/js/commit/34c6e08b1865b78f69d3171b4bc226cec0a47a4e))
+* **monopkgs:** wrap with aiife ([d8b7e09](https://github.com/snomiao/js/commit/d8b7e091a46f4ab260e506318a413e53b9ed6f1b))
+
+
+### Features
+
+* **monopkgs:** get current branch ([1dc89a8](https://github.com/snomiao/js/commit/1dc89a8895d7a6d445c9b40580c8f66afc0a0283))
+
+
+
+
+
 ## [1.3.2](https://github.com/snomiao/js/compare/monopkgs@1.3.1...monopkgs@1.3.2) (2022-06-17)
 
 **Note:** Version bump only for package monopkgs
