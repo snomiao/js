@@ -1,6 +1,6 @@
 {
   "name": "snogwt",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "a simple git worktree helper that checkout your branch into repo/worktrees/branch@repo/",
   "keywords": [
     "cli",

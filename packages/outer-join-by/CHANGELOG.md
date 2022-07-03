@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/snomiao/js/compare/outer-join-by@1.1.3...outer-join-by@1.1.4) (2022-07-03)
+
+**Note:** Version bump only for package outer-join-by
+
+
+
+
+
 ## [1.1.3](https://github.com/snomiao/js/compare/outer-join-by@1.1.2...outer-join-by@1.1.3) (2022-07-03)
 
 **Note:** Version bump only for package outer-join-by
