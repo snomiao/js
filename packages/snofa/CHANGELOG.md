@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/snomiao/js/compare/snofa@0.2.1...snofa@0.4.0) (2022-07-03)
+
+
+### Features
+
+* **snofa:** conda ([89e30ca](https://github.com/snomiao/js/commit/89e30ca39e7e8bd94f1535168bb7aa8f15580e6d))
+
+
+
+
+
 ## [0.2.1](https://github.com/snomiao/js/compare/snofa@0.2.0...snofa@0.2.1) (2022-07-03)
 
 **Note:** Version bump only for package snofa
