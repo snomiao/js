@@ -1,5 +1,7 @@
 # my-version
 
+Prints my package.json version. depends working dir.
+
 ## Usage
 
 ```shell
