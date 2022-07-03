@@ -10,13 +10,13 @@
     "replace",
     "import"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/main/packages/md-aggregate#readme",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/md-aggregate#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+md-aggregate"
   },
-  "repository": "https://github.com/snomiao/js/tree/main/packages/md-aggregate",
+  "repository": "https://github.com/snomiao/js/tree/master/packages/md-aggregate",
   "license": "GPLv3",
-  "author": "snomiao <snomiao@gmail.com>",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     "require": "./lib/index.cjs",

@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.3.0](https://github.com/snomiao/js/compare/my-version@1.1.7...my-version@1.3.0) (2022-07-03)
 
-
 ### Features
 
-* **my-version:** use snobuild ([e7b5339](https://github.com/snomiao/js/commit/e7b533982ea24e0a63ac18b37786c21ae1d6b0db))
-
-
-
-
+- **my-version:** use snobuild ([e7b5339](https://github.com/snomiao/js/commit/e7b533982ea24e0a63ac18b37786c21ae1d6b0db))
 
 ## [1.1.7](https://github.com/snomiao/js/compare/my-version@1.1.6...my-version@1.1.7) (2022-06-17)
 

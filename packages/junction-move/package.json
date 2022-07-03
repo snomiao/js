@@ -9,16 +9,13 @@
     "mklink",
     "cli"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/main/packages/junction-move#readme",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/junction-move#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+junction-move"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/js.git#main"
-  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/junction-move",
   "license": "GPLv3",
-  "author": "snomiao <snomiao@gmail.com>",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     ".": {

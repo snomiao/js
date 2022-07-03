@@ -7,13 +7,13 @@
     "chrome",
     "puppeteer"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/main/packages/chrome-dev#readme",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/chrome-dev#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+chrome-dev"
   },
-  "repository": "https://github.com/snomiao/js/tree/main/packages/chrome-dev",
+  "repository": "https://github.com/snomiao/js/tree/master/packages/chrome-dev",
   "license": "GPLv3",
-  "author": "snomiao <snomiao@gmail.com>",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     "require": "./lib/index.cjs",

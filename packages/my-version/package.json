@@ -5,16 +5,13 @@
   "keywords": [
     "cli"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/main/packages/my-version#readme",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/my-version#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+my-version"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/js.git#main"
-  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/my-version",
   "license": "GPLv3",
-  "author": "snomiao <snomiao@gmail.com>",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     ".": {

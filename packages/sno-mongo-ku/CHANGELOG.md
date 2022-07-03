@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.7.25](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.23...sno-mongo-ku@2.7.25) (2022-07-03)
 
-
 ### Bug Fixes
 
-* **sno-mongo-ku:** exports.import ([6e731e9](https://github.com/snomiao/js/commit/6e731e99a94d2c65e9010b9b7a92c8a2d025bc97))
-
-
-
-
+- **sno-mongo-ku:** exports.import ([6e731e9](https://github.com/snomiao/js/commit/6e731e99a94d2c65e9010b9b7a92c8a2d025bc97))
 
 ## [2.7.23](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.22...sno-mongo-ku@2.7.23) (2022-06-17)
 

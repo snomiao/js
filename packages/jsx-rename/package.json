@@ -9,16 +9,13 @@
     "rename",
     "vite"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/main/packages/jsx-rename#readme",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/jsx-rename#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+jsx-rename"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/js.git#main"
-  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/jsx-rename",
   "license": "GPLv3",
-  "author": "snomiao <snomiao@gmail.com>",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "exports": {
     ".": {
       "require": "./lib/index.cjs",

@@ -5,15 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.2.23](https://github.com/snomiao/js/compare/snosay@1.2.20...snosay@1.2.23) (2022-07-03)
 
-
 ### Bug Fixes
 
-* **snosay:** upgrade snobuild ([c69e74e](https://github.com/snomiao/js/commit/c69e74e3da05b8b1a3b51e10ebc46d130389f590))
-* **snosay:** wrap with aiife ([afda87a](https://github.com/snomiao/js/commit/afda87abe7790c3393db645c55ac89c2b7373c88))
-
-
-
-
+- **snosay:** upgrade snobuild ([c69e74e](https://github.com/snomiao/js/commit/c69e74e3da05b8b1a3b51e10ebc46d130389f590))
+- **snosay:** wrap with aiife ([afda87a](https://github.com/snomiao/js/commit/afda87abe7790c3393db645c55ac89c2b7373c88))
 
 ## [1.2.20](https://github.com/snomiao/js/compare/snosay@1.2.19...snosay@1.2.20) (2022-06-17)
 

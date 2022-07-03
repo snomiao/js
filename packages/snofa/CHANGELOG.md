@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.2.0](https://github.com/snomiao/js/compare/snofa@0.0.7...snofa@0.2.0) (2022-07-03)
 
-
 ### Features
 
-* **snofa:** threw ([b774363](https://github.com/snomiao/js/commit/b774363fe35a517d18739e12a47801ae1871b63e))
-
-
-
-
+- **snofa:** threw ([b774363](https://github.com/snomiao/js/commit/b774363fe35a517d18739e12a47801ae1871b63e))
 
 ## [0.0.7](https://github.com/snomiao/js/compare/snofa@0.0.6...snofa@0.0.7) (2022-06-17)
 
