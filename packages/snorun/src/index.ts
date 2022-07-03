@@ -23,9 +23,9 @@ export default function snorun(cmd: string | string[], { echo = true, echoPrefix
   const { promise: stderr, resolve: err } = usePromise<string>();
   // todo: keep colors
   const p = exec(execCommand, (error, stdout, stderr) => {
-    error ? succ(false) : succ(true);
     err(stderr.trimEnd());
     out(stdout.trimEnd());
+    error ? succ(false) : succ(true);
   });
   p.stderr.pipe(process.stderr);
   p.stdout.pipe(process.stdout);

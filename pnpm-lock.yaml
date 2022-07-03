@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 importers:
 
@@ -222,7 +222,7 @@ importers:
 
   packages/snorun:
     specifiers:
-      snobuild: ^2.4.2
+      snobuild: workspace:2.4.2
     devDependencies:
       snobuild: link:../snobuild
 
@@ -230,14 +230,14 @@ importers:
     specifiers:
       '@types/yargs': ^17.0.10
       say: ^0.16.0
-      snobuild: ^1.0.0
+      snobuild: workspace:^2.4.2
       yargs: ^17.5.1
     dependencies:
       say: 0.16.0
       yargs: 17.5.1
     devDependencies:
       '@types/yargs': 17.0.10
-      snobuild: 1.0.2
+      snobuild: link:../snobuild
 
 packages:
 
