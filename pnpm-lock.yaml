@@ -111,13 +111,15 @@ importers:
     specifiers:
       '@types/yargs': ^17.0.10
       escape-string-regexp: ^5.0.0
-      snobuild: ^2.3.2
+      prettier: ^2.6.2
+      snobuild: ^2.5.0
       yargs: ^17.5.1
     dependencies:
       escape-string-regexp: 5.0.0
       yargs: 17.5.1
     devDependencies:
       '@types/yargs': 17.0.10
+      prettier: 2.6.2
       snobuild: link:../snobuild
 
   packages/monopkgs:

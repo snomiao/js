@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@types/yargs": "^17.0.10",
+    "prettier": "^2.6.2",
     "snobuild": "^2.5.0"
   },
   "publishConfig": {
