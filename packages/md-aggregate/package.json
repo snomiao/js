@@ -1,6 +1,6 @@
 {
   "name": "md-aggregate",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
   "keywords": [
     "markdown",
@@ -37,7 +37,7 @@
   "scripts": {
     "build": "snobuild --lib",
     "prepack": "npm run build",
-    "postversion": "prettier -w CHANGELOG.md && md-aggregate CHANGELOG.md README.md -w"
+    "postversion": "prettier -w CHANGELOG.md && npm link && md-aggregate README.md CHANGELOG.md -w"
   },
   "dependencies": {
     "escape-string-regexp": "^5.0.0",
