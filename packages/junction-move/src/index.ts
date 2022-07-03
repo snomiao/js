@@ -6,7 +6,7 @@ import snorun from "snorun";
 export default junctionMove;
 async function junctionMove(source: string, target: string) {
   await snorun(`chcp 65001`);
-  if (!(source && target)) throw new Error("empty imput");
+  if (!(source && target)) throw new Error("empty input or output");
   resolve();
   (true &&
     (await snorun(`robocopy "${source}" "${target}" /MOVE /E`)) &&
