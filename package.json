@@ -13,7 +13,7 @@
     "url": "git+https://github.com/snomiao/js.git"
   },
   "license": "GPLv3",
-  "author": "snomiao <snomiao@gmail.com>",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "workspaces": [
     "packages/**"
   ],

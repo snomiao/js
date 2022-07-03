@@ -39,7 +39,7 @@
   "dependencies": {
     "esbuild": "^0.14.39",
     "globby": "^13.1.1",
-    "snorun": "^1.1.2",
+    "snorun": "1.1.2",
     "sort-package-json": "^1.57.0",
     "yargs": "^17.5.1"
   },
