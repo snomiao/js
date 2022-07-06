@@ -1,6 +1,6 @@
 {
   "name": "snogwt",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "a simple git worktree helper that checkout your branch into repo/worktrees/branch@repo/",
   "keywords": [
     "cli",
@@ -12,21 +12,41 @@
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snogwt"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snogwt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snomiao/js.git#master"
+  },
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
-  "main": "snogtree.mjs",
+  "type": "module",
+  "exports": {
+    "import": "./lib/index.js",
+    "require": "./lib/index.cjs"
+  },
+  "main": "snogwt.mjs",
+  "module": "lib/index.js",
+  "types": "./lib/index.d.ts",
   "bin": {
-    "snogmerge": "snogmerge.mjs",
-    "snogtree": "snogtree.mjs",
-    "snogwt": "snogtree.mjs"
+    "snogmer": "lib/snogmer.js",
+    "snogwt": "lib/cli.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "snobuild --lib",
+    "prepack": "npm run build"
   },
   "dependencies": {
-    "arg": "^5.0.1",
-    "exec-sh": "^0.4.0"
+    "exec-sh": "^0.4.0",
+    "snorun": "1.1.11",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.10",
+    "snobuild": "^2.5.2"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
+  }
 }

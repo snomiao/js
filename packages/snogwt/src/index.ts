@@ -1,61 +1,71 @@
 #!/usr/bin/env node
 
-import arg from "arg";
 import execSh from "exec-sh";
 import { readFile, writeFile } from "fs/promises";
 import { resolve } from "path";
-import { cwdRepoFind } from "./cwdRepoFind.mjs";
-import { tryCommands } from "./tryCommands.mjs";
-import { tryInstallPackages } from "./tryInstallPackages.mjs";
-import { versionShow } from "./versionShow.mjs";
+import snorun from "snorun";
+import { cwdRepoFind } from "./cwdRepoFind";
+import { tryInstallPackages } from "./tryInstallPackages";
+// await cli(process.argv);
 
-await cli(process.argv);
+export default async function snogwt({
+  branch = "",
+  remove = undefined as boolean,
+  force = undefined as boolean,
+  list = undefined as boolean,
+  code = undefined as boolean,
+  pull = undefined as boolean,
+  npmi = undefined as boolean,
+} = {}) {
+  // list
+  if (list) return await snorun("git worktree list"), await snorun("git branch");
+  // checkout
+  const checkoutPath = await gwtCheckout(branch);
+  // remove
+  if (force && remove) return await gwtForceRemove(checkoutPath, branch);
+  if (remove) return await gwtRemove(checkoutPath, branch);
+  // postprocess
+  const p: Promise<boolean>[] = [];
+  if (code) p.push(snorun(`cd ${checkoutPath} && code .`));
+  if (pull) p.push(snorun(`cd ${checkoutPath} && git fetch && git pull`));
+  if (npmi) p.push(tryInstallPackages(checkoutPath));
+  return Promise.all(p);
+}
 
-export async function cli(rawArgv) {
-  const [node, js, ...argv] = rawArgv;
-  // parse args
-  const opts = {
-    "--remove": Boolean,
-    "--force-remove": Boolean,
-    "--list": Boolean,
-    "--no-vscode": Boolean,
-    "--version": Boolean,
-    "-n": "--no-vscode",
-    "-l": "--list",
-    "-v": "--version",
-  };
-  const args = arg(opts, { argv });
-  const { remove = args["--remove"], list = args["--list"], version = args["--version"] } = {};
-  const [branch, more] = args._;
-
-  if (version) return await versionShow(js);
-
-  // check branch params
-  if (more) throw new Error("no more params");
-  if (!branch) return await execSh.promise("git worktree list");
-
+async function gwtCheckout(branch: string) {
   // try cd to the top working dir without "worktrees" nested
   const cwd = process.cwd();
   // cd to top
   process.chdir(process.cwd().replace(/[\\/]worktrees[\\/].*/, ""));
-
   // list worktrees
-  if (list) return await execSh.promise("git worktree list");
-
   // find repo dir and repo name
   const { repodir, top, repodirname } = await cwdRepoFind();
-
   // ensure root ignore /worktrees
   await ignoresUpdate(repodir);
-
   // generate worktree path
   const worktree = resolve(`${top}/worktrees/${branch}@${repodirname}`);
-
   // create new branch from current branch
   process.chdir(cwd);
-
   // try checkout branch and get the path
-  const checkoutPath = await execSh
+  const checkoutPath = await gwtCheckoutTry(branch, worktree);
+  return checkoutPath;
+}
+
+async function gwtRemove(checkoutPath: any, branch: string) {
+  console.log(`[snogwt] FORCE REMOVE ${checkoutPath}`);
+  await snorun(`git worktree remove ${checkoutPath}`);
+  await snorun(`git branch -d ${branch}`); // delete if fully merged
+}
+
+async function gwtForceRemove(checkoutPath: any, branch: string) {
+  console.log(`[snogwt] remove ${checkoutPath}`);
+  await snorun(`git worktree remove ${checkoutPath} --force`);
+  await snorun(`git branch -D ${branch}`);
+  await snorun(`rm -rf ${checkoutPath}`);
+}
+
+async function gwtCheckoutTry(branch: string, worktree: string) {
+  return await execSh
     .promise(`git worktree add -B ${branch} ${worktree}`, true)
     .then(() => worktree)
     .catch((e) => {
@@ -79,44 +89,18 @@ export async function cli(rawArgv) {
       console.error("Error: ", e);
       throw new Error("Fail to checkout");
     });
-
-  // remove branch if requested
-  if (remove) {
-    console.log(`removeing ${checkoutPath}`);
-    await execSh.promise(`git worktree remove ${checkoutPath}`);
-    await execSh.promise(`git branch -d ${branch}`); // delete if fully merged
-    return;
-  }
-
-  // remove branch if requested
-  if (args["--force-remove"]) {
-    console.log(`removeing ${checkoutPath}`);
-    await tryCommands(
-      `git worktree remove ${checkoutPath} --force`,
-      `git branch -D ${branch}`,
-      `rm -rf ${checkoutPath}`,
-    );
-
-    return;
-  }
-
-  if (args["--no-vscode"]) return;
-
-  await execSh.promise(`cd ${checkoutPath} && code .`).catch(() => null);
-
-  // install packages
-  await tryInstallPackages(checkoutPath);
 }
-async function ignoresUpdate(repodir) {
+
+async function ignoresUpdate(repodir: string) {
   // gitignore
   await updateIgnoreFile(repodir, ".gitignore", { create: true });
   await updateIgnoreFile(repodir, ".eslintignore", { create: false });
   await updateIgnoreFile(repodir, ".prettierignore", { create: false });
 }
-async function updateIgnoreFile(repodir, ignoreFileName, { create }) {
+async function updateIgnoreFile(repodir: string, ignoreFileName: string, { create = false } = {}) {
   const ignoreFile = resolve(`${repodir}/${ignoreFileName}`);
   const ignore = await readFile(ignoreFile, "utf-8").catch(() => null);
-  if (ignore === null && !create);
+  if (ignore === null && !create) return;
   else if (!ignore?.match(/^\/worktrees$/im))
     await writeFile(ignoreFile, `${(ignore || "").trim()}\n/worktrees\n`);
 }
