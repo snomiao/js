@@ -26,18 +26,14 @@ export default function snorun(cmd: string | string[], { echo = true, echoPrefix
   // todo: keep colors
   const p = exec(execCommand, async (error, stdout, stderr) => {
     err(stderr.trimEnd()), out(stdout.trimEnd());
-    await outendp, await errendp;
-    error ? succ(false) : succ(true);
+    error.code ? succ(false) : succ(true);
   });
   p.stderr.pipe(process.stderr);
-  p.stderr.once("close", errend);
   p.stdout.pipe(process.stdout);
-  p.stdout.once("close", outend);
-  // fix env without stdin
   // process.stdin.read && process.stdin.pipe(p.stdin);
-  // process.stdin;
-  // console.log("done");
-  return { ...succeedp, stdout: stdoutp, stderr: stderrp };
+  const subPromises = { ok: succeedp, stdout: stdoutp, stderr: stderrp };
+  const retype = { ...succeedp, ...subPromises };
+  return Object.assign(succeedp, subPromises) as typeof retype;
 }
 function usePromise<T>() {
   const s: any = {};
