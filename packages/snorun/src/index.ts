@@ -19,21 +19,20 @@ export default function snorun(cmd: string | string[], { echo = true, echoPrefix
   const execCommand = [cmd].flat().join(" ");
   if (echo) console.log((echoPrefix || "") + execCommand);
   const { promise: succeedp, resolve: succ } = usePromise<boolean>();
+  const { promise: codep, resolve: code } = usePromise<number>();
   const { promise: stdoutp, resolve: out } = usePromise<string>();
-  const { promise: errendp, resolve: errend } = usePromise<void>();
   const { promise: stderrp, resolve: err } = usePromise<string>();
-  const { promise: outendp, resolve: outend } = usePromise<void>();
   // todo: keep colors
   const p = exec(execCommand, async (error, stdout, stderr) => {
     err(stderr.trimEnd()), out(stdout.trimEnd());
     error.code ? succ(false) : succ(true);
+    code(error?.code || 0);
   });
   p.stderr.pipe(process.stderr);
   p.stdout.pipe(process.stdout);
   // process.stdin.read && process.stdin.pipe(p.stdin);
   const subPromises = { ok: succeedp, stdout: stdoutp, stderr: stderrp };
-  const retype = { ...succeedp, ...subPromises };
-  return Object.assign(succeedp, subPromises) as typeof retype;
+  return { catch: succeedp.catch, finally: succeedp.finally, then: succeedp.then, ...subPromises };
 }
 function usePromise<T>() {
   const s: any = {};
