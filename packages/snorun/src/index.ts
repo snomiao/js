@@ -31,8 +31,8 @@ export default function snorun(cmd: string | string[], { echo = true, echoPrefix
   p.stdout.pipe(process.stdout);
   // fix env without stdin
   // process.stdin.read && process.stdin.pipe(p.stdin);
-  process.stdin;
-  console.log("done");
+  // process.stdin;
+  // console.log("done");
   return { ...succPromise, stdout, stderr };
 }
 function usePromise<T>() {
