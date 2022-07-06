@@ -18,22 +18,26 @@ import { exec } from "child_process";
 export default function snorun(cmd: string | string[], { echo = true, echoPrefix = "> " } = {}) {
   const execCommand = [cmd].flat().join(" ");
   if (echo) console.log((echoPrefix || "") + execCommand);
-  const { promise: succPromise, resolve: succ } = usePromise<boolean>();
-  const { promise: stdout, resolve: out } = usePromise<string>();
-  const { promise: stderr, resolve: err } = usePromise<string>();
+  const { promise: succeedp, resolve: succ } = usePromise<boolean>();
+  const { promise: stdoutp, resolve: out } = usePromise<string>();
+  const { promise: errendp, resolve: errend } = usePromise<void>();
+  const { promise: stderrp, resolve: err } = usePromise<string>();
+  const { promise: outendp, resolve: outend } = usePromise<void>();
   // todo: keep colors
-  const p = exec(execCommand, (error, stdout, stderr) => {
-    err(stderr.trimEnd());
-    out(stdout.trimEnd());
+  const p = exec(execCommand, async (error, stdout, stderr) => {
+    err(stderr.trimEnd()), out(stdout.trimEnd());
+    await outendp, await errendp;
     error ? succ(false) : succ(true);
   });
   p.stderr.pipe(process.stderr);
+  p.stderr.once("close", errend);
   p.stdout.pipe(process.stdout);
+  p.stdout.once("close", outend);
   // fix env without stdin
   // process.stdin.read && process.stdin.pipe(p.stdin);
   // process.stdin;
   // console.log("done");
-  return { ...succPromise, stdout, stderr };
+  return { ...succeedp, stdout: stdoutp, stderr: stderrp };
 }
 function usePromise<T>() {
   const s: any = {};
