@@ -77,7 +77,16 @@ export function whila<V, R>(update: WhilaWhen<V>, body?: WhilaBody<V, R>): any {
     return last;
   })();
 }
-
+export async function loga<V>(a: Promi<V>): Promise<V>;
+export async function loga<V>(a?: Promi<V>) {
+  console.log(await a);
+  return a;
+}
+export async function jsonLoga<V>(a: Promi<V>): Promise<V>;
+export async function jsonLoga<V>(a?: Promi<V>) {
+  console.log(JSON.stringify(await a, null, 2));
+  return a;
+}
 /**
  * async cond
  */
