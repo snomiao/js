@@ -8,12 +8,12 @@ import puppeteer from "puppeteer";
 export default async function chromeDev({
   inputs = [] as string[],
   extension = "",
+  openExtensionPage = undefined as boolean,
   devtools = false,
   ignoreHTTPSErrors = true,
   ignoreDefaultArgs = false,
   port = 0,
   dotenv = true,
-  $0 = "chrome-dev",
   ...otherArgs
 } = {}) {
   // console.log("otherArgs=", otherArgs);
@@ -29,7 +29,7 @@ export default async function chromeDev({
   if (extension) {
     const extensionPath = resolve(process.cwd(), extension);
     chromeArgs.push(`--load-extension=${extensionPath}`);
-    urls.add("chrome://extensions");
+    // urls.add("chrome://extensions");
   }
   if (dotenv) {
     await import("dotenv/config");
