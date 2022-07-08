@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import execSh from "exec-sh";
 import { readFile, writeFile } from "fs/promises";
 import { resolve } from "path";
 import snorun from "snorun";
@@ -65,30 +64,22 @@ async function gwtForceRemove(checkoutPath: any, branch: string) {
 }
 
 async function gwtCheckoutTry(branch: string, worktree: string) {
-  return await execSh
-    .promise(`git worktree add -B ${branch} ${worktree}`, true)
-    .then(() => worktree)
-    .catch((e) => {
-      // handle checked out
-      {
-        const m = e?.stderr?.match?.(/fatal: '(.*?)' is already checked out at '(.*?)'/);
-        if (m) {
-          const [, branch, worktree] = m;
-          console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
-          return worktree; // resolve(worktree); dont' resolve it as it replaced / into \
-        }
-      }
-      {
-        const m = e?.stderr?.match?.(/fatal: '(.*?)' already exists/);
-        if (m) {
-          const [, worktree] = m;
-          console.warn(`fatal: '${worktree}' is already exists`);
-          return resolve(worktree);
-        }
-      }
-      console.error("Error: ", e);
-      throw new Error("Fail to checkout");
-    });
+  const { ok, stderr } = snorun(`git worktree add -B ${branch} ${worktree}`);
+  if (await ok) return worktree;
+  const err = await stderr;
+  const m1 = err.match?.(/fatal: '(.*?)' is already checked out at '(.*?)'/);
+  if (m1) {
+    const [, branch, worktree] = m1;
+    // console.warn(`fatal: '${branch}' is already checked out at '${worktree}'`);
+    return worktree; // resolve(worktree); dont' resolve it as it replaced / into \
+  }
+  const m2 = err.match?.(/fatal: '(.*?)' already exists/);
+  if (m2) {
+    const [, worktree] = m2;
+    // console.warn(`fatal: '${worktree}' is already exists`);
+    return resolve(worktree);
+  }
+  throw new Error("[snogwt] fail to get checkout path");
 }
 
 async function ignoresUpdate(repodir: string) {
