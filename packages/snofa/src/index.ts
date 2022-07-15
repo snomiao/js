@@ -10,8 +10,8 @@ export function useLockers(n = 1) {
   const unlock = () => (n++, resolves.shift()?.());
   return { lock, unlock };
 }
-
-type Conda<Arg, R> = [(v?: Arg) => Promi<boolean> | boolean, (() => Promi<R>) | R];
+type FunVa<R, Args = any> = ((...args: Args[]) => Promi<R>) | (() => Promi<R>) | Promi<R>;
+type Conda<R, Args = any> = [FunVa<boolean, Args>, (() => Promi<R>) | R];
 type MapaIter<V, R> = (v?: V, i?: number, a?: V[]) => Promi<R>;
 type ForaIter<V> = (v?: V, i?: number, a?: V[]) => Promi<void>;
 type ReducaIter<S, V> = (state?: S, v?: V, i?: number, a?: V[]) => Promi<S>;
@@ -62,10 +62,12 @@ export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Promi<V[]>): an
 }
 /**
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
+ * @deprecated
  */
 export function whila<V, R>(update: WhilaWhen<V>, body: WhilaBody<V, R>): Promise<R>;
 /**
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
+ * @deprecated
  */
 export function whila<V, R>(update: WhilaWhen<V>): (body: WhilaBody<V, R>) => Promise<R>;
 export function whila<V, R>(update: WhilaWhen<V>, body?: WhilaBody<V, R>): any {
@@ -90,21 +92,33 @@ export async function jsonLoga<V>(a?: Promi<V>) {
 /**
  * async cond
  */
-export function conda<R>(conds: Conda<void, R>[]): () => Promise<R>;
+export function conda<R>(conds: Conda<R, void>[]): () => Promise<R>;
 /**
  * async cond
  */
-export function conda<V, R>(conds: Conda<V, R>[]): (v: V) => Promise<R>;
-export function conda<V, R>(conds: Conda<V, R>[]) {
+export function conda<V, R>(conds: Conda<R, V>[]): (v: V) => Promise<R>;
+export function conda<V, R>(conds: Conda<R, V>[]) {
   return async (v?: V) => {
     let cond: typeof conds[number];
     while ((cond = conds.shift())) {
-      const test = typeof cond[0] === "function" ? await cond[0](v) : cond[0];
+      const fv = cond[0]
+      // const test = await funVa<R, V>(fv, v);
       if (test) return typeof cond[1] === "function" ? await (cond[1] as () => R)() : cond[1];
     }
     return undefined;
   };
 }
-export function threw(message?: string) {
+// async function funVa<R, V>(fv: FunVa<R,V>, v?: V) {
+//   return typeof fv === "function" ? await fv(v) : fv;
+// }
+
+// export async function ifa<V, R>([truthy, falsy]: [FunVa<R>, FunVa<R>]): (v: V) => Promise<R>;
+// export async function ifa<V, R>([truthy, falsy]: [FunVa<R>, FunVa<R>],v: V) => Promise<R>;
+// export async function ifa<V, R>([truthy, falsy]: any, fn: FunVa<boolean, V>) {
+//   const test = typeof truthy === "function" ? await truthy() : truthy
+//   if(test) return typeof truthy === "function" ? await truthy() : truthy;
+//   else return typeof falsy === "function" ? await falsy() : falsy;
+// }
+export function throwa(message?: string) {
   throw new Error(message);
 }
