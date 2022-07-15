@@ -1,0 +1,17 @@
+{
+  "name": "snoio",
+  "version": "1.0.1",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "exports": {},
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "snobuild --lib",
+    "prepack": "npm run build"
+  }
+}
