@@ -1,6 +1,6 @@
 {
   "name": "snobuild",
-  "version": "2.5.2",
+  "version": "2.5.3",
   "description": "Easy way to use esbuild.",
   "keywords": [
     "cli",
@@ -41,6 +41,7 @@
     "globby": "^13.1.1",
     "snorun": "1.1.2",
     "sort-package-json": "^1.57.0",
+    "typescript": "^4.7.4",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
