@@ -8,7 +8,7 @@ import snogwt from "./index";
     .scriptName("snogwt")
     .string("branch")
     .coerce("branch", (branch: string) => {
-      if (!branch.match(/^[a-z-]+$/)) throw new Error("not valid branch name: /^[a-z-]+$/");
+      if (!branch.match(/^[a-z-0-9]+$/)) throw new Error("not valid branch name: /^[a-z-]+$/");
       return branch;
     })
     .describe("branch", "the branch name to work on") //.default("checkout", true),
