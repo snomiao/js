@@ -33,6 +33,7 @@ export default function snorun(
   });
   if (pipe) p.stderr.pipe(process.stderr);
   if (pipe) p.stdout.pipe(process.stdout);
+  // if (pipe) process.stdin.pipe(p.stdin);
   const subPromises = { ok, stdout, stderr, code };
   const retype = { ...ok, ...subPromises };
   return Object.assign(ok, subPromises) as typeof retype;
