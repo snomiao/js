@@ -12,11 +12,11 @@ export function useLockers(n = 1) {
 }
 type FunVa<R, Args = any> = ((...args: Args[]) => Promi<R>) | (() => Promi<R>) | Promi<R>;
 type Conda<R, Args = any> = [FunVa<boolean, Args>, (() => Promi<R>) | R];
-type MapaIter<V, R> = (v?: V, i?: number, a?: V[]) => Promi<R>;
-type ForaIter<V> = (v?: V, i?: number, a?: V[]) => Promi<void>;
-type ReducaIter<S, V> = (state?: S, v?: V, i?: number, a?: V[]) => Promi<S>;
-type WhilaWhen<T> = (state?: T) => Promi<T | void>;
-type WhilaBody<V, R> = (v?: V) => Promi<R>;
+type MapaIter<V, R> = (v: V, i: number, a: V[]) => Promi<R>;
+type ForaIter<V> = (v: V, i: number, a: V[]) => Promi<void>;
+type ReducaIter<S, V> = (state: S, v: V, i: number, a: V[]) => Promi<S>;
+type WhilaWhen<T> = (state: T) => Promi<T | void>;
+type WhilaBody<V, R> = (v: V) => Promi<R>;
 
 // TODO: iter objects
 // TODO: test
