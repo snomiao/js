@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Promi } from "./types";
-type af<i, o> = (i: i, ...args: any[]) => Promi<o>;
+type af<i, o> = ((i: i, ...args: any[]) => Promi<o>) | (() => Promi<o>);
 export function snofa<i, o>(): Promise<void>;
 export function snofa<i, o>(f1: af<i, o>): af<i, o>;
 export function snofa<i, T1, o>(f1: af<i, T1>, f2: af<T1, o>): af<i, o>;
