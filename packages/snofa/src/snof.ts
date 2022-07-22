@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
-type f<i, o> = (i?: i, ...args: any[]) => o;
-
+type f<i, o> = ((i: i, ...args: any[]) => o)|(() => o);
 export function snof<i, o>(): void;
 export function snof<i, o>(f1: f<i, o>): f<i, o>;
 export function snof<i, T1, o>(f1: f<i, T1>, f2: f<T1, o>): f<i, o>;
