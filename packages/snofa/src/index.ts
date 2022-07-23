@@ -20,6 +20,10 @@ type WhilaBody<V, R> = (v: V) => Promi<R>;
 
 // TODO: iter objects
 // TODO: test
+/**
+ * map arrays async
+ * @example 
+ */
 export function mapa<V, R>(fn: MapaIter<V, R>, a: Promi<V[]>): Promise<R[]>;
 export function mapa<V, R>(fn: MapaIter<V, R>): (a: Promi<V[]>) => Promise<R[]>;
 export function mapa<V, R>(fn: MapaIter<V, R>, a?: Promi<V[]>) {
@@ -92,12 +96,12 @@ export async function jsonLoga<V>(a?: Promi<V>) {
 /**
  * async cond
  */
-export function conda<R>(conds: Conda<R, void>[]): () => Promise<R>;
+export function switcha<R>(conds: Conda<R, void>[]): () => Promise<R>;
 /**
  * async cond
  */
-export function conda<V, R>(conds: Conda<R, V>[]): (v: V) => Promise<R>;
-export function conda<V, R>(conds: Conda<R, V>[]) {
+export function switcha<V, R>(conds: Conda<R, V>[]): (v: V) => Promise<R>;
+export function switcha<V, R>(conds: Conda<R, V>[]) {
   return async (v?: V) => {
     let cond: typeof conds[number];
     while ((cond = conds.shift())) {
