@@ -15,8 +15,8 @@ type Conda<R, Args = any> = [FunVa<boolean, Args>, (() => Promi<R>) | R];
 type MapaIter<V, R> = (v: V, i: number, a: V[]) => Promi<R>;
 type ForaIter<V> = (v: V, i: number, a: V[]) => Promi<void>;
 type ReducaIter<S, V> = (state: S, v: V, i: number, a: V[]) => Promi<S>;
-type WhilaWhen<T> = (state: T) => Promi<T | void>;
-type WhilaBody<V, R> = (v: V) => Promi<R>;
+type LoopaWhen<T> = (oldState: T) => Promi<void | T>;
+type LoopaBody<V, R> = (v: V) => Promi<R>;
 
 // TODO: iter objects
 // TODO: test
@@ -68,14 +68,14 @@ export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Promi<V[]>): an
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
  * @deprecated
  */
-export function whila<V, R>(update: WhilaWhen<V>, body: WhilaBody<V, R>): Promise<R>;
+export function loopa<V, R>(update: LoopaWhen<V>, body: LoopaBody<V, R>): Promise<R>;
 /**
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
  * @deprecated
  */
-export function whila<V, R>(update: WhilaWhen<V>): (body: WhilaBody<V, R>) => Promise<R>;
-export function whila<V, R>(update: WhilaWhen<V>, body?: WhilaBody<V, R>): any {
-  if (undefined === body) return (body: WhilaBody<V, R>) => whila(update, body);
+export function loopa<V, R>(update: LoopaWhen<V>): (body: LoopaBody<V, R>) => Promise<R>;
+export function loopa<V, R>(update: LoopaWhen<V>, body?: LoopaBody<V, R>): any {
+  if (undefined === body) return (body: LoopaBody<V, R>) => loopa(update, body);
   return (async function () {
     let state = null;
     let last = null;
