@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * schtasks-calendar (schcal)
  * Author: snomiao (snomiao@gmail.com)
