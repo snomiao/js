@@ -4,11 +4,24 @@ import { snofa } from "./snofa";
 import { snof } from "./snof";
 export { snofa, snof };
 export default snofa;
+
+/**
+ * @deprecated use useLocka
+ */
 export function useLockers(n = 1) {
   const resolves = [];
   const lock = () => new Promise<void>((resolve) => (n-- ? resolve() : resolves.push(resolve)));
   const unlock = () => (n++, resolves.shift()?.());
   return { lock, unlock };
+}
+/**
+ * @return locka() and unlocka
+ */
+export function useLocka(n = 1) {
+  const resolves = [];
+  const locka = () => new Promise<void>((resolve) => (n-- ? resolve() : resolves.push(resolve)));
+  const unlocka = () => (n++, resolves.shift()?.());
+  return { locka, unlocka };
 }
 type FunVa<R, Args = any> = ((...args: Args[]) => Promi<R>) | (() => Promi<R>) | Promi<R>;
 type Conda<R, Args = any> = [FunVa<boolean, Args>, (() => Promi<R>) | R];
@@ -22,7 +35,7 @@ type LoopaBody<V, R> = (v: V) => Promi<R>;
 // TODO: test
 /**
  * map arrays async
- * @example 
+ * @example
  */
 export function mapa<V, R>(fn: MapaIter<V, R>, a: Promi<V[]>): Promise<R[]>;
 export function mapa<V, R>(fn: MapaIter<V, R>): (a: Promi<V[]>) => Promise<R[]>;
@@ -105,7 +118,7 @@ export function switcha<V, R>(conds: Conda<R, V>[]) {
   return async (v?: V) => {
     let cond: typeof conds[number];
     while ((cond = conds.shift())) {
-      const fv = cond[0]
+      const fv = cond[0];
       // const test = await funVa<R, V>(fv, v);
       if (test) return typeof cond[1] === "function" ? await (cond[1] as () => R)() : cond[1];
     }
