@@ -5,7 +5,6 @@
   "keywords": [],
   "license": "ISC",
   "author": "",
-  "exports": {},
   "main": "index.js",
   "files": [
     "lib"
