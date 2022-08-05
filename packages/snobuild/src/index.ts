@@ -44,6 +44,7 @@ export default async function snobuild({
   esm = undefined as boolean, // esm
   cjs = undefined as boolean, // cjs
   script = undefined as boolean, // show script to esbuild
+  target = 'ESNext' as string,
   //
   legalComments = undefined as esbuild.BuildOptions["legalComments"],
   esbuildOptions = {} as esbuild.BuildOptions,
@@ -103,7 +104,7 @@ export default async function snobuild({
     outdir,
     platform: "node",
     format: "esm",
-    target: ["es2020"], //es2020 for node 14
+    target: [target || 'ESNext'], //es2020 for node 14
     logLevel: "info",
     watch,
     incremental: watch,
