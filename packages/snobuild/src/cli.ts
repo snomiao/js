@@ -65,6 +65,8 @@ export default async function cli() {
     .boolean("iife") // not supported
     .boolean("umd") // not supported
     .boolean("browser") // not supported
+    .string('target')
+    .describe('target', 'such as ESNext or ES2020')
     // watch
     .boolean("watch")
     .describe("watch", "watch mode")
