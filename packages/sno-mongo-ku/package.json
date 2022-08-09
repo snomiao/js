@@ -1,6 +1,6 @@
 {
   "name": "sno-mongo-ku",
-  "version": "2.7.27",
+  "version": "2.7.28",
   "description": "MongoDB simple wrapper, Provide simple method in chinese to handle the mongodb.",
   "keywords": [
     "mongodb",
