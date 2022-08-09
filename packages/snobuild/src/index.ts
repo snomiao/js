@@ -100,7 +100,7 @@ export default async function snobuild({
     // },
     ...{ minify, sourcemap },
     bundle,
-    external: !external ? [] : _externals,
+    external: !external ? [...(externals?.split(",") ?? []),] : _externals,
     outdir,
     platform: "node",
     format: "esm",
