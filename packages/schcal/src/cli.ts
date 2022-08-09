@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * schtasks-calendar (schcal)
  * Author: snomiao (snomiao@gmail.com)
@@ -23,7 +24,7 @@ export default async function schcal() {
     .alias("i", "ICS_URLS")
     .alias("t", "CACHE_TIMEOUT")
     .alias("p", "HTTP_PROXY")
-    .alias("d", "FORWARD_RrDAYS")
+    .alias("d", "FORWARD_DAYS")
     .alias("v", "version")
     .alias("h", "help")
     .example(
