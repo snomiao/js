@@ -1,6 +1,6 @@
 {
   "name": "snofa",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Snomiao's Functional Async pipelines with typescript support.",
   "keywords": [
     "async",
@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "build": "snobuild --lib",
-    "prepack": "npm run build",
+    "prepack": "npm run build && npm run test",
     "test": "mocha --require tsx ./src/**/*.test.ts"
   },
   "devDependencies": {

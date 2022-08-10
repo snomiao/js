@@ -81,4 +81,4 @@ export function snofa(...afnChain: any): any {
     for await (const af of afnChain.slice(1)) s = await af(s);
     return s;
   })(afnChain[0]);
-}w
+}
