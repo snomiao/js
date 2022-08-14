@@ -1,6 +1,6 @@
 {
   "name": "snofa",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Snomiao's Functional Async pipelines with typescript support.",
   "keywords": [
     "async",
