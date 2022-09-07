@@ -26,7 +26,9 @@ import snosay from "./index";
     .alias("v", "voice")
     .alias("s", "speed")
     .alias("o", "output").argv;
+    
 
   const params = { text: argv._.join(" "), ...argv };
   await snosay(params);
+  process.exit(0)
 })();

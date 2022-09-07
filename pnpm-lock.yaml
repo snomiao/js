@@ -47,7 +47,7 @@ importers:
       localforage: 1.10.0
       nodeforage: 1.1.1
     devDependencies:
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/chrome-dev:
     specifiers:
@@ -62,7 +62,7 @@ importers:
       puppeteer: 14.2.1
       yargs: 17.5.1
     devDependencies:
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/jsx-rename:
     specifiers:
@@ -79,7 +79,7 @@ importers:
       yargs: 17.5.1
     devDependencies:
       '@types/yargs': 17.0.10
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/junction-move:
     specifiers:
@@ -92,7 +92,7 @@ importers:
       yargs: 17.5.1
     devDependencies:
       '@types/yargs': 17.0.10
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/md-aggregate:
     specifiers:
@@ -107,7 +107,7 @@ importers:
     devDependencies:
       '@types/yargs': 17.0.10
       prettier: 2.6.2
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/monopkgs:
     specifiers:
@@ -137,7 +137,7 @@ importers:
     devDependencies:
       '@types/mocha': 9.1.1
       mocha: 10.0.0
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
       tsx: 3.4.2
 
   packages/outer-join-by:
@@ -152,7 +152,7 @@ importers:
     devDependencies:
       '@types/mocha': 9.1.1
       mocha: 10.0.0
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
       tsx: 3.4.2
 
   packages/piserve:
@@ -246,7 +246,7 @@ importers:
       conventional-changelog-cli: 2.2.2
       husky: 5.2.0
       mocha: 10.0.0
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
       tsx: 3.4.2
 
   packages/sno-mongo-ku:
@@ -260,7 +260,7 @@ importers:
       p-queue: 7.2.0
     devDependencies:
       '@types/node': 17.0.23
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/sno-utils:
     specifiers:
@@ -268,7 +268,7 @@ importers:
       snobuild: ^2.5.2
     devDependencies:
       '@types/node': 14.18.13
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/snobuild:
     specifiers:
@@ -289,6 +289,27 @@ importers:
     devDependencies:
       '@types/yargs': 17.0.10
 
+  packages/snoclip:
+    specifiers:
+      '@types/chai': ^4.3.1
+      '@types/mocha': ^9.1.1
+      '@types/yargs': ^17.0.10
+      chai: ^4.3.6
+      mocha: ^10.0.0
+      tsx: ^3.4.2
+      typescript: ^4.8.2
+      yargs: ^17.5.1
+    dependencies:
+      '@types/yargs': 17.0.10
+      yargs: 17.5.1
+    devDependencies:
+      '@types/chai': 4.3.1
+      '@types/mocha': 9.1.1
+      chai: 4.3.6
+      mocha: 10.0.0
+      tsx: 3.4.2
+      typescript: 4.8.2
+
   packages/snofa:
     specifiers:
       '@types/mocha': ^9.1.1
@@ -297,7 +318,7 @@ importers:
     devDependencies:
       '@types/mocha': 9.1.1
       mocha: 10.0.0
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/snogwt:
     specifiers:
@@ -312,7 +333,7 @@ importers:
       yargs: 17.5.1
     devDependencies:
       '@types/yargs': 17.0.10
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/snoio:
     specifiers: {}
@@ -321,20 +342,22 @@ importers:
     specifiers:
       snobuild: ^2.5.2
     devDependencies:
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
   packages/snosay:
     specifiers:
+      '@types/node': ^18.7.13
       '@types/yargs': ^17.0.10
       say: ^0.16.0
       snobuild: ^2.5.2
       yargs: ^17.5.1
     dependencies:
+      '@types/node': 18.7.13
       say: 0.16.0
       yargs: 17.5.1
     devDependencies:
       '@types/yargs': 17.0.10
-      snobuild: link:../snobuild
+      snobuild: 2.6.1
 
 packages:
 
@@ -1698,7 +1721,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 3.0.5
-      '@types/node': 17.0.23
+      '@types/node': 18.7.13
 
   /@types/ical/0.8.0:
     resolution: {integrity: sha512-46KAYxAwRuCh+jRgl9k5cTaXJJkB16gWpvMVPuog9UBBb2zXTf9M0MsfWYBQ21JohFSuMZfPTvk6tohqGr1tCg==}
@@ -1735,6 +1758,9 @@ packages:
 
   /@types/node/17.0.23:
     resolution: {integrity: sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==}
+
+  /@types/node/18.7.13:
+    resolution: {integrity: sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3434,7 +3460,6 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-android-arm64/0.14.38:
@@ -3452,7 +3477,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-darwin-64/0.14.38:
@@ -3470,7 +3494,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-darwin-arm64/0.14.38:
@@ -3488,7 +3511,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-freebsd-64/0.14.38:
@@ -3506,7 +3528,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-freebsd-arm64/0.14.38:
@@ -3524,7 +3545,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-32/0.14.38:
@@ -3542,7 +3562,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-64/0.14.38:
@@ -3560,7 +3579,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-arm/0.14.38:
@@ -3578,7 +3596,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-arm64/0.14.38:
@@ -3596,7 +3613,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-mips64le/0.14.38:
@@ -3614,7 +3630,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-ppc64le/0.14.38:
@@ -3632,7 +3647,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-riscv64/0.14.38:
@@ -3650,7 +3664,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-linux-s390x/0.14.38:
@@ -3668,7 +3681,6 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-netbsd-64/0.14.38:
@@ -3686,7 +3698,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-openbsd-64/0.14.38:
@@ -3704,7 +3715,6 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-sunos-64/0.14.38:
@@ -3722,7 +3732,6 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-windows-32/0.14.38:
@@ -3740,7 +3749,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-windows-64/0.14.38:
@@ -3758,7 +3766,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild-windows-arm64/0.14.38:
@@ -3776,7 +3783,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /esbuild/0.14.38:
@@ -3833,7 +3839,6 @@ packages:
       esbuild-windows-32: 0.14.39
       esbuild-windows-64: 0.14.39
       esbuild-windows-arm64: 0.14.39
-    dev: false
 
   /escalade/3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
@@ -7251,9 +7256,20 @@ packages:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
 
+  /snobuild/2.6.1:
+    resolution: {integrity: sha512-ht0D0Pkqq2TvY5ll9UZo6MnUg25euti9J7U5Az+z7LDOWzri/JTpFv5BGCuchnoO49kSw/+6rmAu42NPqsxaRQ==}
+    hasBin: true
+    dependencies:
+      esbuild: 0.14.39
+      globby: 13.1.1
+      snorun: 1.1.2
+      sort-package-json: 1.57.0
+      typescript: 4.8.2
+      yargs: 17.5.1
+    dev: true
+
   /snorun/1.1.2:
     resolution: {integrity: sha512-hc53XgrqCpG7aaFXiHtevMnlNsij+c6bMAugMKmPDnvTEez/WYieEBYy9vXJvOdgE4wTSQgEBHyjauKTk0EeMg==}
-    dev: false
 
   /socks-proxy-agent/5.0.1:
     resolution: {integrity: sha512-vZdmnjb9a2Tz6WEQVIurybSwElwPxMZaIc7PzqbJTrezcKNznv6giT7J7tZDZ1BojVaa1jvO/UiUdhDVB0ACoQ==}
@@ -7322,7 +7338,6 @@ packages:
       globby: 10.0.0
       is-plain-obj: 2.1.0
       sort-object-keys: 1.1.3
-    dev: false
 
   /source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
@@ -7832,6 +7847,12 @@ packages:
     hasBin: true
     dev: false
 
+  /typescript/4.8.2:
+    resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
   /typy/3.3.0:
     resolution: {integrity: sha512-Du53deMF9X9pSM3gVXDjLBq14BUfZWSGKfmmR1kTlg953RaIZehfc8fQuoAiW+SRO6bJsP+59mv1tsH8vwKghg==}
     dev: false
@@ -8163,7 +8184,6 @@ packages:
   /yargs-parser/21.0.1:
     resolution: {integrity: sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==}
     engines: {node: '>=12'}
-    dev: false
 
   /yargs-unparser/2.0.0:
     resolution: {integrity: sha512-7pRTIA9Qc1caZ0bZ6RYRGbHJthJWuakf+WmHK0rVeLkNrrGhfoabBNdue6kdINI6r4if7ocq9aD/n7xwKOdzOA==}
@@ -8199,7 +8219,6 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.0.1
-    dev: false
 
   /yauzl/2.10.0:
     resolution: {integrity: sha1-x+sXyT4RLLEIb6bY5R+wZnt5pfk=}
