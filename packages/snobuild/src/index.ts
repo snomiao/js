@@ -63,7 +63,7 @@ export default async function snobuild({
   const peerDeps = bundlePeerDep ? [] : Object.keys(pkg?.peerDependencies || {});
   const bundleDeps = bundleBundleDep ? [] : Object.keys(pkg?.bundleDependencies || {});
   const _externals = [
-    ...[...deps, ...devDeps, ...optionalDeps, ...peerDeps, ...bundleDeps],
+    ...(external ? [...deps, ...devDeps, ...optionalDeps, ...peerDeps, ...bundleDeps] : []),
     ...(externals?.split(",") ?? []),
   ];
 
@@ -78,7 +78,7 @@ export default async function snobuild({
   if (lib)
     (bundle ??= true),
       (external ??= true),
-      (sourcemap ??= true),
+      (sourcemap ??=  true),
       (minify ??= true),
       (tsc ??= true),
       (outdir ||= "./lib");
@@ -100,7 +100,7 @@ export default async function snobuild({
     // },
     ...{ minify, sourcemap },
     bundle,
-    external: !external ? [...(externals?.split(",") ?? []),] : _externals,
+    external: _externals,
     outdir,
     platform: "node",
     format: "esm",
