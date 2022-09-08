@@ -1,12 +1,17 @@
 {
   "name": "snoio",
   "version": "1.0.1",
-  "description": "",
-  "keywords": [],
+  "description": "io utils",
+  "keywords": ["node"],
   "license": "ISC",
   "author": "",
-  "exports": {},
-  "main": "index.js",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
   "files": [
     "lib"
   ],
