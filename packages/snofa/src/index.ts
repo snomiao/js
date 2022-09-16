@@ -4,6 +4,10 @@ import { snofa } from "./snofa";
 import { snof } from "./snof";
 export { snofa, snof };
 export default snofa;
+
+/**
+ * @deprecated use useLocka
+ */
 export function useLockers(n = 1) {
   const resolves = [];
   const lock = () => new Promise<void>((resolve) => (n-- ? resolve() : resolves.push(resolve)));
@@ -18,8 +22,8 @@ type MapaObjectIter<O extends Obj, R> = (val: O[keyof O], key: keyof O, obj: O) 
 type ReducaIter<S, V> = (state: S, v: V, i: number, a: V[]) => Promi<S>;
 
 // expriment
-type WhilaWhen<T> = (state: T) => Promi<T | void>;
-type WhilaBody<V, R> = (v: V) => Promi<R>;
+type LoopaWhen<T> = (state: T) => Promi<T | void>;
+type LoopaBody<V, R> = (v: V) => Promi<R>;
 
 // TODO: iter objects
 // TODO: test
@@ -63,17 +67,14 @@ export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Promi<V[]>): an
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
  * @deprecated
  */
-export function whila<V, R>(update: WhilaWhen<V>, body: WhilaBody<V, R>): Promise<R>;
+export function loopa<V, R>(update: LoopaWhen<V>, body: LoopaBody<V, R>): Promise<R>;
 /**
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
  * @deprecated
  */
-export function whila<V, R>(update: WhilaWhen<V>): (body: WhilaBody<V, R>) => Promise<R>;
-/**
- * @deprecated
- */
-export function whila<V, R>(update: WhilaWhen<V>, body?: WhilaBody<V, R>): any {
-  if (undefined === body) return (body: WhilaBody<V, R>) => whila(update, body);
+export function loopa<V, R>(update: LoopaWhen<V>): (body: LoopaBody<V, R>) => Promise<R>;
+export function loopa<V, R>(update: LoopaWhen<V>, body?: LoopaBody<V, R>): any {
+  if (undefined === body) return (body: LoopaBody<V, R>) => loopa(update, body);
   return (async function () {
     let state = null;
     let last = null;

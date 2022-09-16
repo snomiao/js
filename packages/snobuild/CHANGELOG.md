@@ -18,7 +18,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # [2.5.0](https://github.com/snomiao/js/compare/snobuild@2.3.2...snobuild@2.5.0) (2022-07-03)
 
 ### Bug Fixes
-
+k i
 - bump versions ([5919ed1](https://github.com/snomiao/js/commit/5919ed121623654879820b063cc4d4252dee47d6))
 - **snobuild:** await snorun ([2bf3275](https://github.com/snomiao/js/commit/2bf3275ca6275a08eaaf4382b85328c64e7b7235))
 - **snobuild:** build for es2020 for node 14 ([bea0000](https://github.com/snomiao/js/commit/bea00003db144b4e416279483468b50ffcb0ab56))

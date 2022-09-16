@@ -31,8 +31,8 @@
     "lib"
   ],
   "scripts": {
-    "boot": "pnpx -y -- snobuild@2.2.1 --lib",
-    "build": "snobuild --lib",
+    "boot": "pnpx snobuild@2.2.1 --lib",
+    "build": "npm run boot",
     "prepack": "npm run build && npm run test",
     "test": "snobuild --lib"
   },
