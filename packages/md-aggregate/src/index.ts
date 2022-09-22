@@ -1,6 +1,6 @@
-import escapeStringRegexp from "escape-string-regexp";
 import fs from "fs";
 import { resolve } from "path";
+import { escapeRegExp } from 'lodash-es';
 const { readFile, writeFile } = fs.promises;
 export default async function mdAggregate({
   input = [] as string[],
@@ -24,7 +24,7 @@ export default async function mdAggregate({
       .split(/\r?\n/)
       .map((e) => e.replace(/^#/gim, "##"));
     // TODO: test with \r\n
-    const matchStartPattern = `\n${escapeStringRegexp(lines[0])}$`;
+    const matchStartPattern = `\n${escapeRegExp(lines[0])}$`;
     const eofPattern = "$(?![\\r\\n])";
     const sectionStartPattern = `\n##? `;
     const startPattern = `${matchStartPattern}|${eofPattern}`;

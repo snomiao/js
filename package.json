@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "build": "lerna run build",
+    "publish": "npm run build && lerna publish",
     "docs": "npm run docs:root && npm run docs:about",
     "docs:about": "lerna exec -- md-aggregate ./README.md -i ../../ABOUT.md -w",
     "docs:root": "md-aggregate ./README.md -i ABOUT.md -w",
