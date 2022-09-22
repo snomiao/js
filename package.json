@@ -37,7 +37,7 @@
   "scripts": {
     "build": "snobuild --lib",
     "prepack": "npm run build",
-    "postversion": "npm link && prettier -w CHANGELOG.md && npm run build && md-aggregate README.md CHANGELOG.md -w"
+    "postversion": "prettier -w CHANGELOG.md && npm run build && npx md-aggregate README.md CHANGELOG.md -w"
   },
   "dependencies": {
     "escape-string-regexp": "^5.0.0",
