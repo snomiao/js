@@ -25,45 +25,15 @@ export type snoMongoKu = snoMongoKuRaw & snoMongoKuEnhanced;
 export default async function snoMongoKu(uri: string): Promise<snoMongoKu> {
   const client = new MongoClient(uri);
   await client.connect();
-  return new Proxy(client.db(), {
-    get: (t: any, p) => (p === "_client" ? client : t[p] ?? 合集增强(t.collection(p.toString()))),
+  const dbAgent = Object.assign(client.db(), { _client: client, close: client.close });
+  return new Proxy(dbAgent, {
+    get: (t: any, p) => t[p] ?? 合集增强(t.collection(p.toString())),
   });
 }
 
 type 表 = { _id?: mongodb.ObjectId | any; [x: string]: any };
 
 const _合集增强表 = (合集: mongodb.Collection) => ({
-  /** @deprecated results are effected by order */
-  单增: 合集.insertOne,
-  /** @deprecated results are effected by order */
-  单删: async (查询表: mongodb.FilterOperations<any> = {}, 选项?: mongodb.DeleteOptions) =>
-    await 合集.deleteOne(查询表, 选项),
-  /** @deprecated results are effected by order */
-  单改: 合集.updateOne,
-  /** @deprecated results are effected by order */
-  单查: async (查询表: mongodb.FilterOperations<any> = {}, 选项?: mongodb.FindOptions<any>) =>
-    await 合集.findOne(查询表, 选项),
-  /** @deprecated results are effected by order */
-  单查替: 合集.findOneAndReplace,
-  /** @deprecated results are effected by order */
-  单查改: 合集.findOneAndUpdate,
-  /** @deprecated results are effected by order */
-  单查删: 合集.findOneAndDelete,
-  /** @deprecated results are effected by order */
-  单补: async (补表: 表, 索引: 表 = { _id: 1 }, 选项?: mongodb.UpdateOptions) => {
-    const 索引键存在 = (键名: string) => Object.keys(补表).includes(键名);
-    const 索引键全部存在 = Object.keys(索引).every(索引键存在);
-    if (!索引键全部存在) throw new Error("错误：补表对应索引键不完整");
-    return await 合集.updateOne(
-      Object.fromEntries(Object.keys(索引).map((键) => [键, 补表[键]])),
-      { $set: 补表 },
-      { upsert: true, ...选项 },
-    );
-  },
-  单增改: ((查询: any, 更新: any, options: any, cb?: any) =>
-    合集.updateOne(查询, 更新, { upsert: true, ...options }, cb)) as typeof 合集.updateOne,
-  upsertOne: ((查询: any, 更新: any, options: any, cb?: any) =>
-    合集.updateOne(查询, 更新, { upsert: true, ...options }, cb)) as typeof 合集.updateOne,
   多增: 合集.insertMany,
   多删: 合集.deleteMany,
   多改: 合集.updateMany,
@@ -89,6 +59,34 @@ const _合集增强表 = (合集: mongodb.Collection) => ({
         const filter = Object.fromEntries(Object.keys(索引).map((键) => [键, 补表[键]]));
         const $set = Object.fromEntries(Object.entries(索引).filter(([k, v]) => k !== undefined));
         const $unset = Object.fromEntries(Object.entries(索引).filter(([k, v]) => k === undefined));
+        return {
+          updateOne: {
+            filter,
+            update: { $set, $unset },
+            upsert: true,
+          },
+        };
+      }),
+      选项,
+    ),
+  /** ⭐ Upsert lines by index
+   * set something to undefined to unset the key
+   * @example
+   * db.test.putMany([{id: "1", a: undefined, b: 'asdf'}], {id: 1})
+   * // is same as to db.test.upsert({id: "1"}, {$unset: {a: 1}, $set: 'asdf'})
+   */
+  putMany: (docs: 表[], index: 表 = { _id: 1 }, 选项?: mongodb.BulkWriteOptions) =>
+    合集.bulkWrite(
+      docs.map((补表: 表) => {
+        // 补表索引检查
+        const 索引键存在 = (键名: string) => Object.keys(补表).includes(键名);
+        const 索引键全部存在 = Object.keys(index).every(索引键存在);
+        if (!索引键全部存在) throw new Error("错误：补表对应索引键不完整");
+        const filter = Object.fromEntries(Object.keys(index).map((键) => [键, 补表[键]]));
+        const $set = Object.fromEntries(Object.entries(index).filter(([k, v]) => k !== undefined));
+        const $unset = Object.fromEntries(
+          Object.entries(index).filter(([k, v]) => k === undefined),
+        );
         return {
           updateOne: {
             filter,
