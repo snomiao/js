@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.14](https://github.com/snomiao/js/compare/md-aggregate@2.1.13...md-aggregate@2.1.14) (2022-09-22)
+
+**Note:** Version bump only for package md-aggregate
+
+
+
+
+
 ## [2.1.13](https://github.com/snomiao/js/compare/md-aggregate@2.1.12...md-aggregate@2.1.13) (2022-09-22)
 
 **Note:** Version bump only for package md-aggregate
