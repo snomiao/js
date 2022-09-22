@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Promi } from "./types";
+import { Awaitable } from "./types";
 import { snofa } from "./snofa";
 import { snof } from "./snof";
 export { snofa, snof };
@@ -15,22 +15,22 @@ export function useLockers(n = 1) {
   return { lock, unlock };
 }
 type Obj<T extends Record<PropertyKey, any> = Record<PropertyKey, any>> = T;
-type FunVa<T extends any[], R> = ((...args: T) => Promi<R>) | (() => Promi<R>) | Promi<R>;
+type FunVa<T extends any[], R> = ((...args: T) => Awaitable<R>) | (() => Awaitable<R>) | Awaitable<R>;
 type Conda<T extends any[], R> = [FunVa<T, boolean | any>, FunVa<T, R>];
-type MapaArrayIter<O extends any[], R> = (val: O[number], index: number, array: O) => Promi<R>;
-type MapaObjectIter<O extends Obj, R> = (val: O[keyof O], key: keyof O, obj: O) => Promi<R>;
-type ReducaIter<S, V> = (state: S, v: V, i: number, a: V[]) => Promi<S>;
+type MapaArrayIter<O extends any[], R> = (val: O[number], index: number, array: O) => Awaitable<R>;
+type MapaObjectIter<O extends Obj, R> = (val: O[keyof O], key: keyof O, obj: O) => Awaitable<R>;
+type ReducaIter<S, V> = (state: S, v: V, i: number, a: V[]) => Awaitable<S>;
 
 // expriment
-type LoopaWhen<T> = (state: T) => Promi<T | void>;
-type LoopaBody<V, R> = (v: V) => Promi<R>;
+type LoopaWhen<T> = (state: T) => Awaitable<T | void>;
+type LoopaBody<V, R> = (v: V) => Awaitable<R>;
 
 // TODO: iter objects
 // TODO: test
-export function mapa<O extends any[], R>(fn: MapaArrayIter<O, R>, a: Promi<O[]>): Promise<R[]>;
-export function mapa<O extends any[], R>(fn: MapaArrayIter<O, R>): (a: Promi<O[]>) => Promise<R[]>;
-export function mapa<O extends Object[], R>(fn: MapaObjectIter<O, R>, a: Promi<O[]>): Promise<R[]>;
-export function mapa<O extends Object[], R>(fn: MapaObjectIter<O, R>): (a: Promi<O[]>) => Promise<R[]>;
+export function mapa<O extends any[], R>(fn: MapaArrayIter<O, R>, a: Awaitable<O[]>): Promise<R[]>;
+export function mapa<O extends any[], R>(fn: MapaArrayIter<O, R>): (a: Awaitable<O[]>) => Promise<R[]>;
+export function mapa<O extends Object[], R>(fn: MapaObjectIter<O, R>, a: Awaitable<O[]>): Promise<R[]>;
+export function mapa<O extends Object[], R>(fn: MapaObjectIter<O, R>): (a: Awaitable<O[]>) => Promise<R[]>;
 export function mapa(fn: any, a?: any) {
   if (undefined === a) return (a: any) => mapa(fn, a);
   return (async () => {
@@ -49,13 +49,13 @@ export function mapa(fn: any, a?: any) {
 }
 // TODO: iter objects
 // TODO: test
-export function reduca<S, V>(f: ReducaIter<S, V>, state: S, a: Promi<V[]>): Promise<S>;
-export function reduca<S, V>(f: ReducaIter<S, V>, state: S): (a: Promi<V[]>) => Promise<S>;
-export function reduca<S, V>(f: ReducaIter<S, V>): (state: S, a: Promi<V[]>) => Promise<S>;
-export function reduca<S, V>(f: ReducaIter<S, V>): (state: S) => (a: Promi<V[]>) => Promise<S>;
-export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Promi<V[]>): any {
-  if (undefined === state) return (state: S, a?: Promi<V[]>) => reduca(f, state, a);
-  if (undefined === a) return (a: Promi<V[]>) => reduca(f, state, a);
+export function reduca<S, V>(f: ReducaIter<S, V>, state: S, a: Awaitable<V[]>): Promise<S>;
+export function reduca<S, V>(f: ReducaIter<S, V>, state: S): (a: Awaitable<V[]>) => Promise<S>;
+export function reduca<S, V>(f: ReducaIter<S, V>): (state: S, a: Awaitable<V[]>) => Promise<S>;
+export function reduca<S, V>(f: ReducaIter<S, V>): (state: S) => (a: Awaitable<V[]>) => Promise<S>;
+export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Awaitable<V[]>): any {
+  if (undefined === state) return (state: S, a?: Awaitable<V[]>) => reduca(f, state, a);
+  if (undefined === a) return (a: Awaitable<V[]>) => reduca(f, state, a);
   return (async function () {
     a = await a;
     let i = 0;
@@ -96,12 +96,12 @@ export function effa<T extends any[], R>(fn: FunVa<T, R>): any {
   return async (...v: T) => (await funva(fn, ...v), await v[0]);
 }
 
-export async function loga<V>(a: Promi<V>): Promise<V> {
+export async function loga<V>(a: Awaitable<V>): Promise<V> {
   console.log(await a);
   return a;
 }
-export async function jsonLoga<V>(a: Promi<V>): Promise<V>;
-export async function jsonLoga<V>(a?: Promi<V>) {
+export async function jsonLoga<V>(a: Awaitable<V>): Promise<V>;
+export async function jsonLoga<V>(a?: Awaitable<V>) {
   console.log(JSON.stringify(await a, null, 2));
   return a;
 }

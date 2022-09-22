@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import { Promi } from "./types";
-type af<i, o> = ((i: i, ...args: any[]) => Promi<o>) | (() => Promi<o>);
+import { Awaitable } from "./types";
+type af<i, o> = ((i: i, ...args: any[]) => Awaitable<o>) | (() => Awaitable<o>);
 /**
  * functional pipe async
  * @example await snofa(1, e=>e*2, String) === '4'

@@ -99,8 +99,8 @@ const _合集增强表 = (合集: mongodb.Collection) => ({
     ),
   多增改: ((查询: any, 更新: any, options: any, cb?: any) =>
     合集.updateMany(查询, 更新, { upsert: true, ...options }, cb)) as typeof 合集.updateMany,
-  upsertMany: ((查询: any, 更新: any, options: any, cb?: any) =>
-    合集.updateMany(查询, 更新, { upsert: true, ...options }, cb)) as typeof 合集.updateMany,
+  // upsertMany: ((查询: any, 更新: any, options: any, cb?: any) =>
+  //   合集.updateMany(查询, 更新, { upsert: true, ...options }, cb)) as typeof 合集.updateMany,
   聚合: 合集.aggregate,
   索引: 合集.createIndex,
   索引删: 合集.dropIndex,
