@@ -1,6 +1,6 @@
 {
   "name": "snogwt",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "a simple git worktree helper that checkout your branch into repo/worktrees/branch@repo/",
   "keywords": [
     "cli",
@@ -39,12 +39,12 @@
   },
   "dependencies": {
     "exec-sh": "^0.4.0",
-    "snorun": "^1.1.12",
+    "snorun": "^1.1.16",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
     "@types/yargs": "^17.0.10",
-    "snobuild": "^2.5.2"
+    "snobuild": "^2.7.0"
   },
   "publishConfig": {
     "access": "public"

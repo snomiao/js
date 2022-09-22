@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.26...sno-mongo-ku@2.10.0) (2022-09-22)
+
+
+### Bug Fixes
+
+* **sno-mongo-ku:** [@deprecated](https://github.com/deprecated) ([69feb77](https://github.com/snomiao/js/commit/69feb7783182c5df0f2f5de7f656f7300a8f28db))
+* **snomongoku:** import order ([c3f1e9a](https://github.com/snomiao/js/commit/c3f1e9a4b3080d0ba62d118f530570aa77f95e92))
+
+
+### Features
+
+* **sno-mongo-ku:** upgrade mongodb version ([89e391a](https://github.com/snomiao/js/commit/89e391a3bca418afb7db3efaa05ce00720bfa512))
+* **snomongoku:** putmany ([9f40ce1](https://github.com/snomiao/js/commit/9f40ce1b220dae5b2f500049fdbe200639d0593d))
+
+
+
+
+
+
 ## [2.7.27](https://github.com/snomiao/js/compare/sno-mongo-ku@2.7.26...sno-mongo-ku@2.7.27) (2022-07-03)
 
 **Note:** Version bump only for package sno-mongo-ku

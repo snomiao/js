@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.9](https://github.com/snomiao/js/compare/snogwt@1.5.4...snogwt@1.5.9) (2022-09-22)
+
+
+### Bug Fixes
+
+* **snogwt:** coerce branch name ([c7f5266](https://github.com/snomiao/js/commit/c7f5266268e61e5f429c25c06a8adcd5c8a0a038))
+* **snogwt:** handle errors in get checkout path ([279cdb8](https://github.com/snomiao/js/commit/279cdb8744940eb7233f64a82f8a755683908b2b))
+* **snogwt:** work with ts ([5ef839a](https://github.com/snomiao/js/commit/5ef839a6edd030764cd28ca6084f8c103e2458c1))
+
+
+
+
+
+
 ## [1.5.5](https://github.com/snomiao/js/compare/snogwt@1.5.4...snogwt@1.5.5) (2022-07-03)
 
 **Note:** Version bump only for package snogwt

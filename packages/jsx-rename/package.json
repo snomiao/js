@@ -1,6 +1,6 @@
 {
   "name": "jsx-rename",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": true,
   "description": "A git worktree helper",
   "keywords": [
@@ -36,11 +36,11 @@
   "dependencies": {
     "eslint": "8.2.0",
     "eslint-plugin-react": "7.28.0",
-    "snorun": "^1.1.7",
+    "snorun": "^1.1.16",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
     "@types/yargs": "^17.0.10",
-    "snobuild": "^2.5.2"
+    "snobuild": "^2.7.0"
   }
 }

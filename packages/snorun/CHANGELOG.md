@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.16](https://github.com/snomiao/js/compare/snorun@1.1.6...snorun@1.1.16) (2022-09-22)
+
+
+### Bug Fixes
+
+* **snorun:** end promise ([e132bbe](https://github.com/snomiao/js/commit/e132bbed0023c1641012464f9a70b5f9c567c2dd))
+* **snorun:** error code ([7d1d533](https://github.com/snomiao/js/commit/7d1d53336d9927999c1669019b87df509c98e20b))
+* **snorun:** okr ([5414ec5](https://github.com/snomiao/js/commit/5414ec591a04109699913991ee2441c4b9cc75f7))
+* **snorun:** pipe option ([92e3c10](https://github.com/snomiao/js/commit/92e3c101fe2befb06a16f4da1febbcf8451da71b))
+* **snorun:** pipein ([aa17ce0](https://github.com/snomiao/js/commit/aa17ce07fa390f636c485bea91fc11f8e416f665))
+* **snorun:** pipein ([090feee](https://github.com/snomiao/js/commit/090feeea823138028b6ef5b8d1fabcfcfddcb665))
+* **snorun:** remove 'done' ([1d9175f](https://github.com/snomiao/js/commit/1d9175fd6ea52e966c7b731335396b127dee1117))
+* **snorun:** retype ([38ccbf7](https://github.com/snomiao/js/commit/38ccbf79b39c0b1fea9ca5b42e8844fddb9c14ee))
+
+
+
+
+
+
 ## [1.1.7](https://github.com/snomiao/js/compare/snorun@1.1.6...snorun@1.1.7) (2022-07-03)
 
 **Note:** Version bump only for package snorun

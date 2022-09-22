@@ -1,8 +1,10 @@
 {
   "name": "snoio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "io utils",
-  "keywords": ["node"],
+  "keywords": [
+    "node"
+  ],
   "license": "ISC",
   "author": "",
   "type": "module",

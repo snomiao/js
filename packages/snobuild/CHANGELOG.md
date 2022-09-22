@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/snomiao/js/compare/snobuild@2.5.1...snobuild@2.7.0) (2022-09-22)
+
+
+### Bug Fixes
+
+* snobuild externals control ([74b3b16](https://github.com/snomiao/js/commit/74b3b167c78264a9c55b44f41899aff669973127))
+* **snobuild:** always use boot ([479e33d](https://github.com/snomiao/js/commit/479e33d690659a4a580b868fb8938e40d9991fdc))
+* **snobuild:** externals ([973259c](https://github.com/snomiao/js/commit/973259ce3ffff58bf82c13efc67bf1322fe9a096))
+* **snobuild:** install typescript ([bea7344](https://github.com/snomiao/js/commit/bea73445c9ebc213096f39b605f36d88be76e525))
+* **snobuild:** target= as esnext ([7cb0f1d](https://github.com/snomiao/js/commit/7cb0f1d9395a3f5e12a811f87ced73c1df006722))
+
+
+### Features
+
+* **snobuild:** target esnext ([2d0d26f](https://github.com/snomiao/js/commit/2d0d26ff7230a2952e15d7f4d033a58f3e36e02e))
+
+
+
+
+
+
 ## [2.5.2](https://github.com/snomiao/js/compare/snobuild@2.5.1...snobuild@2.5.2) (2022-07-03)
 
 **Note:** Version bump only for package snobuild

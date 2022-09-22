@@ -1,6 +1,6 @@
 {
   "name": "objtranspose",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "keywords": [
     "array",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "mocha": "^10.0.0",
-    "snobuild": "^2.5.2",
+    "snobuild": "^2.7.0",
     "tsx": "^3.4.2"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"

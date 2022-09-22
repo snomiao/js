@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/snomiao/js/compare/snofa@0.2.1...snofa@1.1.0) (2022-09-22)
+
+
+### Bug Fixes
+
+* **snofa:** dev deps ([e86590e](https://github.com/snomiao/js/commit/e86590e553bec04503ccccc547bd6a2c8565c824))
+* **snofa:** loga ([31eb2ef](https://github.com/snomiao/js/commit/31eb2ef136b11048c888031097f0ed8c210c1c85))
+* **snofa:** optional params ([a9b53d6](https://github.com/snomiao/js/commit/a9b53d63fc0b76d8fbd12e61a8efcd8377554b65))
+* **snofa:** optional snofa ([09c98eb](https://github.com/snomiao/js/commit/09c98eb1c5338b53a1a7c906bffe90ff81440b7a))
+* **snofa:** rename conda into switcha whici is more readable ([c9439a0](https://github.com/snomiao/js/commit/c9439a00c5409a00740e8a3bf52920ba61b54a06))
+* **snofa:** rename loopa ([75bb3f3](https://github.com/snomiao/js/commit/75bb3f319a9544de00f506b8f7f50051db0e3d2a))
+* **snofa:** rename throwa ([d8abd10](https://github.com/snomiao/js/commit/d8abd10a560b502b8ac8777b1c6d75b51572044d))
+* **snofa:** typeof snof ([45b59ce](https://github.com/snomiao/js/commit/45b59ce6ddb88b54ef8ba3df97848c073ee8f828))
+* **snofa:** typo ([e4984d6](https://github.com/snomiao/js/commit/e4984d6eff272888f8b722780866d871bb6d6a4b))
+* **snofa:** uselocka ([b004b71](https://github.com/snomiao/js/commit/b004b7109b4f3240d24efac43ed3bfecd5fb2947))
+
+
+### Features
+
+* **snofa:** conda ([89e30ca](https://github.com/snomiao/js/commit/89e30ca39e7e8bd94f1535168bb7aa8f15580e6d))
+* **snofa:** effa ([7b534bc](https://github.com/snomiao/js/commit/7b534bc4d020a597e3669d6fa58ad04432b92058))
+
+
+
+
+
+
 # [0.4.0](https://github.com/snomiao/js/compare/snofa@0.2.1...snofa@0.4.0) (2022-07-03)
 
 

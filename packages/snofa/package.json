@@ -1,6 +1,6 @@
 {
   "name": "snofa",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Snomiao's Functional Async pipelines with typescript support.",
   "keywords": [
     "async",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "mocha": "^10.0.0",
-    "snobuild": "^2.5.2"
+    "snobuild": "^2.7.0"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }
