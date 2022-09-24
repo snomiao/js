@@ -44,28 +44,21 @@ export default async function snobuild({
   esm = undefined as boolean, // esm
   cjs = undefined as boolean, // cjs
   script = undefined as boolean, // show script to esbuild
-  target = 'ESNext' as string,
+  target = "ESNext" as string,
+  verbose = undefined as boolean,
   //
   legalComments = undefined as esbuild.BuildOptions["legalComments"],
   esbuildOptions = {} as esbuild.BuildOptions,
 } = {}) {
   // load pkg infos
   const pkgPath = "./package.json";
+  const pkgExisted = Boolean(await stat(pkgPath).catch(() => null));
   const indexExisted = Boolean(await stat("src/index.ts").catch(() => null));
   const cliExisted = Boolean(await stat("src/cli.ts").catch(() => null));
   const tsconfigExisted = Boolean(await stat("tsconfig.json").catch(() => null));
+  if (!pkgExisted) throw new Error("pkg not existed");
   if (init) await packageInit({ pkgPath, indexExisted, cliExisted, tsconfigExisted });
   const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
-  // const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
-  const deps = bundleDep ? [] : Object.keys(pkg?.dependencies || {});
-  const devDeps = bundleDevDep ? [] : Object.keys(pkg?.devDependencies || {});
-  const optionalDeps = bundleOptionalDep ? [] : Object.keys(pkg?.optionalDependencies || {});
-  const peerDeps = bundlePeerDep ? [] : Object.keys(pkg?.peerDependencies || {});
-  const bundleDeps = bundleBundleDep ? [] : Object.keys(pkg?.bundleDependencies || {});
-  const _externals = [
-    ...(external ? [...deps, ...devDeps, ...optionalDeps, ...peerDeps, ...bundleDeps] : []),
-    ...(externals?.split(",") ?? []),
-  ];
 
   // calc build mode
   if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
@@ -75,13 +68,14 @@ export default async function snobuild({
   // calc build mode
   if (dev) (sourcemap ??= true), (tsc ??= true);
   if (prod) minify ??= true;
-  if (lib)
-    (bundle ??= true),
-      (external ??= true),
-      (sourcemap ??=  true),
-      (minify ??= true),
-      (tsc ??= true),
-      (outdir ||= "./lib");
+  if (lib) {
+    bundle ??= false;
+    external ??= false;
+    sourcemap ??= true;
+    minify ??= true;
+    tsc ??= true;
+    outdir ||= "./lib";
+  }
   if (deploy) (bundle ??= true), (external ??= false), (minify ??= true), (outdir ||= "./deploy");
   if (!bundle) external ??= false;
   // module detect
@@ -93,7 +87,53 @@ export default async function snobuild({
   const esmEntryPoints = input ? await globby(input) : await globby(["src/index.ts", "src/cli.ts"]);
   const cjsEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
   const tscEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
+
+  //
+
+  if (verbose) {
+    console.log({
+      pkg,
+      outdir,
+      input,
+      init,
+      bundle,
+      bundleDep,
+      bundleDevDep,
+      bundleOptionalDep,
+      bundlePeerDep,
+      bundleBundleDep,
+      external,
+      externals,
+      watch,
+      dev,
+      prod,
+      lib,
+      cli,
+      deploy,
+      sourcemap,
+      minify,
+      tsc,
+      esm,
+      cjs,
+      script,
+      target,
+      verbose,
+      legalComments,
+      esbuildOptions,
+    });
+  }
   // base options
+  // const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
+  const deps = bundleDep ? [] : Object.keys(pkg?.dependencies || {});
+  const devDeps = bundleDevDep ? [] : Object.keys(pkg?.devDependencies || {});
+  const optionalDeps = bundleOptionalDep ? [] : Object.keys(pkg?.optionalDependencies || {});
+  const peerDeps = bundlePeerDep ? [] : Object.keys(pkg?.peerDependencies || {});
+  const bundleDeps = bundleBundleDep ? [] : Object.keys(pkg?.bundleDependencies || {});
+  const _externals = [
+    ...(external ? [...deps, ...devDeps, ...optionalDeps, ...peerDeps, ...bundleDeps] : []),
+    ...(externals?.split?.(",") ?? []),
+  ];
+  if (verbose) console.log({ _externals });
   const baseOptions: esbuild.BuildOptions = {
     // entryPoints: {
     //   ...(indexExisted && { index: "src/index.ts" }),
@@ -104,7 +144,7 @@ export default async function snobuild({
     outdir,
     platform: "node",
     format: "esm",
-    target: [target || 'ESNext'], //es2020 for node 14
+    target: [target || "ESNext"], //es2020 for node 14
     logLevel: "info",
     watch,
     incremental: watch,
