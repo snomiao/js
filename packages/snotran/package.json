@@ -1,0 +1,30 @@
+{
+  "name": "snotran",
+  "version": "1.1.0",
+  "description": "",
+  "keywords": [
+    "translate"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "exports": {
+    "require": "./lib/index.cjs",
+    "import": "./lib/index.js"
+  },
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "snobuild --lib --external=false"
+  },
+  "dependencies": {
+    "@snomiao/google-translate-api-browser": "^1.2.0"
+  },
+  "devDependencies": {
+    "snobuild": "^2.7.0"
+  }
+}
