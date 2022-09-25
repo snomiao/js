@@ -51,6 +51,15 @@ export default async function snobuild({
   esbuildOptions = {} as esbuild.BuildOptions,
 } = {}) {
   // load pkg infos
+  // 
+  // built router matrix
+  // 
+  //  dist - bundled lib with sourcemap
+  //  lib - bundled lib with readable codes
+  //  deploy - bundle minified executable files without sourcemap
+  // 
+  // path like: /{dist,lib,deploy}/*{.min,}.{cjs,js}
+  // 
   const pkgPath = "./package.json";
   const pkgExisted = Boolean(await stat(pkgPath).catch(() => null));
   const indexExisted = Boolean(await stat("src/index.ts").catch(() => null));
@@ -87,8 +96,6 @@ export default async function snobuild({
   const esmEntryPoints = input ? await globby(input) : await globby(["src/index.ts", "src/cli.ts"]);
   const cjsEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
   const tscEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
-
-  //
 
   if (verbose) {
     console.log({
