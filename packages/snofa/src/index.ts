@@ -24,9 +24,11 @@ type ReducaIter<S, V> = (state: S, v: V, i: number, a: V[]) => Awaitable<S>;
 // expriment
 type LoopaWhen<T> = (state: T) => Awaitable<T | void>;
 type LoopaBody<V, R> = (v: V) => Awaitable<R>;
-
-// TODO: iter objects
-// TODO: test
+/**
+ * @examples TODO
+ * TODO: iter objects
+ * TODO: test data
+ */
 export function mapa<O extends any[], R>(fn: MapaArrayIter<O, R>, a: Awaitable<O[]>): Promise<R[]>;
 export function mapa<O extends any[], R>(fn: MapaArrayIter<O, R>): (a: Awaitable<O[]>) => Promise<R[]>;
 export function mapa<O extends Object[], R>(fn: MapaObjectIter<O, R>, a: Awaitable<O[]>): Promise<R[]>;
@@ -47,8 +49,12 @@ export function mapa(fn: any, a?: any) {
     return ret;
   })();
 }
-// TODO: iter objects
-// TODO: test
+
+/**
+ * @examples TODO
+ * TODO: iter objects
+ * TODO: test data
+ */
 export function reduca<S, V>(f: ReducaIter<S, V>, state: S, a: Awaitable<V[]>): Promise<S>;
 export function reduca<S, V>(f: ReducaIter<S, V>, state: S): (a: Awaitable<V[]>) => Promise<S>;
 export function reduca<S, V>(f: ReducaIter<S, V>): (state: S, a: Awaitable<V[]>) => Promise<S>;
@@ -65,11 +71,13 @@ export function reduca<S, V>(f: ReducaIter<S, V>, state?: S, a?: Awaitable<V[]>)
 }
 /**
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
+ * @examples TODO
  * @deprecated
  */
 export function loopa<V, R>(update: LoopaWhen<V>, body: LoopaBody<V, R>): Promise<R>;
 /**
  * Loop while updated truthy state and pipe into the looper, then return the last looper state.
+ * @examples TODO
  * @deprecated
  */
 export function loopa<V, R>(update: LoopaWhen<V>): (body: LoopaBody<V, R>) => Promise<R>;
@@ -107,6 +115,7 @@ export async function jsonLoga<V>(a?: Awaitable<V>) {
 }
 
 /**
+ * @examples TODO
  * async cond function
  */
 export function conda<T extends any[], R>(conds: Conda<T, R>[]): (...args: T) => Promise<R>;
@@ -122,6 +131,7 @@ export function conda<T extends any[], R>(conds: Conda<T, R>[]) {
   };
 }
 /**
+ * @examples TODO
  * try got an value, execute if it's a functions
  */
 export async function funva<T extends any[], R>(fv: FunVa<T, R>, ...args: T) {
@@ -142,6 +152,7 @@ export async function funva<T extends any[], R>(fv: FunVa<T, R>, ...args: T) {
 
 /**
  * @experiment
+ * @examples TODO
  * @param message
  */
 export function throwa(message?: string) {
@@ -152,3 +163,24 @@ export function throwa(message?: string) {
 // export function awaita<T extends [promise]>(a: any) {
 
 // }
+
+export function validPipor(fn) {
+  return (s, ...args) => s && fn(s, ...args);
+}
+export function limiter(fn, wait = 1e3, last = 0) {
+  return async (...args) => {
+    const remain = last + wait - +new Date();
+    while (remain > 0) await new Promise((r) => setTimeout(r, remain));
+    const r = await fn(...args);
+    last = +new Date();
+    return r;
+  };
+}
+
+/**
+ * @examples TODO
+ * @returns the changed value when input value changed, otherwise return undefined.
+ */
+export function edgeFilter<T>(init?: T) {
+  return (e?: T) => (e !== init ? (init = e) : undefined);
+}

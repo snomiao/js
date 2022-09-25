@@ -33,6 +33,10 @@ await snofa(
 )(); // === 144
 ```
 
+## TODO
+
+- [ ] Build every single function exported into stand-alone package
+
 ## Reference
 
 - [tubo - npm](https://www.npmjs.com/package/tubo)
@@ -60,3 +64,4 @@ Claim your sponsorship by donating snomiao <[Email: snomiao@gmail.com](mailto:sn
 ### Contribute
 
 The main repo is in [here](https://github.com/snomiao/js#readme), any issue and PR's welcome.
+
