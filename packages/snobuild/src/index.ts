@@ -12,7 +12,9 @@ const tscDefaults = [
   "-t ESNext",
   "--moduleResolution node",
   "--skipLibCheck",
-  "--emitDeclarationOnly -d",
+  "--emitDeclarationOnly",
+  "--declaration",
+  "--declarationMap",
   "--outDir lib",
 ];
 /**
@@ -80,8 +82,8 @@ export default async function snobuild({
   if (lib) {
     bundle ??= false;
     external ??= false;
-    sourcemap ??= true;
-    minify ??= true;
+    sourcemap ??= false;
+    minify ??= false;
     tsc ??= true;
     outdir ||= "./lib";
   }

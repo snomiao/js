@@ -249,7 +249,7 @@ importers:
       '@types/node': ^17.0.10
       mongodb: ^4.9.1
       p-queue: ^7.1.0
-      snobuild: ^2.7.0
+      snobuild: workspace:^2.7.1
     dependencies:
       mongodb: 4.9.1
       p-queue: 7.3.0
@@ -2821,8 +2821,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      is-text-path: 1.0.1
       JSONStream: 1.3.5
+      is-text-path: 1.0.1
       lodash: 4.17.21
       meow: 8.1.2
       split2: 3.2.2
