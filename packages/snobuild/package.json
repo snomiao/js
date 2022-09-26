@@ -34,7 +34,7 @@
     "boot": "pnpx snobuild@2.2.1 --lib",
     "build": "npm run boot",
     "prepack": "npm run build && npm run test",
-    "test": "snobuild --lib"
+    "test": "snobuild --lib && snobuild --lib"
   },
   "dependencies": {
     "esbuild": "^0.14.39",
