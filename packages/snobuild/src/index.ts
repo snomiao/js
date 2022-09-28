@@ -1,242 +1,183 @@
 import { exec } from "child_process";
-import esbuild from "esbuild";
+import esbuild, { BuildOptions, Format } from "esbuild";
 import { readFile, stat, writeFile } from "fs/promises";
 import { globby } from "globby";
 import snorun from "snorun";
 import sortPackageJson from "sort-package-json";
 import { promisify } from "util";
-const tscDefaults = [
-  "--esModuleInterop --allowSyntheticDefaultImports --downlevelIteration",
-  "--resolveJsonModule",
-  "-m ESNext",
-  "-t ESNext",
-  "--moduleResolution node",
-  "--skipLibCheck",
-  "--emitDeclarationOnly",
-  "--declaration",
-  "--declarationMap",
-  "--outDir lib",
-];
+import cli from "./cli";
+import matrixExpand from "./matrixExpand";
+
+export const depKeys = [
+  "dependencies",
+  "devDependencies",
+  "optionalDependencies",
+  "peerDependencies",
+  "bundleDependencies",
+] as const;
 /**
  * Author: snomiao <snomiao@gmail.com>
  */
 export default async function snobuild({
-  outdir = undefined as string,
-  input = undefined as string,
+  outdir = "dist" as string,
+  input = "src/index.ts" as string,
   init = undefined as boolean,
-  bundle = undefined as boolean,
-  bundleDep = undefined as boolean,
-  bundleDevDep = undefined as boolean,
-  bundleOptionalDep = undefined as boolean,
-  bundlePeerDep = undefined as boolean,
-  bundleBundleDep = undefined as boolean,
-  external = undefined as boolean,
-  externals = undefined as string,
+  bundle = true as boolean,
+  bundleDependencies = true as boolean,
+  bundleDevDependencies = false as boolean,
+  bundleOptionalDependencies = false as boolean,
+  bundlePeerDependencies = false as boolean,
+  bundleBundleDependencies = true as boolean,
+  bundleExcludes = "" as string,
   watch = undefined as boolean,
   // output setting
-  dev = undefined as boolean, // +sourcemap -minify
-  prod = undefined as boolean, // -sourcemap +minify
-  lib = undefined as boolean, // +bundle +external +sourcemap +minify +tsc
-  cli = undefined as boolean, // +input:src/cli.ts (only esm)
-  deploy = undefined as boolean, // +bundle -external -sourcemap +minify
-  sourcemap = undefined as boolean,
-  minify = undefined as boolean,
+  // dev = undefined as boolean, // +sourcemap -minify
+  // prod = undefined as boolean, // -sourcemap +minify
+  // lib = undefined as boolean, // +bundle +external +sourcemap +minify +tsc
+  // deploy = undefined as boolean, // +bundle -external -sourcemap +minify
+  // sourcemap = undefined as boolean,
+  // minify = undefined as boolean,
   // outputs
-  tsc = undefined as boolean, // declares
-  esm = undefined as boolean, // esm
-  cjs = undefined as boolean, // cjs
-  script = undefined as boolean, // show script to esbuild
-  target = "ESNext" as string,
+  // tsc = undefined as boolean, // declares
+  // esm = undefined as boolean, // esm
+  // cjs = undefined as boolean, // cjs
+  // script = undefined as boolean, // show script to esbuild
+  target = "ESNext" as string, // es2020 for node 14, and es6 for earler version
   verbose = undefined as boolean,
   //
   legalComments = undefined as esbuild.BuildOptions["legalComments"],
   esbuildOptions = {} as esbuild.BuildOptions,
 } = {}) {
   // load pkg infos
-  // 
+  //
   // built router matrix
-  // 
+  //
   //  dist - bundled lib with sourcemap
   //  lib - bundled lib with readable codes
   //  deploy - bundle minified executable files without sourcemap
-  // 
-  // path like: /{dist,lib,deploy}/*{.min,}.{cjs,js}
-  // 
-  const pkgPath = "./package.json";
+  //
+  // path like: /{bin,dist,lib,deploy}/*{.min,}.{cjs,js}
+  /**
+   * Built matrix:
+   *     "src/cli.ts": 'dist/cli.mjs'         // esm cli
+   *     "src/cli.ts": 'dist/cli.min.mjs'     // esm cli compressed // can be used to deploy
+   *     "src/index.ts": 'dist/index.mjs'     // esm lib
+   *     "src/index.ts": 'dist/index.min.mjs' // esm lib compressed
+   *     "src/index.ts": 'dist/index.cjs'     // cjs lib
+   *     "src/index.ts": 'dist/index.min.cjs' // cjs lib compressed
+   *
+   * "components/*.tsx": 'dist/components/index.cjs' // react components
+   * "userscripts/*.ts": 'dist/userscript/index.user.js' // userscripts
+   */
+
+  // await promisify(exec)("npm init -y");
+
+  // inputs
+  const indexPath = "src/index.ts";
+  const cliPath = "src/cli.ts";
+
+  const pkgPath = "package.json";
+  const tsconfigPath = "tsconfig.json";
+
+  if (init) await snorun("npm init -y");
   const pkgExisted = Boolean(await stat(pkgPath).catch(() => null));
-  const indexExisted = Boolean(await stat("src/index.ts").catch(() => null));
-  const cliExisted = Boolean(await stat("src/cli.ts").catch(() => null));
-  const tsconfigExisted = Boolean(await stat("tsconfig.json").catch(() => null));
-  if (!pkgExisted) throw new Error("pkg not existed");
-  if (init) await packageInit({ pkgPath, indexExisted, cliExisted, tsconfigExisted });
-  const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
+  if (!pkgExisted) throw new Error("package.json not existed");
 
-  // calc build mode
-  if (!(dev || prod || lib || deploy || sourcemap || minify || external || bundle)) {
-    console.error("no build mode specified");
-    return await snorun("snobuild -h");
-  }
-  // calc build mode
-  if (dev) (sourcemap ??= true), (tsc ??= true);
-  if (prod) minify ??= true;
-  if (lib) {
-    bundle ??= false;
-    external ??= false;
-    sourcemap ??= false;
-    minify ??= false;
-    tsc ??= true;
-    outdir ||= "./lib";
-  }
-  if (deploy) (bundle ??= true), (external ??= false), (minify ??= true), (outdir ||= "./deploy");
-  if (!bundle) external ??= false;
-  // module detect
-  tsc = tsc || Boolean(pkg?.types);
-  cjs = cjs || (Boolean(pkg?.main) && indexExisted);
-  esm = esm || (Boolean(pkg?.module) && indexExisted);
-  esm = esm || (Boolean(pkg?.bin) && cliExisted);
-  if (!(tsc || cjs || esm)) throw new Error("no output");
-  const esmEntryPoints = input ? await globby(input) : await globby(["src/index.ts", "src/cli.ts"]);
-  const cjsEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
-  const tscEntryPoints = input ? await globby(input) : await globby(["src/index.ts"]);
+  const indexEntry = Boolean(await stat(indexPath).catch(() => null)) && indexPath;
+  const cliEntry = Boolean(await stat(cliPath).catch(() => null)) && cliPath;
+  const tsconfigExisted = Boolean(await stat(tsconfigPath).catch(() => null)) && tsconfigPath;
 
-  if (verbose) {
-    console.log({
-      pkg,
-      outdir,
-      input,
-      init,
-      bundle,
-      bundleDep,
-      bundleDevDep,
-      bundleOptionalDep,
-      bundlePeerDep,
-      bundleBundleDep,
-      external,
-      externals,
-      watch,
-      dev,
-      prod,
-      lib,
-      cli,
-      deploy,
-      sourcemap,
-      minify,
-      tsc,
-      esm,
-      cjs,
-      script,
-      target,
-      verbose,
-      legalComments,
-      esbuildOptions,
-    });
-  }
-  // base options
-  // const pkgNameEntryExisted = Boolean(await stat(`src/${pkg.name}.ts`).catch(() => null));
-  const deps = bundleDep ? [] : Object.keys(pkg?.dependencies || {});
-  const devDeps = bundleDevDep ? [] : Object.keys(pkg?.devDependencies || {});
-  const optionalDeps = bundleOptionalDep ? [] : Object.keys(pkg?.optionalDependencies || {});
-  const peerDeps = bundlePeerDep ? [] : Object.keys(pkg?.peerDependencies || {});
-  const bundleDeps = bundleBundleDep ? [] : Object.keys(pkg?.bundleDependencies || {});
-  const _externals = [
-    ...(external ? [...deps, ...devDeps, ...optionalDeps, ...peerDeps, ...bundleDeps] : []),
-    ...(externals?.split?.(",") ?? []),
-  ];
-  if (verbose) console.log({ _externals });
-  const baseOptions: esbuild.BuildOptions = {
-    // entryPoints: {
-    //   ...(indexExisted && { index: "src/index.ts" }),
-    // },
-    ...{ minify, sourcemap },
+  const pkgJSON = await readFile(pkgPath, "utf-8");
+  const pkg = JSON.parse(pkgJSON);
+  if (cliEntry) pkg.bin ||= "dist/cli.mjs";
+  if (cliEntry) pkg.keywords ||= [...new Set([...(pkg.keywords || []), "cli"])];
+  pkg.main ||= `${outdir}/index.min.cjs`;
+  pkg.module ||= `${outdir}/index.min.mjs`;
+  pkg.types ||= `${outdir}/index.d.ts`;
+  pkg.exports ||= {};
+  pkg.exports.require ||= `./${outdir}/index.cjs`;
+  pkg.exports.import ||= `./${outdir}/index.mjs`;
+  pkg.files ||= [`${outdir}`];
+  pkg.scripts ||= {};
+  pkg.scripts.build ||= "snobuild";
+  pkg.scripts.prepack ||= "npm run build";
+
+  const sortedPkg = JSON.stringify(sortPackageJson(pkg), null, 2);
+  await writeFile(pkgPath, sortedPkg);
+
+  const external = [
+    !bundleDependencies && Object.keys(pkg?.dependencies || {}),
+    !bundleDevDependencies && Object.keys(pkg?.devDependencies || {}),
+    !bundleOptionalDependencies && Object.keys(pkg?.optionalDependencies || {}),
+    !bundlePeerDependencies && Object.keys(pkg?.peerDependencies || {}),
+    !bundleBundleDependencies && Object.keys(pkg?.bundleDependencies || {}),
+    bundleExcludes?.split?.(","),
+  ]
+    .filter(Boolean)
+    .flat();
+
+  if (verbose) console.log({ external });
+  const baseOpts: BuildOptions = {
+    sourcemap: true,
     bundle,
-    external: _externals,
-    outdir,
-    platform: "node",
-    format: "esm",
-    target: [target || "ESNext"], //es2020 for node 14
+    external,
+    target,
+    platform: "node", // module resolve
     logLevel: "info",
     watch,
     incremental: watch,
     legalComments,
     ...esbuildOptions,
   };
-  const tscWatchFlag = watch ? " --watch" : "";
-  const tscBuildOptions = [...tscDefaults, tscWatchFlag].filter((e) => e);
-  const results = await Promise.all([
-    !esm
-      ? true // "skip esm output"
-      : await esbuild.build({
-          ...baseOptions,
-          entryPoints: esmEntryPoints,
-          format: "esm",
-          // splitting: true,
-        }),
-    !cjs
-      ? true // "skip cjs output"
-      : await esbuild.build({
-          ...baseOptions,
-          entryPoints: cjsEntryPoints,
-          format: "cjs",
-          outExtension: { ".js": ".cjs" },
-        }),
-    !tsc
-      ? true // "skip tsc output"
-      : tsconfigExisted
-      ? await snorun(["tsc", tscWatchFlag].join(" "))
-      : indexExisted && (await snorun(["tsc", ...tscBuildOptions, ...tscEntryPoints].join(" "))),
-  ]);
+  const matrix = {
+    minify: [false, true],
+    format: ["esm", "cjs"] as Format[],
+    entryName: [cliEntry && "cli", indexEntry && "index"].filter(Boolean),
+  };
+  const expanded = matrixExpand(matrix);
+  const buildOpts = expanded.map(({ entryName, format, minify }) => {
+    const ext = { esm: ".mjs", cjs: ".cjs", iife: ".user.cjs" }[format];
+    return {
+      ...baseOpts,
+      // inject: entryName === "cli" ? ["#!/usr/bin/env node"] : [],
+      format,
+      minify,
+      entryPoints: [`src/${entryName}.ts`],
+      outfile: `${outdir}/${entryName}${minify ? ".min" : ""}${ext}`,
+    } as BuildOptions;
+  });
+  const results = await Promise.all(
+    [
+      ...buildOpts.map((e) => esbuild.build(e)),
+      indexEntry && pkg.types && declarationsBuild(),
+    ].filter(Boolean) // promised obj remaind to await
+  );
 
   console.log(results);
   if (!results.every((e) => Boolean(e))) process.exit(1);
   console.log("build ok");
-}
-async function packageInit({
-  pkgPath,
-  indexExisted,
-  cliExisted,
-  tsconfigExisted,
-}: {
-  pkgPath: string;
-  indexExisted: boolean;
-  cliExisted: boolean;
-  tsconfigExisted: boolean;
-}) {
-  const pkg = JSON.parse(await readFile(pkgPath, "utf-8").catch(() => "{}"));
-  const pkgConfed = {
-    ...(indexExisted && {
-      type: "module",
-      types: "./lib/index.d.ts",
-      ...(!pkg.exports && { main: "lib/index.cjs" }),
-      module: "lib/index.js",
-    }),
-    ...(cliExisted && {
-      bin: "lib/cli.js",
-      keywords: ["cli"],
-    }),
-    files: ["lib"],
-    ...pkg,
-    scripts: {
-      build: "snobuild --lib",
-      prepack: "npm run build",
-      ...pkg.scripts,
-    },
-    exports: {
-      ...(indexExisted &&
-        !pkg.exports && {
-          ".": {
-            require: "./lib/index.cjs",
-            import: "./lib/index.js",
-          },
-        }),
-      ...pkg.exports,
-    },
-  };
-  const outPkg = sortPackageJson(pkgConfed);
-  const outPkgJSONString = JSON.stringify(outPkg, null, 2);
-  await writeFile(pkgPath, outPkgJSONString);
-  await promisify(exec)("npm init -y");
-  if (!tsconfigExisted) await snorun(["tsc", ...tscDefaults].join(" "));
-  console.log("init done");
+
+  async function declarationsBuild() {
+    const tscWatchFlag = watch && " --watch";
+    const tscBuildOptions = (indexEntry: string) =>
+      [
+        "--esModuleInterop --allowSyntheticDefaultImports --downlevelIteration",
+        "--resolveJsonModule",
+        "-m ESNext",
+        "-t ESNext",
+        "--moduleResolution node",
+        "--skipLibCheck",
+        "--emitDeclarationOnly",
+        "--declaration",
+        "--declarationMap",
+        `--outDir ${outdir}`,
+        tscWatchFlag,
+        indexEntry,
+      ].filter(Boolean);
+    return tsconfigExisted
+      ? await snorun(["tsc", tscWatchFlag])
+      : await snorun(["tsc", ...tscBuildOptions(indexEntry)]);
+  }
 }
 export function snobuildConfig(...args: Parameters<typeof snobuild>) {
   return args;
