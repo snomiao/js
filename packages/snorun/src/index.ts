@@ -6,7 +6,7 @@ import { exec } from "child_process";
  * @example
  * await snorun('command')
  *    && await snorun('echo succ')
- *    || await snorun('echo fail')
+ *    || await snorun(['echo', 'fail'])
  *
  * // as same as run in shell like this:
  * //    command && echo succ || echo 'fail'
