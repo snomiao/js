@@ -10,10 +10,10 @@ it("pipe number", () =>
   ));
 it("pipe number async", async () => strictEqual(await snofa(12, (v) => v * 12), 144));
 it("calls pipe number", () => {
-  strictEqual(snof((v: number) => v * 12)(12), 144);
+  strictEqual(snof((v = 1) => v * 12)(12), 144);
 });
 it("calls pipe number async", async () => {
-  strictEqual(await snofa((v: number) => v * 12)(12), 144);
+  strictEqual(await snofa((v = 1) => v * 12)(12), 144);
 });
 it("calls number generator pipe", () => {
   strictEqual(
