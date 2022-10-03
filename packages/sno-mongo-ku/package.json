@@ -1,6 +1,6 @@
 {
   "name": "sno-mongo-ku",
-  "version": "2.10.3",
+  "version": "3.1.0",
   "description": "MongoDB simple wrapper, Provide simple method in chinese to handle the mongodb.",
   "keywords": [
     "mongodb",
@@ -14,21 +14,8 @@
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
-  "exports": {
-    "import": "./lib/index.js",
-    "require": "./lib/index.cjs"
-  },
-  "main": "lib/index.cjs",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "directories": {
-    "doc": "docs"
-  },
-  "files": [
-    "lib/*"
-  ],
   "scripts": {
-    "build": "snobuild --lib",
+    "build": "snobuild",
     "prepack": "npm run build && npm test",
     "test": "tsc"
   },
@@ -38,7 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.10",
-    "snobuild": "^2.7.1"
+    "snobuild": "workspace:^3.1.1"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }
