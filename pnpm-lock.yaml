@@ -249,13 +249,13 @@ importers:
       '@types/node': ^17.0.10
       mongodb: ^4.9.1
       p-queue: ^7.1.0
-      snobuild: ^2.7.1
+      snobuild: workspace:^3.1.1
     dependencies:
       mongodb: 4.9.1
       p-queue: 7.3.0
     devDependencies:
       '@types/node': 17.0.45
-      snobuild: 2.7.1
+      snobuild: link:../snobuild
 
   packages/sno-utils:
     specifiers:
@@ -267,6 +267,7 @@ importers:
 
   packages/snobuild:
     specifiers:
+      '@types/node': ^18.8.0
       '@types/yargs': ^17.0.10
       esbuild: ^0.15.9
       globby: ^13.1.1
@@ -281,6 +282,7 @@ importers:
       typescript: 4.8.2
       yargs: 17.5.1
     devDependencies:
+      '@types/node': 18.8.0
       '@types/yargs': 17.0.12
       esbuild: 0.15.9
 
@@ -309,11 +311,14 @@ importers:
     specifiers:
       '@types/mocha': ^9.1.1
       mocha: ^10.0.0
-      snobuild: ^2.7.0
+      snobuild: ^3.1.1
+      ts-toolbelt: ^9.6.0
+    dependencies:
+      ts-toolbelt: 9.6.0
     devDependencies:
       '@types/mocha': 9.1.1
       mocha: 10.0.0
-      snobuild: 2.7.1
+      snobuild: link:../snobuild
 
   packages/snogwt:
     specifiers:
@@ -338,10 +343,10 @@ importers:
   packages/snorun:
     specifiers:
       '@types/node': ^18.7.18
-      snobuild: ^2.7.0
+      snobuild: workspace:^3.1.1
     devDependencies:
       '@types/node': 18.7.18
-      snobuild: 2.7.1
+      snobuild: link:../snobuild
 
   packages/snosay:
     specifiers:
@@ -1780,7 +1785,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.7.16
+      '@types/node': 18.8.0
 
   /@types/ical/0.8.0:
     resolution: {integrity: sha512-46KAYxAwRuCh+jRgl9k5cTaXJJkB16gWpvMVPuog9UBBb2zXTf9M0MsfWYBQ21JohFSuMZfPTvk6tohqGr1tCg==}
@@ -1834,10 +1839,14 @@ packages:
 
   /@types/node/18.7.16:
     resolution: {integrity: sha512-EQHhixfu+mkqHMZl1R2Ovuvn47PUw18azMJOTwSZr9/fhzHNGXAJ0ma0dayRVchprpCj0Kc1K1xKoWaATWF1qg==}
+    dev: false
 
   /@types/node/18.7.18:
     resolution: {integrity: sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==}
     dev: true
+
+  /@types/node/18.8.0:
+    resolution: {integrity: sha512-u+h43R6U8xXDt2vzUaVP3VwjjLyOJk6uEciZS8OSyziUQGOwmk+l+4drxcsDboHXwyTaqS1INebghmWMRxq3LA==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -8072,6 +8081,10 @@ packages:
     resolution: {integrity: sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==}
     engines: {node: '>=8'}
     dev: true
+
+  /ts-toolbelt/9.6.0:
+    resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
+    dev: false
 
   /tsconfig-paths/3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
