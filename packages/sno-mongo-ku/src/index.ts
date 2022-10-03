@@ -30,7 +30,6 @@ export default async function snoMongoKu<TSchemas extends Record<string, Documen
     get: (t: any, p) => t[p] ?? snoCollection(t.collection(p.toString())),
   }) as snoMongoKu & { [k in keyof TSchemas]: ReturnType<typeof snoCollection<TSchemas[k]>> };
 }
-
 async function scanUpdate<TSchema extends Document = Document>(
   coll: mongodb.Collection<TSchema>,
   $match: mongodb.Filter<TSchema>,
