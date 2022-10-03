@@ -47,6 +47,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
+    "@types/node": "^18.8.0",
     "@types/yargs": "^17.0.10",
     "esbuild": "^0.15.9"
   },
