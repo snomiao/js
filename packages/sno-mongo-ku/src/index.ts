@@ -15,7 +15,7 @@ import mongodb, {
 } from "mongodb";
 import PQueue from "p-queue";
 export type Awaitable<T> = Promise<T> | T;
-export * from "./时间比较";
+export * from "./diffDate";
 export interface snoMongoKuRaw extends mongodb.Db {
   _client: mongodb.MongoClient;
 }
