@@ -1,11 +1,7 @@
-import { exec } from "child_process";
 import esbuild, { BuildOptions, Format } from "esbuild";
 import { readFile, stat, writeFile } from "fs/promises";
-import { globby } from "globby";
 import snorun from "snorun";
 import sortPackageJson from "sort-package-json";
-import { promisify } from "util";
-import cli from "./cli";
 import matrixExpand from "./matrixExpand";
 
 export const depKeys = [
@@ -20,7 +16,7 @@ export const depKeys = [
  */
 export default async function snobuild({
   outdir = "dist" as string,
-  input = "src/index.ts" as string,
+  // input = "src/index.ts" as string,
   init = undefined as boolean,
   bundle = true as boolean,
   bundleDependencies = true as boolean,
@@ -48,30 +44,6 @@ export default async function snobuild({
   legalComments = undefined as esbuild.BuildOptions["legalComments"],
   esbuildOptions = {} as esbuild.BuildOptions,
 } = {}) {
-  // load pkg infos
-  //
-  // built router matrix
-  //
-  //  dist - bundled lib with sourcemap
-  //  lib - bundled lib with readable codes
-  //  deploy - bundle minified executable files without sourcemap
-  //
-  // path like: /{bin,dist,lib,deploy}/*{.min,}.{cjs,js}
-  /**
-   * Built matrix:
-   *     "src/cli.ts": 'dist/cli.mjs'         // esm cli
-   *     "src/cli.ts": 'dist/cli.min.mjs'     // esm cli compressed // can be used to deploy
-   *     "src/index.ts": 'dist/index.mjs'     // esm lib
-   *     "src/index.ts": 'dist/index.min.mjs' // esm lib compressed
-   *     "src/index.ts": 'dist/index.cjs'     // cjs lib
-   *     "src/index.ts": 'dist/index.min.cjs' // cjs lib compressed
-   *
-   * "components/*.tsx": 'dist/components/index.cjs' // react components
-   * "userscripts/*.ts": 'dist/userscript/index.user.js' // userscripts
-   */
-
-  // await promisify(exec)("npm init -y");
-
   // inputs
   const indexPath = "src/index.ts";
   const cliPath = "src/cli.ts";
@@ -101,7 +73,6 @@ export default async function snobuild({
   pkg.scripts ||= {};
   pkg.scripts.build ||= "snobuild";
   pkg.scripts.prepack ||= "npm run build";
-
   const sortedPkg = JSON.stringify(sortPackageJson(pkg), null, 2);
   await writeFile(pkgPath, sortedPkg);
 
@@ -139,7 +110,6 @@ export default async function snobuild({
     const ext = { esm: ".mjs", cjs: ".cjs", iife: ".user.cjs" }[format];
     return {
       ...baseOpts,
-      // inject: entryName === "cli" ? ["#!/usr/bin/env node"] : [],
       format,
       minify,
       entryPoints: [`src/${entryName}.ts`],
@@ -179,6 +149,6 @@ export default async function snobuild({
       : await snorun(["tsc", ...tscBuildOptions(indexEntry)]);
   }
 }
-export function snobuildConfig(...args: Parameters<typeof snobuild>) {
+export function Configs(...args: Parameters<typeof snobuild>) {
   return args;
 }

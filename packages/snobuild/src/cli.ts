@@ -3,34 +3,16 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import snobuild from "./index";
 cli();
-/**
- * @author: snomiao <snomiao@gmail.com>
- */
-export default async function cli() {
+async function cli() {
   const argv = await yargs(hideBin(process.argv))
     .scriptName("snobuild")
     .recommendCommands()
     .completion()
-    .command("$0", "build ")
-    .command("$0 [input..]", "snobuild with special input")
+    .command("$0", "build respect to package.json")
+    // .command("$0 [input..]", "snobuild with special input")
     // init
     .boolean("init")
-    .describe("init", "initialize package.json")
-    // build options
-    .boolean("dev")
-    .describe("dev", "--sourcemap --tsc")
-    // .implies("prod", ["sourcemap", "tsc"])
-    .boolean("prod")
-    .describe("prod", "--minify")
-    // .implies("prod", ["minify"])
-    .boolean("deploy")
-    .describe("deploy", "--bundle --minify")
-    // .implies("deploy", ["bundle", "minify"])
-    .boolean("lib")
-    .describe("lib", "--bundle --external --sourcemap --minify --tsc")
-    // .implies("lib", ["bundle", "external", "sourcemap", "minify", "tsc"])
-    .conflicts("dev", "prod")
-    .conflicts("lib", "deploy")
+    .describe("init", "initialize package.json by calling npm init -y")
     // bundle options
     .boolean("bundle")
     .default("bundle", true)
@@ -52,21 +34,19 @@ export default async function cli() {
     .describe("bundleBundleDependencies", "bundle package.bundleDependencies")
     .string("bundleExcludes")
     .default("bundleExcludes", "")
-    .describe(
-      "bundleExcludes",
-      "package names not to bundle, will be dynamic import/require at runtime."
-    )
+    .describe("bundleExcludes", "pkg names sep by ',' to dynamic import/require at runtime.")
     // output formats
     .string("target")
-    .describe("target", "such as ESNext or ES2020")
+    .describe("target", "such as ESNext or ES2020 for Node16")
     // watch
     .boolean("watch")
     .describe("watch", "watch mode")
-    .boolean("serve")
-    .describe("serve", "serve mode (wip)")
+    // serve
+    // .boolean("serve")
+    // .describe("serve", "serve mode (wip)")
     //
     .alias("w", "watch")
-    .alias("s", "serve")
+    // .alias("s", "serve")
     .alias("h", "help")
     .alias("v", "version").argv;
   await snobuild(argv);
