@@ -42,8 +42,9 @@ export default async function snobuild({
   verbose = undefined as boolean,
   //
   legalComments = undefined as esbuild.BuildOptions["legalComments"],
-  esbuildOptions = {} as esbuild.BuildOptions,
+  ..._esbuildOptions
 } = {}) {
+  const esbuildOptions = _esbuildOptions as esbuild.BuildOptions;
   // inputs
   const indexPath = "src/index.ts";
   const cliPath = "src/cli.ts";
