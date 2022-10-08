@@ -47,3 +47,4 @@ function usePromise<T>() {
     reject: (reason?: any) => void;
   };
 }
+

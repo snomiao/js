@@ -16,22 +16,9 @@
   "repository": "https://github.com/snomiao/js/tree/master/packages/jsx-rename",
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
-  "exports": {
-    ".": {
-      "require": "./lib/index.cjs",
-      "import": "./lib/index.js"
-    }
-  },
-  "main": "lib/index.js",
-  "bin": {
-    "jsx-rename": "lib/cli.js"
-  },
-  "files": [
-    "lib"
-  ],
   "scripts": {
-    "_build": "snobuild --lib",
-    "_prepack": "npm run build"
+    "build": "snobuild",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "eslint": "8.2.0",
@@ -41,6 +28,6 @@
   },
   "devDependencies": {
     "@types/yargs": "^17.0.10",
-    "snobuild": "^2.7.0"
+    "snobuild": "^3.2.0"
   }
 }

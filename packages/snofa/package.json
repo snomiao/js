@@ -34,13 +34,13 @@
     "prepack": "npm run build && npm run test",
     "test": "mocha --require tsx ./src/**/*.test.ts"
   },
+  "dependencies": {
+    "ts-toolbelt": "^9.6.0"
+  },
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "mocha": "^10.0.0",
-    "snobuild": "^3.1.1"
+    "snobuild": "^3.2.0"
   },
-  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c",
-  "dependencies": {
-    "ts-toolbelt": "^9.6.0"
-  }
+  "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

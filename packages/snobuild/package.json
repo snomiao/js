@@ -24,9 +24,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "bin": {
-    "snobuild": "dist/cli.mjs"
-  },
+  "bin": "dist/cli.mjs",
   "directories": {
     "dist": "dist"
   },
@@ -34,22 +32,22 @@
     "dist"
   ],
   "scripts": {
-    "boot": "pnpx snobuild@2.2.1 --lib --externals=esbuild && npm pkg set bin=lib/cli.js && npm link && snobuild && npm pkg set bin=dist/cli.mjs && npm link",
-    "build": "snobuild",
+    "boot2": "pnpx snobuild@2.2.1 --lib --externals=esbuild && npm pkg set bin=lib/cli.js && npm link && snobuild && npm pkg set bin=dist/cli.mjs && npm link",
+    "boot3": "pnpx snobuild@3.2.0",
+    "build": "npm run boot2",
     "prepack": "npm run build && npm run test",
     "test": "snobuild --verbose && snobuild --verbose"
   },
   "dependencies": {
     "globby": "^13.1.1",
-    "snorun": "^1.1.17",
     "sort-package-json": "^1.57.0",
-    "typescript": "^4.7.4",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
     "@types/node": "^18.8.0",
     "@types/yargs": "^17.0.10",
-    "esbuild": "^0.15.9"
+    "esbuild": "^0.15.9",
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "esbuild": "^0.15.9"

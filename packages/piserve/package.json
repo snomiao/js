@@ -7,19 +7,20 @@
   ],
   "license": "ISC",
   "author": "",
+  "type": "module",
   "exports": {
     "require": "./lib/index.cjs",
     "import": "./lib/index.js"
   },
-  "bin": "lib/cli.js",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
+  "types": "dist/index.d.ts",
+  "bin": "lib/cli.js",
   "files": [
     "lib"
   ],
-  "type": "module",
   "scripts": {
-    "build": "snobuild --lib",
+    "build": "snobuild --node",
     "prepack": "npm run build",
     "test": "mocha --require tsx src/**/*.test.ts"
   },
@@ -36,6 +37,7 @@
     "@types/mocha": "^9.1.1",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
+    "snobuild": "^3.2.0",
     "tsx": "^3.4.2"
   }
 }
