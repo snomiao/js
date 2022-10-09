@@ -3,6 +3,7 @@ import { readFile, writeFile } from "fs/promises";
 import { globby } from "globby";
 import path, { relative, resolve } from "path";
 import { promisify } from "util";
+import {sortPackageJson} from 'sort-package-json'
 
 export default async function monopkgs({} = {}) {
   const rootPkg = resolve("./package.json");
@@ -43,7 +44,7 @@ export default async function monopkgs({} = {}) {
     };
     Object.assign(pkg, info);
     const outJson = JSON.stringify(pkg, null, 2);
-    const out = `${outJson}\n`;
+    const out = `${sortPackageJson(outJson)}\n`;
     // console.log(out);
     console.log(pkgPath);
     await writeFile(pkgPath, out);

@@ -1,6 +1,6 @@
 {
   "name": "monogpkgs",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "mono-pkgs",
   "keywords": [
     "markdown",
@@ -16,19 +16,25 @@
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
-  "bin": {
-    "monopkgs": "lib/cli.js"
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
   },
+  "main": "dist/index.min.cjs",
+  "module": "dist/index.min.mjs",
+  "types": "dist/index.d.ts",
+  "bin": "dist/cli.mjs",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "build": "snobuild --lib",
+    "build": "snobuild",
     "prepack": "npm run build"
   },
   "dependencies": {
     "arg": "^5.0.1",
     "globby": "^13.1.1",
+    "sort-package-json": "^2.0.0",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
