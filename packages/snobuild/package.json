@@ -1,6 +1,6 @@
 {
   "name": "snobuild",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Easy way to use esbuild.",
   "keywords": [
     "cli",
@@ -38,15 +38,13 @@
   "dependencies": {
     "globby": "^13.1.1",
     "sort-package-json": "^1.57.0",
-    "yargs": "^17.5.1"
+    "yargs": "^17.5.1",
+    "esbuild": "^0.15.9"
   },
   "devDependencies": {
     "@types/node": "^18.8.0",
     "@types/yargs": "^17.0.10",
     "esbuild": "^0.15.9",
     "typescript": "^4.7.4"
-  },
-  "peerDependencies": {
-    "esbuild": "^0.15.9"
   }
 }
