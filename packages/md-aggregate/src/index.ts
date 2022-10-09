@@ -1,6 +1,6 @@
 import fs from "fs";
+import { escapeRegExp } from "lodash-es";
 import { resolve } from "path";
-import { escapeRegExp } from 'lodash-es';
 const { readFile, writeFile } = fs.promises;
 export default async function mdAggregate({
   input = [] as string[],

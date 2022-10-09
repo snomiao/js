@@ -1,5 +1,5 @@
 import { exec } from "child_process";
-import { readFile, unlink } from "fs/promises";
+import { readFile } from "fs/promises";
 import { promisify } from "util";
 import commandWrapperFileCreate from "./commandWrapperFileCreate";
 

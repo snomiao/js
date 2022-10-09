@@ -35,10 +35,10 @@
     "arg": "^5.0.1",
     "globby": "^13.1.1",
     "sort-package-json": "^2.0.0",
-    "yargs": "^17.5.1"
+    "yargs": "17.6.0"
   },
   "devDependencies": {
-    "@types/yargs": "^17.0.10",
+    "@types/yargs": "17.0.13",
     "snobuild": "^3.2.0"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"

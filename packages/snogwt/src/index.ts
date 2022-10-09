@@ -36,7 +36,7 @@ async function gwtCheckout(branch: string) {
   process.chdir(process.cwd().replace(/[\\/]worktrees[\\/].*/, ""));
   // list worktrees
   // find repo dir and repo name
-  
+
   const { repodir, top, repodirname } = await topLevelGit();
   // ensure root ignore /worktrees
   await ignoresUpdate(repodir);

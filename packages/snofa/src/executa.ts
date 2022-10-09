@@ -1,4 +1,4 @@
-import { Evalable, evala } from "./index";
+import { evala, Evalable } from "./index";
 import { List } from "./List";
 /**
  * apply Effect to value in async

@@ -7,6 +7,13 @@
       "problemMatcher": ["$eslint-compact"],
       "label": "npm: format",
       "detail": "prettier -w . && eslint --fix ."
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": ["$eslint-compact"],
+      "label": "npm: lint",
+      "detail": "prettier -w . && eslint --fix . && pnpx npm-check -u"
     }
   ]
 }

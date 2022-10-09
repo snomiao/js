@@ -4,7 +4,7 @@ import { exec } from "child_process";
 import sortPackageJson from "sort-package-json";
 import matrixExpand from "./matrixExpand";
 
-const snorun = (cmd: string) => new Promise(r => exec(cmd).on('exit', (code) => r(code == 0)))
+const snorun = (cmd: string) => new Promise((r) => exec(cmd).on("exit", (code) => r(code == 0)));
 
 export const depKeys = [
   "dependencies",
@@ -39,7 +39,7 @@ export default async function snobuild({
   _ = undefined as any,
   ..._esbuildOptions
 } = {}) {
-  const esbuildOptions = {} || _esbuildOptions as esbuild.BuildOptions;
+  const esbuildOptions = {} || (_esbuildOptions as esbuild.BuildOptions);
   delete esbuildOptions["bundle-dependencies"];
   delete esbuildOptions["bundle-dev-dependencies"];
   delete esbuildOptions["bundle-optional-dependencies"];
@@ -151,8 +151,8 @@ export default async function snobuild({
         indexEntry,
       ].filter(Boolean);
     return tsconfigExisted
-      ? await snorun(["tsc", tscWatchFlag].join(' '))
-      : await snorun(["tsc", ...tscBuildOptions(indexEntry)].join(' '));
+      ? await snorun(["tsc", tscWatchFlag].join(" "))
+      : await snorun(["tsc", ...tscBuildOptions(indexEntry)].join(" "));
   }
 }
 export function Configs(...args: Parameters<typeof snobuild>) {

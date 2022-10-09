@@ -5,23 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.1.13](https://github.com/snomiao/js/compare/chrome-dev@1.1.10...chrome-dev@1.1.13) (2022-09-22)
 
-
 ### Bug Fixes
 
-* **chrome-dev:** remove urls.add ([3028378](https://github.com/snomiao/js/commit/3028378aded6f0e9b63a32b8b577dfc52f20471d))
-
-
-
-
-
+- **chrome-dev:** remove urls.add ([3028378](https://github.com/snomiao/js/commit/3028378aded6f0e9b63a32b8b577dfc52f20471d))
 
 ## [1.1.11](https://github.com/snomiao/js/compare/chrome-dev@1.1.10...chrome-dev@1.1.11) (2022-07-03)
 
 **Note:** Version bump only for package chrome-dev
-
-
-
-
 
 ## [1.1.10](https://github.com/snomiao/js/compare/chrome-dev@1.1.9...chrome-dev@1.1.10) (2022-07-03)
 

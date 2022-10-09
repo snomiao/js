@@ -1,4 +1,3 @@
-import { A, F } from "ts-toolbelt";
 // import { Awaitable } from "../types";
 
 // type AwaitableFunction<Args extends ReadonlyArray<any> = [], o = any> = (
@@ -14,8 +13,7 @@ import { A, F } from "ts-toolbelt";
 // // type Params = ReadonlyArray<>;
 
 // function currya<Fn extends AwaitableFunction>(fn: Fn): Currya<Fn> {
-//     return 
+//     return
 // }
 
 // const fn = currya((a, b) => a * b);
-

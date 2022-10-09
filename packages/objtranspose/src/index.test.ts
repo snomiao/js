@@ -1,5 +1,5 @@
 import { it } from "mocha";
-import objTranspose, { aoa2aoj, aoa2aojEx, aoa2joa, aoj2joa, joa2aoj } from ".";
+import objTranspose, { aoa2aoj, aoa2joa, aoj2joa, joa2aoj } from ".";
 
 const aoj = [
   { a: 1, b: 2, c: null },

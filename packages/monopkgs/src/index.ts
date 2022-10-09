@@ -2,8 +2,8 @@ import { exec } from "child_process";
 import { readFile, writeFile } from "fs/promises";
 import { globby } from "globby";
 import path, { relative, resolve } from "path";
-import { promisify } from "util";
 import sortPackageJson from "sort-package-json";
+import { promisify } from "util";
 
 export default async function monopkgs({} = {}) {
   const rootPkg = resolve("./package.json");

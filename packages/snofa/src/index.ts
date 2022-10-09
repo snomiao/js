@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
-import { Awaitable } from "./types";
-import { AwaitableFunction, snofa } from "./pipe/snofa";
-import { snof } from "./pipe/snof";
 import { List } from "./List";
-export { snofa, snof };
+import { snof } from "./pipe/snof";
+import { AwaitableFunction, snofa } from "./pipe/snofa";
+import { Awaitable } from "./types";
 export { default as mapa } from "./obj/mapa";
+export { snofa, snof };
 
 export default snofa;
 type Dictionary<T extends Record<PropertyKey, any> = Record<PropertyKey, any>> = T;

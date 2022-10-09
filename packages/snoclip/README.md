@@ -1,12 +1,13 @@
 # snoclip (WIP)
 
 - I'm trying to make a clipboard cli tool which can be used for:
-	- stdin to clipboard (use `readline`)
-	- listen clipboard to stdout use `clipboard-watch clipboardy`  
-		- DONE nodegyp build on windows
-		- TODO Solve the errors below.
+  - stdin to clipboard (use `readline`)
+  - listen clipboard to stdout use `clipboard-watch clipboardy`
+    - DONE nodegyp build on windows
+    - TODO Solve the errors below.
 
 Met errors below:
+
 ```batch
 .\packages\snoclip>node src/index.js
 .\node_modules\.pnpm\bindings@1.2.1\node_modules\bindings\bindings.js:91
