@@ -3,9 +3,9 @@ import { readFile, writeFile } from "fs/promises";
 import { globby } from "globby";
 import path, { relative, resolve } from "path";
 import { promisify } from "util";
-import {sortPackageJson} from 'sort-package-json'
+import sortPackageJson from "sort-package-json";
 
-export default async function monopkgs({ } = {}) {
+export default async function monopkgs({} = {}) {
   const rootPkg = resolve("./package.json");
   const root = JSON.parse(await readFile(rootPkg, "utf8"));
   const rootDir = path.parse(rootPkg).dir;
