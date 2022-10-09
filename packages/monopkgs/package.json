@@ -38,7 +38,8 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "@types/yargs": "^17.0.10"
+    "@types/yargs": "^17.0.10",
+    "snobuild": "^3.2.0"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

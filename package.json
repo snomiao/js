@@ -14,7 +14,7 @@
   },
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
-  "_bak_npm_workspaces": [
+  "workspaces": [
     "packages/**"
   ],
   "scripts": {

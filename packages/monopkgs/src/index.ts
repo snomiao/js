@@ -5,7 +5,7 @@ import path, { relative, resolve } from "path";
 import { promisify } from "util";
 import {sortPackageJson} from 'sort-package-json'
 
-export default async function monopkgs({} = {}) {
+export default async function monopkgs({ } = {}) {
   const rootPkg = resolve("./package.json");
   const root = JSON.parse(await readFile(rootPkg, "utf8"));
   const rootDir = path.parse(rootPkg).dir;
@@ -22,7 +22,7 @@ export default async function monopkgs({} = {}) {
   const pkgs = await globby("packages/**/package.json", { gitignore: true });
 
   // master will redirect to main rather than 404 if main is not existed in github.
-  const currentBranch = await (await promisify(exec)("git branch --show-current"))?.stdout.trim();
+  const currentBranch = (await promisify(exec)("git branch --show-current"))?.stdout.trim();
   const mainBranchName = currentBranch || "master";
 
   const pkgParse = async (pkgPath) => {

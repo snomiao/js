@@ -9,27 +9,23 @@
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
-    "require": "./lib/index.cjs",
-    "import": "./lib/index.js"
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
   },
-  "main": "lib/index.cjs",
-  "module": "lib/index.js",
-  "types": "./lib/index.d.ts",
-  "directories": {
-    "lib": "lib"
-  },
+  "main": "dist/index.min.cjs",
+  "module": "dist/index.min.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "snobuild --lib --external=false"
+    "build": "snobuild",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "@snomiao/google-translate-api-browser": "^1.2.0"
   },
   "devDependencies": {
-    "snobuild": "^2.7.0"
-  },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snotran",
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snotran#readme",
-  "bugs": {
-    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snotran"
+    "snobuild": "^3.2.0"
   }
 }

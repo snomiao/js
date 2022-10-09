@@ -16,8 +16,19 @@
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
+  },
+  "main": "dist/index.min.cjs",
+  "module": "dist/index.min.mjs",
+  "types": "dist/index.d.ts",
+  "bin": "dist/cli.mjs",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "snobuild --node",
+    "build": "snobuild",
     "prepack": "npm run build"
   },
   "dependencies": {
