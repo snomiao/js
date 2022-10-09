@@ -5,8 +5,8 @@
   "keywords": [
     "translate"
   ],
-  "license": "ISC",
-  "author": "snomiao <snomiao@gmail.com>",
+  "license": "GPLv3",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     "require": "./lib/index.cjs",
@@ -26,5 +26,10 @@
   },
   "devDependencies": {
     "snobuild": "^2.7.0"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snotran",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/snotran#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snotran"
   }
 }

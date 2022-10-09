@@ -1,7 +1,7 @@
 import execSh from "exec-sh";
 import { parse, resolve } from "path";
 
-export async function cwdRepoFind() {
+export async function topLevelGit() {
   const top = await execSh
     .promise("git rev-parse --show-toplevel", true)
     .then((e) => e.stdout.trim());

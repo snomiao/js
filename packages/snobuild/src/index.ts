@@ -16,6 +16,7 @@ export const depKeys = [
  */
 export default async function snobuild({
   outdir = "dist" as string,
+  indir = "src" as string,
   // input = "src/index.ts" as string,
   init = undefined as boolean,
   bundle = true as boolean,
@@ -26,28 +27,27 @@ export default async function snobuild({
   bundleBundleDependencies = true as boolean,
   bundleExcludes = "" as string,
   watch = undefined as boolean,
+  node = undefined as boolean,
+  browser = undefined as boolean,
   // output setting
-  // dev = undefined as boolean, // +sourcemap -minify
-  // prod = undefined as boolean, // -sourcemap +minify
-  // lib = undefined as boolean, // +bundle +external +sourcemap +minify +tsc
-  // deploy = undefined as boolean, // +bundle -external -sourcemap +minify
-  // sourcemap = undefined as boolean,
-  // minify = undefined as boolean,
-  // outputs
-  // tsc = undefined as boolean, // declares
-  // esm = undefined as boolean, // esm
-  // cjs = undefined as boolean, // cjs
-  // script = undefined as boolean, // show script to esbuild
   target = "ESNext" as string, // es2020 for node 14, and es6 for earler version
   verbose = undefined as boolean,
   //
   legalComments = undefined as esbuild.BuildOptions["legalComments"],
+  _ = undefined as any,
   ..._esbuildOptions
 } = {}) {
   const esbuildOptions = _esbuildOptions as esbuild.BuildOptions;
+  delete esbuildOptions["bundle-dependencies"];
+  delete esbuildOptions["bundle-dev-dependencies"];
+  delete esbuildOptions["bundle-optional-dependencies"];
+  delete esbuildOptions["bundle-peer-dependencies"];
+  delete esbuildOptions["bundle-bundle-dependencies"];
+  delete esbuildOptions["bundle-excludes"];
+  delete esbuildOptions["$0"];
   // inputs
-  const indexPath = "src/index.ts";
-  const cliPath = "src/cli.ts";
+  const indexPath = `${indir}/index.ts`;
+  const cliPath = `${indir}/cli.ts`;
 
   const pkgPath = "package.json";
   const tsconfigPath = "tsconfig.json";
@@ -62,11 +62,12 @@ export default async function snobuild({
 
   const pkgJSON = await readFile(pkgPath, "utf-8");
   const pkg = JSON.parse(pkgJSON);
-  if (cliEntry) pkg.bin ||= "dist/cli.mjs";
+  if (cliEntry) pkg.bin ||= `${outdir}/cli.mjs`;
   if (cliEntry) pkg.keywords ||= [...new Set([...(pkg.keywords || []), "cli"])];
   pkg.main ||= `${outdir}/index.min.cjs`;
   pkg.module ||= `${outdir}/index.min.mjs`;
   pkg.types ||= `${outdir}/index.d.ts`;
+  pkg.type ||= `module`;
   pkg.exports ||= {};
   pkg.exports.require ||= `./${outdir}/index.cjs`;
   pkg.exports.import ||= `./${outdir}/index.mjs`;
@@ -74,9 +75,8 @@ export default async function snobuild({
   pkg.scripts ||= {};
   pkg.scripts.build ||= "snobuild";
   pkg.scripts.prepack ||= "npm run build";
-  const sortedPkg = JSON.stringify(sortPackageJson(pkg), null, 2);
+  const sortedPkg = `${JSON.stringify(sortPackageJson(pkg), null, 2)}\n`;
   await writeFile(pkgPath, sortedPkg);
-
   const external = [
     !bundleDependencies && Object.keys(pkg?.dependencies || {}),
     !bundleDevDependencies && Object.keys(pkg?.devDependencies || {}),
@@ -87,14 +87,16 @@ export default async function snobuild({
   ]
     .filter(Boolean)
     .flat();
-
   if (verbose) console.log({ external });
+  if (!node && !browser) node = true;
   const baseOpts: BuildOptions = {
     sourcemap: true,
     bundle,
     external,
     target,
-    platform: "node", // module resolve
+    // platform: "node", // module resolve
+    ...(node && { platform: "node", mainFields: ["module", "main", "browser"] }), // module resolve
+    ...(browser && { platform: "browser" }),
     logLevel: "info",
     watch,
     incremental: watch,
@@ -113,8 +115,9 @@ export default async function snobuild({
       ...baseOpts,
       format,
       minify,
-      entryPoints: [`src/${entryName}.ts`],
+      entryPoints: [`${indir}/${entryName}.ts`],
       outfile: `${outdir}/${entryName}${minify ? ".min" : ""}${ext}`,
+      jsx: "automatic",
     } as BuildOptions;
   });
   const results = await Promise.all(

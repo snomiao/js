@@ -5,8 +5,8 @@
   "keywords": [
     "cli"
   ],
-  "license": "ISC",
-  "author": "",
+  "license": "GPLv3",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "exports": {
     "require": "./lib/index.cjs",
     "import": "./lib/index.js"
@@ -37,5 +37,10 @@
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
     "tsx": "^3.4.2"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/piserve",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/piserve#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+piserve"
   }
 }

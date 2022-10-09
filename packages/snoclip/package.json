@@ -7,8 +7,8 @@
     "test:watch": "nodemon -e ts -x npm run test"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
+  "license": "GPLv3",
   "dependencies": {
     "@types/yargs": "^17.0.10",
     "yargs": "^17.5.1"
@@ -21,5 +21,10 @@
     "tsx": "^3.4.2",
     "typescript": "^4.8.2"
   },
-  "description": ""
+  "description": "",
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snoclip",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/snoclip#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snoclip"
+  }
 }

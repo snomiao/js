@@ -10,10 +10,7 @@
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snobuild"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/js.git#master"
-  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snobuild",
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
@@ -24,9 +21,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "bin": {
-    "snobuild": "dist/cli.mjs"
-  },
+  "bin": "dist/cli.mjs",
   "directories": {
     "dist": "dist"
   },
@@ -34,10 +29,10 @@
     "dist"
   ],
   "scripts": {
-    "boot": "pnpx snobuild@2.2.1 --lib --externals=esbuild && npm pkg set bin=lib/cli.js && npm link && snobuild && npm pkg set bin=dist/cli.mjs && npm link",
-    "build": "snobuild",
+    "boot": "pnpx snobuild@2.2.1 --lib --externals=esbuild && npm pkg set bin=lib/cli.js && npm link && snobuild --node && npm pkg set bin=dist/cli.mjs && npm link",
+    "build": "snobuild --node",
     "prepack": "npm run build && npm run test",
-    "test": "snobuild --verbose && snobuild --verbose"
+    "test": "snobuild --node --verbose && snobuild --node --verbose"
   },
   "dependencies": {
     "globby": "^13.1.1",

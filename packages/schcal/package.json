@@ -6,16 +6,13 @@
     "schtasks",
     "calendar"
   ],
-  "homepage": "https://github.com/snomiao/schcal#readme",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/schcal#readme",
   "bugs": {
-    "url": "https://github.com/snomiao/schcal/issues"
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+schcal"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/schcal.git"
-  },
-  "license": "ISC",
-  "author": "snomiao@gmail.com",
+  "repository": "https://github.com/snomiao/js/tree/master/packages/schcal",
+  "license": "GPLv3",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     ".": {

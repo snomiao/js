@@ -5,8 +5,8 @@
   "keywords": [
     "node"
   ],
-  "license": "ISC",
-  "author": "",
+  "license": "GPLv3",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -20,5 +20,10 @@
   "scripts": {
     "build": "snobuild --lib",
     "prepack": "npm run build"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snoio",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/snoio#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snoio"
   }
 }

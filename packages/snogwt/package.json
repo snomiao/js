@@ -12,29 +12,12 @@
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snogwt"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/js.git#master"
-  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snogwt",
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
-  "exports": {
-    "import": "./lib/index.js",
-    "require": "./lib/index.cjs"
-  },
-  "main": "snogwt.mjs",
-  "module": "lib/index.js",
-  "types": "./lib/index.d.ts",
-  "bin": {
-    "snogmer": "lib/snogmer.js",
-    "snogwt": "lib/cli.js"
-  },
-  "files": [
-    "lib"
-  ],
   "scripts": {
-    "build": "snobuild --lib",
+    "build": "snobuild --node",
     "prepack": "npm run build"
   },
   "dependencies": {
@@ -45,7 +28,7 @@
   "devDependencies": {
     "@types/node": "^18.7.18",
     "@types/yargs": "^17.0.10",
-    "snobuild": "^2.7.0"
+    "snobuild": "^3.2.0"
   },
   "publishConfig": {
     "access": "public"
