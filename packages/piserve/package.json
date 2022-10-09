@@ -5,8 +5,8 @@
   "keywords": [
     "cli"
   ],
-  "license": "ISC",
-  "author": "",
+  "license": "GPLv3",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     "require": "./lib/index.cjs",

@@ -5,6 +5,11 @@
   "keywords": [
     "translate"
   ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/snotran#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snotran"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snotran",
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
