@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/snocommit#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snocommit"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snocommit",
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
@@ -33,10 +38,5 @@
     "snobuild": "^3.2.0",
     "tsx": "^3.4.2",
     "yargs": "^17.5.1"
-  },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snocommit",
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snocommit#readme",
-  "bugs": {
-    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snocommit"
   }
 }
