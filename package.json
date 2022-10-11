@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/snocommit#readme",
@@ -23,7 +23,8 @@
     "docs": "dist/cli-docs.mjs",
     "feat": "dist/cli-feat.mjs",
     "fix": "dist/cli-fix.mjs",
-    "snocommit": "dist/cli.mjs"
+    "snocommit": "dist/cli.mjs",
+    "styles": "dist/cli-styles.mjs"
   },
   "files": [
     "dist"
@@ -34,9 +35,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@types/yargs": "^17.0.10",
-    "snobuild": "^3.2.0",
-    "tsx": "^3.4.2",
-    "yargs": "^17.5.1"
+    "@types/node": "18.8.3",
+    "p-map": "^5.5.0",
+    "snobuild": "^3.2.1",
+    "tsx": "3.10.1"
+  },
+  "dependencies": {
+    "async-exec": "^1.1.0",
+    "chalk": "^5.1.0",
+    "snorun": "^1.1.17"
   }
 }
