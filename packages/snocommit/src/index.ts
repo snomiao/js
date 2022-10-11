@@ -1,13 +1,14 @@
 import path from "path";
 import snorun from "snorun";
 // breaking (part) description
-export const types = ["fix", "styles", "feat", "breaking", "docs"] as const;
+export const types = ["fix", "styles", "feat", "breaking", "docs", "chore"] as const;
 type Type = typeof types[number];
 type PART = "-" | "." | string;
 const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any> = {
   breaking: (part, desc) => "npm version major && " && "",
   feat: (part, desc) => "npm version minor && " && "",
   styles: (part, desc) => "npm version patch && " && "",
+  chore: (part, desc) => "",
   docs: (part, desc) => "",
   fix: (part, desc) => "",
 };
