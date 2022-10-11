@@ -5,6 +5,7 @@ A Simple way to commit changes in current folder.
 Example: `fix <part> [description..]`
 
 part can be a dot '.' which means you want use current folder name as part
+
 ## Install
 
 ```shell
