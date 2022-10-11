@@ -5,9 +5,12 @@ export const types = ["fix", "styles", "feat", "breaking", "docs", "chore"] as c
 type Type = typeof types[number];
 type PART = "-" | "." | string;
 const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any> = {
-  breaking: (part, desc) => "npm version major --no-workspaces-update || echo [WARN] error throws while version bump && ",
-  feat: (part, desc) => "npm version minor --no-workspaces-update || echo [WARN] error throws while version bump && ",
-  fix: (part, desc) => "npm version patch --no-workspaces-update || echo [WARN] error throws while version bump && ",
+  breaking: (part, desc) =>
+    "(npm version major --no-workspaces-update || echo [WARN] error throws while version bump) && ",
+  feat: (part, desc) =>
+    "(npm version minor --no-workspaces-update || echo [WARN] error throws while version bump) && ",
+  fix: (part, desc) =>
+    "(npm version patch --no-workspaces-update || echo [WARN] error throws while version bump) && ",
   chore: (part, desc) => "",
   docs: (part, desc) => "",
   styles: (part, desc) => "",
@@ -19,6 +22,7 @@ type snoCommitOptions = {
 };
 
 export default async function snocommit({ type, part, desc }: snoCommitOptions) {
+  if (!desc) throw new Error("missing desc");
   if (part === ".") {
     part = path.parse(process.cwd()).name;
   }
