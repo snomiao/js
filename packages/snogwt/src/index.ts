@@ -1,7 +1,7 @@
+import { parse, resolve } from "path";
 import { readFile, writeFile } from "fs/promises";
-import { resolve } from "path";
 import snorun from "snorun";
-import { topLevelGit } from "../../top-level-git/src";
+import topLevelGit  from "top-level-git";
 import { tryInstallPackages } from "./tryInstallPackages";
 // await cli(process.argv);
 
@@ -37,7 +37,10 @@ async function gwtCheckout(branch: string) {
   // list worktrees
   // find repo dir and repo name
 
-  const { repodir, top, repodirname } = await topLevelGit();
+  const repodir = resolve(await topLevelGit()); /* process.cwd() */
+  const repodirname = parse(repodir).name;
+  // return { repodir, topdir, repodirname };
+
   // ensure root ignore /worktrees
   await ignoresUpdate(repodir);
   // generate worktree path

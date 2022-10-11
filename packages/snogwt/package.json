@@ -32,13 +32,13 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "exec-sh": "^0.4.0",
     "snorun": "^1.1.17",
-    "yargs": "^17.5.1"
+    "yargs": "17.6.0",
+    "top-level-git": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.7.18",
-    "@types/yargs": "^17.0.10",
+    "@types/node": "18.8.3",
+    "@types/yargs": "17.0.13",
     "snobuild": "^3.2.0"
   },
   "publishConfig": {
