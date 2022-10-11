@@ -5,12 +5,12 @@ export const types = ["fix", "styles", "feat", "breaking", "docs", "chore"] as c
 type Type = typeof types[number];
 type PART = "-" | "." | string;
 const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any> = {
-  breaking: (part, desc) => "npm version major || echo [WARN] error throws while version bump && ",
-  feat: (part, desc) => "npm version minor || echo [WARN] error throws while version bump && ",
-  styles: (part, desc) => "npm version patch || echo [WARN] error throws while version bump && ",
+  breaking: (part, desc) => "npm version major --no-workspaces-update || echo [WARN] error throws while version bump && ",
+  feat: (part, desc) => "npm version minor --no-workspaces-update || echo [WARN] error throws while version bump && ",
+  fix: (part, desc) => "npm version patch --no-workspaces-update || echo [WARN] error throws while version bump && ",
   chore: (part, desc) => "",
   docs: (part, desc) => "",
-  fix: (part, desc) => "",
+  styles: (part, desc) => "",
 };
 type snoCommitOptions = {
   type: Type;
@@ -24,13 +24,13 @@ export default async function snocommit({ type, part, desc }: snoCommitOptions) 
   }
   const action = cmdActions[type];
   if (!action) throw new Error(`no such cmd: ${type}`);
-  const cmdPrefix = action(part, desc);
+  const cmdPrefix = await action(part, desc);
 
   const valid = Boolean(cmdActions[type]);
   if (valid) {
     const quoted = (e: string) => (e ? `(${e})` : "");
     const msg = `${type}${quoted(part)}: ${desc}`;
-    const cmd = `${cmdPrefix} git add . && git commit -m "${msg}" && git pull && git push`;
+    const cmd = `${cmdPrefix}git add . && git commit -m "${msg}" && git pull && git push ---tags`;
     // console.log(chalk.blue(`> ${cmd}`));
     await snorun(cmd);
   }
