@@ -32,7 +32,6 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "arg": "^5.0.1",
     "globby": "^13.1.1",
     "sort-package-json": "^2.0.0",
     "yargs": "17.6.0"

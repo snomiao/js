@@ -34,10 +34,10 @@
     "data-forge": "^1.9.5"
   },
   "devDependencies": {
-    "@types/mocha": "^9.1.1",
+    "@types/mocha": "10.0.0",
     "mocha": "^10.0.0",
     "snobuild": "^3.2.0",
-    "tsx": "^3.4.2"
+    "tsx": "3.10.1"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

@@ -35,14 +35,13 @@
     "postversion": "prettier -w CHANGELOG.md && npm run build && npx md-aggregate README.md CHANGELOG.md -w"
   },
   "dependencies": {
-    "escape-string-regexp": "^5.0.0",
     "lodash-es": "^4.17.21",
-    "yargs": "^17.5.1"
+    "yargs": "17.6.0"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.7.18",
-    "@types/yargs": "^17.0.10",
+    "@types/node": "18.8.3",
+    "@types/yargs": "17.0.13",
     "prettier": "^2.6.2",
     "snobuild": "^3.2.0"
   },

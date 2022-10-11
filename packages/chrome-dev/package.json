@@ -36,9 +36,9 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "dotenv": "^14.2.0",
-    "puppeteer": "^14.2.1",
-    "yargs": "^17.5.1"
+    "dotenv": "16.0.3",
+    "puppeteer": "18.2.1",
+    "yargs": "17.6.0"
   },
   "devDependencies": {
     "snobuild": "^3.2.0"
