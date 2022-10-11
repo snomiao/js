@@ -21,7 +21,10 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "bin": "dist/cli.mjs",
+  "bin": {
+    "snobuild": "dist/cli.mjs",
+    "deprecated-snobuild2-dist": "lib/cli.js"
+  },
   "directories": {
     "dist": "dist"
   },
@@ -29,22 +32,23 @@
     "dist"
   ],
   "scripts": {
-    "boot2": "pnpx snobuild@2.2.1 --lib --externals=esbuild && npm pkg set bin=lib/cli.js && npm link && snobuild && npm pkg set bin=dist/cli.mjs && npm link",
-    "boot3": "pnpx snobuild@3.2.0",
+    "boot2": "pnpx snobuild@2.2.1 --lib --externals=esbuild,sort-package-json && npm pkg set bin.deprecated-snobuild2-dist=lib/cli.js && npm link && deprecated-snobuild2-dist --verbose && npm pkg set bin.snobuild=dist/cli.mjs && npm link",
+    "boot3": "pnpx snobuild@3.2.0 && npm link",
     "build": "npm run boot2",
     "prepack": "npm run build && npm run test",
     "test": "snobuild --node --verbose && snobuild --node --verbose"
   },
   "dependencies": {
+    "esbuild": "^0.15.9",
     "globby": "^13.1.1",
-    "sort-package-json": "^1.57.0",
-    "yargs": "^17.5.1",
-    "esbuild": "^0.15.9"
+    "matrix-expand": "^1.0.0",
+    "sort-package-json": "^2.0.0",
+    "yargs": "^17.6.0"
   },
   "devDependencies": {
-    "@types/node": "^18.8.0",
-    "@types/yargs": "^17.0.10",
+    "@types/node": "18.8.3",
+    "@types/yargs": "17.0.13",
     "esbuild": "^0.15.9",
-    "typescript": "^4.7.4"
+    "typescript": "4.8.4"
   }
 }

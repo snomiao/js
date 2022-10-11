@@ -2,7 +2,15 @@ import esbuild, { BuildOptions, Format } from "esbuild";
 import { readFile, stat, writeFile } from "fs/promises";
 import { exec } from "child_process";
 import sortPackageJson from "sort-package-json";
-import matrixExpand from "./matrixExpand";
+
+function matrixExpand<T extends Record<string, any[]>>(matrix: T) {
+  return Object.entries(matrix).reduce(
+    (r, [k, a]) => r.flatMap((rv) => [...a.map((v) => ({ ...rv, [k]: v }))]),
+    [{}] as {
+      [k in keyof T]: T[k][number];
+    }[],
+  );
+}
 
 const snorun = (cmd: string) => new Promise((r) => exec(cmd).on("exit", (code) => r(code == 0)));
 
@@ -22,8 +30,8 @@ export default async function snobuild({
   // input = "src/index.ts" as string,
   init = undefined as boolean,
   bundle = true as boolean,
-  bundleDependencies = true as boolean,
-  bundleDevDependencies = false as boolean,
+  bundleDependencies = false as boolean,
+  bundleDevDependencies = true as boolean,
   bundleOptionalDependencies = false as boolean,
   bundlePeerDependencies = false as boolean,
   bundleBundleDependencies = true as boolean,
@@ -66,8 +74,8 @@ export default async function snobuild({
   const pkg = JSON.parse(pkgJSON);
   if (cliEntry) pkg.bin ||= `${outdir}/cli.mjs`;
   if (cliEntry) pkg.keywords ||= [...new Set([...(pkg.keywords || []), "cli"])];
-  pkg.main ||= `${outdir}/index.min.cjs`;
-  pkg.module ||= `${outdir}/index.min.mjs`;
+  pkg.main ||= `${outdir}/index.cjs`;
+  pkg.module ||= `${outdir}/index.mjs`;
   pkg.types ||= `${outdir}/index.d.ts`;
   pkg.type ||= `module`;
   pkg.exports ||= {};
@@ -77,8 +85,10 @@ export default async function snobuild({
   pkg.scripts ||= {};
   pkg.scripts.build ||= "snobuild";
   pkg.scripts.prepack ||= "npm run build";
-  const sortedPkg = `${JSON.stringify(sortPackageJson(pkg), null, 2)}\n`;
-  await writeFile(pkgPath, sortedPkg);
+  const pkgStr = JSON.stringify(pkg, null, 2)
+  // const sortedPkg = `${sortPackageJson(pkgStr)}\n`;
+  // await writeFile(pkgPath, sortedPkg);
+  await writeFile(pkgPath, pkgStr);
   const external = [
     !bundleDependencies && Object.keys(pkg?.dependencies || {}),
     !bundleDevDependencies && Object.keys(pkg?.devDependencies || {}),
@@ -89,7 +99,26 @@ export default async function snobuild({
   ]
     .filter(Boolean)
     .flat();
-  if (verbose) console.log({ external });
+  const externalMin = [
+    // !bundleDependencies && Object.keys(pkg?.dependencies || {}),
+    !bundleDevDependencies && Object.keys(pkg?.devDependencies || {}),
+    // !bundleOptionalDependencies && Object.keys(pkg?.optionalDependencies || {}),
+    // !bundlePeerDependencies && Object.keys(pkg?.peerDependencies || {}),
+    !bundleBundleDependencies && Object.keys(pkg?.bundleDependencies || {}),
+    bundleExcludes?.split?.(","),
+  ]
+    .filter(Boolean)
+    .flat();
+  if (verbose)
+    console.log({
+      bundleDependencies,
+      bundleDevDependencies,
+      bundleOptionalDependencies,
+      bundlePeerDependencies,
+      bundleBundleDependencies,
+      bundleExcludes,
+      external,
+    });
   if (!node && !browser) node = true;
   const baseOpts: BuildOptions = {
     sourcemap: true,
@@ -117,6 +146,7 @@ export default async function snobuild({
       ...baseOpts,
       format,
       minify,
+      // external: minify ? externalMin : external,
       entryPoints: [`${indir}/${entryName}.ts`],
       outfile: `${outdir}/${entryName}${minify ? ".min" : ""}${ext}`,
       jsx: "automatic",
@@ -126,7 +156,7 @@ export default async function snobuild({
     [
       ...buildOpts.map((e) => esbuild.build(e)),
       indexEntry && pkg.types && declarationsBuild(),
-    ].filter(Boolean) // promised obj remaind to await
+    ].filter(Boolean), // promised obj remaind to await
   );
 
   console.log(results);

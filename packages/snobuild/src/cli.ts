@@ -2,7 +2,9 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import snobuild from "./index";
+
 cli();
+
 async function cli() {
   const argv = await yargs(hideBin(process.argv))
     .scriptName("snobuild")
@@ -18,10 +20,10 @@ async function cli() {
     .default("bundle", true)
     .describe("bundle", "bundle deps, defaults to dependencies & bundleDependencies only")
     .boolean("bundleDependencies")
-    .default("bundleDependencies", true)
+    .default("bundleDependencies", false)
     .describe("bundleDependencies", "bundle package.dependencies")
     .boolean("bundleDevDependencies")
-    .default("bundleDevDependencies", false)
+    .default("bundleDevDependencies", true)
     .describe("bundleDevDependencies", "bundle package.devDependencies")
     .boolean("bundleOptionalDependencies")
     .default("bundleOptionalDependencies", false)
