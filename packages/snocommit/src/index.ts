@@ -34,7 +34,7 @@ export default async function snocommit({ type, part, desc }: snoCommitOptions) 
   if (valid) {
     const quoted = (e: string) => (e ? `(${e})` : "");
     const msg = `${type}${quoted(part)}: ${desc}`;
-    const cmd = `${cmdPrefix}git add . && git commit -m "${msg}" && git pull && git push ---tags`;
+    const cmd = `${cmdPrefix}git add . && git commit -m "${msg}" && git pull && git push --tags`;
     // console.log(chalk.blue(`> ${cmd}`));
     await snorun(cmd);
   }
