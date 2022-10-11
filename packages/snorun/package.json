@@ -1,6 +1,6 @@
 {
   "name": "snorun",
-  "version": "1.1.18",
+  "version": "1.2.0",
   "description": "Run & interact with shell command like in node without pain.",
   "keywords": [
     "async",
@@ -33,7 +33,8 @@
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@types/node": "^18.7.18",
+    "@types/node": "18.8.3",
+    "chalk": "^5.1.0",
     "snobuild": "^3.1.1"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"

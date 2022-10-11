@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import { exec } from "child_process";
 /**
  * @description Exec condition chain like in shell.
@@ -20,7 +21,7 @@ export default function snorun(
   { echo = true, echoPrefix = "> ", pipe = true } = {},
 ) {
   const execCommand = [cmd].flat().join(" ");
-  if (echo) console.log((echoPrefix || "") + execCommand);
+  if (echo) console.log(chalk.blue((echoPrefix || "") + execCommand));
   const { promise: ok, resolve: okr } = usePromise<boolean>();
   const { promise: code, resolve: coder } = usePromise<number>();
   const { promise: stdout, resolve: outr } = usePromise<string>();
@@ -34,6 +35,7 @@ export default function snorun(
   if (pipe) p.stderr.pipe(process.stderr);
   if (pipe) p.stdout.pipe(process.stdout);
   // if (pipe) process.stdin.pipe(p.stdin);
+
   const subPromises = { ok, stdout, stderr, code };
   const retype = { ...ok, ...subPromises };
   return Object.assign(ok, subPromises) as typeof retype;
