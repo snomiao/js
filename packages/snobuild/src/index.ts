@@ -1,8 +1,8 @@
 import esbuild, { BuildOptions, Format } from "esbuild";
 import { readFile, stat, writeFile } from "fs/promises";
-import { exec } from "child_process";
+// import { exec } from "child_process";
 import sortPackageJson from "sort-package-json";
-
+import snorun from "snorun";
 function matrixExpand<T extends Record<string, any[]>>(matrix: T) {
   return Object.entries(matrix).reduce(
     (r, [k, a]) => r.flatMap((rv) => [...a.map((v) => ({ ...rv, [k]: v }))]),
@@ -12,7 +12,7 @@ function matrixExpand<T extends Record<string, any[]>>(matrix: T) {
   );
 }
 
-const snorun = (cmd: string) => new Promise((r) => exec(cmd).on("exit", (code) => r(code == 0)));
+// const snorun = (cmd: string) => new Promise((r) => exec(cmd).on("exit", (code) => r(code == 0)));
 
 export const depKeys = [
   "dependencies",
@@ -85,7 +85,7 @@ export default async function snobuild({
   pkg.scripts ||= {};
   pkg.scripts.build ||= "snobuild";
   pkg.scripts.prepack ||= "npm run build";
-  const pkgStr = JSON.stringify(pkg, null, 2)
+  const pkgStr = JSON.stringify(pkg, null, 2);
   // const sortedPkg = `${sortPackageJson(pkgStr)}\n`;
   // await writeFile(pkgPath, sortedPkg);
   await writeFile(pkgPath, pkgStr);
@@ -98,17 +98,8 @@ export default async function snobuild({
     bundleExcludes?.split?.(","),
   ]
     .filter(Boolean)
-    .flat();
-  const externalMin = [
-    // !bundleDependencies && Object.keys(pkg?.dependencies || {}),
-    !bundleDevDependencies && Object.keys(pkg?.devDependencies || {}),
-    // !bundleOptionalDependencies && Object.keys(pkg?.optionalDependencies || {}),
-    // !bundlePeerDependencies && Object.keys(pkg?.peerDependencies || {}),
-    !bundleBundleDependencies && Object.keys(pkg?.bundleDependencies || {}),
-    bundleExcludes?.split?.(","),
-  ]
-    .filter(Boolean)
-    .flat();
+    .flat()
+    .filter(Boolean);
   if (verbose)
     console.log({
       bundleDependencies,

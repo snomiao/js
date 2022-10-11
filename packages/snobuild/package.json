@@ -1,6 +1,6 @@
 {
   "name": "snobuild",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Easy way to use esbuild.",
   "keywords": [
     "cli",
@@ -36,12 +36,13 @@
     "boot3": "pnpx snobuild@3.2.0 && npm link",
     "build": "npm run boot2",
     "prepack": "npm run build && npm run test",
-    "test": "snobuild --node --verbose && snobuild --node --verbose"
+    "test": "snobuild --verbose && snobuild --verbose"
   },
   "dependencies": {
     "esbuild": "^0.15.9",
     "globby": "^13.1.1",
     "matrix-expand": "^1.0.0",
+    "snorun": "1.1.17",
     "sort-package-json": "^2.0.0",
     "yargs": "^17.6.0"
   },
