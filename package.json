@@ -1,13 +1,16 @@
 {
   "name": "snocommit",
   "version": "1.4.0",
-  "description": "",
+  "description": "A Simple way to commit changes in current folder.",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/snocommit#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snocommit"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snocommit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snomiao/js.git#master"
+  },
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
@@ -36,9 +39,11 @@
   },
   "devDependencies": {
     "@types/node": "18.8.3",
+    "@types/yargs": "^17.0.13",
     "p-map": "^5.5.0",
     "snobuild": "^3.2.1",
-    "tsx": "3.10.1"
+    "tsx": "3.10.1",
+    "yargs": "^17.6.0"
   },
   "dependencies": {
     "async-exec": "^1.1.0",
