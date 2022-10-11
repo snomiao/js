@@ -29,11 +29,11 @@
     "prepack": "npm run build"
   },
   "dependencies": {
-    "mongodb": "^4.9.1",
+    "mongodb": "4.10.0",
     "p-queue": "^7.1.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.10",
+    "@types/node": "18.8.3",
     "snobuild": "^3.1.1"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
