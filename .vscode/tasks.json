@@ -14,6 +14,158 @@
       "problemMatcher": ["$eslint-compact"],
       "label": "npm: lint",
       "detail": "prettier -w . && eslint --fix . && pnpx npm-check -u"
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for chrome-dev",
+      "options": { "cwd": "packages/chrome-dev" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for junction-move",
+      "options": { "cwd": "packages/junction-move" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for md-aggregate",
+      "options": { "cwd": "packages/md-aggregate" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for monopkgs",
+      "options": { "cwd": "packages/monopkgs" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for my-version",
+      "options": { "cwd": "packages/my-version" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for objtranspose",
+      "options": { "cwd": "packages/objtranspose" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for outer-join-by",
+      "options": { "cwd": "packages/outer-join-by" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for piserve",
+      "options": { "cwd": "packages/piserve" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for schcal",
+      "options": { "cwd": "packages/schcal" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for sno-mongo-ku",
+      "options": { "cwd": "packages/sno-mongo-ku" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for sno-utils",
+      "options": { "cwd": "packages/sno-utils" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snobuild",
+      "options": { "cwd": "packages/snobuild" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snoclip",
+      "options": { "cwd": "packages/snoclip" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snocommit",
+      "options": { "cwd": "packages/snocommit" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snofa",
+      "options": { "cwd": "packages/snofa" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snogwt",
+      "options": { "cwd": "packages/snogwt" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snorun",
+      "options": { "cwd": "packages/snorun" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snosay",
+      "options": { "cwd": "packages/snosay" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for snotran",
+      "options": { "cwd": "packages/snotran" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for top-level-git",
+      "options": { "cwd": "packages/top-level-git" }
+    },
+    {
+      "type": "shell",
+      "command": "pwd && npm-check || cmd /k npm-check -u",
+      "label": "npm-check for js"
+    },
+    {
+      "label": "npm-check all",
+      "isBackground": true,
+      "dependsOn": [
+        "npm-check for chrome-dev",
+        "npm-check for junction-move",
+        "npm-check for md-aggregate",
+        "npm-check for monopkgs",
+        "npm-check for my-version",
+        "npm-check for objtranspose",
+        "npm-check for outer-join-by",
+        "npm-check for piserve",
+        "npm-check for schcal",
+        "npm-check for sno-mongo-ku",
+        "npm-check for sno-utils",
+        "npm-check for snobuild",
+        "npm-check for snoclip",
+        "npm-check for snocommit",
+        "npm-check for snofa",
+        "npm-check for snogwt",
+        "npm-check for snorun",
+        "npm-check for snosay",
+        "npm-check for snotran",
+        "npm-check for top-level-git",
+        "npm-check for js"
+      ]
     }
   ]
 }
