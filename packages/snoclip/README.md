@@ -4,7 +4,7 @@
   - stdin to clipboard (use `readline`)
   - listen clipboard to stdout use `clipboard-watch clipboardy`
     - DONE nodegyp build on windows
-    - TODO Solve the errors below.
+    - TODO Solve the errors below. welcome to PR me.
 
 Met errors below:
 
