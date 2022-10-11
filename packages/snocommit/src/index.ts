@@ -1,5 +1,6 @@
 import path from "path";
 import snorun from "snorun";
+import { pkgUp } from "pkg-up";
 // breaking (part) description
 export const types = ["fix", "styles", "feat", "breaking", "docs", "chore"] as const;
 type Type = typeof types[number];
@@ -24,7 +25,10 @@ type snoCommitOptions = {
 export default async function snocommit({ type, part, desc }: snoCommitOptions) {
   if (!desc) throw new Error("missing desc");
   if (part === ".") {
-    part = path.parse(process.cwd()).name;
+    const pkgPath = await pkgUp({ cwd: process.cwd() });
+    const pkgName = pkgPath && path.parse(pkgPath).name;
+    const folderName = path.parse(process.cwd()).name;
+    part = pkgName || folderName;
   }
   const action = cmdActions[type];
   if (!action) throw new Error(`no such cmd: ${type}`);
