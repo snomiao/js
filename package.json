@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [
     "cli",
@@ -44,6 +44,7 @@
   "dependencies": {
     "async-exec": "^1.1.0",
     "chalk": "^5.1.0",
+    "pkg-up": "^4.0.0",
     "snorun": "^1.1.17"
   },
   "devDependencies": {
