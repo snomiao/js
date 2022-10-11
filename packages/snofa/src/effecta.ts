@@ -8,7 +8,7 @@ import { List } from "./List";
  * snofa(5, effa(e=>e*2))            // => 5
  * snofa({n: 2}, effa(e=>{e.n = 4})) // => {n:4}
  */
-export function executa<T extends List, R>(fn: Evalable<R, T>): (...args: T) => Promise<R>;
-export function executa<T extends List, R>(fn: Evalable<R, T>): any {
+export function effecta<T extends List, R>(fn: Evalable<R, T>): (...args: T) => Promise<R>;
+export function effecta<T extends List, R>(fn: Evalable<R, T>): any {
   return async (...v: T) => (await evala(fn, ...v), await v[0]);
 }
