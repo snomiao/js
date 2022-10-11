@@ -19,7 +19,7 @@ type snoCommitOptions = {
 
 export default async function snocommit({ type, part, desc }: snoCommitOptions) {
   if (part === ".") {
-    part = path.parse(path.parse(process.cwd()).dir).name;
+    part = path.parse(process.cwd()).name;
   }
   const action = cmdActions[type];
   if (!action) throw new Error(`no such cmd: ${type}`);
