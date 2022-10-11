@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/snocommit#readme",
@@ -27,7 +27,8 @@
     "feat": "dist/cli-feat.mjs",
     "fix": "dist/cli-fix.mjs",
     "snocommit": "dist/cli.mjs",
-    "styles": "dist/cli-styles.mjs"
+    "styles": "dist/cli-styles.mjs",
+    "chore": "dist/cli-chore.mjs"
   },
   "files": [
     "dist"
