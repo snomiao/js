@@ -5,8 +5,17 @@ A Simple way to commit changes in current folder.
 Example: `fix <part> [description..]`
 
 part can be a dot '.' which means you want use current folder name as part
+## Install
 
-## Workflow
+```shell
+pnpm install -g snocommit
+# or
+yarn install -g snocommit
+# or
+npm install -g snocommit
+```
+
+## Usage & Workflow
 
 ```shell
 
