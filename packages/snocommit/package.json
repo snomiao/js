@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/snocommit#readme",
