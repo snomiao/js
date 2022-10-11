@@ -10,22 +10,11 @@
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
-  "exports": {
-    "require": "./lib/index.cjs",
-    "import": "./lib/index.js"
-  },
-  "main": "lib/index.cjs",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
   "scripts": {
-    "build": "snobuild --lib",
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@types/node": "^14.14.22",
+    "@types/node": "18.8.3",
     "snobuild": "^3.2.0"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
