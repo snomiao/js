@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-
 import snocommit, { types } from "./index";
 
 cli().then();
+
 async function cli() {
   const [node, js, ...rest] = process.argv;
   const cmdFromJS = types.find((e) => e === js.match(/(?:cli-|bin\/)(.*?)(?:\.[mc]?[tj]s)?$/)?.[1]);

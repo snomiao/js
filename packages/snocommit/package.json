@@ -2,7 +2,10 @@
   "name": "snocommit",
   "version": "1.4.2",
   "description": "A Simple way to commit changes in current folder.",
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "git"
+  ],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/snocommit#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snocommit"
@@ -23,12 +26,12 @@
   "types": "dist/index.d.ts",
   "bin": {
     "breaking": "dist/cli-breaking.mjs",
+    "chore": "dist/cli-chore.mjs",
     "docs": "dist/cli-docs.mjs",
     "feat": "dist/cli-feat.mjs",
     "fix": "dist/cli-fix.mjs",
     "snocommit": "dist/cli.mjs",
-    "styles": "dist/cli-styles.mjs",
-    "chore": "dist/cli-chore.mjs"
+    "styles": "dist/cli-styles.mjs"
   },
   "files": [
     "dist"
@@ -38,6 +41,11 @@
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "async-exec": "^1.1.0",
+    "chalk": "^5.1.0",
+    "snorun": "^1.1.17"
+  },
   "devDependencies": {
     "@types/node": "18.8.3",
     "@types/yargs": "^17.0.13",
@@ -45,10 +53,5 @@
     "snobuild": "^3.2.1",
     "tsx": "3.10.1",
     "yargs": "^17.6.0"
-  },
-  "dependencies": {
-    "async-exec": "^1.1.0",
-    "chalk": "^5.1.0",
-    "snorun": "^1.1.17"
   }
 }
