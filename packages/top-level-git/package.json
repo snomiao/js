@@ -1,7 +1,7 @@
 {
   "name": "top-level-git",
   "version": "1.0.0",
-  "description": "",
+  "description": "A dead simple wrapper of `git rev-parse --show-toplevel`",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/top-level-git#readme",
   "bugs": {
