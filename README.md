@@ -25,6 +25,7 @@ docs <part> [description..]
 fix <part> [description..]
 feat <part> [description..]
 breaking <part> [description..]
+chore <part> [description..]
 
 # full command
 snocommit styles <part> [description..]
