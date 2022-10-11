@@ -5,9 +5,9 @@ export const types = ["fix", "styles", "feat", "breaking", "docs", "chore"] as c
 type Type = typeof types[number];
 type PART = "-" | "." | string;
 const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any> = {
-  breaking: (part, desc) => "npm version major && " && "",
-  feat: (part, desc) => "npm version minor && " && "",
-  styles: (part, desc) => "npm version patch && " && "",
+  breaking: (part, desc) => "npm version major || echo [WARN] error throws while version bump && ",
+  feat: (part, desc) => "npm version minor || echo [WARN] error throws while version bump && ",
+  styles: (part, desc) => "npm version patch || echo [WARN] error throws while version bump && ",
   chore: (part, desc) => "",
   docs: (part, desc) => "",
   fix: (part, desc) => "",
