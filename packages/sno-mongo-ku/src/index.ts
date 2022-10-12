@@ -57,18 +57,18 @@ async function scanUpdate<TSchema extends Document = Document>(
 export function patchMany<TSchema extends Document>(
   coll: mongodb.Collection<TSchema>,
   doc: TSchema[],
-  index: mongodb.IndexSpecification,
-  opts: mongodb.BulkWriteOptions,
+  index: mongodb.IndexSpecification = { _id: 1 },
+  opts?: mongodb.BulkWriteOptions,
 ) {
   return coll.bulkWrite(
-    doc.map((补表: TSchema) => {
+    doc.map((doc: TSchema) => {
       // 补表索引检查
-      const 索引键存在 = (键名: string) => Object.keys(补表).includes(键名);
+      const 索引键存在 = (键名: string) => Object.keys(doc).includes(键名);
       const 索引键全部存在 = Object.keys(index).every(索引键存在);
       if (!索引键全部存在) throw new Error("错误：补表对应索引键不完整");
-      const filter = Object.fromEntries(Object.keys(index).map((键) => [键, 补表[键]]));
-      const $set = Object.fromEntries(Object.entries(index).filter(([k, v]) => k !== undefined));
-      const $unset = Object.fromEntries(Object.entries(index).filter(([k, v]) => k === undefined));
+      const filter = Object.fromEntries(Object.keys(index).map((k) => [k, doc[k]]));
+      const $set = Object.fromEntries(Object.entries(doc).filter(([k, v]) => k !== undefined));
+      const $unset = Object.fromEntries(Object.entries(doc).filter(([k, v]) => k === undefined));
       return {
         updateOne: {
           filter,
