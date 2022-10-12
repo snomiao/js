@@ -8,16 +8,16 @@ type PART = "-" | "." | string;
 const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any> = {
   breaking: (part, desc) =>
     `(npm version major --no-workspaces-update${
-      " || echo [WARN] error throws while version bump) && " && ""
-    }`,
+      " || echo [WARN] error throws while version bump)" && ")"
+    } && `,
   feat: (part, desc) =>
     `(npm version minor --no-workspaces-update${
-      " || echo [WARN] error throws while version bump) && " && ""
-    }`,
+      " || echo [WARN] error throws while version bump)" && ")"
+    } && `,
   fix: (part, desc) =>
     `(npm version patch --no-workspaces-update${
-      " || echo [WARN] error throws while version bump) && " && ""
-    }`,
+      " || echo [WARN] error throws while version bump)" && ")"
+    } && `,
   chore: (part, desc) => "",
   docs: (part, desc) => "",
   styles: (part, desc) => "",
@@ -32,7 +32,7 @@ export default async function snocommit({ type, part, desc }: snoCommitOptions) 
   if (!desc) throw new Error("missing desc");
   if (part === ".") {
     const pkgPath = await pkgUp({ cwd: process.cwd() });
-    const pkgName = pkgPath && path.parse(pkgPath).name;
+    const pkgName = pkgPath && path.parse(path.parse(pkgPath).dir).name;
     const folderName = path.parse(process.cwd()).name;
     part = pkgName || folderName;
   }
