@@ -38,14 +38,14 @@ export default async function snocommit({ type, part, desc }: snoCommitOptions) 
   }
   const action = cmdActions[type];
   if (!action) throw new Error(`no such cmd: ${type}`);
-  const cmdPrefix = await action(part, desc);
+  const actionCmd = await action(part, desc);
 
   const valid = Boolean(cmdActions[type]);
   if (valid) {
     const quoted = (e: string) => (e ? `(${e})` : "");
     const msg = `${type}${quoted(part)}: ${desc}`;
     const gitsync_cmd = `git pull && git push --follow-tags`;
-    const cmd = `${cmdPrefix}git add . && git commit -m "${msg}" && ${gitsync_cmd}`;
+    const cmd = `git add . && git commit -m "${msg}" && ${actionCmd} ${gitsync_cmd}`;
     // console.log(chalk.blue(`> ${cmd}`));
     await snorun(cmd);
   }
