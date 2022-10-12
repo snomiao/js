@@ -95,6 +95,30 @@ The main repo is in [here](https://github.com/snomiao/js#readme), any issue and 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [2.1.15](https://github.com/snomiao/js/compare/md-aggregate@2.1.14...md-aggregate@2.1.15) (2022-09-22)
+
+**Note:** Version bump only for package md-aggregate
+
+### [2.1.14](https://github.com/snomiao/js/compare/md-aggregate@2.1.13...md-aggregate@2.1.14) (2022-09-22)
+
+**Note:** Version bump only for package md-aggregate
+
+### [2.1.13](https://github.com/snomiao/js/compare/md-aggregate@2.1.12...md-aggregate@2.1.13) (2022-09-22)
+
+**Note:** Version bump only for package md-aggregate
+
+### [2.1.12](https://github.com/snomiao/js/compare/md-aggregate@2.1.11...md-aggregate@2.1.12) (2022-09-22)
+
+**Note:** Version bump only for package md-aggregate
+
+### [2.1.11](https://github.com/snomiao/js/compare/md-aggregate@2.1.9...md-aggregate@2.1.11) (2022-09-22)
+
+**Note:** Version bump only for package md-aggregate
+
+### [2.1.10](https://github.com/snomiao/js/compare/md-aggregate@2.1.9...md-aggregate@2.1.10) (2022-07-03)
+
+**Note:** Version bump only for package md-aggregate
+
 ### [2.1.9](https://github.com/snomiao/js/compare/md-aggregate@2.1.8...md-aggregate@2.1.9) (2022-07-03)
 
 **Note:** Version bump only for package md-aggregate
