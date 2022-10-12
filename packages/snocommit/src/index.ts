@@ -7,11 +7,17 @@ type Type = typeof types[number];
 type PART = "-" | "." | string;
 const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any> = {
   breaking: (part, desc) =>
-    "(npm version major --no-workspaces-update || echo [WARN] error throws while version bump) && ",
+    `(npm version major --no-workspaces-update${
+      " || echo [WARN] error throws while version bump) && " && ""
+    }`,
   feat: (part, desc) =>
-    "(npm version minor --no-workspaces-update || echo [WARN] error throws while version bump) && ",
+    `(npm version minor --no-workspaces-update${
+      " || echo [WARN] error throws while version bump) && " && ""
+    }`,
   fix: (part, desc) =>
-    "(npm version patch --no-workspaces-update || echo [WARN] error throws while version bump) && ",
+    `(npm version patch --no-workspaces-update${
+      " || echo [WARN] error throws while version bump) && " && ""
+    }`,
   chore: (part, desc) => "",
   docs: (part, desc) => "",
   styles: (part, desc) => "",
