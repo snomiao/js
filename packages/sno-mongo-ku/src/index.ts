@@ -23,6 +23,7 @@ export type snoMongoKu = snoMongoKuRaw & {
   [k: string]: ReturnType<typeof snoCollection<Document>>;
 };
 export default async function snoMongoKu<TSchemas extends Record<string, Document>>(uri: string) {
+  if (!uri) throw new Error(`missing mongo-uri, got ${uri}`);
   const client = new MongoClient(uri);
   await client.connect();
   const dbAgent = Object.assign(client.db(), { _client: client, close: client.close });
