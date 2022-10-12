@@ -29,7 +29,8 @@
     "build": "snobuild",
     "prepack": "npm run build",
     "start": "npx .",
-    "test": "mocha --require tsx src/**/*.test.ts"
+    "test": "mocha --require tsx src/**/*.test.ts",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "@types/d3": "^7.4.0",

@@ -29,12 +29,13 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "snorun": "^1.1.17",
-    "yargs": "17.6.0",
-    "top-level-git": "^1.0.0"
+    "top-level-git": "^1.0.0",
+    "yargs": "17.6.0"
   },
   "devDependencies": {
     "@types/node": "18.8.3",

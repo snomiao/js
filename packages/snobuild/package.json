@@ -36,7 +36,8 @@
     "boot3": "pnpx snobuild@3.2.0 && npm link",
     "build": "npm run boot2",
     "prepack": "npm run build && npm run test",
-    "test": "snobuild --verbose && snobuild --verbose"
+    "test": "snobuild --verbose && snobuild --verbose",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "esbuild": "^0.15.9",

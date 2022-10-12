@@ -18,7 +18,8 @@
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "eslint": "8.2.0",

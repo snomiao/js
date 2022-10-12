@@ -26,7 +26,8 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "read-pkg-up": "^9.1.0"

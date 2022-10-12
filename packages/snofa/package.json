@@ -32,7 +32,8 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build && npm run test",
-    "test": "mocha --require tsx ./src/**/*.test.ts"
+    "test": "mocha --require tsx ./src/**/*.test.ts",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "ts-toolbelt": "^9.6.0"

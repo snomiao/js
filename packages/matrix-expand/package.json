@@ -19,7 +19,8 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postversion": "npm publish"
   },
   "devDependencies": {
     "snobuild": "^3.2.2"

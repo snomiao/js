@@ -29,7 +29,8 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "@types/node": "18.8.3",

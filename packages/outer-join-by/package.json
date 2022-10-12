@@ -28,7 +28,8 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build && npm run test",
-    "test": "mocha --require tsx src/**/*.test.ts"
+    "test": "mocha --require tsx src/**/*.test.ts",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "data-forge": "^1.9.5"
