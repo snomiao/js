@@ -1,6 +1,6 @@
 {
   "name": "md-aggregate",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
   "keywords": [
     "markdown",
@@ -32,7 +32,8 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
-    "postversion": "prettier -w CHANGELOG.md && npm run build && npx md-aggregate README.md CHANGELOG.md -w"
+    "prepublishOnly": "prettier -w CHANGELOG.md && npm run build && npx md-aggregate README.md CHANGELOG.md -w",
+    "postversion": "npm publish"
   },
   "dependencies": {
     "lodash-es": "^4.17.21",
