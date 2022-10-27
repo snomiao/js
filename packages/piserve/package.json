@@ -27,7 +27,7 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
-    "test": "vitest",
+    "test": "vitest run",
     "postversion": "npm publish"
   },
   "dependencies": {
@@ -38,9 +38,7 @@
     "yargs": "17.6.0"
   },
   "devDependencies": {
-    "@types/mocha": "10.0.0",
     "@types/yargs": "17.0.13",
-    "mocha": "^10.0.0",
     "snobuild": "^3.2.0",
     "tsx": "3.10.1",
     "vitest": "^0.24.3"
