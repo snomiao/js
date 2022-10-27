@@ -33,6 +33,8 @@
     "postversion": "npm publish"
   },
   "dependencies": {
+  },
+  "devDependencies": {
     "d3": "^7.6.1",
     "dotenv": "16.0.3",
     "escape-filename": "^1.1.2",
@@ -43,9 +45,7 @@
     "snorun": "^1.1.17",
     "tunnel": "^0.0.6",
     "yaml": "2.1.3",
-    "yargs": "17.6.0"
-  },
-  "devDependencies": {
+    "yargs": "17.6.0",
     "@types/d3": "^7.4.0",
     "@types/ical": "^0.8.0",
     "@types/node": "18.8.3",
