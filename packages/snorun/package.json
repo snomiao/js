@@ -31,12 +31,14 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
+    "test": "vitest",
     "postversion": "npm publish"
   },
   "devDependencies": {
     "@types/node": "18.8.3",
     "chalk": "^5.1.0",
-    "snobuild": "^3.1.1"
+    "snobuild": "^3.1.1",
+    "vitest": "^0.24.3"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

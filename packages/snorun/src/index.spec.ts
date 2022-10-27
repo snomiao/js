@@ -1,9 +1,12 @@
+import { expect, it } from "vitest";
 import snorun from "./index";
 
-((await snorun("echo asdf")) && (await snorun("echo succ"))) || (await snorun("echo fail"));
+it("echo", async () => {
+  expect(
+    ((await snorun("echo asdf")) && (await snorun("echo succ"))) || (await snorun("echo fail")),
+  ).toBe(true);
+});
 
-console.log("## echo test OK");
-
-console.log((await snorun("echo asdf").stdout) === "asdf");
-
-console.log("## stdout test OK");
+it("stdout", async () => {
+  expect(await snorun("echo asdf").stdout).toBe("asdf");
+});
