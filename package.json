@@ -10,10 +10,7 @@
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snocommit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snomiao/js.git#master"
-  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snocommit",
   "license": "GPLv3",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
@@ -42,17 +39,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "npm publish"
   },
-  "dependencies": {
-    "async-exec": "^1.1.0",
-    "chalk": "^5.1.0",
-    "pkg-up": "^4.0.0",
-    "snorun": "^1.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "18.8.3",
     "@types/yargs": "^17.0.13",
+    "async-exec": "^1.1.0",
+    "chalk": "^5.1.0",
     "p-map": "^5.5.0",
+    "pkg-up": "^4.0.0",
     "snobuild": "^3.2.1",
+    "snorun": "^1.2.0",
     "tsx": "3.10.1",
     "yargs": "^17.6.0"
   }
