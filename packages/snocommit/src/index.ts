@@ -52,16 +52,11 @@ export default async function snocommit({ type, part, desc }: snoCommitOptions) 
     const quoted = (e: string) => (e ? `(${e})` : "");
     const msg = `${type}${quoted(part)}: ${desc}`;
     const gitsync_cmd = `git pull && git push --follow-tags`;
-    const cmd = [
-      `git add .`,
-      `git commit -m "${msg}"`,
-      versioningCmd,
-      versioningCmd && `(git add . && git commit -m "${msg}")`,
-      gitsync_cmd,
-    ]
-      .filter(Boolean)
-      .join(" && ");
-    // console.log(chalk.blue(`> ${cmd}`));
-    await snorun(cmd);
+
+    true &&
+      (await snorun(`git add . && git commit -m "${msg}"`)) &&
+      (await snorun(versioningCmd)) &&
+      (await snorun(versioningCmd && `(git add . && git commit -m "${msg}")`)) &&
+      (await snorun(gitsync_cmd));
   }
 }
