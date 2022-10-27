@@ -1,7 +1,7 @@
 import esbuild, { BuildOptions, Format } from "esbuild";
 import { readFile, stat, writeFile } from "fs/promises";
+import sortPackageJson from "sort-package-json"
 // import { exec } from "child_process";
-import sortPackageJson from "sort-package-json";
 import snorun from "snorun";
 function matrixExpand<T extends Record<string, any[]>>(matrix: T) {
   return Object.entries(matrix).reduce(
@@ -86,9 +86,9 @@ export default async function snobuild({
   pkg.scripts.build ||= "snobuild";
   pkg.scripts.prepack ||= "npm run build";
   const pkgStr = JSON.stringify(pkg, null, 2);
-  // const sortedPkg = `${sortPackageJson(pkgStr)}\n`;
-  // await writeFile(pkgPath, sortedPkg);
-  await writeFile(pkgPath, pkgStr);
+  // await writeFile(pkgPath, pkgStr + "\n");
+  const sortedPkg = `${sortPackageJson(pkgStr)}\n`;
+  await writeFile(pkgPath, sortedPkg + "\n");
   const external = [
     !bundleDependencies && Object.keys(pkg?.dependencies || {}),
     !bundleDevDependencies && Object.keys(pkg?.devDependencies || {}),
