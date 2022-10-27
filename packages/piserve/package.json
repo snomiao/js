@@ -14,20 +14,20 @@
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
-    "require": "./lib/index.cjs",
-    "import": "./lib/index.js"
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
   },
-  "main": "lib/index.cjs",
-  "module": "lib/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "bin": "lib/cli.js",
+  "bin": "dist/cli.mjs",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "build": "snobuild --node",
+    "build": "snobuild",
     "prepack": "npm run build",
-    "test": "mocha --require tsx src/**/*.test.ts",
+    "test": "vitest",
     "postversion": "npm publish"
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "@types/yargs": "17.0.13",
     "mocha": "^10.0.0",
     "snobuild": "^3.2.0",
-    "tsx": "3.10.1"
+    "tsx": "3.10.1",
+    "vitest": "^0.24.3"
   }
 }
