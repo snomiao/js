@@ -27,7 +27,7 @@ console.log(objTranspose(joa)); // => aoj
 ### [Test](src/objTrans.test.ts)
 
 ```typescript
-import { it } from "mocha";
+import { it } from "vitest";
 import objTranspose, { aoj2joa, joa2aoj } from "./objTrans";
 
 const aoj = [

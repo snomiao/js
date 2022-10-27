@@ -34,7 +34,7 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build && npm run test",
-    "test": "mocha --require tsx src/**/*.test.ts",
+    "test": "vitest run",
     "postversion": "npm publish"
   },
   "devDependencies": {
