@@ -30,11 +30,18 @@ type snoCommitOptions = {
 
 export default async function snocommit({ type, part, desc }: snoCommitOptions) {
   if (!desc) throw new Error("missing desc");
-  if (part === ".") {
+  
+  // pkg name
+  if (part === "@") {
     const pkgPath = await pkgUp({ cwd: process.cwd() });
     const pkgName = pkgPath && path.parse(path.parse(pkgPath).dir).name;
+    part = pkgName;
+  }
+
+  // folder name
+  if (part === ".") {
     const folderName = path.parse(process.cwd()).name;
-    part = pkgName || folderName;
+    part = folderName;
   }
   const action = cmdActions[type];
   if (!action) throw new Error(`no such cmd: ${type}`);
