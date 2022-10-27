@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.4.20",
+  "version": "1.4.21",
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [
     "cli",
@@ -39,7 +39,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "npm publish"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "18.8.3",
     "@types/yargs": "^17.0.13",
