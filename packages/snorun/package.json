@@ -31,7 +31,7 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
-    "test": "vitest",
+    "test": "vitest run",
     "postversion": "npm publish"
   },
   "devDependencies": {
