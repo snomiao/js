@@ -6,34 +6,32 @@ import readFileUtf8 from "read-file-utf8";
  * @example
  * // src/test.ts
  * import snohmr from 'snohmr'
- * snohmr<typeof import("./consoleLog")>("src/consoleLog.ts", async (m) => {
+ * await snohmr<typeof import("./consoleLog")>("src/consoleLog.ts", async (m) => {
  *   m.default("hello, world") //prints hello, world to stdout
  *   m.error("hello, world") //prints hello, world in stderr
+ *   return true // return truthy to stop watch and return this value as final value, falsy to continue.
  * });
  * // src/consoleLog.ts
  * export default function consoleLog(...args: any[]){
  *    console.log(...args)
  * }
- * export function error(...args: any[]){
- *    console.error(...args)
- * }
  */
-export async function snohmr<hmrModule extends any>(
+export default async function snohmr<hmrModule extends any>(
   src: string,
-  onReload: (
-    M: hmrModule | undefined,
-    event?: FileChangeInfo<string>
-  ) => Promise<void> | void
+  onReload: (M: hmrModule | undefined, event?: FileChangeInfo<string>) => Promise<any> | any,
 ) {
-  await reload(await loadModule());
+  const r = await reload(await loadModule());
+  if (r) return r;
+
   const watcher = watch(src);
   for await (const event of watcher) {
     if (event.eventType !== "change") continue;
-    await reload(await loadModule(), event);
+    const r = await reload(await loadModule(), event);
+    if (r) return r;
   }
   async function reload(m: hmrModule, event?: FileChangeInfo<string>) {
     try {
-      m && (await onReload(m, event));
+      if (m) return await onReload(m, event);
     } catch (e) {
       console.error(e);
     }
@@ -47,9 +45,7 @@ export async function snohmr<hmrModule extends any>(
       const cachefile = resolve(`${srcp.dir}/${srcp.name}-${t}.${srcp.ext}`);
       await writeFile(cachefile, code);
       const url = String(new URL("file://" + cachefile));
-      const m = await import(url)
-        .catch(console.error)
-        .finally(async () => await unlink(cachefile));
+      const m = await import(url).catch(console.error).finally(async () => await unlink(cachefile));
       return m;
     } catch (e) {
       console.error(e);
