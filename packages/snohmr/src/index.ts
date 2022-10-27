@@ -18,7 +18,7 @@ import readFileUtf8 from "read-file-utf8";
  */
 export default async function snohmr<hmrModule extends any>(
   src: string,
-  onReload: (M: hmrModule | undefined, event?: FileChangeInfo<string>) => Promise<any> | any,
+  onReload: (M: hmrModule, event?: FileChangeInfo<string>) => Promise<any> | any,
 ) {
   const r = await reload(await loadModule());
   if (r) return r;
