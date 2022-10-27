@@ -299,7 +299,7 @@ importers:
       p-map: ^5.5.0
       pkg-up: ^4.0.0
       snobuild: ^3.2.1
-      snorun: ^1.1.17
+      snorun: workspace:^1.2.0
       tsx: 3.10.1
       yargs: ^17.6.0
     dependencies:
