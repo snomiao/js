@@ -55,8 +55,10 @@ export default async function snocommit({ type, part, desc }: snoCommitOptions) 
 
     true &&
       (await snorun(`git add . && git commit -m "${msg}"`)) &&
-      (await snorun(versioningCmd)) &&
-      (await snorun(versioningCmd && `(git add . && git commit -m "${msg}")`)) &&
+      (!versioningCmd
+        ? true
+        : (await snorun(versioningCmd)) &&
+          (await snorun(versioningCmd && `(git add . && git commit -m "${msg}")`))) &&
       (await snorun(gitsync_cmd));
   }
 }
