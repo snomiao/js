@@ -29,7 +29,7 @@
     "build": "snobuild",
     "prepack": "npm run build",
     "start": "npx .",
-    "test": "vitest",
+    "test": "vitest run",
     "postversion": "npm publish"
   },
   "dependencies": {},
