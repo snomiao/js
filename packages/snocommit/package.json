@@ -37,7 +37,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "snobuild && tsx postbuild.ts",
+    "build": "snobuild && tsx postbuild.ts && npm link",
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "npm publish"
