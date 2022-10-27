@@ -1,0 +1,30 @@
+{
+  "name": "snohmr",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
+  },
+  "main": "index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": "dist/cli.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "snobuild",
+    "prepack": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postversion": "npm publish"
+  },
+  "devDependencies": {
+    "@types/node": "18.8.3",
+    "read-file-utf8": "^2.0.4"
+  }
+}
