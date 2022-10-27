@@ -2,4 +2,4 @@
 
 import piServe from "./index";
 
-piServe();
+await piServe();
