@@ -1,6 +1,6 @@
 {
   "name": "snobuild",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "Easy way to use esbuild.",
   "keywords": [
     "cli",
@@ -22,8 +22,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "snobuild": "dist/cli.mjs",
-    "deprecated-snobuild2-dist": "lib/cli.js"
+    "snobuild": "dist/cli.mjs"
   },
   "directories": {
     "dist": "dist"
@@ -32,9 +31,8 @@
     "dist"
   ],
   "scripts": {
-    "boot2": "pnpx snobuild@2.2.1 --lib --externals=esbuild,sort-package-json && npm pkg set bin.deprecated-snobuild2-dist=lib/cli.js && npm link && deprecated-snobuild2-dist --verbose && npm pkg set bin.snobuild=dist/cli.mjs && npm link",
-    "boot3": "pnpx snobuild@3.2.0 && npm link",
-    "build": "npm run boot2",
+    "boot3": "npx snobuild@3.2.2 && npm link",
+    "build": "npm run boot3",
     "prepack": "npm run build && npm run test",
     "test": "snobuild --verbose && snobuild --verbose",
     "postversion": "npm publish"
