@@ -15,7 +15,7 @@
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snorun"
   },
   "repository": "https://github.com/snomiao/js/tree/master/packages/snorun",
-  "license": "GPLv3",
+  "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {

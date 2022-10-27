@@ -5,7 +5,7 @@ Update monorepo `packages/**/package.json`, and LICENSES
 ## Usage
 
 ```shell
-cd $monorepo && npx monopkgs
+cd $path_to_your_monorepo_root && npx monopkgs
 ```
 
 ## Feat & Roadmap

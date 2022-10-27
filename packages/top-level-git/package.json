@@ -8,7 +8,7 @@
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+top-level-git"
   },
   "repository": "https://github.com/snomiao/js/tree/master/packages/top-level-git",
-  "license": "GPLv3",
+  "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {

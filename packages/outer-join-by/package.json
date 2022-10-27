@@ -12,7 +12,7 @@
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+outer-join-by"
   },
   "repository": "https://github.com/snomiao/js/tree/master/packages/outer-join-by",
-  "license": "GPLv3",
+  "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {

@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/snomiao/js.git"
   },
-  "license": "GPLv3",
+  "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "workspaces": [
     "packages/**"
