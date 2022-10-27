@@ -1,6 +1,6 @@
 {
   "name": "snohmr",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/snohmr#readme",
@@ -28,9 +28,11 @@
     "test": "vitest run",
     "postversion": "npm publish"
   },
+  "dependencies": {
+    "read-file-utf8": "^2.0.4"
+  },
   "devDependencies": {
     "@types/node": "18.11.7",
-    "read-file-utf8": "^2.0.4",
     "vitest": "^0.24.3"
   }
 }
