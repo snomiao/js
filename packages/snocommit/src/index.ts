@@ -2,7 +2,7 @@ import path from "path";
 import snorun from "snorun";
 import { pkgUp } from "pkg-up";
 // breaking (part) description
-export const types = ["fix", "styles", "feat", "breaking", "docs", "chore"] as const;
+export const types = ["fix", "styles", "feat", "breaking", "docs", "chore", 'refactor'] as const;
 type Type = typeof types[number];
 type PART = "-" | "." | string;
 const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any> = {
@@ -18,6 +18,7 @@ const cmdActions: Record<Type, (part: PART, desc: string) => Promise<any> | any>
     `(npm version patch --no-workspaces-update${
       " || echo [WARN] error throws while version bump)" && ")"
     } && `,
+  refactor: (part, desc) => "",
   chore: (part, desc) => "",
   docs: (part, desc) => "",
   styles: (part, desc) => "",
