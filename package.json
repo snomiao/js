@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.4.14",
+  "version": "1.5.0",
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [
     "cli",
@@ -31,13 +31,15 @@
     "feat": "dist/cli-feat.mjs",
     "fix": "dist/cli-fix.mjs",
     "snocommit": "dist/cli.mjs",
-    "styles": "dist/cli-styles.mjs"
+    "styles": "dist/cli-styles.mjs",
+    "refactor": "dist/cli-refactor.mjs"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "snobuild && tsx postbuild.ts",
+    "link": "npm link",
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "npm publish"
