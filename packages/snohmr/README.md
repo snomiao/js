@@ -1,6 +1,6 @@
 # snohmr
 
-🔥 Hot Module Replacement for Node.{mjs|ts} by snomiao
+🔥 Hot Module Replacement for Node.{js,mjs,ts} in ESM
 
 ## Why?
 
