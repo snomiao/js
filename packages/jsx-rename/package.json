@@ -14,7 +14,7 @@
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+jsx-rename"
   },
   "repository": "https://github.com/snomiao/js/tree/master/packages/jsx-rename",
-  "license": "GPLv3",
+  "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "scripts": {
     "build": "snobuild",

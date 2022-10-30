@@ -3,11 +3,11 @@
     "declaration": true,
     "lib": ["ESNext", "ES2019", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "outDir": "lib/",
+    "outDir": "dist/",
     "rootDir": "src/",
     "target": "ESNext",
     "moduleResolution": "node",
-    "declarationDir": "lib/",
+    "declarationDir": "dist/",
     "emitDeclarationOnly": true
   }
 }

@@ -1,4 +1,4 @@
-import { it } from "mocha";
+import { it } from "vitest";
 import objTranspose, { aoa2aoj, aoa2joa, aoj2joa, joa2aoj } from ".";
 
 const aoj = [
