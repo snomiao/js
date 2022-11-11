@@ -2,9 +2,9 @@ import { execAndLog } from "async-exec";
 import fsp from "fs/promises";
 import "p-map";
 import pMap from "p-map";
-import { types } from "./src/index";
+import commitTypes from "./src/commitTypes";
 
-await pMap(types, async (type) => {
+await pMap(commitTypes, async (type) => {
   const targetFile = `dist/cli-${type}.mjs`;
   const r = await execAndLog(`npm pkg set bin.${type}="${targetFile}"`);
   return await fsp

@@ -1,9 +1,8 @@
 import snorun from "snorun";
 import maybeQuoted from "./maybeQuoted";
-import { scopeParse } from "./scopeParse";
-// breaking (scope) description
-export const types = ["fix", "styles", "feat", "breaking", "docs", "chore", "refactor"] as const;
-type Type = typeof types[number];
+import scopeParse from "./scopeParse";
+import commitTypes from "./commitTypes";
+type Type = typeof commitTypes[number];
 type SCOPE = "-" | "." | string;
 const cmdActions: Record<Type, (scope: SCOPE, desc: string) => Promise<any> | any> = {
   breaking: (scope, desc) =>
@@ -35,7 +34,6 @@ export default async function snocommit({ type, scope, desc }: snoCommitOptions)
   const versioningAction = cmdActions[type];
   if (!versioningAction) throw new Error(`no such cmd: ${type}`);
   const versioningCmd = await versioningAction(parsedPart, desc);
-
   const valid = Boolean(cmdActions[type]);
   if (valid) {
     const msg = `${type}${maybeQuoted(parsedPart)}: ${desc}`;

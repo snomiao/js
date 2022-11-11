@@ -1,7 +1,7 @@
 import path from "path";
 import { pkgUp } from "pkg-up";
 
-export function scopeParse(scope: string) {
+export default function scopeParse(scope: string) {
   const partRule = {
     "@": async () => await cwdPkgNameGet(),
     ".": () => cwdFolderNameGet(),
