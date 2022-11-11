@@ -1,14 +1,14 @@
 import path from "path";
 import { pkgUp } from "pkg-up";
 
-export default function scopeParse(scope: string) {
+export default async function scopeParse(scope: string) {
   const partRule = {
     "@": async () => await cwdPkgNameGet(),
     ".": () => cwdFolderNameGet(),
     ":": () => "",
     "-": () => "",
   };
-  const parsedPart = partRule[scope]?.() || scope;
+  const parsedPart = (await (partRule[scope]?.())) || scope;
   return parsedPart;
   async function cwdPkgNameGet() {
     const pkgPath = await pkgUp({ cwd: process.cwd() });
