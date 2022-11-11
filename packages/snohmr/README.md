@@ -15,8 +15,9 @@ import snohmr from "snohmr";
 
 await snohmr<typeof import("./consoleLog")>("src/consoleLog.ts", async (m) => {
   m.default("hello, world"); //prints hello, world to stdout
-  m.error("hello, world"); //prints hello, world in stderr
-  return true; // return truthy to stop watch and return this value as final value, falsy to continue.
+  return true; // return truthy to stop watch and return this value as final value
+  // or
+  return undefined; // return falsy to continue watch
 }); // return true
 
 // src/consoleLog.ts
