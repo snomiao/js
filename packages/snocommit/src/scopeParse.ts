@@ -5,6 +5,7 @@ export default function scopeParse(scope: string) {
   const partRule = {
     "@": async () => await cwdPkgNameGet(),
     ".": () => cwdFolderNameGet(),
+    ":": () => "",
     "-": () => "",
   };
   const parsedPart = partRule[scope]?.() || scope;
