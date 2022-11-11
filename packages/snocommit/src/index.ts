@@ -1,9 +1,9 @@
 import snorun from "snorun";
+import commitTypes from "./commitTypes";
 import maybeQuoted from "./maybeQuoted";
 import scopeParse from "./scopeParse";
-import commitTypes from "./commitTypes";
 type Type = typeof commitTypes[number];
-type SCOPE = "-" | "." | string;
+type SCOPE = "-" | "." | "@" | ":" | string;
 const cmdActions: Record<Type, (scope: SCOPE, desc: string) => Promise<any> | any> = {
   breaking: (scope, desc) =>
     `(npm version major --no-workspaces-update${
