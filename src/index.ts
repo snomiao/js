@@ -30,7 +30,7 @@ type snoCommitOptions = {
 
 export default async function snocommit({ type, scope, desc }: snoCommitOptions) {
   if (!desc) throw new Error("missing desc");
-  const parsedPart = scopeParse(scope);
+  const parsedPart = await scopeParse(scope);
   const versioningAction = cmdActions[type];
   if (!versioningAction) throw new Error(`no such cmd: ${type}`);
   const versioningCmd = await versioningAction(parsedPart, desc);
