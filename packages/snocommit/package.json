@@ -27,9 +27,9 @@
     "docs": "dist/cli-docs.mjs",
     "feat": "dist/cli-feat.mjs",
     "fix": "dist/cli-fix.mjs",
+    "refactor": "dist/cli-refactor.mjs",
     "snocommit": "dist/cli.mjs",
-    "styles": "dist/cli-styles.mjs",
-    "refactor": "dist/cli-refactor.mjs"
+    "styles": "dist/cli-styles.mjs"
   },
   "files": [
     "dist"
