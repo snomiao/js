@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [
     "cli",
@@ -37,7 +37,6 @@
   "scripts": {
     "build": "snobuild && tsx postbuild.ts && npm link",
     "prepack": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "npm publish"
   },
   "devDependencies": {
