@@ -345,11 +345,13 @@ importers:
     specifiers:
       '@types/node': 18.11.7
       read-file-utf8: ^2.0.4
+      snobuild: ^3.2.11
       vitest: ^0.24.3
     dependencies:
       read-file-utf8: 2.0.4
     devDependencies:
       '@types/node': 18.11.7
+      snobuild: link:../snobuild
       vitest: 0.24.3
 
   packages/snorun:
