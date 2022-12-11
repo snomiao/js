@@ -14,9 +14,6 @@
   },
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
-  "workspaces": [
-    "packages/**"
-  ],
   "scripts": {
     "_postversion": "npm run docs:root && monopkgs && npm run format && git commit -a -m \"chore: bump version and format\"",
     "build": "lerna run build",
