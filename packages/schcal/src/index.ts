@@ -49,7 +49,7 @@ export async function readConfig(argv) {
       argv.config,
       process.env.CONFIG,
       "config.yaml",
-      `${process.env.USERPROFILE  }/.schcal/config.yaml`,
+      `${process.env.USERPROFILE}/.schcal/config.yaml`,
     ]
       .reverse()
       .filter(existsSync)
@@ -146,9 +146,9 @@ async function getSchtasksObject(
     .replace(/[^\dT]/g, "")
     .replace("T", "-")
     .slice(4, 8 + 4 + 1);
-  const taskID = `${taskStartDate.toISOString()  }-${  commandOrURL}`;
+  const taskID = `${taskStartDate.toISOString()}-${commandOrURL}`;
   const taskHash = sha1(taskID);
-  const schtasksName = `${SSAC_PREFIX  }${taskStartDateShortString}-${taskName}`;
+  const schtasksName = `${SSAC_PREFIX}${taskStartDateShortString}-${taskName}`;
   // console.log(schtasksName);
   // TODO FIXME: 貌似普通指令没有静默成功……
   //
@@ -173,13 +173,14 @@ async function getSchtasksObject(
   }
 }
 function getSafeCommandParamString(串: string) {
-  return `"${  串.replace(/"/g, '\\"')  }"`;
+  return `"${串.replace(/"/g, '\\"')}"`;
 }
-function DateTimeAssembly(date) {
+function DateTimeAssembly(date: Date) {
   const [, 年, 月, 日, 时, 分, 秒, 毫秒] = new Date(+date - new Date().getTimezoneOffset() * 60e3)
     .toISOString()
     .match(/(....)-(..)-(..)T(..):(..):(..)\.(...)Z/);
-  return { D: [月, 日, 年].join("/"), T: [时, 分, 秒].join(":") };
+
+  return { D: date.toLocaleDateString(), T: [时, 分, 秒].join(":") };
 }
 
 async function fetchCalendarsEventsActions(ics_urls, FORWARD_DAYS) {
