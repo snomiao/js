@@ -28,7 +28,7 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
-    "start": "npx .",
+    "start": "tsx src/cli.ts",
     "test": "vitest run",
     "postversion": "npm publish"
   },
