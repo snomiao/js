@@ -31,11 +31,8 @@
     "update": "pnpx npm-check -u"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier -w"
-    ],
-    "*.{json}": "prettier -w",
+    "*.{cjs,mjs,js,jsx,ts,tsx}": "eslint --fix",
+    "*.{cjs,mjs,js,jsx,ts,tsx,json}": "prettier -w",
     "*": "echo WARN skipped "
   },
   "devDependencies": {
