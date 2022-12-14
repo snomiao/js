@@ -1,5 +1,4 @@
 {
-  "useWorkspaces": true,
   "version": "independent",
   "command": {
     "version": {
@@ -14,5 +13,6 @@
     },
     "run": { "stream": true },
     "exec": { "stream": true }
-  }
+  },
+  "workspaces": ["packages/*"]
 }
