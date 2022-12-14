@@ -1,36 +1,41 @@
 name: build-all
+
 on:
-  - push
+  push:
   # push:
   #   tags:
   #     - "@snomiao/say*"
 jobs:
-  build-all:
-    runs-on: ubuntu-latest
+
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [16]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        # uses: actions/checkout@v2
         with:
           fetch-depth: "0" # pulls all history and tags for Lerna to detect what packages changed.
           token: ${{ secrets.GITHUB_TOKEN }} # this token is available by default
-      # [Continuous Integration | pnpm]( https://pnpm.io/continuous-integration )
-      - uses: pnpm/action-setup@v2.0.1
+      # - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
         with:
-          version: 7.0.0-rc.3
+          version: 7
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
           cache: "pnpm"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # set this token manually
+      - name: Install dependencies
+        run: pnpm install
       - name: Configure Git User
         run: |
           git config --global user.email "snomiao@gmail.com"
           git config --global user.name "snomiao-ci@$GITHUB_ACTOR"
-      - run: pnpm install
-      - run: npm run build # will run "lerna run build"
-      - run: npm run test # will run "lerna run build"
+      - run: pnpm build # will run "lerna run build"
+      - run: pnpm test # will run "lerna run build"
 #       # - name: Check if able to publish changesk
 #       #   run: npm whoami # will throw and exit if npm is not ready to publish
 #       - run: git commit -a -m "changes on ci" || echo nothing to commit
