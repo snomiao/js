@@ -27,7 +27,12 @@
     "monopkgs": "monopkgs",
     "publish": "npm run build && lerna publish",
     "test": "lerna run test",
-    "update": "pnpx npm-check -u"
+    "update": "pnpx npm-check -u",
+    "prepare": "husky install"
+  },
+  "lint-staged":{
+    "*.{js,jsx,ts,tsx}": "prettier -w",
+    "*": "echo WARN skipped "
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.39.0",
@@ -44,6 +49,7 @@
     "prettier-plugin-organize-imports": "3.1.1",
     "prettier-plugin-packagejson": "2.3.0",
     "prettier-plugin-tsconfig": "^0.0.1",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "husky": "^8.0.0"
   }
 }
