@@ -25,13 +25,13 @@
     "lerna-publish": "lerna publish",
     "lint": "eslint --fix ./**/*.ts",
     "monopkgs": "monopkgs",
+    "prepare": "husky install",
     "publish": "npm run build && lerna publish",
     "test": "lerna run test",
-    "update": "pnpx npm-check -u",
-    "prepare": "husky install"
+    "update": "pnpx npm-check -u"
   },
-  "lint-staged":{
-    "*.{js,jsx,ts,tsx}": "prettier -w",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": "prettier -w",
     "*": "echo WARN skipped "
   },
   "devDependencies": {
@@ -43,13 +43,13 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "^8.0.0",
     "lerna": "5.6.1",
     "monopkgs": "^1.2.9",
     "prettier": "^2.6.2",
     "prettier-plugin-organize-imports": "3.1.1",
     "prettier-plugin-packagejson": "2.3.0",
     "prettier-plugin-tsconfig": "^0.0.1",
-    "typescript": "4.8.4",
-    "husky": "^8.0.0"
+    "typescript": "4.8.4"
   }
 }
