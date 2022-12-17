@@ -33,8 +33,11 @@
     "update": "pnpx npm-check -u"
   },
   "lint-staged": {
-    "*.{cjs,mjs,js,jsx,ts,tsx}": "eslint --fix",
-    "*.{cjs,mjs,js,jsx,ts,tsx,json}": "prettier -w"
+    "*.{cjs,mjs,js,jsx,ts,tsx}": [
+      "prettier -w",
+      "eslint --fix"
+    ],
+    "*.{json,md}": "prettier -w"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.39.0",
