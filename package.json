@@ -26,7 +26,9 @@
     "lint": "eslint --fix ./**/*.ts",
     "monopkgs": "monopkgs",
     "prepare": "husky install",
+    "prepublish": "repo-maintaince",
     "publish": "npm run build && lerna publish",
+    "repo-maintaince": "pnpm docs && pnpm monopkgs",
     "test": "lerna run test",
     "update": "pnpx npm-check -u"
   },

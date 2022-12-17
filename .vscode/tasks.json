@@ -19,121 +19,161 @@
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for chrome-dev",
-      "options": { "cwd": "packages/chrome-dev" }
+      "options": {
+        "cwd": "packages/chrome-dev"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for junction-move",
-      "options": { "cwd": "packages/junction-move" }
+      "options": {
+        "cwd": "packages/junction-move"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for md-aggregate",
-      "options": { "cwd": "packages/md-aggregate" }
+      "options": {
+        "cwd": "packages/md-aggregate"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for monopkgs",
-      "options": { "cwd": "packages/monopkgs" }
+      "options": {
+        "cwd": "packages/monopkgs"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for my-version",
-      "options": { "cwd": "packages/my-version" }
+      "options": {
+        "cwd": "packages/my-version"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for objtranspose",
-      "options": { "cwd": "packages/objtranspose" }
+      "options": {
+        "cwd": "packages/objtranspose"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for outer-join-by",
-      "options": { "cwd": "packages/outer-join-by" }
+      "options": {
+        "cwd": "packages/outer-join-by"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for piserve",
-      "options": { "cwd": "packages/piserve" }
+      "options": {
+        "cwd": "packages/piserve"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for schcal",
-      "options": { "cwd": "packages/schcal" }
+      "options": {
+        "cwd": "packages/schcal"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for sno-mongo-ku",
-      "options": { "cwd": "packages/sno-mongo-ku" }
+      "options": {
+        "cwd": "packages/sno-mongo-ku"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for sno-utils",
-      "options": { "cwd": "packages/sno-utils" }
+      "options": {
+        "cwd": "packages/sno-utils"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snobuild",
-      "options": { "cwd": "packages/snobuild" }
+      "options": {
+        "cwd": "packages/snobuild"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snoclip",
-      "options": { "cwd": "packages/snoclip" }
+      "options": {
+        "cwd": "packages/snoclip"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snocommit",
-      "options": { "cwd": "packages/snocommit" }
+      "options": {
+        "cwd": "packages/snocommit"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snofa",
-      "options": { "cwd": "packages/snofa" }
+      "options": {
+        "cwd": "packages/snofa"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snogwt",
-      "options": { "cwd": "packages/snogwt" }
+      "options": {
+        "cwd": "packages/snogwt"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snorun",
-      "options": { "cwd": "packages/snorun" }
+      "options": {
+        "cwd": "packages/snorun"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snosay",
-      "options": { "cwd": "packages/snosay" }
+      "options": {
+        "cwd": "packages/snosay"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for snotran",
-      "options": { "cwd": "packages/snotran" }
+      "options": {
+        "cwd": "packages/snotran"
+      }
     },
     {
       "type": "shell",
       "command": "pwd && npm-check || cmd /k npm-check -u",
       "label": "npm-check for top-level-git",
-      "options": { "cwd": "packages/top-level-git" }
+      "options": {
+        "cwd": "packages/top-level-git"
+      }
     },
     {
       "type": "shell",
@@ -166,6 +206,13 @@
         "npm-check for top-level-git",
         "npm-check for js"
       ]
+    },
+    {
+      "type": "npm",
+      "script": "docs",
+      "problemMatcher": [],
+      "label": "npm: docs",
+      "detail": "npm run docs:root && npm run docs:about"
     }
   ]
 }

@@ -151,3 +151,24 @@ You can put _one_ link (for now, support for multiple links in development) of t
 - [手把手教你使用 nodejs 编写 cli(命令行) - 掘金](https://juejin.im/post/6844903702453551111)
 - [PC Automation - IFTTT](https://ifttt.com/applets/190903p-pc-automation)
 - [Monkai - Your Digital Wellbeing Assistant](https://monkai.io/)
+
+## About
+
+### License
+
+GPLv3 - [The GNU General Public License v3.0 - GNU Project - Free Software Foundation](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+### Author
+
+Author: snomiao <snomiao@gmail.com>
+Website: [snomiao.com](https://snomiao.com)
+
+### Sponsors
+
+- None yet.
+
+Claim your sponsorship by donating snomiao <[Email: snomiao@gmail.com](mailto:snomiao@gmail.com)>
+
+### Contribute
+
+The main repo is in [here](https://github.com/snomiao/js#readme), any issue and PR's welcome.

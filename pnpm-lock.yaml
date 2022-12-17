@@ -51,6 +51,14 @@ importers:
     devDependencies:
       snobuild: link:../snobuild
 
+  packages/hotkey-mapper:
+    specifiers:
+      '@types/lodash-es': ^4.17.6
+      lodash-es: ^4.17.21
+    devDependencies:
+      '@types/lodash-es': 4.17.6
+      lodash-es: 4.17.21
+
   packages/jsx-rename:
     specifiers:
       '@types/yargs': ^17.0.10
@@ -5417,7 +5425,6 @@ packages:
 
   /lodash-es/4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
 
   /lodash.ismatch/4.4.0:
     resolution: {integrity: sha512-fPMfXjGQEV9Xsq/8MTSgUf255gawYRbjwMyDbcvDhXgV7enSZA0hynz6vMPnpAb5iONEzBHBPsT+0zes5Z301g==}
