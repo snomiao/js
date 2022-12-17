@@ -1,0 +1,34 @@
+{
+  "name": "hotkey-mapper",
+  "version": "1.0.0",
+  "description": "a simply frontend hotkey-mapper",
+  "keywords": [
+    "shortkey"
+  ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/hotkey-mapper#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+hotkey-mapper"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/hotkey-mapper",
+  "license": "MIT",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "snobuild",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.6",
+    "lodash-es": "^4.17.21"
+  }
+}
