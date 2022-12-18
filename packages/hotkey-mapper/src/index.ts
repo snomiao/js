@@ -1,12 +1,13 @@
-import { mapValues } from "lodash-es";
+import { mapObjIndexed } from "rambda";
+type handler = (e: KeyboardEvent) => void;
 
-export default function hotkeyMapper(mapping: Record<string, () => void>) {
-  const handlers = mapValues(mapping, hotkeyHandler);
-  mapValues(handlers, (handler) => window.addEventListener("keydown", handler));
+export default function hotkeyMapper(mapping: Record<string, handler>) {
+  const handlers = mapObjIndexed(hotkeyHandler, mapping);
+  mapObjIndexed((handler) => window.addEventListener("keydown", handler), handlers);
   return function unload() {
-    return mapValues(handlers, (handler) => window.removeEventListener("keydown", handler));
+    return mapObjIndexed((handler) => window.removeEventListener("keydown", handler), handlers);
   };
-  function hotkeyHandler(fn: () => void, hotkey: string) {
+  function hotkeyHandler(fn: handler, hotkey: string) {
     return (e: KeyboardEvent) => {
       e[`${e.key}Key`] = true;
       const mods = "meta+alt+shift+ctrl";
@@ -21,7 +22,7 @@ export default function hotkeyMapper(mapping: Record<string, () => void>) {
       e.stopPropagation();
       e.preventDefault();
       // console.log(hotkey, 'actived')
-      return fn();
+      return fn(e);
     };
   }
 }
