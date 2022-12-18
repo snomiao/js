@@ -28,8 +28,6 @@
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.6",
-    "lodash-es": "^4.17.21",
     "rambda": "^7.4.0"
   }
 }
