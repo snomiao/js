@@ -55,9 +55,11 @@ importers:
     specifiers:
       '@types/lodash-es': ^4.17.6
       lodash-es: ^4.17.21
+      rambda: ^7.4.0
     devDependencies:
       '@types/lodash-es': 4.17.6
       lodash-es: 4.17.21
+      rambda: 7.4.0
 
   packages/jsx-rename:
     specifiers:
@@ -6724,6 +6726,10 @@ packages:
   /quick-lru/4.0.1:
     resolution: {integrity: sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==}
     engines: {node: '>=8'}
+    dev: true
+
+  /rambda/7.4.0:
+    resolution: {integrity: sha512-A9hihu7dUTLOUCM+I8E61V4kRXnN4DwYeK0DwCBydC1MqNI1PidyAtbtpsJlBBzK4icSctEcCQ1bGcLpBuETUQ==}
     dev: true
 
   /randombytes/2.1.0:
