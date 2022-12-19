@@ -15,11 +15,11 @@
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "scripts": {
-    "_postversion": "npm run docs:root && monopkgs && npm run format && git commit -a -m \"chore: bump version and format\"",
+    "_postversion": "npm run docsgen:root && monopkgs && npm run format && git commit -a -m \"chore: bump version and format\"",
     "build": "lerna run build",
-    "docs": "npm run docs:root && npm run docs:about",
-    "docs:about": "lerna exec -- md-aggregate ./README.md -i ../../ABOUT.md -w",
-    "docs:root": "md-aggregate ./README.md -i ABOUT.md -w",
+    "docsgen": "npm run docsgen:root && npm run docsgen:about",
+    "docsgen:about": "lerna exec -- md-aggregate ./README.md -i ../../ABOUT.md -w",
+    "docsgen:root": "md-aggregate ./README.md -i ABOUT.md -w",
     "format": "prettier -w .",
     "init": "pnpm install && pnpm run build",
     "lerna-publish": "lerna publish",
@@ -28,7 +28,7 @@
     "prepare": "husky install",
     "prepublish": "repo-maintaince",
     "publish": "npm run build && lerna publish",
-    "repo-maintaince": "pnpm docs && pnpm monopkgs",
+    "repo-maintaince": "pnpm docsgen && pnpm monopkgs",
     "test": "lerna run test",
     "update": "pnpx npm-check -u"
   },
@@ -55,6 +55,7 @@
     "prettier-plugin-organize-imports": "3.1.1",
     "prettier-plugin-packagejson": "2.3.0",
     "prettier-plugin-tsconfig": "^0.0.1",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "vitest": "^0.25.8"
   }
 }

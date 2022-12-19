@@ -9,7 +9,8 @@ import readFileUtf8 from "read-file-utf8";
  * await snohmr<typeof import("./consoleLog")>("src/consoleLog.ts", async (m) => {
  *   m.default("hello, world") //prints hello, world to stdout
  *   m.error("hello, world") //prints hello, world in stderr
- *   return true // return truthy to stop watch and return this value as final value, falsy to continue.
+ *   return true
+ *   // return truthy to stop watch and return this value as final value, falsy to continue.
  * });
  * // src/consoleLog.ts
  * export default function consoleLog(...args: any[]){
@@ -44,7 +45,7 @@ export default async function snohmr<hmrModule extends any>(
       const srcp = path.parse(src);
       const cachefile = resolve(`${srcp.dir}/${srcp.name}-${t}.${srcp.ext}`);
       await writeFile(cachefile, code);
-      const url = String(new URL("file://" + cachefile));
+      const url = String(new URL(`file://${cachefile}`));
       const m = await import(url).catch(console.error).finally(async () => await unlink(cachefile));
       return m;
     } catch (e) {

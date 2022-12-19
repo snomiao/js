@@ -1,4 +1,5 @@
 import { deepStrictEqual } from "assert";
+import { it } from "vitest";
 import outerJoinBy from ".";
 it("join by name", () => {
   const subscribers = [

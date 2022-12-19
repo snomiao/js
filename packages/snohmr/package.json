@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/node": "18.11.7",
+    "pkg-dir": "^7.0.0",
     "snobuild": "^3.2.11",
     "vitest": "^0.24.3"
   }
