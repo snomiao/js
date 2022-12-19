@@ -1,0 +1,36 @@
+{
+  "name": "random-choose",
+  "version": "1.0.0",
+  "description": "random-choose a item in Array or Object",
+  "keywords": [
+    "random",
+    "pick",
+    "choice"
+  ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/random-choice#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+random-choice"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/random-choice",
+  "license": "MIT",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "snobuild",
+    "prepack": "npm run build",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^0.25.8"
+  }
+}
