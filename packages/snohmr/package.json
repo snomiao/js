@@ -1,6 +1,6 @@
 {
   "name": "snohmr",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "🔥 Hot Module Replacement for Node.{js,mjs,ts} in ESM",
   "keywords": [
     "node",
@@ -34,12 +34,12 @@
     "postversion": "npm publish"
   },
   "dependencies": {
-    "read-file-utf8": "^2.0.4"
+    "globby": "^13.1.1"
   },
   "devDependencies": {
     "@types/node": "18.11.7",
-    "globby": "^13.1.1",
     "pkg-dir": "^7.0.0",
+    "read-file-utf8": "^2.0.4",
     "snobuild": "^3.2.11",
     "vitest": "^0.24.3"
   }
