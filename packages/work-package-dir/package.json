@@ -1,10 +1,19 @@
 {
   "name": "work-package-dir",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "author": "",
+  "description": "cd into package.json directory",
+  "keywords": [
+    "package",
+    "dir",
+    "cwd"
+  ],
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/work-package-dir#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+work-package-dir"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/work-package-dir",
+  "license": "MIT",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
     "require": "./dist/index.cjs",

@@ -1,5 +1,7 @@
 # work-package-dir
 
+cd into package.json directory
+
 ## Usage
 
 Assume you have files as ...
@@ -22,15 +24,19 @@ then there the script should be
 ```typescript
 // myscript.tsx
 
-process.cwd(); // = /root/pkg/src/tools/
+process.cwd();
+// = /root/pkg/src/tools/
 
-// await read("data/my.csv") // ❌
+// await read("data/my.csv")
+// ❌
 
 await workPackageDir();
 
-process.cwd(); // = /root/pkg/
+process.cwd();
+// = /root/pkg/
 
-await read("data/my.csv"); // ✅
+await read("data/my.csv");
+// ✅
 ```
 
 ## About
