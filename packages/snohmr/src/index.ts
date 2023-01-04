@@ -1,56 +1,119 @@
-import { FileChangeInfo, unlink, watch, writeFile } from "fs/promises";
-import path, { resolve } from "path";
+import { unlink, watch, writeFile } from "fs/promises";
+import { globby } from "globby";
+import path from "path";
+import { packageDirectory } from "pkg-dir";
 import readFileUtf8 from "read-file-utf8";
-
 /**
+ * SNOHMR-2
+ * @author snomiao <snomiao@gmail.com>
+ * @param importer
  * @example
- * // src/test.ts
- * import snohmr from 'snohmr'
- * await snohmr<typeof import("./consoleLog")>("src/consoleLog.ts", async (m) => {
- *   m.default("hello, world") //prints hello, world to stdout
- *   m.error("hello, world") //prints hello, world in stderr
- *   return true
- *   // return truthy to stop watch and return this value as final value, falsy to continue.
- * });
- * // src/consoleLog.ts
- * export default function consoleLog(...args: any[]){
- *    console.log(...args)
+ *
+ * // index.ts
+ * const data = await load(); // "...."
+ * for await (const { default: parse } of snohmr(() => import("./parse"))) {
+ *   await parse(data).catch(console.error);
+ *
+ * // parse.ts
+ * export default function parse(data: string){
+ *   console.log(data)
+ *   return data
  * }
  */
-export default async function snohmr<hmrModule extends any>(
-  src: string,
-  onReload: (M: hmrModule, event?: FileChangeInfo<string>) => Promise<any> | any,
-) {
-  const r = await reload(await loadModule());
-  if (r) return r;
+export default async function* snohmr<Mod>(importer: () => Promise<Mod>): AsyncGenerator<Mod> {
+  const importerFile = importerFileLookup();
+  const importPath = importPathParse(importer);
+  const entry = await entryResolve(importPath, importerFile);
+  yield await moduleLoad(entry);
+  for await (const _event of watch(entry)) {
+    try {
+      yield await moduleLoad(entry);
+    } catch (err) {
+      console.warn(``);
+      console.warn(`[SNOHMR] ERROR occurred while loading module ${entry}:`);
+      console.warn(err);
+      console.warn(``);
+    }
+  }
+}
 
-  const watcher = watch(src);
-  for await (const event of watcher) {
-    if (event.eventType !== "change") continue;
-    const r = await reload(await loadModule(), event);
-    if (r) return r;
-  }
-  async function reload(m: hmrModule, event?: FileChangeInfo<string>) {
-    try {
-      if (m) return await onReload(m, event);
-    } catch (e) {
-      console.error(e);
+async function entryResolve(importPath: string, importerFile: string) {
+  console.error({ importPath, importerFile });
+  const importAbsPaths = await (async function () {
+    if (!path.isAbsolute(importPath)) return [path.resolve(path.dirname(importerFile), importPath)];
+    if (importPath.startsWith("/")) {
+      const pkgdir = await packageDirectory();
+      if (!pkgdir) return [path.resolve(importPath)];
+      return [path.resolve(posixPath(pkgdir), importPath.slice(1)), path.resolve(importPath)];
     }
+    return [path.resolve(importPath)];
+  })();
+  const exts = ["tsx", "ts", "mjs", "cjs", "js", "jsx", "json"];
+  const glob = importAbsPaths
+    .map(posixPath)
+    .map((importAbsPath) =>
+      exts.some((ext) => importAbsPath.endsWith(`.${ext}`))
+        ? importAbsPath
+        : `${importAbsPath}.{${exts}}`,
+    );
+  console.log({ glob });
+  const entries = await globby(glob);
+  if (entries.length === 0) throw new Error(`No entries was found by ${glob}`);
+  if (entries.length > 1) throw new Error("More than 1 entries was found.");
+  const entry = entries[0];
+  return entry;
+}
+
+function posixPath(path: string): string {
+  return path.replace(/\\/g, "/");
+}
+
+async function moduleLoad(entry: string) {
+  const snapshotEntry = await entrySnapshot(entry);
+  const importUrl = new URL(`file:///${snapshotEntry}`).toString();
+  const m = await import(importUrl).finally(() => unlink(snapshotEntry));
+  return m;
+}
+
+async function entrySnapshot(entry: string) {
+  // console.log(entry);
+  const e = path.parse(entry);
+  const snapshotEntryPath = `${e.dir}/${e.name}-${+new Date()}${e.ext}`;
+  const snapshotEntry = path.resolve(snapshotEntryPath);
+  const code = await readFileUtf8(entry);
+  if (!code) throw new Error("Empty entry code");
+  await writeFile(snapshotEntry, code);
+  return snapshotEntry;
+}
+
+function importPathParse(importer: () => Promise<any>): string {
+  const importerExpression = importer.toString();
+  // console.log({ importerExpression });
+  const importPath =
+    // importerExpression.match(/__vite_ssr_dynamic_import__\("\/(.*?)"\s*?\)/m)?.[1] ||
+    importerExpression.match(/import[_a-zA-Z0-9]*?\(\s*?['"](.*?)['"]\s*?\)/m)?.[1];
+  if (!importPath)
+    throw new Error(
+      `Check your importer function, ` +
+        `it should be like "() => import('...path...')", ` +
+        `and dont use variable inside. ` +
+        `just got ${importerExpression} here.`,
+    );
+  return importPath;
+}
+
+function importerFileLookup() {
+  const stack = new Error("").stack;
+  if (!stack) throw new Error("Check your compiler with Error stack");
+  const [_error, _importerFileLookup, _snohmr, _snohmr_next, importerPos, ..._rest] =
+    stack?.split(/\r?\n/);
+  const importerFilePath =
+    importerPos?.match(/at .*?\((.*?)(?::\d+)*?\)$/)?.[1] ||
+    importerPos?.match(/at (.*?)(?::\d+)*?$/)?.[1];
+  if (!importerFilePath) {
+    throw new Error(`Importer not found from ${importerPos} in calling stack: \n${stack}`);
   }
-  async function loadModule() {
-    try {
-      const t = +new Date();
-      const code = await readFileUtf8(src);
-      if (!code) return undefined;
-      const srcp = path.parse(src);
-      const cachefile = resolve(`${srcp.dir}/${srcp.name}-${t}.${srcp.ext}`);
-      await writeFile(cachefile, code);
-      const url = String(new URL(`file://${cachefile}`));
-      const m = await import(url).catch(console.error).finally(async () => await unlink(cachefile));
-      return m;
-    } catch (e) {
-      console.error(e);
-      return undefined;
-    }
-  }
+  const importerFile = path.resolve(importerFilePath);
+  // console.log({ importerFile });
+  return importerFile;
 }

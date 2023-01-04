@@ -1,39 +1,54 @@
 # snohmr
 
-🔥 Hot Module Replacement for Node.{js,mjs,ts} in ESM
-
-## Why?
+## 🔥 Hot Module Replacement for Node.{js,mjs,ts} in ESM
 
 - Native ESModule Support compared to node-hmr
 - TypeScript friendly
 
-## Example
+## Install
 
-```ts
-// src/test.ts
-import snohmr from "snohmr";
+```bash
+npm i -D snohmr
+pnpm i -D snohmr
+```
 
-await snohmr<typeof import("./consoleLog")>("src/consoleLog.ts", async (m) => {
-  m.default("hello, world"); //prints hello, world to stdout
-  return true; // return truthy to stop watch and return this value as final value
-  // or
-  return undefined; // return falsy to continue watch
-}); // return true
+## Examples
 
-// src/consoleLog.ts
-export default function consoleLog(...args: any[]) {
-  // try modify this file
-  console.log(...args);
+The file needs to be HMR debugging
+
+```typescript
+// parse.ts
+export default function parse(data: string) {
+  console.log(data);
+  return JSON.parse(data);
 }
 ```
 
-## TODO
+And the data loader is calling `parse.ts` by snohmr.
 
-add more tests.
+```typescript
+// index.ts
+import snohmr from "snohmr";
+
+// load data
+const data = await load();
+// = '{"....": "...."}'
+
+// parse as normal dynamic import
+const module = await import("./parse");
+module.default(data).then(console.log);
+// = {"....": "...."}
+
+// parse with SNOHMR
+for await (const { default: parse } of snohmr(() => import("./parse")))
+  await parse(data).then(console.log).catch(console.error);
+// = {"....": "...."}
+```
 
 ## Reference
 
-- [node-hmr - npm]( https://www.npmjs.com/package/node-hmr )
+- [node-hmr - npm](https://www.npmjs.com/package/node-hmr)
+
 ## About
 
 ### License
