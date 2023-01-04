@@ -34,12 +34,12 @@
     "postversion": "npm publish"
   },
   "dependencies": {
-    "globby": "^13.1.1"
+    "globby": "^13.1.1",
+    "read-file-utf8": "^2.0.4"
   },
   "devDependencies": {
     "@types/node": "18.11.7",
     "pkg-dir": "^7.0.0",
-    "read-file-utf8": "^2.0.4",
     "snobuild": "^3.2.11",
     "vitest": "^0.24.3"
   }
