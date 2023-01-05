@@ -20,10 +20,13 @@ import readFileUtf8 from "read-file-utf8";
  *   return data
  * }
  */
-export default async function* snohmr<Mod>(importer: () => Promise<Mod>): AsyncGenerator<Mod> {
-  const importerFile = importerFileLookup();
+export default async function* snohmr<Mod>(
+  importer: () => Promise<Mod>,
+  fromDir?: string,
+): AsyncGenerator<Mod> {
+  const importerDir = importerDirLookup();
   const importPath = importPathParse(importer);
-  const entry = await entryResolve(importPath, importerFile);
+  const entry = await entryResolve(importPath, fromDir || importerDir);
   yield await moduleLoad(entry);
   for await (const _event of watch(entry)) {
     try {
@@ -37,10 +40,26 @@ export default async function* snohmr<Mod>(importer: () => Promise<Mod>): AsyncG
   }
 }
 
-async function entryResolve(importPath: string, importerFile: string) {
-  console.error({ importPath, importerFile });
+function importerDirLookup() {
+  const stack = new Error("").stack;
+  if (!stack) throw new Error("Check your compiler with Error stack");
+  const [_error, _importerFileLookup, _snohmr, _snohmr_next, importerPos, ..._rest] =
+    stack?.split(/\r?\n/);
+  const importerFilePath =
+    importerPos?.match(/at .*?\((.*?)(?::\d+)*?\)$/)?.[1] ||
+    importerPos?.match(/at (.*?)(?::\d+)*?$/)?.[1];
+  if (!importerFilePath) {
+    throw new Error(`Importer not found from ${importerPos} in calling stack: \n${stack}`);
+  }
+  const importerFile = path.resolve(importerFilePath);
+  const importerDir = path.dirname(importerFile);
+  return importerDir;
+}
+
+async function entryResolve(importPath: string, importerDir: string) {
+  console.error({ importPath, importerDir });
   const importAbsPaths = await (async function () {
-    if (!path.isAbsolute(importPath)) return [path.resolve(path.dirname(importerFile), importPath)];
+    if (!path.isAbsolute(importPath)) return [path.resolve(importerDir, importPath)];
     if (importPath.startsWith("/")) {
       const pkgdir = await packageDirectory();
       if (!pkgdir) return [path.resolve(importPath)];
@@ -100,20 +119,4 @@ function importPathParse(importer: () => Promise<any>): string {
         `just got ${importerExpression} here.`,
     );
   return importPath;
-}
-
-function importerFileLookup() {
-  const stack = new Error("").stack;
-  if (!stack) throw new Error("Check your compiler with Error stack");
-  const [_error, _importerFileLookup, _snohmr, _snohmr_next, importerPos, ..._rest] =
-    stack?.split(/\r?\n/);
-  const importerFilePath =
-    importerPos?.match(/at .*?\((.*?)(?::\d+)*?\)$/)?.[1] ||
-    importerPos?.match(/at (.*?)(?::\d+)*?$/)?.[1];
-  if (!importerFilePath) {
-    throw new Error(`Importer not found from ${importerPos} in calling stack: \n${stack}`);
-  }
-  const importerFile = path.resolve(importerFilePath);
-  // console.log({ importerFile });
-  return importerFile;
 }

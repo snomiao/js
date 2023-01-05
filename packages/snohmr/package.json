@@ -35,12 +35,15 @@
   },
   "dependencies": {
     "globby": "^13.1.1",
-    "read-file-utf8": "^2.0.4"
+    "read-file-utf8": "^2.0.4",
+    "tsx": "3.12.1"
   },
   "devDependencies": {
     "@types/node": "18.11.7",
+    "@types/yargs": "^17.0.19",
     "pkg-dir": "^7.0.0",
     "snobuild": "^3.2.11",
-    "vitest": "^0.24.3"
+    "vitest": "^0.24.3",
+    "yargs": "^17.6.2"
   }
 }
