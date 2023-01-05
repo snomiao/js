@@ -6,20 +6,17 @@ on:
   #   tags:
   #     - "@snomiao/say*"
 jobs:
-
   build:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        # uses: actions/checkout@v2
         with:
           fetch-depth: "0" # pulls all history and tags for Lerna to detect what packages changed.
-          token: ${{ secrets.GITHUB_TOKEN }} # this token is available by default
-      # - uses: actions/checkout@v3
+          token: ${{ secrets.GITHUB_TOKEN }} # this token is available by defaulHK
       - uses: pnpm/action-setup@v2
         with:
           version: 7
