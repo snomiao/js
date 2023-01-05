@@ -57,7 +57,7 @@ function importerDirLookup() {
 }
 
 async function entryResolve(importPath: string, importerDir: string) {
-  console.error({ importPath, importerDir });
+  // console.error({ importPath, importerDir });
   const importAbsPaths = await (async function () {
     if (!path.isAbsolute(importPath)) return [path.resolve(importerDir, importPath)];
     if (importPath.startsWith("/")) {
@@ -75,7 +75,7 @@ async function entryResolve(importPath: string, importerDir: string) {
         ? importAbsPath
         : `${importAbsPath}.{${exts}}`,
     );
-  console.log({ glob });
+  // console.log({ glob });
   const entries = await globby(glob);
   if (entries.length === 0) throw new Error(`No entries was found by ${glob}`);
   if (entries.length > 1) throw new Error("More than 1 entries was found.");
