@@ -1,9 +1,11 @@
-# snohmr
+# SNOHMR-2
 
 ## 🔥 Hot Module Replacement for Node.{js,mjs,ts} in ESM
 
-- Native ESModule Support compared to node-hmr
-- TypeScript friendly
+- TypeScript support
+- Watch latest changes
+- Native ESModule support (compared to node-hmr)
+- Boost your Node.TS development with just ONE line of for-await-of
 
 ## Install
 
@@ -14,10 +16,42 @@ pnpm i -D snohmr
 
 ## Examples
 
+### 🔥 HMR in same file ♾
+
+Running a module from an cli or somewhere else, and the file need to be debugging is ....
+
+```typescript
+// /src/demo/self.ts
+import snohmr from "../index";
+
+export default async function main() {
+  await new Promise(() => setTimeout(r, 1000)); // so heavy data loader
+  const str = '["JSON"]';
+  // SNOHMR magic incantation applied!
+  for await (const module of snohmr(() => import("./self"))) {
+    // const module is always latest version
+    const { myparse } = module;
+    // print latest myparse result immediately while you change this file,
+    console.log({ parsedObject: myparse(str) });
+    // = { parsedObject: ["JSON"] }
+  }
+}
+export function myparse(input: string) {
+  console.log({ input });
+  return JSON.parse(input);
+}
+export function mystringify(input: any) {
+  console.log({ input });
+  return JSON.stringify(input);
+}
+```
+
+### 🔥 HMR parse.ts from an loader 🔬
+
 The file needs to be HMR debugging
 
 ```typescript
-// parse.ts
+// /parse.ts
 export default function parse(data: string) {
   console.log(data);
   return JSON.parse(data);
@@ -27,27 +61,30 @@ export default function parse(data: string) {
 And the data loader is calling `parse.ts` by snohmr.
 
 ```typescript
-// index.ts
+// /cli.ts
 import snohmr from "snohmr";
 
 // load data
-const data = await load();
-// = '{"....": "...."}'
+const data = await load(); // heavy function
 
-// parse as normal dynamic import
-const module = await import("./parse");
-module.default(data).then(console.log);
-// = {"....": "...."}
+// if this is your original way to call parse function from dynamic import
+{
+  const { default: parse } = await import("./parse");
+  await parse(data).then(console.log);
+}
+```
 
-// parse with SNOHMR
-for await (const { default: parse } of snohmr(() => import("./parse")))
-  await parse(data).then(console.log).catch(console.error);
-// = {"....": "...."}
+```typescript
+// and then simpliy replace it with below then enjoy parse with SNOHMR
+{
+  for await (const { default: parse } of snohmr(() => import("./parse")))
+    await parse(data).then(console.log).catch(console.error);
+}
 ```
 
 ## Reference
 
-- [node-hmr - npm](https://www.npmjs.com/package/node-hmr)
+- This package is inspired from [node-hmr - npm](https://www.npmjs.com/package/node-hmr)
 
 ## About
 
