@@ -32,6 +32,7 @@ export default async function* snohmr<Mod>(
     try {
       yield await moduleLoad(entry);
     } catch (err) {
+      if (err.message === "EMPTY FILE") continue;
       console.warn(``);
       console.warn(`[SNOHMR] ERROR occurred while loading module ${entry}:`);
       console.warn(err);
@@ -95,12 +96,11 @@ async function moduleLoad(entry: string) {
 }
 
 async function entrySnapshot(entry: string) {
-  // console.log(entry);
   const e = path.parse(entry);
   const snapshotEntryPath = `${e.dir}/${e.name}-${+new Date()}${e.ext}`;
   const snapshotEntry = path.resolve(snapshotEntryPath);
   const code = await readFileUtf8(entry);
-  if (!code) throw new Error("Empty entry code");
+  if (!code) throw new Error("EMPTY FILE");
   await writeFile(snapshotEntry, code);
   return snapshotEntry;
 }
