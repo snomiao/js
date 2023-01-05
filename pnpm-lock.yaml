@@ -55,12 +55,8 @@ importers:
 
   packages/hotkey-mapper:
     specifiers:
-      '@types/lodash-es': ^4.17.6
-      lodash-es: ^4.17.21
       rambda: ^7.4.0
     devDependencies:
-      '@types/lodash-es': 4.17.6
-      lodash-es: 4.17.21
       rambda: 7.4.0
 
   packages/jsx-rename:
@@ -364,15 +360,17 @@ importers:
   packages/snohmr:
     specifiers:
       '@types/node': 18.11.7
+      globby: ^13.1.1
       pkg-dir: ^7.0.0
       read-file-utf8: ^2.0.4
       snobuild: ^3.2.11
       vitest: ^0.24.3
     dependencies:
-      read-file-utf8: 2.0.4
+      globby: 13.1.2
     devDependencies:
       '@types/node': 18.11.7
       pkg-dir: 7.0.0
+      read-file-utf8: 2.0.4
       snobuild: link:../snobuild
       vitest: 0.24.3
 
@@ -422,6 +420,14 @@ importers:
     devDependencies:
       '@types/node': 18.8.3
       snobuild: link:../snobuild
+
+  packages/work-package-dir:
+    specifiers:
+      '@types/node': ^18.11.18
+      pkg-dir: ^7.0.0
+    devDependencies:
+      '@types/node': 18.11.18
+      pkg-dir: 7.0.0
 
 packages:
 
@@ -1938,6 +1944,10 @@ packages:
 
   /@types/mocha/10.0.0:
     resolution: {integrity: sha512-rADY+HtTOA52l9VZWtgQfn4p+UDVM2eDVkMZT1I6syp0YKxW2F9v+0pbRZLsvskhQv/vMb6ZfCay81GHbz5SHg==}
+    dev: true
+
+  /@types/node/18.11.18:
+    resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: true
 
   /@types/node/18.11.7:
@@ -5472,6 +5482,7 @@ packages:
 
   /lodash-es/4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
 
   /lodash.ismatch/4.4.0:
     resolution: {integrity: sha512-fPMfXjGQEV9Xsq/8MTSgUf255gawYRbjwMyDbcvDhXgV7enSZA0hynz6vMPnpAb5iONEzBHBPsT+0zes5Z301g==}
@@ -6815,7 +6826,7 @@ packages:
 
   /read-file-utf8/2.0.4:
     resolution: {integrity: sha512-353Fw/FW5eT3y9E1nG5Z5VTvFVwb+Wf8nsuOnK0/F6ymXvEJhDRZzKsprn2viHt40m+SUhun4yhUytiu5AmFUA==}
-    dev: false
+    dev: true
 
   /read-package-json-fast/2.0.3:
     resolution: {integrity: sha512-W/BKtbL+dUjTuRL2vziuYhp76s5HZ9qQhd/dKfWIZveD0O40453QNyZhC0e63lqZrAQ4jiOapVoeJ7JrszenQQ==}
