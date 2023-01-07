@@ -16,20 +16,20 @@
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
-    "require": "./lib/index.cjs",
-    "import": "./lib/index.js"
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
   },
-  "main": "lib/index.cjs",
-  "module": "lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "chrome-dev": "lib/cli.js"
+    "chrome-dev": "dist/cli.js"
   },
   "directories": {
-    "lib": "lib"
+    "dist": "dist"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "build": "snobuild",
@@ -42,7 +42,7 @@
     "yargs": "17.6.0"
   },
   "devDependencies": {
-    "snobuild": "^3.2.0"
+    "snobuild": "^3.2.11"
   },
   "publishConfig": {
     "access": "public"
