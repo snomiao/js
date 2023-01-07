@@ -1,38 +1,45 @@
 name: build-all
 
 on:
+  pull_request:
+    types: [opened, reopened]
   push:
-  # push:
-  #   tags:
-  #     - "@snomiao/say*"
+    branches:
+      - main
 jobs:
-  build:
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        node-version: [18]
+  setup:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: "0" # pulls all history and tags for Lerna to detect what packages changed.
           token: ${{ secrets.GITHUB_TOKEN }} # this token is available by defaulHK
       - uses: pnpm/action-setup@v2
         with:
           version: 7
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
           cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install
+      - run: pnpm install
+  build:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - run: pnpm build # will run "lerna run build"
+      - run: pnpm test # will run "lerna run build"
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Configure Git User
         run: |
           git config --global user.email "snomiao@gmail.com"
           git config --global user.name "snomiao-ci@$GITHUB_ACTOR"
-      - run: pnpm build # will run "lerna run build"
-      - run: pnpm test # will run "lerna run build"
+      - name: Publish
+        run: yarn lerna publish from-git --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #       # - name: Check if able to publish changesk
 #       #   run: npm whoami # will throw and exit if npm is not ready to publish
 #       - run: git commit -a -m "changes on ci" || echo nothing to commit
