@@ -9,7 +9,7 @@ export default function hotkeyMapper(mapping: Record<string, handler>) {
   };
   function hotkeyHandler(fn: handler, hotkey: string) {
     return (e: KeyboardEvent) => {
-      e[`${e.code.replace(/^Key/,"").toLowerCase()}Key`] = true;
+      e[`${e.code.replace(/^Key/, "").toLowerCase()}Key`] = true;
       const mods = "meta+alt+shift+ctrl";
       const conds = `${mods}+${hotkey.toLowerCase()}`
         .replace(/win|command|search/, "meta")
