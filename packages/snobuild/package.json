@@ -31,7 +31,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "npx snobuild@3.2.11",
+    "build": "npx snobuild@3.2.10",
     "prepack": "npm run build && npm run test",
     "test": "dist/cli.mjs --verbose && dist/cli.mjs --verbose",
     "postversion": "npm publish"
