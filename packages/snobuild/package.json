@@ -31,10 +31,9 @@
     "dist"
   ],
   "scripts": {
-    "boot3": "npx snobuild@3.2.11 && npm link",
-    "build": "npm run boot3",
+    "build": "npx snobuild@3.2.11",
     "prepack": "npm run build && npm run test",
-    "test": "snobuild --verbose && snobuild --verbose",
+    "test": "npx snobuild --verbose && npx snobuild --verbose",
     "postversion": "npm publish"
   },
   "dependencies": {
