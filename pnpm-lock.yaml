@@ -435,9 +435,11 @@ importers:
     specifiers:
       '@types/node': ^18.11.18
       pkg-dir: ^7.0.0
+      snobuild: ^3.2.11
     devDependencies:
       '@types/node': 18.11.18
       pkg-dir: 7.0.0
+      snobuild: link:../snobuild
 
 packages:
 
