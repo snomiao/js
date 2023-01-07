@@ -1,6 +1,6 @@
 {
   "name": "junction-move",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "Move a folder to new location and make a Juction link to new location. Only works with windows yet. ",
   "keywords": [
     "junction",
