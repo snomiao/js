@@ -28,6 +28,7 @@
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "rambda": "^7.4.0"
+    "rambda": "^7.4.0",
+    "snobuild": "^3.2.11"
   }
 }

@@ -31,6 +31,7 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "snobuild": "^3.2.11",
     "vitest": "^0.25.8"
   }
 }

@@ -56,8 +56,10 @@ importers:
   packages/hotkey-mapper:
     specifiers:
       rambda: ^7.4.0
+      snobuild: workspace:^3.2.11
     devDependencies:
       rambda: 7.4.0
+      snobuild: link:../snobuild
 
   packages/jsx-rename:
     specifiers:
@@ -192,8 +194,10 @@ importers:
 
   packages/random-choice:
     specifiers:
+      snobuild: workspace:^3.2.11
       vitest: ^0.25.8
     devDependencies:
+      snobuild: link:../snobuild
       vitest: 0.25.8
 
   packages/schcal:
