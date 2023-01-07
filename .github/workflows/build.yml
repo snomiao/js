@@ -43,10 +43,7 @@ jobs:
         run: pnpm install
       - run: pnpm build # will run "lerna run build"
       - run: pnpm test # will run "lerna run build"
-  publish:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+      # publish
       - name: Configure Git User
         run: |
           git config --global user.email "snomiao@gmail.com"
