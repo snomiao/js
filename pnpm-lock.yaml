@@ -56,7 +56,7 @@ importers:
   packages/hotkey-mapper:
     specifiers:
       rambda: ^7.4.0
-      snobuild: workspace:^3.2.11
+      snobuild: ^3.2.11
     devDependencies:
       rambda: 7.4.0
       snobuild: link:../snobuild
@@ -194,7 +194,7 @@ importers:
 
   packages/random-choice:
     specifiers:
-      snobuild: workspace:^3.2.11
+      snobuild: ^3.2.11
       vitest: ^0.25.8
     devDependencies:
       snobuild: link:../snobuild
