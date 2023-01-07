@@ -42,7 +42,7 @@ jobs:
       # install
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm build # will run "lerna run build"
+      # - run: pnpm build # will run "lerna run build"
       - run: pnpm test # will run "lerna run build"
       # publish
       - name: Configure Git User
