@@ -1,7 +1,7 @@
 {
   "name": "snotran",
   "version": "1.1.2",
-  "description": "",
+  "description": "simple wrapper for google-translate-api-browser",
   "keywords": [
     "translate"
   ],

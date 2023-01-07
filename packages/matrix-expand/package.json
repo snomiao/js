@@ -1,7 +1,7 @@
 {
   "name": "matrix-expand",
   "version": "1.0.1",
-  "description": "",
+  "description": "Expand map of arrays to matrix (array of maps).",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/matrix-expand#readme",
   "bugs": {

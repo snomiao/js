@@ -1,12 +1,14 @@
 # Matrix Expand
 
+Expand map of arrays to matrix (array of maps).
+
 ## Example
 
 ```typescript
 import matrixExpand from "matrix-expand";
 const matrix = {
   minify: [false, true],
-  format: ["esm", "cjs"] ,
+  format: ["esm", "cjs"],
   entryName: ["cli", "index", null].filter(Boolean),
 };
 const expanded = matrixExpand(matrix);
