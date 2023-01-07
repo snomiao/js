@@ -365,6 +365,7 @@ importers:
     specifiers:
       '@types/node': 18.11.7
       '@types/yargs': ^17.0.19
+      es-main: ^1.2.0
       globby: ^13.1.1
       pkg-dir: ^7.0.0
       read-file-utf8: ^2.0.4
@@ -379,6 +380,7 @@ importers:
     devDependencies:
       '@types/node': 18.11.7
       '@types/yargs': 17.0.19
+      es-main: 1.2.0
       pkg-dir: 7.0.0
       snobuild: link:../snobuild
       vitest: 0.24.3
@@ -3643,6 +3645,10 @@ packages:
       string.prototype.trimend: 1.0.5
       string.prototype.trimstart: 1.0.5
       unbox-primitive: 1.0.2
+
+  /es-main/1.2.0:
+    resolution: {integrity: sha512-A4tCSY43O/mH4rHjG1n0mI4DhK2BmKDr8Lk8PXK/GBB6zxGFGmIW4bbkbTQ2Gi9iNamMZ9vbGrwjZOIeiM7vMw==}
+    dev: true
 
   /es-shim-unscopables/1.0.0:
     resolution: {integrity: sha512-Jm6GPcCdC30eMLbZ2x8z2WuRwAws3zTBBKuusffYVUrNj/GVSUAZ+xKMaUpfNDR5IbyNA5LJbaecoUVbmUcB1w==}

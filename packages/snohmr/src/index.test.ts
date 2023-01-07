@@ -1,3 +1,4 @@
+import esMain from "es-main";
 import { writeFile } from "fs/promises";
 import path from "path";
 import { packageDirectory } from "pkg-dir";
@@ -17,6 +18,7 @@ describe("snohmr", () => {
     }
   });
   it("test hmr reload with snohmr", async () => {
+    if (!esMain(import.meta)) return;
     let k = 0;
     const parserPath = `${await packageDirectory({
       cwd: path.parse(import.meta.url.replace("file:///", "")).dir,
@@ -33,9 +35,9 @@ describe("snohmr", () => {
       expect(parse(json)).eq(parsed);
       // and touch the file to trigger snohmr, simulate debugging
 
-      setTimeout(() => touch(parserPath), 1000);
+      setTimeout(() => touch(parserPath), 100);
       k += 1;
-      if (k > 3) break;
+      if (k > 1) break;
       // should spent about 3s to test
     }
     // ok

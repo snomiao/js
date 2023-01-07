@@ -29,7 +29,7 @@
     "prepublish": "repo-maintaince",
     "publish": "npm run build && lerna publish",
     "repo-maintaince": "pnpm docsgen && pnpm monopkgs",
-    "test": "lerna run test",
+    "test": "vitest",
     "update": "pnpx npm-check -u"
   },
   "lint-staged": {
