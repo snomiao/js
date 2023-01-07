@@ -50,10 +50,12 @@ jobs:
           git config --global user.name "snomiao-ci@$GITHUB_ACTOR"
       - name: Check if able to publish changesk
         run: npm whoami # will throw and exit if npm is not ready to publish
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish
         run: lerna publish --yes
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Publish
       #   run: lerna publish from-git --yes
       #   env:
