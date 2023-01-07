@@ -7,25 +7,39 @@ on:
     branches:
       - main
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
     steps:
+      # checkout
       - uses: actions/checkout@v3
         with:
           fetch-depth: "0" # pulls all history and tags for Lerna to detect what packages changed.
           token: ${{ secrets.GITHUB_TOKEN }} # this token is available by defaulHK
+      # [pnpm/action-setup: Install pnpm package manager]( https://github.com/pnpm/action-setup )
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
         with:
           version: 7
-      - uses: actions/setup-node@v3
+          run_install: false
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
         with:
-          node-version: 18
-          cache: "pnpm"
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      # install
       - run: pnpm install
-  build:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - run: pnpm build # will run "lerna run build"
       - run: pnpm test # will run "lerna run build"
   publish:
