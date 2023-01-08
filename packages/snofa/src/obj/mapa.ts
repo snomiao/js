@@ -6,34 +6,14 @@ type MapaObjectIter<O extends Record<PropertyKey, any>, R> = (
   obj: O,
 ) => Awaitable<R>;
 export default mapa;
-/**
- * @examples TODO
- * TODO: iter objects
- * TODO: test data
- */
 export function mapa<O extends any[], R>(fn: MapaArrayIter<O, R>, a: Awaitable<O[]>): Promise<R[]>;
-/**
- * @examples TODO
- * TODO: iter objects
- * TODO: test data
- */
 export function mapa<I extends any[], R>(
   fn: MapaArrayIter<I, R>,
 ): (a: Awaitable<I[]>) => Promise<R[]>;
-/**
- * @examples TODO
- * TODO: iter objects
- * TODO: test data
- */
 export function mapa<O extends Object[], R>(
   fn: MapaObjectIter<O, R>,
   a: Awaitable<O[]>,
 ): Promise<R[]>;
-/**
- * @examples TODO
- * TODO: iter objects
- * TODO: test data
- */
 export function mapa<O extends Object[], R>(
   fn: MapaObjectIter<O, R>,
 ): (a: Awaitable<O[]>) => Promise<R[]>;
