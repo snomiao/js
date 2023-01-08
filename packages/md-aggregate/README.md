@@ -95,6 +95,17 @@ The main repo is in [here](https://github.com/snomiao/js#readme), any issue and 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [2.2.0](https://github.com/snomiao/js/compare/md-aggregate@2.1.15...md-aggregate@2.2.0) (2023-01-08)
+
+#### Bug Fixes
+
+- **md-aggregate:** prepublishOnly ([c93d0a8](https://github.com/snomiao/js/commit/c93d0a8e28eec408c056cb8dbaa467cf5a295fe0))
+- **package:** prepublishonly ([99dc7e6](https://github.com/snomiao/js/commit/99dc7e6bfa5d49aab9517d26b5257ec33ca2e52b))
+
+#### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ### [2.1.15](https://github.com/snomiao/js/compare/md-aggregate@2.1.14...md-aggregate@2.1.15) (2022-09-22)
 
 **Note:** Version bump only for package md-aggregate
