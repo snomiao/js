@@ -1,6 +1,6 @@
 {
   "name": "outer-join-by",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Outer join two arrays of object by a key, and return a correct typed array of objects",
   "keywords": [
     "aoj",

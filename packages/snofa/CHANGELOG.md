@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/snomiao/js/compare/snofa@1.2.0...snofa@1.2.1) (2023-01-08)
+
+### Bug Fixes
+
+- **obj:** remove todo desc ([b514957](https://github.com/snomiao/js/commit/b514957dbd9bd4dd50d47037787688b240e87775))
+- **snofa:** remove mocha ([6849246](https://github.com/snomiao/js/commit/684924624b2c0ddd9a8058943e036cf18b141402))
+
 # [1.2.0](https://github.com/snomiao/js/compare/snofa@1.1.1...snofa@1.2.0) (2023-01-08)
 
 ### Bug Fixes

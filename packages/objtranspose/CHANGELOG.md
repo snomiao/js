@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/snomiao/js/compare/objtranspose@0.4.0...objtranspose@0.4.1) (2023-01-08)
+
+### Bug Fixes
+
+- **objtranspose:** remove mocha ([a293fcf](https://github.com/snomiao/js/commit/a293fcfea72add4624530fc0027d5fed54fa92c7))
+
 # [0.4.0](https://github.com/snomiao/js/compare/objtranspose@0.3.0...objtranspose@0.4.0) (2023-01-08)
 
 ### Bug Fixes

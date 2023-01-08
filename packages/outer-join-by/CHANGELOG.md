@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/snomiao/js/compare/outer-join-by@1.2.0...outer-join-by@1.2.1) (2023-01-08)
+
+### Bug Fixes
+
+- **outer-join-by:** remove mocha ([7f16fd9](https://github.com/snomiao/js/commit/7f16fd9937c962189a5575f75bfcbb1131b4c173))
+
 # [1.2.0](https://github.com/snomiao/js/compare/outer-join-by@1.1.6...outer-join-by@1.2.0) (2023-01-08)
 
 ### Bug Fixes
