@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/snomiao/js/compare/snorun@1.1.17...snorun@1.3.0) (2023-01-08)
+
+### Bug Fixes
+
+- **snorun:** update snobuild ([613edb0](https://github.com/snomiao/js/commit/613edb02d31accf4f848bbdbda1e1cc74d1ac89d))
+
+### Features
+
+- **package:** chalk ([649b647](https://github.com/snomiao/js/commit/649b647cb5288c512c46b219b55b4d4fe132d502))
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.1.17](https://github.com/snomiao/js/compare/snorun@1.1.16...snorun@1.1.17) (2022-09-22)
 
 **Note:** Version bump only for package snorun

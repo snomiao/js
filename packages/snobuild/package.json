@@ -1,6 +1,6 @@
 {
   "name": "snobuild",
-  "version": "3.2.11",
+  "version": "3.3.0",
   "description": "Easy way to use esbuild.",
   "keywords": [
     "cli",

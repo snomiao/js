@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/snomiao/js/compare/snogwt@1.5.10...snogwt@1.6.0) (2023-01-08)
+
+### Bug Fixes
+
+- **snogwt:** use top-level-git ([1f22816](https://github.com/snomiao/js/commit/1f228167ec53278344531f2a76c33d3de63895ee))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.5.10](https://github.com/snomiao/js/compare/snogwt@1.5.9...snogwt@1.5.10) (2022-09-22)
 
 **Note:** Version bump only for package snogwt

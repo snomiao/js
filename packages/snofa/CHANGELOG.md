@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/snomiao/js/compare/snofa@1.1.1...snofa@1.2.0) (2023-01-08)
+
+### Bug Fixes
+
+- **js:** use vitest whole repo ([e1a185b](https://github.com/snomiao/js/commit/e1a185b9ac113a48d7f0e80fdd2b97e4c737ee04))
+- **path:** wip ([67c87b6](https://github.com/snomiao/js/commit/67c87b6a3075f2468482783259b24d17dcab1c5a))
+- **snofa:** disable snof ([4e67cf0](https://github.com/snomiao/js/commit/4e67cf0a08bf5c388c9bf3b4547155a760dec195))
+- **src:** remove snof ([e761c6d](https://github.com/snomiao/js/commit/e761c6d9a2b97233ccb0730e851c73bc9a4d486a))
+- **src:** rename effecta ([bb3294a](https://github.com/snomiao/js/commit/bb3294ae0a941d7d6cb947fbcabe7ed60b221a4b))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.1.1](https://github.com/snomiao/js/compare/snofa@1.1.0...snofa@1.1.1) (2022-09-22)
 
 **Note:** Version bump only for package snofa

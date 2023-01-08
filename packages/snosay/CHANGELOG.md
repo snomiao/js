@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/snomiao/js/compare/snosay@1.2.26...snosay@1.3.0) (2023-01-08)
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.2.26](https://github.com/snomiao/js/compare/snosay@1.2.24...snosay@1.2.26) (2022-09-22)
 
 **Note:** Version bump only for package snosay

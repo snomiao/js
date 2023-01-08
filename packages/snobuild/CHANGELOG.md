@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/snomiao/js/compare/snobuild@2.7.0...snobuild@3.3.0) (2023-01-08)
+
+### Bug Fixes
+
+- **.:** integrate esbuild ([568b327](https://github.com/snomiao/js/commit/568b3271ca85603f3d9431d88c9ef9449a8de7e1))
+- **@:** sort pkg json ([120ddf9](https://github.com/snomiao/js/commit/120ddf906cabc43cb00ea26bdbadef8ba07f30af))
+- **snobuild:** boot3 ([7bbfdf0](https://github.com/snomiao/js/commit/7bbfdf0c64fb4794fc150d6f2a4398b483ae99fa))
+- **snobuild:** boot3 ([e707cf2](https://github.com/snomiao/js/commit/e707cf2194474f41e609bd0c821f380e2ac95e7d))
+- **snobuild:** boot3 ([5e60eb6](https://github.com/snomiao/js/commit/5e60eb645abd1d5034a4cd85408d4c08f40a93d2))
+- **snobuild:** bump ([2511a54](https://github.com/snomiao/js/commit/2511a543ceacf320d6ea320110e47161073cd405))
+- **snobuild:** double build ([9f8d9e5](https://github.com/snomiao/js/commit/9f8d9e57c7f5fdbbff3e7b1d54189b08f77bc3ed))
+- **snobuild:** eof new line ([00bc3ab](https://github.com/snomiao/js/commit/00bc3abe612d8142d580d86e2d29229e2fec73aa))
+- **snobuild:** exclude externals ([0c5c48a](https://github.com/snomiao/js/commit/0c5c48a85ea5e85e62fd0cb2ea3c99ff6edae6d6))
+- **snobuild:** link ([bcfd254](https://github.com/snomiao/js/commit/bcfd254113fb188125a08ae18fcd9f3b1e24267f))
+- **snobuild:** lower version ([6a18d7a](https://github.com/snomiao/js/commit/6a18d7a97b119e71b457185a6e67228fa9c87525))
+- **snobuild:** snorun path ([3fdc1b6](https://github.com/snomiao/js/commit/3fdc1b6e6873449e9da1a3d0cc8ec7ddfa2d91b9))
+- **snobuild:** try use cli.mjs ([bc64262](https://github.com/snomiao/js/commit/bc64262a86d89fca1fd8073798d8812772bc4a1e))
+- **snobuild:** upgrade snobuild version ([97ec823](https://github.com/snomiao/js/commit/97ec82398c7d22bda0f4f136a6b542872e22456b))
+- **snobuild:** version ([3182270](https://github.com/snomiao/js/commit/318227017a953d5365dbfde9641fab0ab793b524))
+- **snobuild:** version ([7052d85](https://github.com/snomiao/js/commit/7052d859050ff3ce3d0d3060d9e05f17628b4f42))
+- **snobuild:** versioning commit ([1686701](https://github.com/snomiao/js/commit/16867019817f4ab8992200ee0bb819c41f61c358))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+- **snobuild:** build matrix ([c930cb4](https://github.com/snomiao/js/commit/c930cb49bb167df3435fcfea851a0a1eac713300))
+- **snobuild:** esbuildOptions ([c10e826](https://github.com/snomiao/js/commit/c10e826687f03a5e452d9c9716bcc108a873d813))
+
 # [2.7.0](https://github.com/snomiao/js/compare/snobuild@2.5.1...snobuild@2.7.0) (2022-09-22)
 
 ### Bug Fixes

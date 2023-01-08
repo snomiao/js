@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/snomiao/js/compare/outer-join-by@1.1.6...outer-join-by@1.2.0) (2023-01-08)
+
+### Bug Fixes
+
+- **js:** use vitest whole repo ([e1a185b](https://github.com/snomiao/js/commit/e1a185b9ac113a48d7f0e80fdd2b97e4c737ee04))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.1.6](https://github.com/snomiao/js/compare/outer-join-by@1.1.4...outer-join-by@1.1.6) (2022-09-22)
 
 **Note:** Version bump only for package outer-join-by

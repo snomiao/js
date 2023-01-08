@@ -1,0 +1,11 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.0.2 (2023-01-08)
+
+### Bug Fixes
+
+- **matrix-expand:** pkginfo ([c1faa83](https://github.com/snomiao/js/commit/c1faa839916064f50adc1fe2a7bd188f7c32a1dc))
+- **matrix-expand:** pkginfo ([ae99d07](https://github.com/snomiao/js/commit/ae99d07b216aedabe23e52bbe525d6ac038400fe))

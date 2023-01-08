@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/snomiao/js/compare/monogpkgs@1.4.3...monogpkgs@1.5.0) (2023-01-08)
+
+### Bug Fixes
+
+- **.:** sort ([2769207](https://github.com/snomiao/js/commit/276920740d7f2c992fe1e7e78df5611d0c13fbc4))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.4.3](https://github.com/snomiao/js/compare/monogpkgs@1.4.1...monogpkgs@1.4.3) (2022-09-22)
 
 **Note:** Version bump only for package monogpkgs

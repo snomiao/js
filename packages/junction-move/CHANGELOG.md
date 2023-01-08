@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/snomiao/js/compare/junction-move@1.2.11...junction-move@1.3.0) (2023-01-08)
+
+### Bug Fixes
+
+- **junction-move:** version ([5038c16](https://github.com/snomiao/js/commit/5038c16b15f446fc43704101c3a9e15c73636bf5))
+- **src:** deter ([be1c9e0](https://github.com/snomiao/js/commit/be1c9e0e332448c9e7ed55069415718de6077c8b))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.2.11](https://github.com/snomiao/js/compare/junction-move@1.2.10...junction-move@1.2.11) (2022-09-22)
 
 **Note:** Version bump only for package junction-move

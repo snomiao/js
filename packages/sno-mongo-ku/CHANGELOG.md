@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/snomiao/js/compare/sno-mongo-ku@2.10.1...sno-mongo-ku@3.2.0) (2023-01-08)
+
+### Bug Fixes
+
+- **package:** missing mongo-uri ([30504ad](https://github.com/snomiao/js/commit/30504ad09cf842cce37da7f0d40761110741cdd5))
+- **package:** patchmany bug :1 ([094ceb6](https://github.com/snomiao/js/commit/094ceb6c50d956058f3153f574d06c5197fd5846))
+- **rename:** diffDate ([be9e1c2](https://github.com/snomiao/js/commit/be9e1c2cc60b19770fecbcf6e740801a375ad60d))
+- **smk:** publish ([59e7bf7](https://github.com/snomiao/js/commit/59e7bf7e6faff74cd43dc1c19a3f5a2552d79e8b))
+- **smk:** snobuild updated ([39bcca4](https://github.com/snomiao/js/commit/39bcca4f8ebbb3cb3137490f068b5089184daf7c))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+- **sno-mongo-ku:** functions extracted ([bb9577a](https://github.com/snomiao/js/commit/bb9577a79206f60ae041a0b56a41d3d270f99537))
+
 ## [2.10.1](https://github.com/snomiao/js/compare/sno-mongo-ku@2.10.0...sno-mongo-ku@2.10.1) (2022-09-22)
 
 **Note:** Version bump only for package sno-mongo-ku

@@ -1,0 +1,14 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.2.0 (2023-01-08)
+
+### Bug Fixes
+
+- **export:** translate ([2549903](https://github.com/snomiao/js/commit/25499034538e3b24fbe08d177d51d824c12a9639))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))

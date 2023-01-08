@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/snomiao/js/compare/objtranspose@0.3.0...objtranspose@0.4.0) (2023-01-08)
+
+### Bug Fixes
+
+- **src:** not empty module ([0661fba](https://github.com/snomiao/js/commit/0661fba1099e7448ad566e91ce05c313cfe5f7ca))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 # [0.3.0](https://github.com/snomiao/js/compare/objtranspose@0.1.4...objtranspose@0.3.0) (2022-09-22)
 
 ### Bug Fixes

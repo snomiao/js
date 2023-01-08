@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/snomiao/js/compare/sno-utils@1.3.31...sno-utils@1.4.0) (2023-01-08)
+
+### Bug Fixes
+
+- **js:** use vitest whole repo ([e1a185b](https://github.com/snomiao/js/commit/e1a185b9ac113a48d7f0e80fdd2b97e4c737ee04))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.3.31](https://github.com/snomiao/js/compare/sno-utils@1.3.29...sno-utils@1.3.31) (2022-09-22)
 
 **Note:** Version bump only for package sno-utils

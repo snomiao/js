@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/snomiao/js/compare/chrome-dev@1.1.13...chrome-dev@1.4.0) (2023-01-08)
+
+### Bug Fixes
+
+- **chrome-dev:** bump ([447b38b](https://github.com/snomiao/js/commit/447b38b8452f6bdf825adaadffe973baffa3ee4d))
+- **chrome-dev:** snobuild ([a714424](https://github.com/snomiao/js/commit/a714424abf2c98b1fbf63679dfbaa2e92e6638b2))
+
+### Features
+
+- **pkg:** snobuild v3 ([611805b](https://github.com/snomiao/js/commit/611805b3bdf18d8fea6ea5bbe15be2fb5808b6e3))
+
 ## [1.1.13](https://github.com/snomiao/js/compare/chrome-dev@1.1.10...chrome-dev@1.1.13) (2022-09-22)
 
 ### Bug Fixes
