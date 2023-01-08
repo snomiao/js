@@ -49,22 +49,7 @@ jobs:
         run: |
           git config --global user.email "snomiao@gmail.com"
           git config --global user.name "snomiao-ci@$GITHUB_ACTOR"
-      - name: Check if able to publish changesk
+      - name: Check if able to publish
         run: npm whoami # will throw and exit if npm is not ready to publish
-        # env:
-        #   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish
         run: lerna publish --yes
-      # - name: Publish
-      #   run: lerna publish from-git --yes
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#       - run: git commit -a -m "changes on ci" || echo nothing to commit
-#       - name: Publish
-#         run: lerna publish --yes --no-verify-access # the flag is needed if NPM_TOKEN is an Automation Token
-#         env:
-#           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # set this token manually
-#       # - run: npm run test # test only works in windows
-#       # - run: npm run publish
-#       #   env:
-#       #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
