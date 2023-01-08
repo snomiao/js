@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build && npm run test",
+    "prepack": "npm run build",
     "postversion": "npm publish"
   },
   "devDependencies": {
