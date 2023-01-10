@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.122](https://github.com/snomiao/js/compare/snogwt@1.6.0...snogwt@1.6.122) (2023-01-11)
+
+**Note:** Version bump only for package snogwt
+
 ## [1.6.121](https://github.com/snomiao/js/compare/snogwt@1.6.0...snogwt@1.6.121) (2023-01-11)
 
 **Note:** Version bump only for package snogwt
