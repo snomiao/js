@@ -1,6 +1,6 @@
 {
   "name": "snotran",
-  "version": "1.2.81",
+  "version": "1.2.82",
   "description": "simple wrapper for google-translate-api-browser",
   "keywords": [
     "translate"
@@ -32,6 +32,6 @@
     "@snomiao/google-translate-api-browser": "^1.2.0"
   },
   "devDependencies": {
-    "snobuild": "^3.3.82"
+    "snobuild": "^3.3.83"
   }
 }
