@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.49](https://github.com/snomiao/js/compare/hotkey-mapper@1.1.0...hotkey-mapper@1.1.49) (2023-01-11)
+
+**Note:** Version bump only for package hotkey-mapper
+
 ## [1.1.48](https://github.com/snomiao/js/compare/hotkey-mapper@1.1.0...hotkey-mapper@1.1.48) (2023-01-11)
 
 **Note:** Version bump only for package hotkey-mapper
