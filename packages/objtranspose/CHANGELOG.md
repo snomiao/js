@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.59](https://github.com/snomiao/js/compare/objtranspose@0.4.1...objtranspose@0.4.59) (2023-01-11)
+
+**Note:** Version bump only for package objtranspose
+
 ## [0.4.58](https://github.com/snomiao/js/compare/objtranspose@0.4.1...objtranspose@0.4.58) (2023-01-11)
 
 **Note:** Version bump only for package objtranspose
