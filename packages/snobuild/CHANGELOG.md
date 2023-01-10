@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.70](https://github.com/snomiao/js/compare/snobuild@3.3.0...snobuild@3.3.70) (2023-01-11)
+
+**Note:** Version bump only for package snobuild
+
 ## [3.3.69](https://github.com/snomiao/js/compare/snobuild@3.3.0...snobuild@3.3.69) (2023-01-11)
 
 **Note:** Version bump only for package snobuild
