@@ -8,13 +8,15 @@ import snorun from "snorun";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import {
-  cleanOldSchtasks,
   generateSchtasksCreationObjects,
-  importNewSchtasks,
+  newSchtasksImport,
+  outdatedSchtasksClean,
   readConfig,
 } from "./index";
-schcal();
-export default async function schcal() {
+
+cli();
+
+async function cli() {
   await snorun(`chcp 65001`);
   // READING PARAMS
   const argv = await // .env()
@@ -41,8 +43,8 @@ export default async function schcal() {
   await snorun(`title SSAC - GENERATING schtasks commands`);
   const schtasksCreationObjects = await generateSchtasksCreationObjects(config);
   await snorun(`title SSAC - CLEANING old schtasks`);
-  await cleanOldSchtasks(config);
+  await outdatedSchtasksClean(config);
   await snorun(`title SSAC - IMPORTING new schtasks`);
-  await importNewSchtasks(schtasksCreationObjects);
+  await newSchtasksImport(schtasksCreationObjects);
   return "done";
 }

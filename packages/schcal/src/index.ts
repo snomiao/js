@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { exec } from "child_process";
 import { csvParseRows } from "d3";
 import escapeFile from "escape-filename";
@@ -12,7 +13,7 @@ import yaml from "yaml";
 import commandWrapperFileCreate from "./commandWrapperFileCreate";
 import icalObjectFetch from "./icalObjectFetch";
 
-export async function importNewSchtasks(schtasksCreationObjects) {
+export async function newSchtasksImport(schtasksCreationObjects) {
   const schtasksCreationCommands = schtasksCreationObjects.map(
     ({ schtasksCommand }) => schtasksCommand,
   );
@@ -24,7 +25,7 @@ export async function importNewSchtasks(schtasksCreationObjects) {
   console.log(`${schtasksCreationCommands.length} sch-tasks added.`);
 }
 
-export async function cleanOldSchtasks(config) {
+export async function outdatedSchtasksClean(config) {
   // await exec('chcp 65001'); // run below command in utf8 encoding
   const csv = csvParseRows(await snorun("schtasks /query /fo csv /nh", { pipe: false }).stdout);
   const ssacTaskNames = csv
@@ -95,7 +96,9 @@ export async function generateSchtasksCreationObjects({
   //   const { ICS_URLS, HTTP_PROXY, CACHE_TIMEOUT, FORWARD_DAYS, SSAC_PREFIX } = config;
   if (!ICS_URLS?.length) {
     console.error(
-      "CONFIG ERROR... ICS_URLS is empty, maybe you should write a config file or put a ics URL as a param...\nMore infomation can be found in https://github.com/snomiao/schtasks-calendar",
+      "CONFIG ERROR... ICS_URLS is empty, " +
+        "maybe you should write a config file or put a ics URL as a param...\n" +
+        "More infomation can be found in https://github.com/snomiao/schtasks-calendar",
     );
     process.exit(1);
   }
@@ -180,7 +183,12 @@ function DateTimeAssembly(date: Date) {
     .toISOString()
     .match(/(....)-(..)-(..)T(..):(..):(..)\.(...)Z/);
 
-  return { D: date.toLocaleDateString(), T: [时, 分, 秒].join(":") };
+  return {
+    D_Locale: date.toLocaleDateString(),
+    T_Locale: date.toLocaleTimeString(),
+    D: [年, 月, 日].join("/"),
+    T: [时, 分, 秒].join(":"),
+  };
 }
 
 async function fetchCalendarsEventsActions(ics_urls, FORWARD_DAYS) {
@@ -284,7 +292,8 @@ function getRangeEvents(
   const recurrencesKeys = Object.keys(_recurrences); // datestr or undefined
   // recurrencesKeys == [ '2020-03-05' ]
   //
-  // First determine a fuzzy range date here, and then filter after calculating the precise beginning and end time
+  // First determine a fuzzy range date here,
+  //  and then filter after calculating the precise beginning and end time
   const dates = [start]
     // join rules dates
     .concat(rrule?.between(new Date(rangeStart), new Date(rangeEnd)) || [])
