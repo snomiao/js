@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.24](https://github.com/snomiao/js/compare/snosay@1.3.0...snosay@1.3.24) (2023-01-11)
+
+**Note:** Version bump only for package snosay
+
 ## [1.3.23](https://github.com/snomiao/js/compare/snosay@1.3.0...snosay@1.3.23) (2023-01-11)
 
 **Note:** Version bump only for package snosay
