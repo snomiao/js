@@ -1,6 +1,6 @@
 {
   "name": "outer-join-by",
-  "version": "1.2.92",
+  "version": "1.2.93",
   "description": "Outer join two arrays of object by a key, and return a correct typed array of objects",
   "keywords": [
     "aoj",
@@ -34,7 +34,7 @@
     "data-forge": "^1.9.5"
   },
   "devDependencies": {
-    "snobuild": "^3.3.92",
+    "snobuild": "^3.3.93",
     "tsx": "3.10.1"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"

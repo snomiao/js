@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.92](https://github.com/snomiao/js/compare/snotran@1.2.0...snotran@1.2.92) (2023-01-11)
+
+**Note:** Version bump only for package snotran
+
 ## [1.2.91](https://github.com/snomiao/js/compare/snotran@1.2.0...snotran@1.2.91) (2023-01-11)
 
 **Note:** Version bump only for package snotran
