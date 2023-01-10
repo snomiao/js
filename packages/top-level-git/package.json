@@ -1,6 +1,6 @@
 {
   "name": "top-level-git",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "A dead simple wrapper of `git rev-parse --show-toplevel`",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/top-level-git#readme",
@@ -32,6 +32,6 @@
   },
   "devDependencies": {
     "@types/node": "18.8.3",
-    "snobuild": "^3.3.29"
+    "snobuild": "^3.3.30"
   }
 }
