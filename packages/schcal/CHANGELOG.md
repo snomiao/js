@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.72](https://github.com/snomiao/js/compare/schcal@2.4.0...schcal@2.4.72) (2023-01-11)
+
+### Bug Fixes
+
+- **schcal:** date format ([81fc3ee](https://github.com/snomiao/js/commit/81fc3ee441e1305eab53d82973300ca2a282586d))
+
 ## [2.4.71](https://github.com/snomiao/js/compare/schcal@2.4.0...schcal@2.4.71) (2023-01-11)
 
 ### Bug Fixes
