@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.101](https://github.com/snomiao/js/compare/top-level-git@1.0.2...top-level-git@1.0.101) (2023-01-11)
+
+**Note:** Version bump only for package top-level-git
+
 ## [1.0.100](https://github.com/snomiao/js/compare/top-level-git@1.0.2...top-level-git@1.0.100) (2023-01-11)
 
 **Note:** Version bump only for package top-level-git
