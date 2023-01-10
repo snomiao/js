@@ -1,6 +1,6 @@
 {
   "name": "monogpkgs",
-  "version": "1.5.30",
+  "version": "1.5.31",
   "description": "mono-pkgs",
   "keywords": [
     "markdown",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/yargs": "17.0.13",
-    "snobuild": "^3.3.31"
+    "snobuild": "^3.3.32"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }
