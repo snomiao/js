@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.6](https://github.com/snomiao/js/compare/junction-move@1.3.0...junction-move@1.3.6) (2023-01-10)
+
+**Note:** Version bump only for package junction-move
+
 ## [1.3.5](https://github.com/snomiao/js/compare/junction-move@1.3.0...junction-move@1.3.5) (2023-01-10)
 
 **Note:** Version bump only for package junction-move
