@@ -1,6 +1,6 @@
 {
   "name": "chrome-dev",
-  "version": "1.4.99",
+  "version": "1.4.100",
   "description": "Launch puppeteer and open your page. npx chrome-dev http://localhost:3000",
   "keywords": [
     "cli",
@@ -42,7 +42,7 @@
     "yargs": "17.6.0"
   },
   "devDependencies": {
-    "snobuild": "^3.3.100"
+    "snobuild": "^3.3.101"
   },
   "publishConfig": {
     "access": "public"
