@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.19](https://github.com/snomiao/js/compare/snohmr@2.1.0...snohmr@2.1.19) (2023-01-11)
+
+**Note:** Version bump only for package snohmr
+
 ## [2.1.18](https://github.com/snomiao/js/compare/snohmr@2.1.0...snohmr@2.1.18) (2023-01-11)
 
 **Note:** Version bump only for package snohmr
