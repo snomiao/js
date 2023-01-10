@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.56](https://github.com/snomiao/js/compare/my-version@1.4.0...my-version@1.4.56) (2023-01-11)
+
+**Note:** Version bump only for package my-version
+
 ## [1.4.55](https://github.com/snomiao/js/compare/my-version@1.4.0...my-version@1.4.55) (2023-01-11)
 
 **Note:** Version bump only for package my-version
