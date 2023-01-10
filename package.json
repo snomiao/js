@@ -1,6 +1,6 @@
 {
   "name": "snocommit",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [
     "cli",
@@ -46,8 +46,8 @@
     "chalk": "^5.1.0",
     "p-map": "^5.5.0",
     "pkg-up": "^4.0.0",
-    "snobuild": "^3.3.3",
-    "snorun": "^1.3.2",
+    "snobuild": "^3.3.4",
+    "snorun": "^1.3.3",
     "tsx": "3.10.1",
     "yargs": "^17.6.0"
   }
