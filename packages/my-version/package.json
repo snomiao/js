@@ -1,6 +1,6 @@
 {
   "name": "my-version",
-  "version": "1.4.56",
+  "version": "1.4.57",
   "description": "Prints my package.json version. depends working dir.",
   "keywords": [
     "cli"
@@ -33,6 +33,6 @@
     "read-pkg-up": "^9.1.0"
   },
   "devDependencies": {
-    "snobuild": "^3.3.57"
+    "snobuild": "^3.3.58"
   }
 }
