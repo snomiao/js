@@ -1,6 +1,6 @@
 {
   "name": "work-package-dir",
-  "version": "1.0.105",
+  "version": "1.0.106",
   "description": "cd into package.json directory",
   "keywords": [
     "package",
@@ -33,6 +33,6 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "pkg-dir": "^7.0.0",
-    "snobuild": "^3.3.105"
+    "snobuild": "^3.3.106"
   }
 }
