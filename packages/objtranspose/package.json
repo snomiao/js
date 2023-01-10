@@ -1,6 +1,6 @@
 {
   "name": "objtranspose",
-  "version": "0.4.96",
+  "version": "0.4.97",
   "description": "",
   "keywords": [
     "array",
@@ -37,7 +37,7 @@
     "postversion": "npm publish"
   },
   "devDependencies": {
-    "snobuild": "^3.3.96",
+    "snobuild": "^3.3.97",
     "tsx": "3.10.1"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
