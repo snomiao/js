@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.125](https://github.com/snomiao/js/compare/snocommit@1.7.99...snocommit@1.7.125) (2023-01-11)
+
+**Note:** Version bump only for package snocommit
+
 ## [1.7.124](https://github.com/snomiao/js/compare/snocommit@1.7.99...snocommit@1.7.124) (2023-01-11)
 
 **Note:** Version bump only for package snocommit
