@@ -1,6 +1,6 @@
 {
   "name": "md-aggregate",
-  "version": "2.2.128",
+  "version": "2.2.129",
   "description": "Aggregate README.md with CHANGELOG.md or whatever",
   "keywords": [
     "markdown",
@@ -44,7 +44,7 @@
     "@types/node": "18.8.3",
     "@types/yargs": "17.0.13",
     "prettier": "^2.6.2",
-    "snobuild": "^3.3.128"
+    "snobuild": "^3.3.129"
   },
   "publishConfig": {
     "access": "public"
