@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.217](https://github.com/snomiao/js/compare/matrix-expand@1.0.99...matrix-expand@1.0.217) (2023-01-11)
+
+**Note:** Version bump only for package matrix-expand
+
 ## [1.0.216](https://github.com/snomiao/js/compare/matrix-expand@1.0.99...matrix-expand@1.0.216) (2023-01-11)
 
 **Note:** Version bump only for package matrix-expand

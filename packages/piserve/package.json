@@ -1,6 +1,6 @@
 {
   "name": "piserve",
-  "version": "1.2.214",
+  "version": "1.2.215",
   "description": "say server",
   "keywords": [
     "cli"
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/yargs": "17.0.13",
-    "snobuild": "^3.3.215",
+    "snobuild": "^3.3.216",
     "tsx": "3.10.1",
     "vitest": "^0.24.3"
   }
