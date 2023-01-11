@@ -1,6 +1,6 @@
 {
   "name": "sno-mongo-ku",
-  "version": "3.2.171",
+  "version": "3.2.172",
   "description": "MongoDB simple wrapper, Provide simple method in chinese to handle the mongodb.",
   "keywords": [
     "mongodb",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@types/node": "18.8.3",
-    "snobuild": "^3.3.172"
+    "snobuild": "^3.3.173"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }
