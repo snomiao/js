@@ -1,28 +1,29 @@
 import { mapObjIndexed } from "rambda";
 type handler = (e: KeyboardEvent) => void;
 
-export default function hotkeyMapper(mapping: Record<string, handler>) {
-  const handlers = mapObjIndexed(hotkeyHandler, mapping);
-  mapObjIndexed((handler) => window.addEventListener("keydown", handler), handlers);
-  return function unload() {
-    return mapObjIndexed((handler) => window.removeEventListener("keydown", handler), handlers);
-  };
-  function hotkeyHandler(fn: handler, hotkey: string) {
-    return (e: KeyboardEvent) => {
-      e[`${e.code.replace(/^Key/, "").toLowerCase()}Key`] = true;
-      const mods = "meta+alt+shift+ctrl";
+export default function hotkeyMapper(mapping: Record<string, handler>, on = "keydown") {
+  const handler = (event: KeyboardEvent) => {
+    const mainKey = `${event.code.replace(/^Key/, "").toLowerCase()}Key`;
+    event[mainKey] = true;
+    const mods = "meta+alt+shift+ctrl";
+    mapObjIndexed((fn: handler, hotkey: string) => {
       const conds = `${mods}+${hotkey.toLowerCase()}`
         .replace(/win|command|search/, "meta")
         .replace(/control/, "ctrl")
         .split("+")
-        .map((k, i) => [k, Boolean(i >= 4) === Boolean(e[`${k}Key`])]);
-      const covered = Object.entries(Object.fromEntries(conds));
-      const matched = covered.every(([keyName, pass]) => pass);
-      if (!matched) return;
-      e.stopPropagation();
-      e.preventDefault();
-      // console.log(hotkey, 'actived')
-      return fn(e);
-    };
-  }
+        .map((k, i) => [k, Boolean(i >= 4) === Boolean(event[`${k}Key`])]);
+      if (!Object.entries(Object.fromEntries(conds)).every(([, ok]) => ok)) return;
+      event.stopPropagation(), event.preventDefault();
+      return fn(event);
+    }, mapping);
+  };
+  window.addEventListener(on, handler);
+  return function unload() {
+    window.removeEventListener(on, handler);
+  };
+}
+export function hotkeyUp(hotkey: string) {
+  return new Promise<void>((r) => {
+    const unload = hotkeyMapper({ [hotkey]: () => r(unload()) }, "keyup");
+  });
 }
