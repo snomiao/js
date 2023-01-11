@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.178](https://github.com/snomiao/js/compare/monogpkgs@1.5.99...monogpkgs@1.5.178) (2023-01-11)
+
+**Note:** Version bump only for package monogpkgs
+
 ## [1.5.177](https://github.com/snomiao/js/compare/monogpkgs@1.5.99...monogpkgs@1.5.177) (2023-01-11)
 
 **Note:** Version bump only for package monogpkgs
