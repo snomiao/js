@@ -213,6 +213,14 @@
       "problemMatcher": [],
       "label": "npm: docs",
       "detail": "npm run docs:root && npm run docs:about"
+    },
+    {
+      "type": "npm",
+      "script": "publish",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: publish",
+      "detail": "lerna publish"
     }
   ]
 }
