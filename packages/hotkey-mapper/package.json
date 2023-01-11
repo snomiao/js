@@ -1,6 +1,6 @@
 {
   "name": "hotkey-mapper",
-  "version": "1.1.137",
+  "version": "1.1.138",
   "description": "a simply frontend hotkey-mapper",
   "keywords": [
     "shortkey"
@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "rambda": "^7.4.0",
-    "snobuild": "^3.3.138"
+    "snobuild": "^3.3.139"
   }
 }
