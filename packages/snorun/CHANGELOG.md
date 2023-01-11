@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.179](https://github.com/snomiao/js/compare/snorun@1.3.99...snorun@1.3.179) (2023-01-11)
+
+**Note:** Version bump only for package snorun
+
 ## [1.3.178](https://github.com/snomiao/js/compare/snorun@1.3.99...snorun@1.3.178) (2023-01-11)
 
 **Note:** Version bump only for package snorun
