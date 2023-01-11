@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.238](https://github.com/snomiao/js/compare/schcal@2.4.99...schcal@2.4.238) (2023-01-11)
+
+**Note:** Version bump only for package schcal
+
 ## [2.4.237](https://github.com/snomiao/js/compare/schcal@2.4.99...schcal@2.4.237) (2023-01-11)
 
 **Note:** Version bump only for package schcal
