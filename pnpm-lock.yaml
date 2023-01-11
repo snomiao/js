@@ -43,7 +43,7 @@ importers:
     specifiers:
       dotenv: 16.0.3
       puppeteer: 18.2.1
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       yargs: 17.6.0
     dependencies:
       dotenv: 16.0.3
@@ -55,7 +55,7 @@ importers:
   packages/hotkey-mapper:
     specifiers:
       rambda: ^7.4.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     devDependencies:
       rambda: 7.4.0
       snobuild: link:../snobuild
@@ -63,8 +63,8 @@ importers:
   packages/junction-move:
     specifiers:
       "@types/yargs": 17.0.13
-      snobuild: ^3.3.154
-      snorun: ^1.3.153
+      snobuild: ^3.3.155
+      snorun: ^1.3.154
       yargs: 17.6.0
     dependencies:
       snorun: link:../snorun
@@ -75,7 +75,7 @@ importers:
 
   packages/matrix-expand:
     specifiers:
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     devDependencies:
       snobuild: link:../snobuild
 
@@ -86,7 +86,7 @@ importers:
       "@types/yargs": 17.0.13
       lodash-es: ^4.17.21
       prettier: ^2.6.2
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       yargs: 17.6.0
     dependencies:
       lodash-es: 4.17.21
@@ -102,7 +102,7 @@ importers:
     specifiers:
       "@types/yargs": 17.0.13
       globby: ^13.1.1
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       sort-package-json: ^2.0.0
       yargs: 17.6.0
     dependencies:
@@ -116,7 +116,7 @@ importers:
   packages/my-version:
     specifiers:
       read-pkg-up: ^9.1.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     dependencies:
       read-pkg-up: 9.1.0
     devDependencies:
@@ -124,7 +124,7 @@ importers:
 
   packages/objtranspose:
     specifiers:
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       tsx: 3.10.1
     devDependencies:
       snobuild: link:../snobuild
@@ -133,7 +133,7 @@ importers:
   packages/outer-join-by:
     specifiers:
       data-forge: ^1.9.5
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       tsx: 3.10.1
     dependencies:
       data-forge: 1.9.6
@@ -148,7 +148,7 @@ importers:
       "@types/yargs": 17.0.13
       body-parser: 1.20.1
       express: 4.18.2
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       tsx: 3.10.1
       vitest: ^0.24.3
       yargs: 17.6.0
@@ -166,7 +166,7 @@ importers:
 
   packages/random-choice:
     specifiers:
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       vitest: ^0.25.8
     devDependencies:
       snobuild: link:../snobuild
@@ -186,9 +186,9 @@ importers:
       ical: ^0.8.0
       node-fetch: ^3.2.6
       sha1: ^1.1.1
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       snofa: 0.5.1
-      snorun: ^1.3.153
+      snorun: ^1.3.154
       tsx: 3.10.1
       tunnel: ^0.0.6
       vitest: ^0.24.3
@@ -221,7 +221,7 @@ importers:
       "@types/node": 18.8.3
       mongodb: 4.10.0
       p-queue: ^7.1.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     dependencies:
       mongodb: 4.10.0
       p-queue: 7.3.0
@@ -232,7 +232,7 @@ importers:
   packages/sno-utils:
     specifiers:
       "@types/node": 18.8.3
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     devDependencies:
       "@types/node": 18.8.3
       snobuild: link:../snobuild
@@ -281,8 +281,8 @@ importers:
       chalk: ^5.1.0
       p-map: ^5.5.0
       pkg-up: ^4.0.0
-      snobuild: ^3.3.154
-      snorun: ^1.3.153
+      snobuild: ^3.3.155
+      snorun: ^1.3.154
       tsx: 3.10.1
       yargs: ^17.6.0
     devDependencies:
@@ -299,7 +299,7 @@ importers:
 
   packages/snofa:
     specifiers:
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       ts-toolbelt: ^9.6.0
     dependencies:
       ts-toolbelt: 9.6.0
@@ -310,9 +310,9 @@ importers:
     specifiers:
       "@types/node": 18.8.3
       "@types/yargs": 17.0.13
-      snobuild: ^3.3.154
-      snorun: ^1.3.153
-      top-level-git: ^1.0.155
+      snobuild: ^3.3.155
+      snorun: ^1.3.154
+      top-level-git: ^1.0.156
       yargs: 17.6.0
     dependencies:
       snorun: link:../snorun
@@ -331,7 +331,7 @@ importers:
       globby: ^13.1.1
       pkg-dir: ^7.0.0
       read-file-utf8: ^2.0.4
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       tsx: 3.12.1
       vitest: ^0.24.3
       yargs: ^17.6.2
@@ -352,7 +352,7 @@ importers:
     specifiers:
       "@types/node": 18.8.3
       chalk: ^5.1.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       vitest: ^0.24.3
     devDependencies:
       "@types/node": 18.8.3
@@ -365,7 +365,7 @@ importers:
       "@types/node": 18.8.3
       "@types/yargs": 17.0.13
       say: ^0.16.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
       yargs: 17.6.0
     dependencies:
       "@types/node": 18.8.3
@@ -378,7 +378,7 @@ importers:
   packages/snotran:
     specifiers:
       "@snomiao/google-translate-api-browser": ^1.2.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     dependencies:
       "@snomiao/google-translate-api-browser": 1.2.0
     devDependencies:
@@ -388,7 +388,7 @@ importers:
     specifiers:
       "@types/node": 18.8.3
       exec-sh: ^0.4.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     dependencies:
       exec-sh: 0.4.0
     devDependencies:
@@ -399,7 +399,7 @@ importers:
     specifiers:
       "@types/node": ^18.11.18
       pkg-dir: ^7.0.0
-      snobuild: ^3.3.154
+      snobuild: ^3.3.155
     devDependencies:
       "@types/node": 18.11.18
       pkg-dir: 7.0.0
