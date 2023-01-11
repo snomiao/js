@@ -1,6 +1,6 @@
 {
   "name": "matrix-expand",
-  "version": "1.0.166",
+  "version": "1.0.167",
   "description": "Expand map of arrays to matrix (array of maps).",
   "keywords": [],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/matrix-expand#readme",
@@ -28,6 +28,6 @@
     "postversion": "npm publish"
   },
   "devDependencies": {
-    "snobuild": "^3.3.165"
+    "snobuild": "^3.3.166"
   }
 }
