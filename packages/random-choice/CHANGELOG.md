@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.163](https://github.com/snomiao/js/compare/random-choose@1.1.99...random-choose@1.1.163) (2023-01-11)
+
+**Note:** Version bump only for package random-choose
+
 ## [1.1.162](https://github.com/snomiao/js/compare/random-choose@1.1.99...random-choose@1.1.162) (2023-01-11)
 
 **Note:** Version bump only for package random-choose
