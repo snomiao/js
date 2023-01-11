@@ -1,6 +1,6 @@
 {
   "name": "snohmr",
-  "version": "2.1.131",
+  "version": "2.1.132",
   "description": "🔥 Hot Module Replacement for Node.{js,mjs,ts} in ESM",
   "keywords": [
     "node",
@@ -43,7 +43,7 @@
     "@types/yargs": "^17.0.19",
     "es-main": "^1.2.0",
     "pkg-dir": "^7.0.0",
-    "snobuild": "^3.3.132",
+    "snobuild": "^3.3.133",
     "vitest": "^0.24.3",
     "yargs": "^17.6.2"
   }
