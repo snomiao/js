@@ -1,6 +1,6 @@
 {
   "name": "sno-utils",
-  "version": "1.4.189",
+  "version": "1.4.190",
   "description": "snoutils - 雪星实用组件库……TS中文函数式编程范式尝试，大部分功能尚在内测中",
   "homepage": "https://github.com/snomiao/js/tree/master/packages/sno-utils#readme",
   "bugs": {
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "18.8.3",
-    "snobuild": "^3.3.190"
+    "snobuild": "^3.3.191"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }
