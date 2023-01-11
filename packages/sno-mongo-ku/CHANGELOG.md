@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.142](https://github.com/snomiao/js/compare/sno-mongo-ku@3.2.99...sno-mongo-ku@3.2.142) (2023-01-11)
+
+**Note:** Version bump only for package sno-mongo-ku
+
 ## [3.2.141](https://github.com/snomiao/js/compare/sno-mongo-ku@3.2.99...sno-mongo-ku@3.2.141) (2023-01-11)
 
 **Note:** Version bump only for package sno-mongo-ku

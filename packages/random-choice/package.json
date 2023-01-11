@@ -1,6 +1,6 @@
 {
   "name": "random-choose",
-  "version": "1.1.141",
+  "version": "1.1.142",
   "description": "random-choose a item in Array or Object",
   "keywords": [
     "random",
@@ -31,7 +31,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "snobuild": "^3.3.142",
+    "snobuild": "^3.3.143",
     "vitest": "^0.25.8"
   }
 }
