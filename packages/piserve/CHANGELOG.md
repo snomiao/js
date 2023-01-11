@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.170](https://github.com/snomiao/js/compare/piserve@1.2.99...piserve@1.2.170) (2023-01-11)
+
+**Note:** Version bump only for package piserve
+
 ## [1.2.169](https://github.com/snomiao/js/compare/piserve@1.2.99...piserve@1.2.169) (2023-01-11)
 
 **Note:** Version bump only for package piserve
