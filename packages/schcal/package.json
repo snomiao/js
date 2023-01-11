@@ -1,6 +1,6 @@
 {
   "name": "schcal",
-  "version": "2.4.152",
+  "version": "2.4.153",
   "description": "schtasks-calendar auto add events to windows schtasks from google calendar",
   "keywords": [
     "schtasks",
@@ -45,9 +45,9 @@
     "ical": "^0.8.0",
     "node-fetch": "^3.2.6",
     "sha1": "^1.1.1",
-    "snobuild": "^3.3.153",
+    "snobuild": "^3.3.154",
     "snofa": "0.5.1",
-    "snorun": "^1.3.152",
+    "snorun": "^1.3.153",
     "tsx": "3.10.1",
     "tunnel": "^0.0.6",
     "vitest": "^0.24.3",
