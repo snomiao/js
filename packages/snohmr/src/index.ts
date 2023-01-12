@@ -96,8 +96,8 @@ async function moduleLoad(entry: string) {
 }
 
 async function entrySnapshot(entry: string) {
-  const e = path.parse(entry);
-  const snapshotEntryPath = `${e.dir}/${e.name}-${+new Date()}${e.ext}`;
+  const { dir, name, ext } = path.parse(entry);
+  const snapshotEntryPath = `${dir}/${name}-${+new Date()}.snohmr${ext}`;
   const snapshotEntry = path.resolve(snapshotEntryPath);
   const code = await readFileUtf8(entry);
   if (!code) throw new Error("EMPTY FILE");
