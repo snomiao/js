@@ -1,6 +1,6 @@
 {
   "name": "snohmr",
-  "version": "2.1.239",
+  "version": "2.2.0",
   "description": "🔥 Hot Module Replacement for Node.{js,mjs,ts} in ESM",
   "keywords": [
     "node",
