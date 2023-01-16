@@ -1,9 +1,12 @@
 {
   "name": "hotkey-mapper",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "a simply frontend hotkey-mapper",
   "keywords": [
-    "shortkey"
+    "shortkey",
+    "hotkey",
+    "addEventListener",
+    "keydown"
   ],
   "homepage": "https://github.com/snomiao/js/tree/master/packages/hotkey-mapper#readme",
   "bugs": {

@@ -1,7 +1,11 @@
 import { mapObjIndexed } from "rambda";
 type handler = (e: KeyboardEvent) => void;
 
-export default function hotkeyMapper(mapping: Record<string, handler>, on = "keydown") {
+export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap>(
+  mapping: Record<string, handler>,
+  on: K = "keydown" as K,
+  options?: boolean | AddEventListenerOptions,
+) {
   const handler = (event: KeyboardEvent) => {
     const mainKey = `${event.code.replace(/^Key/, "").toLowerCase()}Key`;
     event[mainKey] = true;
@@ -17,13 +21,13 @@ export default function hotkeyMapper(mapping: Record<string, handler>, on = "key
       return fn(event);
     }, mapping);
   };
-  window.addEventListener(on, handler);
+  window.addEventListener(on, handler, options);
   return function unload() {
-    window.removeEventListener(on, handler);
+    window.removeEventListener(on, handler, options);
   };
 }
-export function hotkeyUp(hotkey: string) {
+export function hotkeyUp(hotkey: string, options?: boolean | AddEventListenerOptions) {
   return new Promise<void>((r) => {
-    const unload = hotkeyMapper({ [hotkey]: () => r(unload()) }, "keyup");
+    const unload = hotkeyMapper({ [hotkey]: () => r(unload()) }, "keyup", options);
   });
 }
