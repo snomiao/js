@@ -7,8 +7,12 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
   options?: boolean | AddEventListenerOptions,
 ) {
   const handler = (event: KeyboardEvent) => {
-    event[`${event.key.toLowerCase()}Key`] = true;
-    event[`${event.code.toLowerCase()}Key`] = true;
+    const key = event.key.toLowerCase();
+    const code = event.code.toLowerCase();
+    const simp = code.replace(/^(?:Key|Digit|Numpad)/, "");
+    event[`${key}Key`] = true;
+    event[`${code}Key`] = true;
+    event[`${simp}Key`] = true;
     const mods = "meta+alt+shift+ctrl";
     mapObjIndexed((fn: handler, hotkey: string) => {
       const conds = `${mods}+${hotkey.toLowerCase()}`
