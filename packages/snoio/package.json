@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "license": "ISC",
-  "author": "",
+  "homepage": "https://github.com/snomiao/js/tree/master/packages/snoio#readme",
+  "bugs": {
+    "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snoio"
+  },
+  "repository": "https://github.com/snomiao/js/tree/master/packages/snoio",
+  "license": "MIT",
+  "author": "Snowstar Miao <snomiao@gmail.com>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
