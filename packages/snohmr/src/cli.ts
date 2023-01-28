@@ -18,7 +18,7 @@ async function cli() {
 
   const importer = eval(`() => import("${argv.module}")`) as any;
   console.log(String(importer));
-  for await (const m of snohmr(importer, process.cwd())) {
+  for await (const m of snohmr(importer, { cwd: process.cwd() })) {
     console.log("🔥 SNOHMR Loaded");
     await (m as any).default?.(...argv._);
   }

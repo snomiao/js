@@ -1,10 +1,52 @@
+import callerPath from "caller-path";
 import { unlink, watch, writeFile } from "fs/promises";
 import { globby } from "globby";
 import path from "path";
 import { packageDirectory } from "pkg-dir";
 import readFileUtf8 from "read-file-utf8";
+
 /**
- * SNOHMR-2
+ * SNOHMR
+ * @author snomiao <snomiao@gmail.com>
+ *
+ * @example
+ *
+ * ```typescript
+ * // index.ts
+ * const data = await load(); // "...."
+ * for await (const { default: parse } of snohmr(() => import("./parse"))) {
+ *   await parse(data).catch(console.error);
+ *
+ * // parse.ts
+ * export default function parse(data: string){
+ *   console.log(data)
+ *   return data
+ * }
+ * ```
+ */
+export default async function* snohmr<Mod>(
+  importer: () => Promise<Mod>,
+  { cwd, signal }: { cwd?: string; signal?: AbortSignal } = {},
+): AsyncGenerator<Mod> {
+  const importerDir = importerDirLookup();
+  const importPath = importPathParse(importer);
+  const entry = await entryResolve(importPath, cwd ?? importerDir);
+  yield await moduleLoad(entry);
+  for await (const _event of watch(entry, { signal })) {
+    try {
+      yield await moduleLoad(entry);
+    } catch (err) {
+      if (err.message === "EMPTY FILE") continue;
+      console.warn(``);
+      console.warn(`[SNOHMR] ERROR occurred while loading module ${entry}:`);
+      console.warn(err);
+      console.warn(``);
+    }
+  }
+}
+
+/**
+ * SNOHMR-For
  * @author snomiao <snomiao@gmail.com>
  * @param importer
  * @example
@@ -20,43 +62,17 @@ import readFileUtf8 from "read-file-utf8";
  *   return data
  * }
  */
-export default async function* snohmr<Mod>(
+export async function snohmrFor<Mod>(
   importer: () => Promise<Mod>,
-  fromDir?: string,
-): AsyncGenerator<Mod> {
-  const importerDir = importerDirLookup();
-  const importPath = importPathParse(importer);
-  const entry = await entryResolve(importPath, fromDir || importerDir);
-  yield await moduleLoad(entry);
-  for await (const _event of watch(entry)) {
-    try {
-      yield await moduleLoad(entry);
-    } catch (err) {
-      if (err.message === "EMPTY FILE") continue;
-      console.warn(``);
-      console.warn(`[SNOHMR] ERROR occurred while loading module ${entry}:`);
-      console.warn(err);
-      console.warn(``);
-    }
-  }
+  body: (mod: Mod) => Promise<void> | void,
+  { cwd, signal }: { cwd?: string; signal?: AbortSignal } = {},
+) {
+  for await (const m of snohmr(importer, { cwd: cwd ?? importerDirLookup(), signal }))
+    await body(m);
 }
-
 function importerDirLookup() {
-  const stack = new Error("").stack;
-  if (!stack) throw new Error("Check your compiler with Error stack");
-  const [_error, _importerFileLookup, _snohmr, _snohmr_next, importerPos, ..._rest] =
-    stack?.split(/\r?\n/);
-  const importerFilePath =
-    importerPos?.match(/at .*?\((.*?)(?::\d+)*?\)$/)?.[1] ||
-    importerPos?.match(/at (.*?)(?::\d+)*?$/)?.[1];
-  if (!importerFilePath) {
-    throw new Error(`Importer not found from ${importerPos} in calling stack: \n${stack}`);
-  }
-  const importerFile = path.resolve(importerFilePath);
-  const importerDir = path.dirname(importerFile);
-  return importerDir;
+  return path.dirname(path.resolve(callerPath({ depth: 1 })));
 }
-
 async function entryResolve(importPath: string, importerDir: string) {
   // console.error({ importPath, importerDir });
   const importAbsPaths = await (async function () {

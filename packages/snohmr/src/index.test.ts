@@ -43,7 +43,6 @@ describe("snohmr", () => {
     // ok
   });
 });
-
 async function touch(filepath: string) {
   await writeFile(filepath, await readFileUtf8(filepath));
 }

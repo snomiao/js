@@ -32,6 +32,9 @@
     "test": "vitest run",
     "postversion": "npm publish"
   },
+  "dependencies": {
+    "ical": "^0.8.0"
+  },
   "devDependencies": {
     "@types/d3": "^7.4.0",
     "@types/ical": "^0.8.0",
@@ -42,7 +45,6 @@
     "d3": "^7.6.1",
     "dotenv": "16.0.3",
     "escape-filename": "^1.1.2",
-    "ical": "^0.8.0",
     "node-fetch": "^3.2.6",
     "sha1": "^1.1.1",
     "snobuild": "^3.3.240",
