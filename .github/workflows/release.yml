@@ -51,5 +51,6 @@ jobs:
       #   run: npm whoami # will throw and exit if npm is not ready to publish
       - name: Release
         run: pnpm run release
-        enviroments:
+        with:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
