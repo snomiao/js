@@ -10,16 +10,21 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
     const key = event.key.toLowerCase();
     const code = event.code.toLowerCase();
     const simp = code.replace(/^(?:Key|Digit|Numpad)/, "");
-    event[`${key}Key`] = true;
-    event[`${code}Key`] = true;
-    event[`${simp}Key`] = true;
+    const map = new Proxy(event, {
+      get: (target, p: string) =>
+        ({
+          [`${key}Key`]: true,
+          [`${code}Key`]: true,
+          [`${simp}Key`]: true,
+        }[p] ?? target[p]),
+    });
     const mods = "meta+alt+shift+ctrl";
     mapObjIndexed((fn: handler, hotkey: string) => {
       const conds = `${mods}+${hotkey.toLowerCase()}`
         .replace(/win|command|search/, "meta")
         .replace(/control/, "ctrl")
         .split("+")
-        .map((k, i) => [k, Boolean(i >= 4) === Boolean(event[`${k}Key`])]);
+        .map((k, i) => [k, !!(i < 4) === !!map[`${k}Key`]]);
       if (!Object.entries(Object.fromEntries(conds)).every(([, ok]) => ok)) return;
       event.stopPropagation(), event.preventDefault();
       return fn(event);
