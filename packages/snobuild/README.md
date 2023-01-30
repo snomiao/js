@@ -1,6 +1,6 @@
 # snobuild (WIP)
 
-Zero-configured esbuild cli wrapper
+Pre-configured esbuild cli wrapper
 
 ## Usage
 
