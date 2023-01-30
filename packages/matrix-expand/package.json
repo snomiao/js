@@ -27,6 +27,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "snobuild": "^3.3.241"
+    "snobuild": "workspace:^3.3.241"
   }
 }

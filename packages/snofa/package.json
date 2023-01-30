@@ -37,7 +37,7 @@
     "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
-    "snobuild": "^3.3.240"
+    "snobuild": "workspace:^3.3.241"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

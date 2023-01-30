@@ -27,5 +27,8 @@
     "build": "snobuild",
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "snobuild": "workspace:^3.3.241"
   }
 }

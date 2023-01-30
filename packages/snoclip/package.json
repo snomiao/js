@@ -17,6 +17,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
+    "snobuild": "workspace:^3.3.241",
     "tsx": "3.10.1",
     "typescript": "4.8.4"
   }

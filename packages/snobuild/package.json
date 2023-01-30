@@ -47,6 +47,7 @@
     "@types/node": "18.8.3",
     "@types/yargs": "17.0.13",
     "esbuild": "^0.15.9",
+    "snobuild": "workspace:^3.3.241",
     "typescript": "4.8.4"
   }
 }

@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/yargs": "17.0.13",
-    "snobuild": "^3.3.240",
+    "snobuild": "workspace:^3.3.241",
     "tsx": "3.10.1",
     "vitest": "^0.24.3"
   }

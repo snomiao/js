@@ -28,5 +28,8 @@
   },
   "dependencies": {
     "mdict-js": "^10.0.1"
+  },
+  "devDependencies": {
+    "snobuild": "workspace:^3.3.241"
   }
 }
