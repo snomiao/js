@@ -28,8 +28,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build",
-    "postversion": "npm publish"
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "rambda": "^7.4.0",

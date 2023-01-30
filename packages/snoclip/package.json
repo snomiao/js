@@ -11,9 +11,7 @@
   "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
-  "scripts": {
-    "postversion": "npm publish"
-  },
+  "scripts": {},
   "dependencies": {
     "@types/yargs": "^17.0.10",
     "yargs": "^17.5.1"

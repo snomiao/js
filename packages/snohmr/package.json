@@ -30,8 +30,7 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
-    "test": "vitest run",
-    "postversion": "npm publish"
+    "test": "vitest run"
   },
   "dependencies": {
     "globby": "^13.1.1",

@@ -27,8 +27,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build && npm run test",
-    "postversion": "npm publish"
+    "prepack": "npm run build && npm run test"
   },
   "dependencies": {
     "data-forge": "^1.9.5"

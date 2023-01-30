@@ -28,6 +28,5 @@
   },
   "dependencies": {
     "mdict-js": "^10.0.1"
-  },
-  "devDependencies": {}
+  }
 }

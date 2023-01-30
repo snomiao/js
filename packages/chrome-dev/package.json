@@ -33,8 +33,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build",
-    "postversion": "npm publish"
+    "prepack": "npm run build"
   },
   "dependencies": {
     "dotenv": "16.0.3",

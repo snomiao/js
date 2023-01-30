@@ -29,8 +29,7 @@
     "build": "snobuild",
     "prepack": "npm run build",
     "start": "tsx src/cli.ts",
-    "test": "vitest run",
-    "postversion": "npm publish"
+    "test": "vitest run"
   },
   "dependencies": {
     "ical": "^0.8.0"

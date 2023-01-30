@@ -31,8 +31,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build && npm run test",
-    "postversion": "npm publish"
+    "prepack": "npm run build && npm run test"
   },
   "dependencies": {
     "ts-toolbelt": "^9.6.0"

@@ -29,8 +29,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build",
-    "postversion": "npm publish"
+    "prepack": "npm run build"
   },
   "dependencies": {
     "globby": "^13.1.1",

@@ -11,8 +11,7 @@
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
   "scripts": {
-    "prepack": "npm run build",
-    "postversion": "npm publish"
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "@types/node": "18.8.3",

@@ -31,8 +31,7 @@
   "scripts": {
     "build": "snobuild",
     "prepack": "npm run build",
-    "test": "vitest run",
-    "postversion": "npm publish"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@types/node": "18.8.3",

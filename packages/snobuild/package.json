@@ -33,8 +33,7 @@
   "scripts": {
     "build": "npx snobuild@3.2.10 && npm link",
     "prepack": "npm run build && npm run test",
-    "test": "dist/cli.mjs --verbose && dist/cli.mjs --verbose",
-    "postversion": "npm publish"
+    "test": "dist/cli.mjs --verbose && dist/cli.mjs --verbose"
   },
   "dependencies": {
     "esbuild": "^0.15.9",

@@ -26,8 +26,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build",
-    "postversion": "npm publish"
+    "prepack": "npm run build"
   },
   "dependencies": {
     "mongodb": "4.10.0",
