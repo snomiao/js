@@ -6,11 +6,11 @@
     "schtasks",
     "calendar"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/schcal#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+schcal"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/schcal",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",

@@ -11,11 +11,11 @@
     "reduce",
     "filter"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snofa#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snofa"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snofa",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",

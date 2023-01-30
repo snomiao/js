@@ -1,9 +1,7 @@
-import { exec } from "child_process";
 import { readFile, writeFile } from "fs/promises";
 import { globby } from "globby";
-import path, { relative, resolve } from "path";
+import path, { resolve } from "path";
 import sortPackageJson from "sort-package-json";
-import { promisify } from "util";
 
 export default async function monopkgs({} = {}) {
   const rootPkg = resolve("./package.json");
@@ -22,14 +20,15 @@ export default async function monopkgs({} = {}) {
   const pkgs = await globby("packages/**/package.json", { gitignore: true });
 
   // master will redirect to main rather than 404 if main is not existed in github.
-  const currentBranch = (await promisify(exec)("git branch --show-current"))?.stdout.trim();
-  const mainBranchName = currentBranch || "master";
+  // const currentBranch = (await promisify(exec)("git branch --show-current"))?.stdout.trim();
+  // const mainBranchName = currentBranch || "master";
 
   const pkgParse = async (pkgPath) => {
-    const pkgRelDir = relative(rootDir, path.parse(pkgPath).dir).replace(/\\/g, "/");
+    // const pkgRelDir = relative(rootDir, path.parse(pkgPath).dir).replace(/\\/g, "/");
     const pkg = JSON.parse(await readFile(pkgPath, "utf8"));
     const pkgName = pkg.name;
-    // const repository = root_repository && `${root_repository}/tree/${mainBranchName}/${pkgRelDir}`;
+    // const repository = root_repository
+    // && `${root_repository}/tree/${mainBranchName}/${pkgRelDir}`;
     const repository = root_repository && `${root_repository}`;
     const homepage = repository && `${repository}#readme`;
     const bugs = root_repository && {

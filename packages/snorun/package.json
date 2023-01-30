@@ -10,11 +10,11 @@
     "cmd",
     "spawn"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snorun#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snorun"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snorun",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",

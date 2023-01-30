@@ -4,11 +4,11 @@
   "private": "true",
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snoclip#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snoclip"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snoclip",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "scripts": {

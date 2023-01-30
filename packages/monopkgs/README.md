@@ -12,7 +12,7 @@ cd $path_to_your_monorepo_root && npx monopkgs
 
 - [ ] Check worktree clean before run with `git diff --quiet` (you can run manually)
 - [x] Update `packages/**/package.json` from `/package.json`
-  - [x] repository: `${root.repository}/tree/${mainBranchName}/${pkgRelDir}`
+  - [x] repository: `${root.repository}`
   - [x] homepage: `${repository}#readme`
   - [x] bugs search `${repo}/issues?q=is%3Aissue+is%3Aopen+${package_name}`
   - [x] license `${root.license}`

@@ -5,11 +5,11 @@
   "keywords": [
     "cli"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/piserve#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+piserve"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/piserve",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",

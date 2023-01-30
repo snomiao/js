@@ -3,11 +3,11 @@
   "version": "1.0.242",
   "description": "Expand map of arrays to matrix (array of maps).",
   "keywords": [],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/matrix-expand#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+matrix-expand"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/matrix-expand",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",

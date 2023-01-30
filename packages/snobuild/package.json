@@ -6,11 +6,11 @@
     "cli",
     "esbuild"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snobuild#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snobuild"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snobuild",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",

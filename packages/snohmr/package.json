@@ -8,11 +8,11 @@
     "esmodule",
     "ts"
   ],
-  "homepage": "https://github.com/snomiao/js/tree/master/packages/snohmr#readme",
+  "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
     "url": "https://github.com/snomiao/js/issues?q=is%3Aissue+is%3Aopen+snohmr"
   },
-  "repository": "https://github.com/snomiao/js/tree/master/packages/snohmr",
+  "repository": "https://github.com/snomiao/js",
   "license": "MIT",
   "author": "Snowstar Miao <snomiao@gmail.com>",
   "type": "module",
