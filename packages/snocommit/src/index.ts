@@ -37,15 +37,16 @@ export default async function snocommit({ type, scope, desc }: snoCommitOptions)
   // const versioningCmd = await versioningAction(parsedPart, desc);
   // const valid = Boolean(cmdActions[type]);
   // if (valid) {
-  const msg = `${type}${maybeQuoted(parsedPart)}: ${desc}`;
+  const msgtitle = `${type}${maybeQuoted(parsedPart)}: ${desc.slice(0, 35)}`;
+  // const breaking = desc.startsWith('BREAKING CHANGE:')
+  const msgcmd = `-m "${msgtitle}" -m "${desc}"`;
   const gitsync_cmd = `git pull && git push --follow-tags`;
-
   true &&
-    (await snorun(`git add . && git commit -m "${msg}"`)) &&
+    (await snorun(`git add . && git commit ${msgcmd}`)) &&
     // (!versioningCmd
     //   ? true
     //   : (await snorun(versioningCmd)) &&
-    ((await snorun(`(git add . && git commit -m "${msg}")`)) || true) &&
+    ((await snorun(`(git add . && git commit ${msgcmd})`)) || true) &&
     // )
     (await snorun(gitsync_cmd));
   // }
