@@ -1,6 +1,4 @@
 on:
-  pull_request:
-    types: [opened, reopened]
   push:
     branches:
       - main
@@ -8,35 +6,6 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      # # checkout
-      # - uses: actions/checkout@v3
-      #   with:
-      #     fetch-depth: "0" # pulls all history and tags for Lerna to detect what packages changed.
-      #     token: ${{ secrets.GITHUB_TOKEN }} # this token is available by defaulHK
-      # # [pnpm/action-setup: Install pnpm package manager]( https://github.com/pnpm/action-setup )
-      # - name: Install Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     registry-url: https://registry.npmjs.org/
-      #     node-version: 18
-      # - uses: pnpm/action-setup@v2
-      #   name: Install pnpm
-      #   id: pnpm-install
-      #   with:
-      #     version: 7
-      #     run_install: false
-      # - name: Get pnpm store directory
-      #   id: pnpm-cache
-      #   shell: bash
-      #   run: |
-      #     echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      # - uses: actions/cache@v3
-      #   name: Setup pnpm cache
-      #   with:
-      #     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store-
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -50,22 +19,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      # install
-      - name: Install dependencies
-        run: pnpm install
-      # - run: pnpm build # will run "lerna run build"
-      # - run: pnpm test # will run "lerna run build"
-      # publish
-      # - name: Configure Git User
-      #   run: |
-      #     git config --global user.email "snomiao@gmail.com"
-      #     git config --global user.name "snomiao-ci@$GITHUB_ACTOR"
-      # - name: Check if able to publish
-      #   run: npm whoami # will throw and exit if npm is not ready to publish
       - name: Release
         run: pnpm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this token is available by defaulHK
