@@ -28,7 +28,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "snobuild",
+    "build": "npx snobuild",
     "prepack": "npm run build"
   },
   "dependencies": {
@@ -37,8 +37,7 @@
     "yargs": "17.6.0"
   },
   "devDependencies": {
-    "@types/yargs": "17.0.13",
-    "snobuild": "workspace:^3.3.241"
+    "@types/yargs": "17.0.13"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

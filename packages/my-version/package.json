@@ -25,13 +25,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "snobuild",
+    "build": "npx snobuild",
     "prepack": "npm run build"
   },
   "dependencies": {
     "read-pkg-up": "^9.1.0"
   },
   "devDependencies": {
-    "snobuild": "workspace:^3.3.241"
+    "snobuild": "^3.0.0"
   }
 }

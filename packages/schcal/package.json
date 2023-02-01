@@ -26,7 +26,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "snobuild",
+    "build": "npx snobuild",
     "prepack": "npm run build",
     "start": "tsx src/cli.ts",
     "test": "vitest run"

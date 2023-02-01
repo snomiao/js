@@ -21,6 +21,7 @@ importers:
       prettier-plugin-tsconfig: ^0.0.1
       semantic-release: ^20.1.0
       semantic-release-monorepo: ^7.0.5
+      snobuild: ^3.0.0
       typescript: 4.8.4
       vitest: ^0.25.8
     devDependencies:
@@ -41,14 +42,15 @@ importers:
       prettier-plugin-tsconfig: 0.0.1_prettier@2.7.1
       semantic-release: 20.1.0
       semantic-release-monorepo: 7.0.5_semantic-release@20.1.0
+      snobuild: 3.0.0
       typescript: 4.8.4
       vitest: 0.25.8
 
   packages/aswitcher:
     specifiers:
-      snobuild: workspace:^3.3.241
+      snobuild: ^3.0.0
     devDependencies:
-      snobuild: link:../snobuild
+      snobuild: 3.0.0
 
   packages/chrome-dev:
     specifiers:
@@ -122,7 +124,6 @@ importers:
     specifiers:
       '@types/yargs': 17.0.13
       globby: ^13.1.1
-      snobuild: workspace:^3.3.241
       sort-package-json: ^2.0.0
       yargs: 17.6.0
     dependencies:
@@ -131,7 +132,6 @@ importers:
       yargs: 17.6.0
     devDependencies:
       '@types/yargs': 17.0.13
-      snobuild: link:../snobuild
 
   packages/my-version:
     specifiers:
@@ -153,12 +153,10 @@ importers:
   packages/outer-join-by:
     specifiers:
       data-forge: ^1.9.5
-      snobuild: workspace:^3.3.241
       tsx: 3.10.1
     dependencies:
       data-forge: 1.9.6
     devDependencies:
-      snobuild: link:../snobuild
       tsx: 3.10.1
 
   packages/piserve:
@@ -308,7 +306,7 @@ importers:
       chalk: ^5.1.0
       p-map: ^5.5.0
       pkg-up: ^4.0.0
-      snobuild: workspace:^3.3.241
+      snobuild: ^3.0.0
       snorun: ^1.3.239
       tsx: 3.10.1
       yargs: ^17.6.0
@@ -319,7 +317,7 @@ importers:
       chalk: 5.1.0
       p-map: 5.5.0
       pkg-up: 4.0.0
-      snobuild: link:../snobuild
+      snobuild: 3.0.0
       snorun: link:../snorun
       tsx: 3.10.1
       yargs: 17.6.0
@@ -3654,7 +3652,6 @@ packages:
   /detect-indent/7.0.1:
     resolution: {integrity: sha512-Mc7QhQ8s+cLrnUfU/Ji94vG/r8M26m8f++vyres4ZoojaRDpZ1eSIh/EpzLNwlWuvzSZ3UbDFspjFvTDXe6e/g==}
     engines: {node: '>=12.20'}
-    dev: false
 
   /detect-newline/3.1.0:
     resolution: {integrity: sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==}
@@ -3664,7 +3661,6 @@ packages:
   /detect-newline/4.0.0:
     resolution: {integrity: sha512-1aXUEPdfGdzVPFpzGJJNgq9o81bGg1s09uxTWsqBlo9PI332uyJRQq13+LK/UN4JfxJbFdCXonUFQ9R/p7yCtw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dev: false
 
   /detect-node/2.1.0:
     resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
@@ -4857,7 +4853,6 @@ packages:
 
   /git-hooks-list/3.0.0:
     resolution: {integrity: sha512-XDfdemBGJIMAsHHOONHQxEH5dX2kCpE6MGZ1IsNvBuDPBZM3p4EAwAC7ygMjn/1/x+BJX0TK1ara1Zrh7JCFdQ==}
-    dev: false
 
   /git-log-parser/1.2.0:
     resolution: {integrity: sha512-rnCVNfkTL8tdNryFuaY0fYiBWEBcgF748O6ZI61rslBvr2o7U65c2/6npCRqH40vuAhtgtDiqLTJjBVdrejCzA==}
@@ -5005,7 +5000,6 @@ packages:
       ignore: 5.2.0
       merge2: 1.4.1
       slash: 4.0.0
-    dev: false
 
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
@@ -5447,7 +5441,6 @@ packages:
   /is-plain-obj/4.1.0:
     resolution: {integrity: sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==}
     engines: {node: '>=12'}
-    dev: false
 
   /is-plain-object/2.0.4:
     resolution: {integrity: sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==}
@@ -5980,7 +5973,6 @@ packages:
 
   /matrix-expand/1.0.0:
     resolution: {integrity: sha512-0tXyAei07v78FY154pwIQRWwLhytZGz2Lx2vs23ebpQU7Bn+yECfFXbHD5XEdgCOliqE/hygneCmDHODE65vaw==}
-    dev: false
 
   /mdict-js/10.0.1:
     resolution: {integrity: sha512-WfltwJ+H2pe7Hl1NGBVUE5LRZGtq2MtzNWin1cfiSGgPu/tLz+f9K6iVIrHk34RfPcIKLBNiF6bzJZ3LGmB7zg==}
@@ -6654,7 +6646,7 @@ packages:
       tsconfig-paths: 3.14.1
       tslib: 2.4.0
       v8-compile-cache: 2.3.0
-      yargs: 17.6.0
+      yargs: 17.6.2
       yargs-parser: 21.0.1
     transitivePeerDependencies:
       - debug
@@ -7924,11 +7916,22 @@ packages:
   /slash/4.0.0:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
-    dev: false
 
   /smart-buffer/4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
+
+  /snobuild/3.0.0:
+    resolution: {integrity: sha512-Sbq4D3CSxjxM5lTxete1aNz3wZFqAq0lFzGOPTUw0QqUSLAHWWjTBnpRIw0ydIDgFoq2geD1Qjr6uZITBBW6MQ==}
+    hasBin: true
+    dependencies:
+      esbuild: 0.15.10
+      globby: 13.1.2
+      matrix-expand: 1.0.0
+      snorun: 1.1.17
+      sort-package-json: 2.0.0
+      yargs: 17.6.2
+    dev: true
 
   /snofa/0.5.1:
     resolution: {integrity: sha512-/sumaM4J7kz7LbykNGH7lv/nftQETwxCQMKqonaR+EqAKk1MQJA9X0XAUvxMrP4nNHblpRq51LtRLj2DY0xNkw==}
@@ -7936,7 +7939,6 @@ packages:
 
   /snorun/1.1.17:
     resolution: {integrity: sha512-VnW6Hz9Yd0ZC9X17+VFYLO8tA7cE2JF3PZt0iU+ry7Ja+7tWZGJvJgq7/VeZ/xgIjjuxIY6QR2gbV7A5KRLIZQ==}
-    dev: false
 
   /socks-proxy-agent/7.0.0:
     resolution: {integrity: sha512-Fgl0YPZ902wEsAyiQ+idGd1A7rSFx/ayC1CQVMw5P+EQx2V0SgpGtf6OKFhVjPflPUl9YMmEOnmfjCdMUsygww==}
@@ -7995,7 +7997,6 @@ packages:
       globby: 13.1.2
       is-plain-obj: 4.1.0
       sort-object-keys: 1.1.3
-    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}

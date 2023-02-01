@@ -28,7 +28,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "snobuild",
+    "build": "npx snobuild",
     "prepack": "npm run build"
   },
   "dependencies": {
