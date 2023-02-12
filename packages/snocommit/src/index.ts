@@ -38,8 +38,8 @@ export default async function snocommit({ type, scope, desc }: snoCommitOptions)
   // const valid = Boolean(cmdActions[type]);
   // if (valid) {
   const msgtitle = `${type}${maybeQuoted(parsedPart)}: ${desc.slice(0, 35)}`;
-  // const breaking = desc.startsWith('BREAKING CHANGE:')
-  const msgcmd = `-m "${msgtitle}" -m "${desc}"`;
+  const desc2 = ((msgtitle.startsWith("!") && "BREAKING CHANGE:") || "") + desc;
+  const msgcmd = `-m "${msgtitle}" -m "${desc2}"`;
   const gitsync_cmd = `git pull && git push --follow-tags`;
   true &&
     (await snorun(`git add . && git commit ${msgcmd}`)) &&
