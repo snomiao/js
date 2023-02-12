@@ -1,7 +1,7 @@
 import callerPath from "caller-path";
 import { unlink, watch, writeFile } from "fs/promises";
 import { globby } from "globby";
-import {resolve, parse, dirname, isAbsolute} from "path";
+import { dirname, isAbsolute, parse, resolve } from "path";
 import { packageDirectory } from "pkg-dir";
 import readFileUtf8 from "read-file-utf8";
 
@@ -70,9 +70,10 @@ export async function snohmrFor<Mod>(
   for await (const m of snohmr(importer, { cwd: cwd ?? importerDirLookup(), signal }))
     await body(m);
 }
+``;
 function importerDirLookup() {
-  const caller = callerPath({ depth: 1 }) 
-  if(!caller ) throw new Error('no caller path is found: ' + new Error().stack) 
+  const caller = callerPath({ depth: 1 });
+  if (!caller) throw new Error(`no caller path is found: ${new Error().stack}`);
   return dirname(resolve(caller));
 }
 async function entryResolve(importPath: string, importerDir: string) {
