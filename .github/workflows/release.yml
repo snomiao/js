@@ -18,8 +18,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - name: Release
-        run: pnpm run release
+      - run: pnpm build
+      - run: pnpm release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
