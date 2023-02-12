@@ -31,6 +31,5 @@
     "@snomiao/google-translate-api-browser": "^1.2.0"
   },
   "devDependencies": {
-    "snobuild": "workspace:^3.3.241"
   }
 }

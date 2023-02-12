@@ -31,7 +31,6 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "snobuild": "workspace:^3.3.241",
     "vitest": "^0.25.8"
   }
 }

@@ -36,7 +36,6 @@
   "devDependencies": {
     "@types/node": "18.8.3",
     "chalk": "^5.1.0",
-    "snobuild": "workspace:^3.3.241",
     "vitest": "^0.24.3"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"

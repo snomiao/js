@@ -30,7 +30,6 @@
     "exec-sh": "^0.4.0"
   },
   "devDependencies": {
-    "@types/node": "18.8.3",
-    "snobuild": "workspace:^3.3.241"
+    "@types/node": "18.8.3"
   }
 }

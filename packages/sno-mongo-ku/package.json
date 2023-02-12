@@ -33,8 +33,7 @@
     "p-queue": "^7.1.0"
   },
   "devDependencies": {
-    "@types/node": "18.8.3",
-    "snobuild": "workspace:^3.3.241"
+    "@types/node": "18.8.3"
   },
   "gitHead": "ca1c2db9974aa48a03d7695327ba73367192028c"
 }

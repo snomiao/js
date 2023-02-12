@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
-    "pkg-dir": "^7.0.0",
-    "snobuild": "workspace:^3.3.241"
+    "pkg-dir": "^7.0.0"
   }
 }

@@ -37,7 +37,6 @@
     "yargs": "17.6.0"
   },
   "devDependencies": {
-    "@types/yargs": "17.0.13",
-    "snobuild": "workspace:^3.3.241"
+    "@types/yargs": "17.0.13"
   }
 }
