@@ -1,6 +1,7 @@
 import { parse } from "path";
 import { pkgUp } from "pkg-up";
 
+// const stopwords = ['src'] as const
 export default async function scopeParse(scope: string) {
   const partRule = {
     "@": async () => await cwdPkgNameGet(),
