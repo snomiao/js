@@ -1,7 +1,7 @@
 import callerPath from "caller-path";
 import { unlink, watch, writeFile } from "fs/promises";
 import { globby } from "globby";
-import path from "path";
+import {resolve, parse, dirname, isAbsolute} from "path";
 import { packageDirectory } from "pkg-dir";
 import readFileUtf8 from "read-file-utf8";
 
@@ -71,18 +71,20 @@ export async function snohmrFor<Mod>(
     await body(m);
 }
 function importerDirLookup() {
-  return path.dirname(path.resolve(callerPath({ depth: 1 })));
+  const caller = callerPath({ depth: 1 }) 
+  if(!caller ) throw new Error('no caller path is found: ' + new Error().stack) 
+  return dirname(resolve(caller));
 }
 async function entryResolve(importPath: string, importerDir: string) {
   // console.error({ importPath, importerDir });
   const importAbsPaths = await (async function () {
-    if (!path.isAbsolute(importPath)) return [path.resolve(importerDir, importPath)];
+    if (!isAbsolute(importPath)) return [resolve(importerDir, importPath)];
     if (importPath.startsWith("/")) {
       const pkgdir = await packageDirectory();
-      if (!pkgdir) return [path.resolve(importPath)];
-      return [path.resolve(posixPath(pkgdir), importPath.slice(1)), path.resolve(importPath)];
+      if (!pkgdir) return [resolve(importPath)];
+      return [resolve(posixPath(pkgdir), importPath.slice(1)), resolve(importPath)];
     }
-    return [path.resolve(importPath)];
+    return [resolve(importPath)];
   })();
   const exts = ["tsx", "ts", "mjs", "cjs", "js", "jsx", "json"];
   const glob = importAbsPaths
@@ -112,9 +114,9 @@ async function moduleLoad(entry: string) {
 }
 
 async function entrySnapshot(entry: string) {
-  const { dir, name, ext } = path.parse(entry);
+  const { dir, name, ext } = parse(entry);
   const snapshotEntryPath = `${dir}/${name}-${+new Date()}.snohmr${ext}`;
-  const snapshotEntry = path.resolve(snapshotEntryPath);
+  const snapshotEntry = resolve(snapshotEntryPath);
   const code = await readFileUtf8(entry);
   if (!code) throw new Error("EMPTY FILE");
   await writeFile(snapshotEntry, code);

@@ -43,7 +43,6 @@
     "caller-path": "^4.0.0",
     "es-main": "^1.2.0",
     "pkg-dir": "^7.0.0",
-    "snobuild": "workspace:^3.3.241",
     "vitest": "^0.24.3",
     "yargs": "^17.6.2"
   }
