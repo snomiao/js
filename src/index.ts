@@ -30,21 +30,20 @@ type snoCommitOptions = {
 };
 export default async function snocommit({ type, scope, desc }: snoCommitOptions) {
   if (!desc) throw new Error("missing desc");
-  
-  // in future: 
+
+  // in future:
   //    scope:
   //      * commit everything
   //      . commit current folder
   //      .. commit parent folder
   //      @ commit current package
   //      filename (commit single file)
-  //      folder_name (commit folder) 
+  //      folder_name (commit folder)
   //      folder/name (commit sub folder)
   // desc:
   //      ! -- BREAKING CHANGE
   //      ? -- WIP
-  //      
-
+  //
 
   const parsedPart = await scopeParse(scope);
   // const versioningAction = cmdActions[type];
