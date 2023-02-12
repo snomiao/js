@@ -30,6 +30,5 @@
   "dependencies": {
     "@snomiao/google-translate-api-browser": "^1.2.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
