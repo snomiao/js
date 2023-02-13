@@ -33,7 +33,7 @@ export default async function snocommit({ type, scope, desc }: snoCommitOptions)
 
   // in future:
   //    scope:
-  //      * commit everything
+  //      * commit everything in current repo
   //      . commit current folder
   //      .. commit parent folder
   //      @ commit current package
