@@ -4,7 +4,8 @@
   "description": "A Simple way to commit changes in current folder.",
   "keywords": [
     "cli",
-    "git","commit"
+    "git",
+    "commit"
   ],
   "homepage": "https://github.com/snomiao/js#readme",
   "bugs": {
