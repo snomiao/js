@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 import { exec } from "child_process";
 import { csvParseRows } from "d3";
-import escapeFile from "escape-filename";
 import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import { CalendarComponent } from "ical";
+import sanitize from "sanitize-filename-truncate";
 import sha1 from "sha1";
 import { snof } from "snofa";
 import snorun from "snorun";
@@ -27,7 +27,7 @@ export async function newSchtasksImport(
   console.log(`${schtasksCreationCommands.length} sch-tasks added.`);
 }
 
-export async function outdatedSchtasksClean(config) {
+export async function outdatedSchtasksClean(config: Awaited<ReturnType<typeof readConfig>>) {
   // await exec('chcp 65001'); // run below command in utf8 encoding
   const csv = csvParseRows(await snorun("schtasks /query /fo csv /nh", { pipe: false }).stdout);
   const ssacTaskNames = csv
@@ -65,16 +65,16 @@ export async function readConfig(argv: {
       .filter(existsSync)
       .map(async (configPath) => yaml.parse(await readFile(configPath, "utf-8"))),
   );
-  const configFromYAMLs = configYAMLs.reduce((a, b) => ({ ...a, ...b }), {});
-  argv.ICS_URLS = [configFromYAMLs.ICS_URLS, argv.ICS_URLS, argv._].flat().filter((e) => e);
+  const y = configYAMLs.reduce((a, b) => ({ ...a, ...b }), {});
   const config = {
-    SSAC_PREFIX: "SSAC-",
-    FORWARD_DAYS: 7,
-    HTTP_PROXY: "",
-    CACHE_TIMEOUT: 0,
+    HTTP_PROXY: (y.HTTP_PROXY as string) ?? "",
+    SSAC_PREFIX: (y.SSAC_PREFIX as string) ?? "SSAC-",
+    FORWARD_DAYS: (y.FORWARD_DAYS as number) ?? 7,
+    CACHE_TIMEOUT: (y.CACHE_TIMEOUT as number) ?? 0,
     // ...process.env,
-    ...configFromYAMLs,
-    ...argv,
+    // ...configFromYAMLs,
+    // ...argv,
+    ICS_URLS: [y.ICS_URLS, argv.ICS_URLS, argv._].flat().filter((e) => e),
   };
   process.env.HTTP_PROXY ||= config.HTTP_PROXY;
   return config;
@@ -98,8 +98,8 @@ export async function generateSchtasksCreationObjects({
   FORWARD_DAYS,
   SSAC_PREFIX,
 }: {
-  ICS_URLS: string;
-  FORWARD_DAYS: string;
+  ICS_URLS: string[];
+  FORWARD_DAYS: number;
   SSAC_PREFIX: string;
 }) {
   //   const { ICS_URLS, HTTP_PROXY, CACHE_TIMEOUT, FORWARD_DAYS, SSAC_PREFIX } = config;
@@ -172,7 +172,7 @@ async function getSchtasksObject(
   const slientlyRunCommand = await commandWrapperFileCreate(taskHash, commandOrURL);
   //
   const safeTaskname = getSafeCommandParamString(
-    escapeFile.escape(schtasksName.slice(0, 200)).replace(/[<>\/\\:~%"']/g, "-"),
+    sanitize(schtasksName.slice(0, 200)).replace(/[<>\/\\:~%"']/g, "-"),
   );
   const safeTR = getSafeCommandParamString(slientlyRunCommand);
   const taskParams = `/TN ${safeTaskname} /TR ${safeTR}`;
