@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@semantic-release/changelog': ^6.0.2
       '@typescript-eslint/eslint-plugin': 5.39.0
       '@typescript-eslint/parser': 5.39.0
       eslint: 8.25.0
@@ -25,6 +26,7 @@ importers:
       typescript: 4.8.4
       vitest: ^0.25.8
     devDependencies:
+      '@semantic-release/changelog': 6.0.2_semantic-release@20.1.0
       '@typescript-eslint/eslint-plugin': 5.39.0_cfd7h3iktziq6hcwahu2qxhjhy
       '@typescript-eslint/parser': 5.39.0_z4bbprzjrhnsfa24uvmcbu7f5q
       eslint: 8.25.0
@@ -1590,6 +1592,19 @@ packages:
     dependencies:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
+    dev: true
+
+  /@semantic-release/changelog/6.0.2_semantic-release@20.1.0:
+    resolution: {integrity: sha512-jHqfTkoPbDEOAgAP18mGP53IxeMwxTISN+GwTRy9uLu58UjARoZU8ScCgWGeO2WPkEsm57H8AkyY02W2ntIlIw==}
+    engines: {node: '>=14.17'}
+    peerDependencies:
+      semantic-release: '>=18.0.0'
+    dependencies:
+      '@semantic-release/error': 3.0.0
+      aggregate-error: 3.1.0
+      fs-extra: 11.1.0
+      lodash: 4.17.21
+      semantic-release: 20.1.0
     dev: true
 
   /@semantic-release/commit-analyzer/9.0.2_semantic-release@20.1.0:
