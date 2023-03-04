@@ -16,7 +16,7 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
           [`${key}Key`]: true,
           [`${code}Key`]: true,
           [`${simp}Key`]: true,
-        }[p] ?? target[p]),
+        }[p] ?? (target as any)[p]),
     });
     const mods = "meta+alt+shift+ctrl";
     mapObjIndexed((fn: handler, hotkey: string) => {
@@ -24,7 +24,7 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
         .replace(/win|command|search/, "meta")
         .replace(/control/, "ctrl")
         .split("+")
-        .map((k, i) => [k, !!(i < 4) === !!map[`${k}Key`]]);
+        .map((k, i) => [k, !!(i < 4) === (map as any)[`${k}Key`]]);
       if (!Object.entries(Object.fromEntries(conds)).every(([, ok]) => ok)) return;
       event.stopPropagation(), event.preventDefault();
       return fn(event);
