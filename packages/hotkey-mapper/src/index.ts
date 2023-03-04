@@ -16,7 +16,7 @@ type handler = (e: KeyboardEvent) => void;
  */
 export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap>(
   mapping: Record<string, handler>,
-  options?: AddEventListenerOptions & { on: K },
+  options?: AddEventListenerOptions & { on?: K },
 ) {
   const handler = (event: KeyboardEvent) => {
     const key = event.key.toLowerCase();
