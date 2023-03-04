@@ -32,7 +32,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "ical": "^0.8.0"
+    "ical": "^0.8.0",
+    "sanitize-filename-truncate": "^1.0.2"
   },
   "devDependencies": {
     "@types/d3": "^7.4.0",
