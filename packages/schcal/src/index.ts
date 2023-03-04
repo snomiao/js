@@ -293,12 +293,12 @@ function getRangeEvents(
   // Calculate the duration of the event for use with recurring 事件.
   const duration = +end - +start;
   // avoid error
-  const _recurrences = recurrences || [];
-  const _exdate = exdate || [];
+  // const _recurrences = recurrences || [];
+  // const _exdate = exdate || [];
   // exdate == [ '2020-03-05': 2020-03-05T09:30:00.000Z { tz: 'Asia/Hong_Kong' } ]
-  const exdatesKeys = Object.keys(_exdate); // datestr or undefined
+  const exdatesKeys = Object.keys(exdate); // datestr or undefined
   // exdatesKeys == [ '2020-03-05' ]
-  const recurrencesKeys = Object.keys(_recurrences); // datestr or undefined
+  const recurrencesKeys = Object.keys(recurrences?.map((e) => e.exdate)); // datestr or undefined
   // recurrencesKeys == [ '2020-03-05' ]
   //
   // First determine a fuzzy range date here,
@@ -309,16 +309,18 @@ function getRangeEvents(
     // exlude dates
     .filter((date) => !exdatesKeys.includes(date.toISOString().slice(0, 10)))
     // override recurrences
-    .filter((date) => !recurrencesKeys.includes(date.toISOString().slice(0, 10)))
-    .concat(Object.values(_recurrences).map(({ start }) => start));
+    .filter((date) => !recurrencesKeys.includes(date.toISOString().slice(0, 10)));
+  // TODO: fix this
+  // .concat(Object.values(_recurrences).map(({ start }) => start));
   // summary == '背词' && console.debug('dates', dates);
   return (
     dates
       .map((date) => {
-        if (_recurrences?.[date.toISOString().slice(0, 10)]) {
-          const { start, end, summary, description } = vEvent;
-          return { start, end, summary, description };
-        }
+        // TODO: fixme
+        // if (recurrences?.[date.toISOString().slice(0, 10)]) {
+        //   const { start, end, summary, description } = vEvent;
+        //   return { start, end, summary, description };
+        // }
         const start = date;
         const end = new Date(+start + duration);
         return { start, end, summary, description };
