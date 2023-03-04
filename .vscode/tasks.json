@@ -216,11 +216,11 @@
     },
     {
       "type": "npm",
-      "script": "publish",
+      "script": "build",
       "group": "build",
       "problemMatcher": [],
-      "label": "npm: publish",
-      "detail": "lerna publish"
+      "label": "npm: build",
+      "detail": "lerna run build"
     }
   ]
 }
