@@ -19,8 +19,7 @@ cli();
 async function cli() {
   await snorun(`chcp 65001`);
   // READING PARAMS
-  const argv = await // .env()
-  yargs(hideBin(process.argv))
+  const argv = await yargs(hideBin(process.argv))
     .usage("Usage: schcal [options] [...ICS_URLS]")
     .alias("s", "startup")
     .alias("c", "config")

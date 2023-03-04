@@ -13,7 +13,9 @@ import yaml from "yaml";
 import commandWrapperFileCreate from "./commandWrapperFileCreate";
 import icalObjectFetch from "./icalObjectFetch";
 
-export async function newSchtasksImport(schtasksCreationObjects) {
+export async function newSchtasksImport(
+  schtasksCreationObjects: Awaited<ReturnType<typeof generateSchtasksCreationObjects>>,
+) {
   const schtasksCreationCommands = schtasksCreationObjects.map(
     ({ schtasksCommand }) => schtasksCommand,
   );
@@ -44,7 +46,14 @@ export async function outdatedSchtasksClean(config) {
   console.log(`${schtasksDeletionCommands.length} old sch-tasks cleaned.`);
 }
 
-export async function readConfig(argv) {
+export async function readConfig(argv: {
+  config: string;
+  CACHE_TIMEOUT: string;
+  HTTP_PROXY: string;
+  FORWARD_DAYS: string;
+  ICS_URLS: string | string[];
+  _: string | string[];
+}) {
   const configYAMLs = await Promise.all(
     [
       argv.config,
@@ -71,7 +80,7 @@ export async function readConfig(argv) {
   return config;
 }
 
-async function runSchtasksCommands(schtasksCommands) {
+async function runSchtasksCommands(schtasksCommands: string[]) {
   // await exec('chcp 65001'); // run below command in utf8 encoding
   const exec_outputs = await Promise.all(
     schtasksCommands.map(async (schtasksCommand) => ({
@@ -126,11 +135,11 @@ export async function generateSchtasksCreationObjects({
 // [Exe文件开机启动，隐藏运行窗口运行_问道-CSDN博客_开机隐藏运行exe]( https://blog.csdn.net/llag_haveboy/article/details/84675145 )
 // `wscript.createObject("wscript.shell").Run("cmd.exe /C C:\gz\gz.exe", 0, TRUE)`
 async function getSchtasksObject(
-  taskName,
-  startDateString,
-  endDateString,
-  commandOrURL,
-  SSAC_PREFIX,
+  taskName: string,
+  startDateString: string,
+  endDateString: string,
+  commandOrURL: string,
+  SSAC_PREFIX: string,
 ) {
   const S = DateTimeAssembly(new Date(startDateString));
   const E = DateTimeAssembly(new Date(endDateString));
@@ -171,9 +180,9 @@ async function getSchtasksObject(
   const schtasksCommand = `schtasks /Create /F ${dateParams} ${taskParams}`;
   // ref: [windows - How do you schedule a task (using schtasks.exe) to run once and delete itself? - Super User]( https://superuser.com/questions/1038528/how-do-you-schedule-a-task-using-schtasks-exe-to-run-once-and-delete-itself )
   return { schtasksName, schtasksCommand };
-  function escapeCommand(cmd) {
-    return cmd.replace(/&/g, "^&").replace(/%/g, "%%");
-  }
+  // function escapeCommand(cmd) {
+  //   return cmd.replace(/&/g, "^&").replace(/%/g, "%%");
+  // }
 }
 function getSafeCommandParamString(串: string) {
   return `"${串.replace(/"/g, '\\"')}"`;
@@ -191,7 +200,7 @@ function DateTimeAssembly(date: Date) {
   };
 }
 
-async function fetchCalendarsEventsActions(ics_urls, FORWARD_DAYS) {
+async function fetchCalendarsEventsActions(ics_urls: string[], FORWARD_DAYS: number) {
   return (
     await Promise.all(
       ics_urls.map(async (ics_url) => await fetchCalendarEventsActions(ics_url, FORWARD_DAYS)),
@@ -228,7 +237,7 @@ async function fetchCalendarEventsActions(ics_url: string, FORWARD_DAYS: number)
                 return (
                   matchedContent &&
                   (() => {
-                    return { commandOrURL: matchedContent[1], taskName: null };
+                    return { commandOrURL: matchedContent[1], taskName: "" };
                   })()
                 );
               }) ||

@@ -1,6 +1,19 @@
 import { mapObjIndexed } from "rambda";
 type handler = (e: KeyboardEvent) => void;
-
+/**
+ * @reference view js keycode here: https://www.toptal.com/developers/keycode
+ * @example
+   hotkeyMapper(
+    {
+      "alt+1": () => openLinkByCount(2 ** 1),
+      "alt+2": () => openLinkByCount(2 ** 2),
+      "alt+3": () => openLinkByCount(2 ** 3),
+      "shift+alt+1": () => tryCopyLinkByCount(2 ** 1),
+      "shift+alt+2": () => tryCopyLinkByCount(2 ** 2),
+      "shift+alt+3": () => tryCopyLinkByCount(2 ** 3),
+    },
+    true)
+ */
 export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap>(
   mapping: Record<string, handler>,
   options?: AddEventListenerOptions & { on: K },
