@@ -24,19 +24,21 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
     const simp = code.replace(/^(?:Key|Digit|Numpad)/, "");
     const map = new Proxy(event, {
       get: (target, p: string) =>
-        ({
-          [`${key}Key`]: true,
-          [`${code}Key`]: true,
-          [`${simp}Key`]: true,
-        }[p] ?? (target as any)[p]),
-    });
+        Boolean(
+          {
+            [`${key}Key`]: true,
+            [`${code}Key`]: true,
+            [`${simp}Key`]: true,
+          }[p] ?? (target as any)[p],
+        ),
+    }) as unknown as Record<keyof KeyboardEvent, boolean>;
     const mods = "meta+alt+shift+ctrl";
     mapObjIndexed((fn: handler, hotkey: string) => {
       const conds = `${mods}+${hotkey.toLowerCase()}`
         .replace(/win|command|search/, "meta")
         .replace(/control/, "ctrl")
         .split("+")
-        .map((k, i) => [k, !!(i < 4) === (map as any)[`${k}Key`]]);
+        .map((k, i) => [k, i >= 4 === (map as any)[`${k}Key`]]);
       if (!Object.entries(Object.fromEntries(conds)).every(([, ok]) => ok)) return;
       event.stopPropagation(), event.preventDefault();
       return fn(event);
