@@ -48,11 +48,11 @@ export async function outdatedSchtasksClean(config: Awaited<ReturnType<typeof re
 
 export async function readConfig(argv: {
   config: string;
-  CACHE_TIMEOUT: string;
+  CACHE_TIMEOUT: number;
   HTTP_PROXY: string;
-  FORWARD_DAYS: string;
+  FORWARD_DAYS: number;
   ICS_URLS: string | string[];
-  _: string | string[];
+  _: (number | string)[];
 }) {
   const configYAMLs = await Promise.all(
     [
@@ -74,7 +74,7 @@ export async function readConfig(argv: {
     // ...process.env,
     // ...configFromYAMLs,
     // ...argv,
-    ICS_URLS: [y.ICS_URLS, argv.ICS_URLS, argv._].flat().filter((e) => e),
+    ICS_URLS: [y.ICS_URLS, argv.ICS_URLS, argv._?.map(String)].flat().filter((e) => e),
   };
   process.env.HTTP_PROXY ||= config.HTTP_PROXY;
   return config;

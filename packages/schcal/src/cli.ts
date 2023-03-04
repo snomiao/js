@@ -21,14 +21,19 @@ async function cli() {
   // READING PARAMS
   const argv = await yargs(hideBin(process.argv))
     .usage("Usage: schcal [options] [...ICS_URLS]")
-    .alias("s", "startup")
     .alias("c", "config")
-    .alias("i", "ICS_URLS")
-    .alias("t", "CACHE_TIMEOUT")
-    .alias("p", "HTTP_PROXY")
     .alias("d", "FORWARD_DAYS")
-    .alias("v", "version")
     .alias("h", "help")
+    .alias("i", "ICS_URLS")
+    .alias("p", "HTTP_PROXY")
+    .alias("s", "startup")
+    .alias("t", "CACHE_TIMEOUT")
+    .alias("v", "version")
+    .string("config")
+    .number("CACHE_TIMEOUT")
+    .number("FORWARD_DAYS")
+    .string("HTTP_PROXY")
+    .string("ICS_URLS")
     .example(
       "$0 https://calendar.google.com/calendar/ical" +
         "/xxxxxxxxxxxxxxxxxxx/private-cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/basic.ics",
