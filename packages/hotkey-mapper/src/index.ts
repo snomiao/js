@@ -3,8 +3,7 @@ type handler = (e: KeyboardEvent) => void;
 
 export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap>(
   mapping: Record<string, handler>,
-  on: K = "keydown" as K,
-  options?: boolean | AddEventListenerOptions,
+  options?: AddEventListenerOptions & { on: K },
 ) {
   const handler = (event: KeyboardEvent) => {
     const key = event.key.toLowerCase();
@@ -30,13 +29,18 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
       return fn(event);
     }, mapping);
   };
-  window.addEventListener(on, handler, options);
+  window.addEventListener(options.on ?? "keydown", handler, options);
   return function unload() {
-    window.removeEventListener(on, handler, options);
+    window.removeEventListener(options.on ?? "keydown", handler, options);
   };
 }
-export function hotkeyUp(hotkey: string, options?: boolean | AddEventListenerOptions) {
-  return new Promise<void>((r) => {
-    const unload = hotkeyMapper({ [hotkey]: () => r(unload()) }, "keyup", options);
-  });
+export function hotkeyDown(hotkey: string, options?: AddEventListenerOptions) {
+  return new Promise<void>((r) =>
+    hotkeyMapper({ [hotkey]: () => r() }, { once: true, ...options, on: "keydown" }),
+  );
+}
+export function hotkeyUp(hotkey: string, options?: AddEventListenerOptions) {
+  return new Promise<void>((r) =>
+    hotkeyMapper({ [hotkey]: () => r() }, { once: true, ...options, on: "keyup" }),
+  );
 }
