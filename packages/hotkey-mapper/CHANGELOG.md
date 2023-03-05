@@ -1,3 +1,16 @@
+# [hotkey-mapper-v1.2.5](https://github.com/snomiao/js/compare/hotkey-mapper-v1.2.4...hotkey-mapper-v1.2.5) (2023-03-05)
+
+
+### Bug Fixes
+
+* **hotkey-mapper:** optional on ([6c904b0](https://github.com/snomiao/js/commit/6c904b047747d37d3cb10af322d1f3db3675aa5b))
+* **hotkey-mapper:** type ([578fd79](https://github.com/snomiao/js/commit/578fd790fae3140404f3ee2af4f7016ec6ad6a9c))
+* **hotkey-mapper:** ver ([924b072](https://github.com/snomiao/js/commit/924b072695e1adae5c732f2bfd837a2d735f9da0))
+* **hotkey-mapper:** ver ([90373ee](https://github.com/snomiao/js/commit/90373ee0e7c4b4a1c8130f6147aa5b949e144702))
+* **js:** sr ([8f7133c](https://github.com/snomiao/js/commit/8f7133c789ef73df70385f2131701da6a2aed22c))
+* **src:** ! hotkeydown ([a3d2231](https://github.com/snomiao/js/commit/a3d22310c9c8938531a339bb2ae2d31ac0f81e6c))
+* **src:** reference ([a09eb5e](https://github.com/snomiao/js/commit/a09eb5eb4963b01a20046d54f696c33dad6f7b41))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
