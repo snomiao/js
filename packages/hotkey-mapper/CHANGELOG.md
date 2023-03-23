@@ -1,3 +1,10 @@
+# [hotkey-mapper-v1.2.6](https://github.com/snomiao/js/compare/hotkey-mapper-v1.2.5...hotkey-mapper-v1.2.6) (2023-03-23)
+
+
+### Bug Fixes
+
+* **hotkey-mapper:** optional on ([a80ed50](https://github.com/snomiao/js/commit/a80ed504f28956ea47713cca8d5e2f08f0c9c3d4))
+
 # [hotkey-mapper-v1.2.5](https://github.com/snomiao/js/compare/hotkey-mapper-v1.2.4...hotkey-mapper-v1.2.5) (2023-03-05)
 
 
