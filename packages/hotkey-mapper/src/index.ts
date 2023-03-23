@@ -44,9 +44,9 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
       return fn(event);
     }, mapping);
   };
-  window.addEventListener(options.on ?? "keydown", handler, options);
+  window.addEventListener(options?.on ?? "keydown", handler, options);
   return function unload() {
-    window.removeEventListener(options.on ?? "keydown", handler, options);
+    window.removeEventListener(options?.on ?? "keydown", handler, options);
   };
 }
 export function hotkeyDown(hotkey: string, options?: AddEventListenerOptions) {
