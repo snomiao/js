@@ -51,6 +51,7 @@ export default async function snocommit({ type, scope, desc }: snoCommitOptions)
   // const versioningCmd = await versioningAction(parsedPart, desc);
   // const valid = Boolean(cmdActions[type]);
   // if (valid) {
+
   const msgtitle = `${type}${maybeQuoted(parsedPart)}: ${desc.slice(0, 35)}`;
   const desc2 = ((msgtitle.startsWith("!") && "BREAKING CHANGE:") || "") + desc;
   const msgcmd = `-m "${msgtitle}" -m "${desc2}"`;
@@ -64,4 +65,20 @@ export default async function snocommit({ type, scope, desc }: snoCommitOptions)
     // )
     (await snorun(gitsync_cmd));
   // }
+}
+
+function normalizeMessage(line: string) {
+  return line
+    .trim()
+    .replace(/^(\d+\.|-|\*)\s+/, "")
+    .replace(/^[`"']/, "")
+    .replace(/[`"']$/, "")
+    .replace(/[`"']:/, ":") // sometimes it formats messages like this: `feat`: message
+    .replace(/:[`"']/, ":") // sometimes it formats messages like this: `feat:` message
+    .replace(/\\n/g, "")
+    .trim();
+}
+
+function escapeCommitMessage(message: string) {
+  return message.replace(/'/, `''`);
 }
