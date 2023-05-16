@@ -2,6 +2,7 @@ import snorun from "snorun";
 import commitTypes from "./commitTypes";
 import maybeQuoted from "./maybeQuoted";
 import scopeParse from "./scopeParse";
+
 type Type = typeof commitTypes[number];
 type SCOPE = "-" | "." | "@" | ":" | string;
 
