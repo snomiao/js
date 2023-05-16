@@ -1,3 +1,11 @@
+# [snofa-v1.2.241](https://github.com/snomiao/js/compare/snofa-v1.2.240...snofa-v1.2.241) (2023-05-16)
+
+
+### Bug Fixes
+
+* **js:** fix ([0a61ba3](https://github.com/snomiao/js/commit/0a61ba329dd03bf877fa3834d54c1cec54d51da9))
+* **pipe:** remove snof ([f37f660](https://github.com/snomiao/js/commit/f37f660fd915ea22b1273e64ae0a056d449752dd))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
