@@ -12,11 +12,11 @@ type handler = (e: KeyboardEvent) => void;
       "shift+alt+2": () => tryCopyLinkByCount(2 ** 2),
       "shift+alt+3": () => tryCopyLinkByCount(2 ** 3),
     },
-    true)
+    {capture: true})
  */
 export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap>(
   mapping: Record<string, handler>,
-  options?: AddEventListenerOptions & { on?: K },
+  options?: AddEventListenerOptions & { on?: K; target?: EventTarget },
 ) {
   const handler = (event: KeyboardEvent) => {
     const key = event.key.toLowerCase();
@@ -44,9 +44,10 @@ export default function hotkeyMapper<K extends keyof GlobalEventHandlersEventMap
       return fn(event);
     }, mapping);
   };
-  window.addEventListener(options?.on ?? "keydown", handler, options);
+  const target = options.target ?? globalThis;
+  target.addEventListener(options?.on ?? "keydown", handler, options);
   return function unload() {
-    window.removeEventListener(options?.on ?? "keydown", handler, options);
+    target.removeEventListener(options?.on ?? "keydown", handler, options);
   };
 }
 export function hotkeyDown(hotkey: string, options?: AddEventListenerOptions) {
