@@ -56,7 +56,7 @@ export default async function snocommit({ type, scope, desc }: snoCommitOptions)
   const msgtitle = `${type}${maybeQuoted(parsedPart)}: ${desc.slice(0, 35)}`;
   const desc2 = ((msgtitle.startsWith("!") && "BREAKING CHANGE:") || "") + desc;
   const msgcmd = `-m "${msgtitle}" -m "${desc2}"`;
-  const gitsync_cmd = `git pull && git push --follow-tags`;
+  const gitsync_cmd = `git pull && git push`;
   true &&
     (await snorun(`git add . && git commit ${msgcmd}`)) &&
     // (!versioningCmd
