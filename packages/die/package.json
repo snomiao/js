@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "snobuild",
-    "prepack": "npm run build && npm run test && npm version patch",
+    "prepack": "npm run build",
     "test": "vitest"
   },
   "dependencies": {
@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "vitest": "^1.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
