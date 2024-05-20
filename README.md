@@ -24,7 +24,7 @@
 
 ### License
 
-GPLv3 - [The GNU General Public License v3.0 - GNU Project - Free Software Foundation](https://www.gnu.org/licenses/gpl-3.0.en.html)
+MIT
 
 ### Author
 
