@@ -1,0 +1,29 @@
+{
+  "name": "@snomiao/die",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.mjs"
+  },
+  "main": "index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "snobuild",
+    "prepack": "npm run build && npm run test && npm version patch",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@types/bun": "^1.1.2"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}
