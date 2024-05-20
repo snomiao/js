@@ -1,6 +1,6 @@
 # Die
 
-Simple function while doing functional dev, just like PHP's DIE()
+Just like PHP's `DIE('REASON')`, Simple function while doing functional dev
 
 ## Usage
 
