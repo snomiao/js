@@ -25,7 +25,6 @@
     "lerna-publish": "lerna publish",
     "lint": "eslint --fix ./**/*.ts",
     "monopkgs": "monopkgs",
-    "prepare": "husky install && npm i -g snocommit",
     "publish": "lerna publish",
     "release": "lerna exec --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo",
     "repo-maintaince": "pnpm docsgen && pnpm monopkgs",
