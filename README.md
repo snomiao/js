@@ -2,7 +2,7 @@
 
 ## Packages
 
-- [md-aggregate](./packages/md-aggregat     e/README.md)
+- [md-aggregate](./packages/md-aggregate/README.md)
 - [monopkgs](./packages/monopkgs/README.md)
 - [sno-utils](./packages/sno-utils/README.md)
 - [objtranspose](./packages/objtranspose/README.md)
